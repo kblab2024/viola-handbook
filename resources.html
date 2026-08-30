@@ -1,0 +1,721 @@
+<title>台灣中提琴學習資源地圖</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&family=Spectral:ital,wght@0,400;0,600&display=swap">
+<style>
+  :root {
+    --ground:      #E8EBE6;
+    --surface:     #F4F6F2;
+    --surface-2:   #DDE2D9;
+    --ink:         #1B1F1C;
+    --ink-mid:     #47504A;
+    --ink-soft:    #6E7872;
+    --rule:        #C3CBC1;
+    --rule-soft:   #D5DAD1;
+    --accent:      #8A6224;
+    --accent-deep: #6B4B18;
+    --accent-wash: rgba(138, 98, 36, 0.10);
+    --flag:        #7C3A2E;
+    --flag-wash:   rgba(124, 58, 46, 0.09);
+
+    --font-display: "Spectral", "Noto Serif TC", "Songti TC", "Source Han Serif TC", serif;
+    --font-body: "IBM Plex Sans", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+    --measure: 40rem;
+    --wide: 58rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #141815;
+      --surface:     #1C211D;
+      --surface-2:   #262C27;
+      --ink:         #E5EAE3;
+      --ink-mid:     #ACB4AA;
+      --ink-soft:    #7F8880;
+      --rule:        #333A34;
+      --rule-soft:   #29302A;
+      --accent:      #D0A461;
+      --accent-deep: #E3BC82;
+      --accent-wash: rgba(208, 164, 97, 0.13);
+      --flag:        #D98E7C;
+      --flag-wash:   rgba(217, 142, 124, 0.12);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #141815;
+    --surface:     #1C211D;
+    --surface-2:   #262C27;
+    --ink:         #E5EAE3;
+    --ink-mid:     #ACB4AA;
+    --ink-soft:    #7F8880;
+    --rule:        #333A34;
+    --rule-soft:   #29302A;
+    --accent:      #D0A461;
+    --accent-deep: #E3BC82;
+    --accent-wash: rgba(208, 164, 97, 0.13);
+    --flag:        #D98E7C;
+    --flag-wash:   rgba(217, 142, 124, 0.12);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.78;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0 1.5rem 6rem;
+  }
+
+  .wrap { max-width: var(--wide); margin: 0 auto; }
+
+  /* ---------- masthead ---------- */
+
+  header.masthead {
+    padding: 4.5rem 0 2.75rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 3.5rem;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 1.25rem;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2.1rem, 5.5vw, 3.1rem);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 0 0 1.1rem;
+  }
+
+  .standfirst {
+    font-size: 1.06rem;
+    color: var(--ink-mid);
+    max-width: 38rem;
+    margin: 0;
+  }
+
+  .masthead-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.75rem;
+    margin-top: 2rem;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+  }
+
+  .masthead-meta span { white-space: nowrap; }
+
+  /* ---------- sections ---------- */
+
+  section { margin-bottom: 4.5rem; }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.45rem, 3.2vw, 1.85rem);
+    line-height: 1.3;
+    text-wrap: balance;
+    margin: 0 0 0.55rem;
+    padding-top: 0.4rem;
+    border-top: 2px solid var(--ink);
+  }
+
+  h3 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 2.5rem 0 0.7rem;
+  }
+
+  h4 {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 2rem 0 0.6rem;
+  }
+
+  .section-lede { color: var(--ink-mid); margin: 0 0 2rem; max-width: var(--measure); }
+
+  p { margin: 0 0 1.15rem; max-width: var(--measure); }
+
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  strong { font-weight: 600; }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background: var(--accent-wash);
+    color: var(--accent-deep);
+    padding: 0.08em 0.34em;
+    border-radius: 2px;
+  }
+
+  ul, ol { margin: 0 0 1.15rem; padding-left: 1.2rem; max-width: var(--measure); }
+  li { margin-bottom: 0.45rem; }
+  li::marker { color: var(--accent); }
+
+  /* ---------- changelog ---------- */
+
+  .changelog {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 1.4rem 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .changelog h4 { margin-top: 0; }
+  .changelog ul { margin-bottom: 0; max-width: none; }
+  .changelog li { font-size: 0.92rem; color: var(--ink-mid); }
+  .changelog li strong { color: var(--ink); }
+
+  .chip {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    padding: 0.05em 0.5em;
+    border-radius: 2px;
+    border: 1px solid var(--accent);
+    color: var(--accent-deep);
+    background: var(--accent-wash);
+    white-space: nowrap;
+    vertical-align: 0.08em;
+  }
+  .chip.bad { border-color: var(--flag); color: var(--flag); background: var(--flag-wash); }
+
+  /* ---------- callouts ---------- */
+
+  .callout {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 3px;
+    padding: 1.25rem 1.4rem;
+    margin: 0 0 1.6rem;
+    max-width: var(--measure);
+  }
+
+  .callout.correction { border-left-color: var(--flag); background: var(--flag-wash); }
+  .callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
+
+  .callout-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.5rem;
+  }
+
+  .callout.correction .callout-label { color: var(--flag); }
+
+  .ev {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- profile ---------- */
+
+  .profile { display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; }
+  @media (min-width: 44rem) { .profile { grid-template-columns: repeat(3, 1fr); } }
+
+  .trait { background: var(--surface); padding: 1.2rem 1.3rem; }
+  .trait h5 { font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; margin: 0 0 0.4rem; }
+  .trait p { font-size: 0.88rem; color: var(--ink-mid); margin: 0; line-height: 1.65; max-width: none; }
+  .trait .src { display: block; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.05em; color: var(--ink-soft); margin-top: 0.6rem; }
+
+  /* ---------- diagram ---------- */
+
+  figure.diagram {
+    margin: 1.8rem 0;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: var(--surface);
+    padding: 1.4rem 1.4rem 1.1rem;
+    max-width: var(--wide);
+  }
+  figure.diagram svg { width: 100%; height: auto; display: block; }
+  figure.diagram svg text { font-family: var(--font-body); }
+  figure.diagram svg text.mono, figure.diagram svg g.mono text { font-family: var(--font-mono); }
+  figure.diagram svg .accent { stroke: var(--accent); color: var(--accent); }
+  figure.diagram svg .accent-fill { fill: var(--accent); }
+  figure.diagram svg .accent-deep-fill { fill: var(--accent-deep); }
+  figure.diagram svg .wash-fill { fill: var(--accent-wash); }
+  figure.diagram figcaption {
+    font-size: 0.84rem;
+    color: var(--ink-soft);
+    margin-top: 0.9rem;
+    line-height: 1.65;
+    max-width: none;
+  }
+
+  /* ---------- soundpoints ---------- */
+
+  .sp-wrap { border: 1px solid var(--rule); border-radius: 3px; background: var(--surface); padding: 1.5rem 1.4rem 1.2rem; margin: 0 0 1.6rem; overflow-x: auto; }
+
+  .sp-scale { display: grid; grid-template-columns: repeat(5, minmax(5.2rem, 1fr)); gap: 1px; background: var(--rule-soft); border: 1px solid var(--rule-soft); border-radius: 2px; min-width: 28rem; }
+
+  .sp { background: var(--surface); padding: 0.85rem 0.7rem; }
+  .sp-n { font-family: var(--font-mono); font-size: 1.05rem; color: var(--accent); margin: 0 0 0.35rem; }
+  .sp-where { font-size: 0.8rem; font-weight: 600; margin: 0 0 0.35rem; max-width: none; }
+  .sp-how { font-family: var(--font-mono); font-size: 0.7rem; line-height: 1.5; color: var(--ink-soft); margin: 0; max-width: none; }
+
+  .sp-ends { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin-top: 0.7rem; min-width: 28rem; }
+
+  /* ---------- ladder ---------- */
+
+  .ladder { border-top: 1px solid var(--rule); }
+
+  .rung {
+    display: grid;
+    grid-template-columns: 2.2rem 1fr;
+    gap: 0 1.1rem;
+    padding: 1.15rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    align-items: start;
+  }
+
+  @media (min-width: 46rem) {
+    .rung { grid-template-columns: 2.2rem minmax(0, 1fr) 8rem 9rem; gap: 0 1.5rem; align-items: baseline; }
+  }
+
+  .rung-rank { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-soft); padding-top: 0.15rem; }
+  .rung-name { font-weight: 600; margin: 0 0 0.15rem; max-width: none; }
+  .rung-note { font-size: 0.9rem; color: var(--ink-mid); margin: 0; line-height: 1.6; max-width: none; }
+  .rung-cost { font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-soft); grid-column: 2; margin-top: 0.4rem; }
+  @media (min-width: 46rem) { .rung-cost { grid-column: 3; margin-top: 0; } }
+
+  .meter { display: flex; gap: 3px; grid-column: 2; margin-top: 0.55rem; }
+  @media (min-width: 46rem) { .meter { grid-column: 4; margin-top: 0; } }
+  .meter i { display: block; width: 100%; max-width: 1.5rem; height: 0.5rem; background: var(--surface-2); border-radius: 1px; }
+  .meter i.on { background: var(--accent); }
+
+  .meter-key { display: flex; align-items: center; gap: 0.55rem; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.05em; color: var(--ink-soft); margin: 1rem 0 0; text-transform: uppercase; }
+
+  /* ---------- tables ---------- */
+
+  .scroller { overflow-x: auto; margin: 0 0 1.6rem; border: 1px solid var(--rule); border-radius: 3px; background: var(--surface); }
+
+  table { width: 100%; min-width: 42rem; border-collapse: collapse; font-size: 0.9rem; }
+
+  th, td { text-align: left; padding: 0.85rem 1rem; border-bottom: 1px solid var(--rule-soft); vertical-align: top; line-height: 1.6; }
+
+  thead th {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  td.rowname { font-weight: 600; white-space: nowrap; }
+  td .sub { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-mid); display: block; margin-top: 0.2rem; }
+  .out { color: var(--ink-soft); }
+  .out .rowname { text-decoration: line-through; text-decoration-color: var(--flag); }
+
+  /* ---------- tests ---------- */
+
+  .tests { display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; margin-bottom: 1.6rem; }
+  @media (min-width: 40rem) { .tests { grid-template-columns: 1fr 1fr; } }
+
+  .test { background: var(--surface); padding: 1.15rem 1.3rem; }
+  .test h5 { font-family: var(--font-body); font-weight: 600; font-size: 0.94rem; margin: 0 0 0.4rem; }
+  .test p { font-size: 0.88rem; color: var(--ink-mid); margin: 0 0 0.5rem; line-height: 1.65; max-width: none; }
+  .test p:last-child { margin-bottom: 0; }
+  .verdict { font-family: var(--font-mono); font-size: 0.76rem; color: var(--accent-deep); }
+
+  /* ---------- script ---------- */
+
+  .script {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    border-left: 3px solid var(--accent);
+    padding: 0.3rem 0 0.3rem 1.2rem;
+    margin: 1.4rem 0;
+    max-width: var(--measure);
+    color: var(--ink);
+  }
+
+  /* ---------- cadence ---------- */
+
+  .cadence { border-top: 1px solid var(--rule); }
+
+  .beat { display: grid; grid-template-columns: 1fr; gap: 0.4rem 2rem; padding: 1.7rem 0; border-bottom: 1px solid var(--rule-soft); }
+  @media (min-width: 46rem) { .beat { grid-template-columns: 9.5rem minmax(0, 1fr) ; } }
+
+  .beat-when { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.06em; color: var(--accent); padding-top: 0.28rem; }
+  .beat-when small { display: block; font-size: 0.7rem; letter-spacing: 0.04em; color: var(--ink-soft); margin-top: 0.25rem; }
+  .beat ul { margin: 0; }
+  .beat ul li:last-child { margin-bottom: 0; }
+
+  /* ---------- footer ---------- */
+
+  footer { border-top: 1px solid var(--rule); padding-top: 1.75rem; font-size: 0.84rem; color: var(--ink-soft); }
+  footer h2 { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-soft); border: none; padding: 0; margin: 0 0 0.85rem; }
+  footer h3 { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); margin: 1.6rem 0 0.5rem; }
+  footer ul { padding-left: 1.05rem; max-width: 46rem; }
+  footer li { margin-bottom: 0.3rem; }
+
+  @media (prefers-reduced-motion: no-preference) { a { transition: color 0.15s ease; } }
+</style>
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">Viola · 台灣 · 2026-08 查證</p>
+    <h1>台灣中提琴學習資源地圖</h1>
+    <p class="standfirst">成人業餘中提琴手在台灣會遇到的每一個「這東西要去哪裡找、大概多少錢」——師資與課程行情、身體工作、教材與線上平台、樂譜行、練習硬體、弓與琴的通路、樂器保險、成人室內樂營。中提琴的資訊本來就比小提琴薄,中文的更薄;這份把能查到的都查了,查不到的也誠實標出來。</p>
+    <div class="masthead-meta">
+      <span>查證 · 2026-08-29</span>
+      <span>方法 · 逐頁開啟原始來源 + 第二輪對抗查證</span>
+      <span>範圍 · 台灣為主,亞洲與歐美為輔</span>
+    </div>
+  </header>
+
+  <div class="changelog">
+    <h4>使用說明</h4>
+    <ul>
+      <li><strong>標<span class="ev">〔量級〕</span>的是推估,不是報價。</strong>台灣有一整類服務(陪練、伴奏、分部教練、身體工作、名琴名弓)沒有公開定價,這是市場慣例不是查證偷懶——那些項目只給尺標,實際請電話詢問。</li>
+      <li><strong>價格與通路是 2026 年 8 月的快照。</strong>促銷、庫存、匯率、政策都會變,行動前重查。</li>
+      <li><strong>查證推翻的幾個流傳說法,本文用的是修正版:</strong>Arcus 中提琴弓的現行主力是 T 系列(不是 S);CodaBow 台灣授權經銷沒有台北或台中門市;台中有專營進口古典樂譜的樂譜行;Fritz–Curtin 盲測的正確數字是 69 次猜測中 33 對、31 錯、5 未定。</li>
+      <li><strong>師資只指向公開名單,不列個人。</strong>各校系網的師資頁是公開的,自己看比別人推薦準;而「某人收不收成人學生」只有系辦或本人知道。</li>
+    </ul>
+  </div>
+
+  <section>
+    <h2>一、課與師資:行情與管道</h2>
+    <p class="section-lede">中提琴沒有獨立的公開行情,以下引用的是小提琴課的分級價目(弦樂可類比),以及台灣在地的實價錨點。</p>
+
+    <div class="scroller">
+      <table>
+        <thead>
+          <tr><th scope="col">師資等級</th><th scope="col" class="num">每小時行情</th><th scope="col">備註</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="rowname">音樂教室聘用教師</td><td class="num">NT$800–1,000</td><td>台中實價:歆動音樂個別班約 NT$950/50 分;弦宏樂器 NT$700–1,200</td></tr>
+          <tr><td class="rowname">國內音樂系畢業</td><td class="num">NT$1,000–1,500</td><td>基本功、音階、陪練的合理帶</td></tr>
+          <tr><td class="rowname">留學歸國</td><td class="num">NT$1,500–2,500</td><td>多數認真業餘者的主課落在這帶</td></tr>
+          <tr><td class="rowname">教授 / 樂團首席級</td><td class="num">NT$2,500–5,000</td><td>約為音樂教室老師的 3–5 倍;90 分鐘 <span class="ev">〔量級〕</span> NT$3,000–8,000</td></tr>
+          <tr><td class="rowname">國際比賽得獎者</td><td class="num">NT$5,000 以上</td><td>PRO360 分級表的頂端</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>師資名單在哪裡(公開可查)</h3>
+    <ul>
+      <li><strong>職業樂團的團員名錄</strong>是最可靠的起點:國立臺灣交響樂團(霧峰)、國家交響樂團、臺北市立交響樂團的官網都有公開的中提琴聲部名單,而且不少團員在音樂系兼任。</li>
+      <li><strong>音樂系的師資頁</strong>會標出中提琴主修的專任與兼任教師:臺中教育大學音樂學系、東海大學音樂學系(以上台中)、臺北市立大學音樂學系等,師資頁公開。</li>
+      <li><strong>接洽方式:</strong>台灣這類老師幾乎沒有公開的單堂價目或報名頁,實務上是<strong>透過系辦轉介、或經自己的老師引薦</strong>。系辦電話在系網頁尾;開口時把需求講具體(程度、目標、每週或每月幾堂、是否只要單次診斷)。</li>
+      <li><strong>大師班可以旁聽:</strong>國內樂團與音樂節不定期辦大師班,受指導名額常設年齡限制(多為 13–25 歲),但<strong>旁聽通常便宜或免費</strong>(例:某音樂節旁聽每半天 NT$500,持音樂會票券旁聽免費的也有)。成人業餘者實際可及的形式主要是旁聽。</li>
+    </ul>
+
+    <h3>沒有公開行情的三種服務<span class="ev">〔以下全為量級〕</span></h3>
+    <div class="scroller">
+      <table>
+        <thead><tr><th scope="col">服務</th><th scope="col" class="num">量級</th><th scope="col">怎麼找</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="rowname">陪練弦樂四重奏<span class="sub">每人每次 2 小時</span></td>
+            <td class="num">學生/碩士生 NT$1,500–3,000<br>職業團員兼差 NT$3,000–5,000</td>
+            <td>音樂系系辦張貼徵求、老師引薦、PRO360 等平台發需求。包次比談時薪好談;出譜與場地、平日晚上或週末最有吸引力;車馬費另計是禮貌</td>
+          </tr>
+          <tr>
+            <td class="rowname">鋼琴合作(伴奏)</td>
+            <td class="num">每節 50 分:學生約 800、系畢 800–1,000、碩士 1,000–1,500、博士 1,500–2,000<br>含演出的專案 NT$5,000–10,000</td>
+            <td>公開報價集中在考試伴奏情境,但同一批人也接一般合樂;PRO360 有伴奏分類,平均成交額約 NT$8,460 可當錨點</td>
+          </tr>
+          <tr>
+            <td class="rowname">業餘樂團請分部教練</td>
+            <td class="num">NT$2,000–8,000/次</td>
+            <td>有補助案的樂團多比照公家講座鐘點費(外聘專家上限 NT$2,000/節);民間自營團包次談</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>二、身體工作:Alexander Technique 與費登奎斯</h2>
+    <p class="section-lede">「多餘的用力」是弦樂手最常見的技術病因,而它正是這兩套身體工作的本業。台灣的現況要先說清楚:<strong>資源集中在台北,台中查無常駐的認證教師</strong>(查無不等於不存在,但公開管道找不到)。</p>
+    <ul>
+      <li><strong>Alexander Technique:</strong>台灣的國際認證教師主要循 AUSTAT(澳洲體系,服務範圍含台灣與紐西蘭)認證,官方 <a href="https://alexandertechnique.org.au/find-a-teacher/">Find a Teacher</a> 名錄可查,現列的台灣教師都在台北。台北有專門機構開設<strong>「給音樂家的亞歷山大技巧」</strong>常設團課(週五上午、8–16 週),也提供一對一(可帶樂器上課,直接針對演奏習慣)。</li>
+      <li><strong>行情:</strong>此領域慣例是電話或私訊報價,公開價極少。合理量級 <span class="ev">〔量級〕</span> <strong>NT$1,500–2,500/堂</strong>;中南部學員要加計交通。</li>
+      <li><strong>包班南下是可行的:</strong>台北的教師接受受邀到外縣市開客製化一日工作坊,有實際前例。人數湊得起來的話,這是中南部最划算的形式。</li>
+      <li><strong>費登奎斯(Feldenkrais)備案:</strong><a href="https://www.taiwan-feldenkrais-center.com/">臺灣費登奎斯教育中心</a>(台北)設有「為音樂家所設計的費登奎斯」與音樂營,明載可客製團體課程;該中心的講師群裡有<strong>專長為音樂家演奏傷害、上台焦慮與局部肌張力不全</strong>的國際認證教師。另有 <a href="https://www.feldenkrais-guild.tw/">台灣費登奎斯教育協會</a>可查會員教師。</li>
+      <li><strong>線上:</strong><a href="https://www.alexandertechniqueinternational.org/find-a-teacher">ATI 官方目錄</a>可篩選線上授課;英語線上課行情約每堂 NT$1,600–4,800 <span class="ev">〔量級,未獨立確認〕</span>。中文線上資源目前很薄。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>三、教材與線上平台</h2>
+    <p class="section-lede">中提琴的教材市場很小,值得買的東西不多但很集中。原則:<strong>只買能直接排進課表的</strong>——參考書會留在架上,進程書才會被用。</p>
+
+    <div class="ledger">
+      <div class="entry">
+        <div>
+          <p class="entry-name">Simon Fischer《Tone: Experimenting with Proportions》——有中提琴版</p>
+          <p class="entry-note">右手發聲的主幹教材,官方商店 £20,<strong>下拉選單直接選 Viola</strong>。它是進程不是參考:官方明說,把《Secrets of Tone Production》的五個核心練習套用到每種弓法、每條弦、各把位全部寫出來,就是這本——「放上譜架,照著拉就好」。</p>
+        </div>
+        <div class="entry-amt">£20</div>
+      </div>
+      <div class="entry">
+        <div>
+          <p class="entry-name">Fischer《Warming Up》Viola 版</p>
+          <p class="entry-note">30 分鐘結構化暖身,等於把每日課表印成冊。官方店 £14 但查證時顯示無法下單;<strong>可下單的管道:Southwest Strings 約 US$25.25</strong>;加拿大 The Sound Post 亦有。</p>
+        </div>
+        <div class="entry-amt">≈ US$25</div>
+      </div>
+      <div class="entry">
+        <div>
+          <p class="entry-name">《The Secrets of Tone Production》——DVD 絕版,改走串流</p>
+          <p class="entry-note">官方 DVD(£40,2 片、4 小時 10 分,適用所有弓弦樂器)查證時不可下單;內容已拆成四堂上架 <strong>MusicGurus,訂閱 US$13/月</strong>(含全站課程,30 天退費)。想看示範的話,短訂一兩個月比追絕版 DVD 實際。</p>
+        </div>
+        <div class="entry-amt">US$13/月</div>
+      </div>
+      <div class="entry">
+        <div>
+          <p class="entry-name">《The Karen Tuttle Legacy》(Carl Fischer, BF116)</p>
+          <p class="entry-note">coordination 學派的正式教材,由六位直系弟子合著(含 Kim Kashkashian)。出版社官網 <strong>US$38.99</strong>,紙本與數位版(可在 forScore/Newzik 讀)都有。若你的技術路線是「手臂重量取代食指壓力」,這是它的文本。</p>
+        </div>
+        <div class="entry-amt">US$38.99</div>
+      </div>
+      <div class="entry">
+        <div>
+          <p class="entry-name">Primrose / Dalton《Playing the Viola》——實質絕版</p>
+          <p class="entry-note">觀念書。Juilliard Store 標 US$125 且售罄;<strong>當二手書買,合理帶 US$40–80</strong>(AbeBooks 等)。VitalSource 有電子書版(eISBN 9780191039218)。</p>
+        </div>
+        <div class="entry-amt">二手 US$40–80</div>
+      </div>
+      <div class="entry">
+        <div>
+          <p class="entry-name">tonebase Viola——線上平台裡唯一認真的中提琴站</p>
+          <p class="entry-note">1,000+ 中提琴課程影片、每週直播工作坊、PDF 註記樂譜;講師含 Dimitri Murrath、Ettore Causa,並有整套「Violin to Viola」轉換課程。<strong>月繳 US$59.95 / 年繳 US$359 / 終身 US$895</strong>,14 天免費試用、90 天退費,教育信箱有折扣。先用試用期判斷會不會真的看。<br>對照:ArtistWorks 的樂器清單<strong>沒有</strong>中提琴。</p>
+        </div>
+        <div class="entry-amt">US$359/年</div>
+      </div>
+      <div class="entry">
+        <div>
+          <p class="entry-name">Saline Royale Academy——大師班影音庫</p>
+          <p class="entry-note">有中提琴目錄(Kashkashian、Tomter 的 Walton 協奏曲、Charisius 等)。<strong>單支租看 €4.99/10 天</strong>;訂閱方案標示混亂,約 €10–30/月,以結帳頁為準。偶爾看的話單租划算。</p>
+        </div>
+        <div class="entry-amt">€4.99 起</div>
+      </div>
+      <div class="entry">
+        <div>
+          <p class="entry-name">免費層(先用完再花錢)</p>
+          <p class="entry-note">YouTube 上有逐支驗證過的中提琴大師班:<a href="https://www.youtube.com/watch?v=Udj3DLlAUXo">Kashkashian 教 Schumann《Märchenbilder》</a>、<a href="https://www.youtube.com/watch?v=hNSKtGXzmVk">Tabea Zimmermann 教 Walton 協奏曲</a>、<a href="https://www.youtube.com/watch?v=-WsI7oSdZI4">今井信子教 Brahms op. 120/1</a>、<a href="https://www.youtube.com/playlist?list=PLP2felHI9Jfy2SurD_ITk9bZE_u2wy3aH">馬德里 Reina Sofía 學院的中提琴講座音樂會播放清單</a>;頻道 <a href="https://www.youtube.com/@nobukoimai-violist">@nobukoimai-violist</a>、<a href="https://www.youtube.com/@tonebaseviola">@tonebaseviola</a>。譜先查 IMSLP。</p>
+        </div>
+        <div class="entry-amt">NT$0</div>
+      </div>
+    </div>
+
+    <h3>買譜:台灣的進口樂譜通路</h3>
+    <ul>
+      <li><strong>台中:古韻社 GoodinMusik</strong>(北區興進路 195 號,04-2236-3857,週日休)——代理 G. Henle、Bärenreiter、Edition Peters,實體加線上。<strong>「台中沒有專營進口古典樂譜的店」是錯的</strong>,這是本次查證推翻的說法之一。</li>
+      <li><strong>台北:小雅音樂</strong>(和平東路一段 182-1 號 3 樓,02-2363-6751)——Henle、Bärenreiter、Peters、Schott、Boosey 等皆代理,有獨立的中提琴分類(獨奏/重奏/與鋼琴),線上可下單,滿 NT$3,500 免運。<strong>大陸書店</strong>(衡陽路,1938 年創立)售 Bärenreiter 與日本進口譜。<strong>音樂家小舖</strong>線上有 Henle 與 Bärenreiter 品牌專頁。</li>
+      <li><strong>電子版:</strong>Henle Library App 以點數制販售單曲與分譜,買越大的點數包單價越低。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>四、練習與回饋硬體</h2>
+    <p class="section-lede">錄音是唯一能回答「我到底有沒有送出去」的工具——演奏者在自己位置上的判斷,與廳內聽眾只有約七成一致(2017 年 PNAS 聽眾研究)。以下是 2026 年的現行型號與台灣售價。</p>
+
+    <div class="scroller">
+      <table>
+        <thead><tr><th scope="col">項目</th><th scope="col" class="num">台灣價(2026-08)</th><th scope="col">說明</th></tr></thead>
+        <tbody>
+          <tr><td class="rowname">Zoom H4essential</td><td class="num">NT$7,280</td><td>入門線 4 軌,32-bit float——<strong>不必調增益,放著錄不會爆</strong>。純練習回饋用途到此已滿格</td></tr>
+          <tr><td class="rowname">Zoom H6essential</td><td class="num">NT$8,950</td><td>入門線 6 軌;要同時錄兩個位置(例如指揮位+譜架旁)選這台</td></tr>
+          <tr><td class="rowname">Zoom H5studio / H6studio</td><td class="num">NT$12,000–15,000</td><td>進階線,F 系列前級、可拆音頭;順便想錄演出或室內樂才需要。<strong>舊款 H5/H6 已停產</strong></td></tr>
+          <tr><td class="rowname">Tascam Portacapture X6</td><td class="num">NT$10,250</td><td>同級替代,觸控螢幕;Zoom 缺貨時的解</td></tr>
+          <tr><td class="rowname">Zoom BTA-1 藍牙遙控</td><td class="num">NT$1,380</td><td>錄影自拍時免起身按鍵——實際效果是你會錄得更頻繁</td></tr>
+          <tr><td class="rowname">forScore</td><td class="num">NT$790 買斷</td><td>終身更新;App 內的 Pro 年訂閱 NT$490 是選配,<strong>不影響翻譜與註記的核心功能</strong>——它不是訂閱制軟體</td></tr>
+          <tr><td class="rowname">藍牙翻譜踏板</td><td class="num">AirTurn NT$3,700–4,000<br>M-VAVE / Donner NT$1,200–2,600</td><td>AirTurn 台灣有代理(立前企業);平價款功能相同。PageFlip 台灣難買</td></tr>
+          <tr><td class="rowname">全身鏡</td><td class="num">NT$1,499 / 1,999</td><td>IKEA NISSEDAL 40×150 / 65×150 cm</td></tr>
+          <tr><td class="rowname">手機腳架 · 調音節拍器</td><td class="num">NT$500–2,000 · 約 NT$980</td><td>腳架固定同一角度每天錄 30 秒;Korg TM-60 同屏顯示調音與節拍</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>五、弓:價位帶、通路與試奏</h2>
+    <p class="section-lede">選弓的技術判準見<a href="./index.html">《中提琴聲量手冊》</a>的弓那一章(結論:<strong>問硬度,不要拿重量當代理指標</strong>)。這裡是市場與通路。</p>
+
+    <div class="scroller">
+      <table>
+        <thead><tr><th scope="col">帶</th><th scope="col">碳纖</th><th scope="col">木弓</th></tr></thead>
+        <tbody>
+          <tr>
+            <td class="rowname">NT$3–5 萬</td>
+            <td>CodaBow Diamond GX(美國定價 US$1,025,特價約 922.5;台灣約 NT$29,000–32,000,終身保固)、Diamond NX(約半價,官方明寫更硬更重)</td>
+            <td>巴西頂級工房銀弓:Arcos Brasil 約 US$1,242、Marco Raposo 約 US$1,520</td>
+          </tr>
+          <tr>
+            <td class="rowname">NT$5–12 萬</td>
+            <td><strong>Arcus T4(€1,650)、T5(€2,200)</strong>——約 61 g 的輕而極硬路線</td>
+            <td>德國名家二手起點,例:Richard Grünke 銀配件中提琴弓約 US$3,400</td>
+          </tr>
+          <tr>
+            <td class="rowname">NT$10–25 萬</td>
+            <td>Arcus T6(€3,100)、T7(€4,600)</td>
+            <td>Nürnberger 等德國老名家 US$8,000–12,000;當代美國獨立製弓師 US$5,500–8,000;當代法國製弓師 €3,000–6,000 <span class="ev">〔量級〕</span></td>
+          </tr>
+          <tr>
+            <td class="rowname">NT$25–30 萬</td>
+            <td>Arcus T8 銀(€6,600)</td>
+            <td>一線當代名家門檻(例:英國 Malcolm Taylor 級 US$14,500–16,500)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p class="callout-label">兩個常被弄錯的規格</p>
+      <ul>
+        <li><strong>Arcus 中提琴弓的現行主力是 T 系列</strong>(中型琴,弦長約 37 cm),不是 S 系列——S 已移到 Special Models,官方定位是「適合音色偏暗的大型琴」。出發前先量自己的振動弦長。</li>
+        <li><strong>硬 ≠ 重。</strong>Arcus 的中提琴弓只有約 61 g(遠輕於 68–72 g 的標準),卻是市場上最硬的弓桿之一。要問的是弓桿硬度,不是重量。</li>
+      </ul>
+    </div>
+
+    <h3>台灣試弓通路(全部先電話問庫存再出門)</h3>
+    <p>各家中提琴弓的庫存深度都沒有公開資訊,而中提琴弓在台庫存普遍遠少於小提琴弓。電話裡先問一句「某某價位帶的中提琴弓現在店裡有幾支可以試」,可以省掉一整天。</p>
+    <div class="scroller">
+      <table>
+        <thead><tr><th scope="col">店</th><th scope="col">地點</th><th scope="col">特點</th></tr></thead>
+        <tbody>
+          <tr><td class="rowname">經典提琴</td><td>台中北區北平一街 24 號,04-2293-0076</td><td>佳典提琴的台中姊妹店</td></tr>
+          <tr><td class="rowname">佳典提琴</td><td>台北,02-2773-1616</td><td>巴西 ARCOS 工房弓台灣獨家代理;有工作室弓與名家弓</td></tr>
+          <tr><td class="rowname">鄭俊騰名琴</td><td>台北羅斯福路三段,02-2364-9000</td><td>專營歐美名琴「及名弓」,價位帶上緣</td></tr>
+          <tr><td class="rowname">張桀瑋小提琴</td><td>台北大同區,02-2558-8596</td><td>歐洲老弓與當代弓多等級;<strong>完全預約制</strong>,中提琴弓需電詢</td></tr>
+          <tr><td class="rowname">博得提琴</td><td>台北福州街 02-2321-5556;新竹(總部)、竹北</td><td>歐洲手工琴弓,預約試奏</td></tr>
+          <tr><td class="rowname">貝克父子提琴</td><td>國家音樂廳 B1,02-3322-2121</td><td>建議來電預約;弓庫存電詢</td></tr>
+          <tr><td class="rowname">帕羅提琴</td><td>竹北、苗栗、台南(<strong>無台北、無台中門市</strong>)</td><td>CodaBow 台灣授權經銷。<strong>公司貨才啟動得了保固,且須在購買後 90 天內註冊</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Arcus 在台灣</strong>的原廠列名經銷,查證時網域已失效、可能歇業——建議先電話確認或直接 email 德國原廠問現行窗口;亞洲替代通路是東京的 ARCUS BOW TOKYO。</p>
+
+    <h3>出國順路:東京與香港</h3>
+    <ul>
+      <li><strong>東京黑澤樂器(クロサワバイオリン)御茶ノ水店:</strong>2 樓為義大利新作與弓,來店採線上預約制。線上商城的中提琴弓數量是台灣任何一家的好幾倍 <span class="ev">〔快照量級〕</span>。<strong>外國人退稅:出示護照免 10% 消費稅</strong>,同日同店滿 ¥5,000 即可、六個月內攜出;在日停留超過六個月或走自動通關者不適用。行前可 email 請店家把指定價位帶的中提琴弓集中調到店裡。</li>
+      <li><strong>香港:</strong>Hong Kong Strings(1998 年成立)的中提琴弓分類一路標到 HK$100,000,正對這個價位帶。純「弓專門店」香港查無。</li>
+    </ul>
+
+    <h3>試奏制度:歐美有、台灣沒有成文的</h3>
+    <ul>
+      <li><strong>歐美的到府試用是成熟制度</strong>,可當談判基準:一次 3 支/一週/US$25;或 12 天、信用卡留檔、逾期整支照刷;或 10 天、需信用卡加證件加試用合約。<strong>通則是信用卡預授權取代現金押金。</strong></li>
+      <li><strong>台灣沒有公開成文的攜出政策</strong>——直接電詢「可否攜回試用 3–7 天」,帶證件、接受信用卡預授權、簽借出單,是合理的開價。</li>
+      <li><strong>試弓的方法:</strong>每支用同一段測(建議一段固定選段加 C 弦空弦長音),帶自己現用的弓當基準線,全部錄下來事後比。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>六、琴:當代琴的價位帶與選琴程序</h2>
+    <p class="section-lede">NT$50–300 萬(約 US$1.6–9.5 萬)這個帶,正好完整涵蓋「當代製琴師親手做的琴」從中生代到金字塔頂端的全部區間。</p>
+    <ul>
+      <li><strong>國際錨點:</strong>當代名家新琴的整體行情約 US$10,000–50,000;倫敦的當代中提琴實例約 £12,000–35,000;Cremona 一線的簽名級中提琴約 €46,000,名家委製可到 €61,000。天花板(頂尖製琴師的二手拍賣紀錄)約 US$120,000–180,000。</li>
+      <li><strong>台灣通路的公開指南</strong>:當代 Cremona 新琴約 NT$20–80 萬以上,而<strong>同級中提琴約為小提琴價格的 1.25–1.5 倍</strong>——即台灣現貨行情約 NT$25–120 萬。一線名家的琴通常要委製或出國買,這是等級差加通路差,兩組數字並不矛盾。</li>
+      <li><strong>台灣的通路型態:</strong>台中有掛 Cremona 製琴協會授權的展售中心;台北與新竹有與二十餘位歐洲在世製琴師合作、設有「訂製紀錄」的琴行;老琴與收藏級走專營名琴的店。<strong>台灣店家普遍不公開標價與委製條款,一律電洽。</strong></li>
+    </ul>
+
+    <div class="callout">
+      <p class="callout-label">中提琴選琴的特有變數:三個數字</p>
+      <p>中提琴沒有標準尺寸(15–18 吋都存在)。超過 16 吋較容易做出好的 C 弦,但設計良好的 15.5 吋若空氣容積相當可以不輸。<strong>真正的人體工學關鍵不是琴身長,是三個數字一起看:背板長、琴頸長、有效弦長</strong>——琴頸長度不標準化,同為 16¼ 吋的兩個模型頸長可差 10 mm,一把 15.5 吋的弦長甚至可能比 16¼ 吋的還長(英國中提琴協會 Castle 的實測)。試琴時把三個數字記在同一張表上,聽感才對得回規格;而<strong>委製的獨特優勢正是可以指定這三個數字</strong>。</p>
+    </div>
+
+    <h3>盲比:唯一可靠的選琴程序</h3>
+    <p>Fritz–Curtin 實驗(PNAS 2014):2012 年巴黎,10 位職業獨奏家盲測 6 把老義大利琴(含 5 把 Stradivari)對 6 把新琴,排練室與 300 席音樂廳各 75 分鐘;<strong>10 人裡 6 人首選新琴,辨識新舊的 69 次猜測中 33 對、31 錯、5 次未定——等同亂猜。</strong>2017 年的後續聽眾研究更直接:廳內聽眾評新琴的投射不遜於、甚至優於 Stradivari。<strong>標價與產地寫在標籤上,不寫在聲音裡。</strong>操作版:</p>
+    <ol>
+      <li>請店家遮標籤、不報價、不說作者,由第三者遞琴——<strong>先聽聲音,再看身分</strong>。</li>
+      <li>同場至少三五把 A/B 比,並帶自己現在的琴當基準線。</li>
+      <li><strong>到大空間試</strong>(演奏廳、教堂、大教室),請信任的耳朵在遠處聽:耳邊音量與廳內投射是兩回事。</li>
+      <li>每把用同一段慢弓長音加同一段樂句,專測 C 弦反應與四弦均勻度——中提琴的分數主要在 C 弦上。</li>
+      <li>帶回家試:美國慣例是 7–14 天的 on approval;台灣無公開政策,同樣電詢。買百萬級的琴,「帶去排練拉兩次」是完全合理的要求。</li>
+    </ol>
+
+    <h3>委製 vs 現貨</h3>
+    <ul>
+      <li><strong>等待:</strong>視製琴師檔期,一年多到數年都有 <span class="ev">〔量級〕</span>;訂金常見約一成。</li>
+      <li><strong>風險:</strong>委製的本質是買一把你還沒聽過的琴。可以拿來當標準的條款(倫敦某中提琴專門製琴師的公開做法):<strong>完成後兩週試用、不滿意可退、訂金於琴轉售後或六個月內退還。</strong>對方給不出類似保障,就選現貨。</li>
+      <li><strong>保值:</strong>當代琴通常先小幅折價,等製琴師名聲成長才可能回升;破十萬美元的拍賣紀錄是極少數例外。<strong>合理的心理帳:持有多年後以買價的七八成轉手,差額是使用費。</strong>想要保值屬性得走老琴,並承擔鑑定與修復狀態的風險。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>七、樂器保險:台灣的現實</h2>
+    <p class="section-lede">這一項的結論比較不愉快,但知道了才不會白花時間。</p>
+    <ul>
+      <li><strong>台灣沒有零售的「樂器保險」商品。</strong>多方搜尋台灣各產險公司與商品整理平台,找不到任何以樂器為名的零售保單。</li>
+      <li><strong>住宅火險</strong>的建築物內動產通常把「珠寶、古董、字畫、藝術品等難以客觀鑑價之物」排除在外,高價提琴極可能被歸入此類;而且只保放在家裡時的事故,不保攜出。</li>
+      <li><strong>藝術品綜合保險確實存在(多家產險承保),但條款對演奏者有三個致命限制:</strong>(1) <strong>地點綁定</strong>——非載明處所的毀損不賠,平常帶去團練、上課、演出不在基本承保範圍;(2) <strong>運送品因運送工具無人看守而遭竊不賠</strong>(琴放車上被偷);(3) <strong>藝術品本身脆弱或易碎性質之破損不賠</strong>(除非因竊盜或火災所致),修復後的價值減損也不賠。要當演奏用途保單,必須逐案與核保談批單。</li>
+      <li><strong>費率量級:</strong>靜態收藏的國際慣例約為保額的 0.07–0.25%/年;<strong>台灣最硬的公開數字是博物館名琴出借:一把約 400 萬的琴年保費約 1.2 萬(≈0.3%)</strong>,屬機構議價費率。個人、演奏用途,合理規劃抓 <strong>0.5–1%/年</strong>。</li>
+      <li><strong>可行的兩條路:</strong>(1) 透過專營藝術品保險的保經談批單;(2) 美系 Anderson Group 官網明示承保美國境外居民(基本費率 US$0.64/每 US$100 保額 = 0.64%/年,有最低年保費),全險、約定價值、全球有效。</li>
+      <li><strong>台灣音樂家的實際做法,誠實說,多數是不保險</strong>——公開的個人投保經驗文幾乎查不到。<strong>琴行端的準保險</strong>是保固加維修優惠加以舊換大折抵;「原價回購」多為口頭默契。<strong>買琴時要求把換購折抵比例寫成書面</strong>,是實際上最可執行的跌價保險。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>八、成人室內樂營</h2>
+    <p class="section-lede">先講一個好消息:這類營隊的錄取障礙主要是<strong>額滿速度,不是甄選</strong>——多數先報先得或只需交分組用錄音。而在重奏配額制下,<strong>中提琴通常是最缺的聲部</strong> <span class="ev">〔供需為間接證據推估〕</span>,報名時直接寫明你拉中提琴會有幫助。</p>
+    <div class="scroller">
+      <table>
+        <thead><tr><th scope="col">營隊</th><th scope="col" class="num">費用</th><th scope="col">型態與備註</th></tr></thead>
+        <tbody>
+          <tr><td class="rowname">Benslow Music<span class="sub">英國 Hitchin</span></td><td class="num">兩晚 £426–436<br>三晚 £606–616<br>(含食宿)</td><td>成人住宿式音樂課程的原型機構,課程標示程度分級,<strong>無甄選、先報先得</strong>。秋季有多個弦樂重奏與四重奏課程,夏季有中提琴暑期學校</td></tr>
+          <tr><td class="rowname">秋吉台の響き<span class="sub">日本山口</span></td><td class="num">¥98,000 含食宿</td><td>四天室內樂研習,<strong>明文歡迎業餘者</strong>;對台灣出發最實際的海外選項。報名期約每年 1–3 月,會額滿</td></tr>
+          <tr><td class="rowname">Apple Hill<span class="sub">美國新罕布夏</span></td><td class="num">10 天 US$2,500 含食宿</td><td>13 歲到成人混齡,業餘與職業同場;不需試奏,只交分組用錄音;每人分 2–3 個重奏組,先寄指定譜</td></tr>
+          <tr><td class="rowname">Composers Conference<span class="sub">美國</span></td><td class="num">全週住宿 US$1,900</td><td>業餘成人室內樂工作坊,各樂器名額平衡制;<strong>2027 檔期已公布(7/11–8/1)</strong></td></tr>
+          <tr><td class="rowname">CAMMAC<span class="sub">加拿大魁北克</span></td><td class="num">一週全包約 C$1,400–1,900+稅</td><td>專門服務業餘者,全程度全年齡含家庭,無甄選,湖畔營地</td></tr>
+          <tr><td class="rowname">SCMF<span class="sub">新加坡</span></td><td class="num">未公布</td><td>音樂節期間的 Chamber Music Academy 收業餘者,費用需 email 詢問;亞洲第二近的選項</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul>
+      <li><strong>台灣目前查無同型態的成人住宿式室內樂營</strong>(多組關鍵字查證後的誠實結論;各大樂團的夏令營都限青少年)。台北有常態性的替代:成人弦樂室內樂課(例如一期 6 堂、每堂 100 分鐘、約 NT$12,000)、成人交響樂團與弦樂重奏班。</li>
+      <li><strong>旅費常大於營費:</strong>歐美營隊加機票住宿,單次總價 NT$10–20 萬是正常量級;中提琴帶上飛機的規定各航空公司不同,訂票前先查樂器隨身政策。</li>
+    </ul>
+  </section>
+
+  <footer>
+    <h2>關於這份文件</h2>
+    <p style="max-width:46rem;">內容整理自 2026 年 8 月的一輪查證:多位研究代理逐頁開啟原始來源(官方網站、政府與場館公告、經銷商頁面、學術論文),再由第二輪對抗查證員獨立重查每一項載重事實,推翻或降級了其中數十項。<strong>凡標〔量級〕者為查無公開行情的推估。</strong>價格、庫存與政策以查證日為準,行動前請自行重查。</p>
+    <p style="max-width:46rem;">本文只收錄公開可查的市場與通路資訊;個別老師是否收成人學生、店家的實際庫存與試用政策,均需自行電話詢問。歡迎自由轉載與引用。</p>
+    <h3>姊妹文件</h3>
+    <ul>
+      <li><a href="./index.html">中提琴聲量手冊</a>——發聲的物理底層、接觸點練習、松香/弦/弓的技術判準、音柱三軸與保養節奏。這一份講「為什麼」,你正在讀的這份講「去哪裡買、多少錢」。</li>
+    </ul>
+  </footer>
+
+</div>

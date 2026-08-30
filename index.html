@@ -1,0 +1,1107 @@
+<title>中提琴聲量手冊</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&family=Spectral:ital,wght@0,400;0,600&display=swap">
+<style>
+  :root {
+    --ground:      #E8EBE6;
+    --surface:     #F4F6F2;
+    --surface-2:   #DDE2D9;
+    --ink:         #1B1F1C;
+    --ink-mid:     #47504A;
+    --ink-soft:    #6E7872;
+    --rule:        #C3CBC1;
+    --rule-soft:   #D5DAD1;
+    --accent:      #8A6224;
+    --accent-deep: #6B4B18;
+    --accent-wash: rgba(138, 98, 36, 0.10);
+    --flag:        #7C3A2E;
+    --flag-wash:   rgba(124, 58, 46, 0.09);
+
+    --font-display: "Spectral", "Noto Serif TC", "Songti TC", "Source Han Serif TC", serif;
+    --font-body: "IBM Plex Sans", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+    --measure: 40rem;
+    --wide: 58rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #141815;
+      --surface:     #1C211D;
+      --surface-2:   #262C27;
+      --ink:         #E5EAE3;
+      --ink-mid:     #ACB4AA;
+      --ink-soft:    #7F8880;
+      --rule:        #333A34;
+      --rule-soft:   #29302A;
+      --accent:      #D0A461;
+      --accent-deep: #E3BC82;
+      --accent-wash: rgba(208, 164, 97, 0.13);
+      --flag:        #D98E7C;
+      --flag-wash:   rgba(217, 142, 124, 0.12);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #141815;
+    --surface:     #1C211D;
+    --surface-2:   #262C27;
+    --ink:         #E5EAE3;
+    --ink-mid:     #ACB4AA;
+    --ink-soft:    #7F8880;
+    --rule:        #333A34;
+    --rule-soft:   #29302A;
+    --accent:      #D0A461;
+    --accent-deep: #E3BC82;
+    --accent-wash: rgba(208, 164, 97, 0.13);
+    --flag:        #D98E7C;
+    --flag-wash:   rgba(217, 142, 124, 0.12);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.78;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0 1.5rem 6rem;
+  }
+
+  .wrap { max-width: var(--wide); margin: 0 auto; }
+
+  /* ---------- masthead ---------- */
+
+  header.masthead {
+    padding: 4.5rem 0 2.75rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 3.5rem;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 1.25rem;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2.1rem, 5.5vw, 3.1rem);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 0 0 1.1rem;
+  }
+
+  .standfirst {
+    font-size: 1.06rem;
+    color: var(--ink-mid);
+    max-width: 38rem;
+    margin: 0;
+  }
+
+  .masthead-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.75rem;
+    margin-top: 2rem;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+  }
+
+  .masthead-meta span { white-space: nowrap; }
+
+  /* ---------- sections ---------- */
+
+  section { margin-bottom: 4.5rem; }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.45rem, 3.2vw, 1.85rem);
+    line-height: 1.3;
+    text-wrap: balance;
+    margin: 0 0 0.55rem;
+    padding-top: 0.4rem;
+    border-top: 2px solid var(--ink);
+  }
+
+  h3 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 2.5rem 0 0.7rem;
+  }
+
+  h4 {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 2rem 0 0.6rem;
+  }
+
+  .section-lede { color: var(--ink-mid); margin: 0 0 2rem; max-width: var(--measure); }
+
+  p { margin: 0 0 1.15rem; max-width: var(--measure); }
+
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  strong { font-weight: 600; }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background: var(--accent-wash);
+    color: var(--accent-deep);
+    padding: 0.08em 0.34em;
+    border-radius: 2px;
+  }
+
+  ul, ol { margin: 0 0 1.15rem; padding-left: 1.2rem; max-width: var(--measure); }
+  li { margin-bottom: 0.45rem; }
+  li::marker { color: var(--accent); }
+
+  /* ---------- changelog ---------- */
+
+  .changelog {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 1.4rem 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .changelog h4 { margin-top: 0; }
+  .changelog ul { margin-bottom: 0; max-width: none; }
+  .changelog li { font-size: 0.92rem; color: var(--ink-mid); }
+  .changelog li strong { color: var(--ink); }
+
+  .chip {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    padding: 0.05em 0.5em;
+    border-radius: 2px;
+    border: 1px solid var(--accent);
+    color: var(--accent-deep);
+    background: var(--accent-wash);
+    white-space: nowrap;
+    vertical-align: 0.08em;
+  }
+  .chip.bad { border-color: var(--flag); color: var(--flag); background: var(--flag-wash); }
+
+  /* ---------- callouts ---------- */
+
+  .callout {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 3px;
+    padding: 1.25rem 1.4rem;
+    margin: 0 0 1.6rem;
+    max-width: var(--measure);
+  }
+
+  .callout.correction { border-left-color: var(--flag); background: var(--flag-wash); }
+  .callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
+
+  .callout-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.5rem;
+  }
+
+  .callout.correction .callout-label { color: var(--flag); }
+
+  .ev {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- profile ---------- */
+
+  .profile { display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; }
+  @media (min-width: 44rem) { .profile { grid-template-columns: repeat(3, 1fr); } }
+
+  .trait { background: var(--surface); padding: 1.2rem 1.3rem; }
+  .trait h5 { font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; margin: 0 0 0.4rem; }
+  .trait p { font-size: 0.88rem; color: var(--ink-mid); margin: 0; line-height: 1.65; max-width: none; }
+  .trait .src { display: block; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.05em; color: var(--ink-soft); margin-top: 0.6rem; }
+
+  /* ---------- diagram ---------- */
+
+  figure.diagram {
+    margin: 1.8rem 0;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: var(--surface);
+    padding: 1.4rem 1.4rem 1.1rem;
+    max-width: var(--wide);
+  }
+  figure.diagram svg { width: 100%; height: auto; display: block; }
+  figure.diagram svg text { font-family: var(--font-body); }
+  figure.diagram svg text.mono, figure.diagram svg g.mono text { font-family: var(--font-mono); }
+  figure.diagram svg .accent { stroke: var(--accent); color: var(--accent); }
+  figure.diagram svg .accent-fill { fill: var(--accent); }
+  figure.diagram svg .accent-deep-fill { fill: var(--accent-deep); }
+  figure.diagram svg .wash-fill { fill: var(--accent-wash); }
+  figure.diagram figcaption {
+    font-size: 0.84rem;
+    color: var(--ink-soft);
+    margin-top: 0.9rem;
+    line-height: 1.65;
+    max-width: none;
+  }
+
+  /* ---------- soundpoints ---------- */
+
+  .sp-wrap { border: 1px solid var(--rule); border-radius: 3px; background: var(--surface); padding: 1.5rem 1.4rem 1.2rem; margin: 0 0 1.6rem; overflow-x: auto; }
+
+  .sp-scale { display: grid; grid-template-columns: repeat(5, minmax(5.2rem, 1fr)); gap: 1px; background: var(--rule-soft); border: 1px solid var(--rule-soft); border-radius: 2px; min-width: 28rem; }
+
+  .sp { background: var(--surface); padding: 0.85rem 0.7rem; }
+  .sp-n { font-family: var(--font-mono); font-size: 1.05rem; color: var(--accent); margin: 0 0 0.35rem; }
+  .sp-where { font-size: 0.8rem; font-weight: 600; margin: 0 0 0.35rem; max-width: none; }
+  .sp-how { font-family: var(--font-mono); font-size: 0.7rem; line-height: 1.5; color: var(--ink-soft); margin: 0; max-width: none; }
+
+  .sp-ends { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin-top: 0.7rem; min-width: 28rem; }
+
+  /* ---------- ladder ---------- */
+
+  .ladder { border-top: 1px solid var(--rule); }
+
+  .rung {
+    display: grid;
+    grid-template-columns: 2.2rem 1fr;
+    gap: 0 1.1rem;
+    padding: 1.15rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    align-items: start;
+  }
+
+  @media (min-width: 46rem) {
+    .rung { grid-template-columns: 2.2rem minmax(0, 1fr) 8rem 9rem; gap: 0 1.5rem; align-items: baseline; }
+  }
+
+  .rung-rank { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-soft); padding-top: 0.15rem; }
+  .rung-name { font-weight: 600; margin: 0 0 0.15rem; max-width: none; }
+  .rung-note { font-size: 0.9rem; color: var(--ink-mid); margin: 0; line-height: 1.6; max-width: none; }
+  .rung-cost { font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-soft); grid-column: 2; margin-top: 0.4rem; }
+  @media (min-width: 46rem) { .rung-cost { grid-column: 3; margin-top: 0; } }
+
+  .meter { display: flex; gap: 3px; grid-column: 2; margin-top: 0.55rem; }
+  @media (min-width: 46rem) { .meter { grid-column: 4; margin-top: 0; } }
+  .meter i { display: block; width: 100%; max-width: 1.5rem; height: 0.5rem; background: var(--surface-2); border-radius: 1px; }
+  .meter i.on { background: var(--accent); }
+
+  .meter-key { display: flex; align-items: center; gap: 0.55rem; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.05em; color: var(--ink-soft); margin: 1rem 0 0; text-transform: uppercase; }
+
+  /* ---------- tables ---------- */
+
+  .scroller { overflow-x: auto; margin: 0 0 1.6rem; border: 1px solid var(--rule); border-radius: 3px; background: var(--surface); }
+
+  table { width: 100%; min-width: 42rem; border-collapse: collapse; font-size: 0.9rem; }
+
+  th, td { text-align: left; padding: 0.85rem 1rem; border-bottom: 1px solid var(--rule-soft); vertical-align: top; line-height: 1.6; }
+
+  thead th {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  td.rowname { font-weight: 600; white-space: nowrap; }
+  td .sub { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-mid); display: block; margin-top: 0.2rem; }
+  .out { color: var(--ink-soft); }
+  .out .rowname { text-decoration: line-through; text-decoration-color: var(--flag); }
+
+  /* ---------- tests ---------- */
+
+  .tests { display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; margin-bottom: 1.6rem; }
+  @media (min-width: 40rem) { .tests { grid-template-columns: 1fr 1fr; } }
+
+  .test { background: var(--surface); padding: 1.15rem 1.3rem; }
+  .test h5 { font-family: var(--font-body); font-weight: 600; font-size: 0.94rem; margin: 0 0 0.4rem; }
+  .test p { font-size: 0.88rem; color: var(--ink-mid); margin: 0 0 0.5rem; line-height: 1.65; max-width: none; }
+  .test p:last-child { margin-bottom: 0; }
+  .verdict { font-family: var(--font-mono); font-size: 0.76rem; color: var(--accent-deep); }
+
+  /* ---------- script ---------- */
+
+  .script {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    border-left: 3px solid var(--accent);
+    padding: 0.3rem 0 0.3rem 1.2rem;
+    margin: 1.4rem 0;
+    max-width: var(--measure);
+    color: var(--ink);
+  }
+
+  /* ---------- cadence ---------- */
+
+  .cadence { border-top: 1px solid var(--rule); }
+
+  .beat { display: grid; grid-template-columns: 1fr; gap: 0.4rem 2rem; padding: 1.7rem 0; border-bottom: 1px solid var(--rule-soft); }
+  @media (min-width: 46rem) { .beat { grid-template-columns: 9.5rem minmax(0, 1fr) ; } }
+
+  .beat-when { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.06em; color: var(--accent); padding-top: 0.28rem; }
+  .beat-when small { display: block; font-size: 0.7rem; letter-spacing: 0.04em; color: var(--ink-soft); margin-top: 0.25rem; }
+  .beat ul { margin: 0; }
+  .beat ul li:last-child { margin-bottom: 0; }
+
+  /* ---------- footer ---------- */
+
+  footer { border-top: 1px solid var(--rule); padding-top: 1.75rem; font-size: 0.84rem; color: var(--ink-soft); }
+  footer h2 { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-soft); border: none; padding: 0; margin: 0 0 0.85rem; }
+  footer h3 { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); margin: 1.6rem 0 0.5rem; }
+  footer ul { padding-left: 1.05rem; max-width: 46rem; }
+  footer li { margin-bottom: 0.3rem; }
+
+  @media (prefers-reduced-motion: no-preference) { a { transition: color 0.15s ease; } }
+</style>
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">Viola · 技術版 · 2026-08</p>
+    <h1>中提琴聲量手冊</h1>
+    <p class="standfirst">一份寫給業餘中提琴手的發聲手冊,特別是從小提琴轉過來、下手偏重、在樂團裡覺得「明明用了力卻送不出去」的人。內容包含發聲的物理底層、可以直接練的接觸點課表,以及松香、弦、弓、音柱與保養的選擇依據——每一條都附來源,價格與通路標明查證日期。</p>
+    <div class="masthead-meta">
+      <span>查證 · 2026-08 · 90+ 來源逐頁開啟</span>
+      <span>對象 · 業餘中提琴手</span>
+      <span>語言 · 繁體中文(台灣通路與價格)</span>
+    </div>
+  </header>
+
+  <div class="changelog">
+    <h4>先讀這裡:這份文件是什麼、不是什麼</h4>
+    <ul>
+      <li><strong>它是一份查證過的參考,不是教材。</strong>技法的進程請跟老師走;這裡整理的是「散在各處、彼此矛盾、而且常常是誤傳」的那些事實——例如松香的軟硬到底該怎麼選、高張力弦是不是真的比較大聲、音柱往哪邊移會讓 C 弦出來。</li>
+      <li><strong>核心結論一句話:</strong>發聲不是「用力」一個變數,是<strong>弓速、弓壓、接觸點</strong>三者的比例;而壓過頭的代價不是變小聲,是<strong>把樂音換成雜訊</strong>。原理那一章用 Schelleng 圖把這件事變成三條有座標的線。</li>
+      <li><strong>怎麼用:</strong>原理與核心兩章值得從頭讀;松香、弦、弓、琴師、保養五章是查表用的,遇到事情再翻。</li>
+      <li><strong>價格與通路會過期</strong>(查證日 2026-08),行動前重查;政策(例如試用是否寄台灣)也可能改。</li>
+    </ul>
+  </div>
+
+<section>
+    <h2>原理:力量的邊界在哪裡</h2>
+    <p class="section-lede">整份手冊的經驗法則,底層其實是同一張圖。看懂它,「壓死」「表面音」「為什麼修法是加弓速」就不再是老師的口頭禪,而是三條有座標的線。</p>
+
+    <h3>弦只接受一種好的運動</h3>
+    <p>弓毛拉弦時,好聲音對應一種特定的弦運動——<strong>Helmholtz 運動</strong>:弦在任一瞬間呈兩段直線夾一個尖折點,折點沿弦繞行,每經過弓一次就觸發一次「黏住 ↔ 滑開」的切換。每個週期裡,弦大部分時間黏著弓毛走,短暫時間快速滑回。這是弦樂手幾乎永遠在追求的狀態(Woodhouse 2014 的回顧論文寫得很直接)。</p>
+    <p>要維持這個運動,<strong>弓壓必須落在一個上下限之間</strong>,而上下限由弓速和接觸點決定。這就是 Schelleng 圖:</p>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 660 460" role="img" aria-label="Schelleng 圖:縱軸為弓壓(對數),橫軸為接觸點(琴橋到指板,對數)。最大弓壓線與最小弓壓線圍出一個往琴橋方向收窄的楔形可演奏區;超過上限是嘎吱的非週期雜訊,低於下限是表面音;弓速加快會把上限整條抬高。">
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+          </marker>
+        </defs>
+        <!-- axes -->
+        <line x1="90" y1="380" x2="628" y2="380" stroke="currentColor" stroke-width="1.2" marker-end="url(#arr)"/>
+        <line x1="90" y1="380" x2="90" y2="46" stroke="currentColor" stroke-width="1.2" marker-end="url(#arr)"/>
+        <text x="96" y="40" font-size="12" fill="currentColor">弓壓(log)</text>
+        <text x="358" y="446" font-size="12" fill="currentColor" text-anchor="middle">接觸點(相對弓橋距離,log)</text>
+        <!-- playable wedge -->
+        <polygon points="160,150 620,250 620,350" class="wash-fill" stroke="none"/>
+        <!-- max force line -->
+        <line x1="160" y1="150" x2="620" y2="250" stroke="currentColor" stroke-width="1.8"/>
+        <!-- min force line -->
+        <line x1="160" y1="150" x2="620" y2="350" stroke="currentColor" stroke-width="1.8"/>
+        <!-- speed-shifted max line -->
+        <line x1="160" y1="105" x2="620" y2="205" class="accent" stroke-width="1.6" stroke-dasharray="6 5"/>
+        <line x1="250" y1="166" x2="250" y2="130" class="accent" stroke-width="1.3" marker-end="url(#arr)"/>
+        <text x="262" y="120" font-size="12" class="accent-fill">弓速加快 → 上限整條上移</text>
+        <!-- region labels -->
+        <text x="508" y="100" font-size="12.5" fill="currentColor" font-weight="600">壓過上限:嘎吱、非週期</text>
+        <text x="508" y="118" font-size="11" fill="currentColor" opacity="0.75">(能量變雜訊,不是變小聲)</text>
+        <text x="470" y="286" font-size="12.5" class="accent-deep-fill" font-weight="600">可演奏區</text>
+        <text x="470" y="303" font-size="11" class="accent-deep-fill" opacity="0.9">Helmholtz 運動</text>
+        <text x="330" y="345" font-size="12.5" fill="currentColor" font-weight="600">低於下限:表面音</text>
+        <text x="330" y="362" font-size="11" fill="currentColor" opacity="0.75">(弦黏不住弓毛,一週期滑兩次以上)</text>
+        <!-- line labels -->
+        <text x="588" y="238" font-size="11" fill="currentColor" text-anchor="end" class="mono">最大弓壓</text>
+        <text x="588" y="374" font-size="11" fill="currentColor" text-anchor="end" class="mono">最小弓壓</text>
+        <!-- soundpoint ticks -->
+        <g class="mono" font-size="11.5" fill="currentColor">
+          <text x="190" y="400" text-anchor="middle">1</text>
+          <text x="295" y="400" text-anchor="middle">2</text>
+          <text x="400" y="400" text-anchor="middle">3</text>
+          <text x="505" y="400" text-anchor="middle">4</text>
+          <text x="600" y="400" text-anchor="middle">5</text>
+          <text x="96" y="400" font-size="10.5" letter-spacing="0.08em">琴橋</text>
+          <text x="628" y="418" font-size="10.5" text-anchor="end" letter-spacing="0.08em">指板</text>
+        </g>
+      </svg>
+      <figcaption>Schelleng 圖(示意)。兩條線在對數座標上是直線:最大弓壓 ∝ 1/距離,最小弓壓 ∝ 1/距離²,所以可演奏區是一個<strong>往琴橋方向收窄的楔形</strong>——越靠橋,需要的弓壓越高、容許的範圍越窄,控制得越準才行。弓速加快會把上限抬高(實測與弓速成正比);下限在實測中幾乎不隨弓速動。編號 1–5 是 Fischer 的五個接觸點。(Schelleng 1973;Woodhouse 2014;Schoonderwaldt–Guettler–Askenfelt 2007 實測)</figcaption>
+    </figure>
+
+    <h3>三條邊界,三種聲音</h3>
+    <ul>
+      <li><strong>低於下限:</strong>弦黏不住弓毛,每個週期滑動兩次以上——就是「沒進弦」的<strong>表面音</strong>,虛、浮、沒有芯。</li>
+      <li><strong>在區間內:</strong>Helmholtz 運動成立。在這個區間裡,<strong>加壓不是加音量,是加亮度</strong>——折點變銳利、高頻泛音變多。音量主要由弓速和接觸點決定。</li>
+      <li><strong>超過上限:</strong>折點到弓下時觸發不了「黏 → 滑」切換,週期性崩潰,出來的是嘎吱的非週期雜訊。<strong>注意:它不是比較小聲</strong>——模擬實驗裡這種 raucous 模式在琴橋上的輸出反而比正常運動高約 12 dB(Guettler)。壓死的代價不是音量,是「音」本身:諧波能量被換成了噪聲。</li>
+    </ul>
+
+    <div class="callout">
+      <p class="callout-label">這張圖的三個直接推論</p>
+      <ul>
+        <li><strong>靠橋加重壓,住在楔形最窄的地方。</strong>那裡本來就需要大弓壓——力量不是錯,錯的是位置的容錯極小,比例稍微歪掉就出界。</li>
+        <li><strong>加弓速是往安全方向搬家。</strong>弓速加快,上限整條上移,同樣的力量就從「貼著壓死線」變成「穩穩在區間內」。這就是「修法是加弓速,不是減力量」的物理版本。</li>
+        <li><strong>高張力弦墊高上限。</strong>最大弓壓與弦的特性阻抗成正比,而同音高下阻抗與張力成正比——這是「高張力弦吃得住重手」的依據,細節在弦那一節。</li>
+      </ul>
+    </div>
+
+    <h3>投射:查證之後,故事變了</h3>
+    <p>常聽到的說法是「壓出來的聲音在耳邊很大,在廳裡很小」。查證的結果是:<strong>方向可用,機制要重寫。</strong></p>
+    <p>2017 年發表在 PNAS 的雙盲實驗(Fritz、Curtin 等人,巴黎與紐約兩地,新琴對 Stradivari)給了目前最硬的資料:<strong>被演奏者評為「耳邊最響」的那把琴,正是廳內投射最好的一把;平均而言,耳邊較小聲的琴投射也較差。</strong>「耳邊大、廳裡小」作為一般性原理,在樂器層面上不成立。同一研究也量了演奏位置判斷的可靠度:演奏者對自己投射的估計,與廳內聽眾的判斷約七成一致——<strong>演奏者在琴上的判斷,三成的時間是錯的</strong>,這是「要錄音、要找人在遠處聽」的量化理由。</p>
+    <p>那「明明用力了卻沒送到」的感覺是怎麼回事?更準確的機制是這樣:</p>
+    <ul>
+      <li><strong>壓過頭時,你製造的是響的雜訊,不是小的樂音。</strong>那些能量在廳裡一樣聽得到,只是它不融合成有音高、能穿透織體的「音」。</li>
+      <li><strong>投射的本錢在頻譜,不在蠻力。</strong>區間內的適當弓壓把能量推向人耳敏感的高頻泛音;Trendelenburg 早在 1925 年的大提琴實驗就發現:慢弓加壓(在區間內)讓聲音變亮、稍大聲、<strong>傳得更遠</strong>——即使弦的擺幅反而變小。</li>
+      <li><strong>弓毛的沙沙邊緣聲留在近處</strong>——這比較可能是因為它屬於近場成分、又被合奏與殘響遮蔽,而不是「雜訊在空氣中衰減得快」(音樂廳距離內,空氣吸收各頻段總共只差 1 dB 上下)。<span class="ev">〔此段機制屬合理推論,尚無直接的距離×可聞度實驗〕</span></li>
+      <li>反過來,<strong>受控的弓噪反而是投射工具</strong>:Woodhouse 指出獨奏者會刻意利用弓毛差速滑動的噪聲成分來穿透樂團;Thomastik 甚至說 PI 的 chrome-combo 纏繞就是設計來產生特定弓噪、把聲音送到「房間最遠的角落」。你要修的不是「有沒有用力」,是把力量從「壓爆」搬回「亮起來」的那一格。</li>
+    </ul>
+
+    <h3>中提琴這件樂器的結構性事實</h3>
+    <p>中提琴調音比小提琴低完全五度,但琴身平均只有約 41 cm——<strong>聲學上要成比例,它得做到約 51 cm</strong>。後果:小提琴的琴體共振剛好落在四條空弦頻率上,中提琴的共振峰卻落在空弦頻率<strong>之間</strong>;主要空氣共振約在 220 Hz,而 C 弦空弦只有 130.8 Hz——最低音域的基音得不到琴體支持。這就是中提琴音色偏暗、C 弦反應慢的結構性原因(Powell 的實測論文;Hutchins 的 alto violin 就是為了修這件事而把琴做長 6 cm)。</p>
+    <p>所以中提琴教學的共識與小提琴相反方向:Michael Tree(Guarneri 四重奏)說 C、G 弦反應慢,必須用更多重量與壓力「壓進弦裡」拉,而且要用<strong>平貼的全部弓毛</strong>——小提琴手用四分之一弓毛就能出強音,中提琴手不行。Kim Kashkashian 的教學守則第一條就是用重力與右臂重量對弦施加槓桿、讓弦的振動引導弓速。<strong>小提琴上的「壞習慣」——弓重、弓速慢、接觸點靠橋——正是中提琴的原廠設定。</strong>要修的只有一件事:那個重量要從手臂進來,不是從食指壓下去。</p>
+  </section>
+
+<section>
+    <h2>核心:三個變數</h2>
+    <p class="section-lede">發聲不是「用力」這一個變數,是三個變數的比例。本節引文與練習步驟逐字對回 Fischer 的原始專欄(The Strad「Basics」,1997 年 7 月與 2008 年 8 月兩期),兩個常被混在一起的練習也分開列出。</p>
+
+    <p>Fischer 的框架:發聲只有三個要素——<strong>弓速、弓壓、接觸點(soundpoint)</strong>——而且「永遠最重要的考量」是三者的<strong>比例</strong>。在每一個接觸點上,都存在一組讓弦振動得最自由、最寬的速度與壓力配比。你沒辦法只改一個而不按比例動另一個。</p>
+
+    <h3>接觸點的五個位置</h3>
+    <p>從琴橋到指板分成五格,編號是 Fischer 的原始編號:<strong>1 靠琴橋、5 靠指板</strong>。這是可以直接拿來練的框架,也是跟老師溝通時的共同語言。</p>
+
+    <div class="sp-wrap">
+      <div class="sp-scale">
+        <div class="sp">
+          <p class="sp-n">1</p>
+          <p class="sp-where">最靠琴橋</p>
+          <p class="sp-how">弦最硬<br>需要:壓力大<br>弓速慢</p>
+        </div>
+        <div class="sp">
+          <p class="sp-n">2</p>
+          <p class="sp-where">琴橋與中間之間</p>
+          <p class="sp-how">↑</p>
+        </div>
+        <div class="sp">
+          <p class="sp-n">3</p>
+          <p class="sp-where">中間</p>
+          <p class="sp-how">基準位置</p>
+        </div>
+        <div class="sp">
+          <p class="sp-n">4</p>
+          <p class="sp-where">中間與指板之間</p>
+          <p class="sp-how">↓</p>
+        </div>
+        <div class="sp">
+          <p class="sp-n">5</p>
+          <p class="sp-where">最靠指板</p>
+          <p class="sp-how">弦最軟<br>需要:壓力小<br>弓速快</p>
+        </div>
+      </div>
+      <div class="sp-ends"><span>← 琴橋 Bridge</span><span>指板 Fingerboard →</span></div>
+    </div>
+
+    <h3>為什麼壓過頭會反效果</h3>
+    <p>Fischer 的原文措辭:弓的摩擦使弦<strong>左右擺動</strong>;當下壓力超過該弓速或該接觸點所能承受,弓會<strong>壓扁弦、抑制它的左右擺動</strong>。原理章已經給了它的物理版本:超過最大弓壓,週期性崩潰,諧波能量變雜訊。</p>
+    <p>他的結論用的字是把聲音從弦上「提起來/拉出來」,不是「壓下去」:lifting 出來的音<strong>又大又厚,同時是鬆的</strong>;pressing 出來的音<strong>較小、較薄、較硬</strong>——即使在最重的 forte 也一樣。</p>
+
+    <div class="callout">
+      <p class="callout-label">關於「我到底有沒有送出去」</p>
+      <p>「我明明有在出力,但不確定有沒有送到」——這個感覺該信,但理由通常被講錯。不是「壓的聲音傳不遠」,而是:(1) 壓過頭時送出去的是雜訊成分,它到得了廳裡,但融不成能穿透織體的音;(2) 演奏位置的判斷本來就有三成錯誤率(PNAS 實測)。<strong>所以答案不在耳朵旁邊,在錄音和遠處的聽者那裡。</strong></p>
+    </div>
+
+    <h3>最重要的一句:修法是加弓速,不是減力量</h3>
+    <p>Fischer 原句(2008 年 8 月專欄,小標就叫 Speed not pressure):發聲<strong>「通常主要建立在弓速上」</strong>(usually based mainly on speed of bow)——注意他留了「通常」。兩種指令的可執行性差很多:</p>
+    <ul>
+      <li>「放鬆一點、不要壓」——抽象,而且一緊張就會退回去</li>
+      <li>「這個音用整條弓拉完」——具體、可驗證、而且會<strong>自動</strong>把比例修正回來</li>
+    </ul>
+    <p>力量不變、弓速加快,在 Schelleng 圖上就是上限整條上移——不需要放棄力量,只需要給它更長的行程。</p>
+
+    <h3>自我檢測</h3>
+    <p>自己在壓還是在用重量,從演奏位置是看不出來的。但有兩個測試可以做。</p>
+
+    <div class="tests">
+      <div class="test">
+        <h5>食指放掉測試</h5>
+        <p>拉一個長的下弓,中途把食指完全從弓桿上抬起來,只留拇指和手的自然重量。</p>
+        <p class="verdict">聲音變大或變乾淨 → 你在壓<br>聲音垮掉 → 你在用重量</p>
+      </div>
+      <div class="test">
+        <h5>疲勞測試</h5>
+        <p>練完一小時之後,檢查右肩、右手前臂、脖子。</p>
+        <p class="verdict">會酸 → 那是壓,壓要靠肌肉維持<br>不會酸 → 那是重量,重力免費</p>
+      </div>
+    </div>
+
+    <p>這兩個測試的教學法背書:Helen Callus 的六要點(Strings Magazine,Heather K. Scott 執筆)第一條就是「弓手食指不施壓、改用手臂重量」,並提出可以練習把手臂重量整個「釋放」進弦裡;Karen Tuttle 的 coordination 學派整套建立在釋放張力上——持弓靠手臂重量而非手指壓力,下弓到弓尖時抬頭「釋放」脖子。她的格言:拉琴必須「feel good」,不舒服就是哪裡錯了。<strong>疲勞測試不是隨口說說,是 Tuttle 學派的核心診斷。</strong></p>
+
+    <h3>可以直接練的:兩個接觸點練習</h3>
+    <p>兩個練習常被混成一個,這裡拆開。傳承:這組練習與 speed/pressure/soundpoint 架構,Fischer 自述學自 Dorothy DeLay,DeLay 學自 Galamian,Galamian 學自 Capet,他「一個字都沒改」。不需要譜,空弦就能做。</p>
+
+    <h4>練習 A · 慢速版(2008 年 8 月專欄)——先練這個</h4>
+    <ol>
+      <li>在接觸點 <strong>5</strong>(靠指板)拉連續全弓,下弓上弓,不加揉弦,但要拉得像樂句,不是像練習。</li>
+      <li><strong>接觸點與弓速固定,只調整弓的重量</strong>——加一點、減一點,調到弦的振動達到最大。</li>
+      <li>確定弦振動得又自由又寬之後,<strong>加揉弦</strong>,平衡不能跑掉。</li>
+      <li>移到接觸點 <strong>4、3、2、1</strong>,每一格重複整個流程(力度大約會自然走 mp → mf → f → ff → f)。</li>
+    </ol>
+
+    <h4>練習 B · 節拍器版(1997 年 7 月專欄)——穩了再加</h4>
+    <ol>
+      <li>節拍器 <code>♩=50</code>,同一個音連續全弓,<strong>一拍兩個全弓</strong>。聲音要全程平滑均勻:弓不能抖、不能滑出表面音、接觸點不能漂移。</li>
+      <li>從接觸點 <strong>5</strong> 開始,依序做 <strong>4、3、2</strong>——越靠橋壓力越大。<strong>這個練習不含接觸點 1</strong>,原譜就到 2 為止。</li>
+      <li>節拍器升到 <code>55</code>,從 5 重來,逐步加到<strong>約</strong> <code>70</code>。</li>
+    </ol>
+    <p>這兩個練習的價值在於它<strong>把壓力變成一個被校準的量,而不是一個習慣</strong>。</p>
+
+    <h3>每日右手時段:20 分鐘的固定課表</h3>
+    <div class="scroller">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">時間</th>
+            <th scope="col">內容</th>
+            <th scope="col">在檢查什麼</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="rowname">5 分鐘</td>
+            <td>空弦長音熱身,接觸點 3,全弓,無揉弦。四條弦各幾弓,C 弦多拉幾弓。</td>
+            <td>弓直不直、弓毛平貼(中提琴要用全部弓毛)、聲音有沒有芯</td>
+          </tr>
+          <tr>
+            <td class="rowname">8 分鐘</td>
+            <td>練習 A(慢速版):5 → 1,每格「固定速度、只調重量」,加揉弦收尾。</td>
+            <td>每個接觸點的正確壓力——校準,不是習慣</td>
+          </tr>
+          <tr>
+            <td class="rowname">5 分鐘</td>
+            <td>練習 B(節拍器版):♩=50 起,一拍兩全弓,5 → 2。</td>
+            <td>比例在速度壓力同時變動時撐不撐得住</td>
+          </tr>
+          <tr>
+            <td class="rowname">2 分鐘</td>
+            <td>遷移:當週的合奏譜或曲目挑一句,同一句用接觸點 2、3、4 各拉一次。</td>
+            <td>練習能不能離開空弦活下來</td>
+          </tr>
+          <tr>
+            <td class="rowname">每週一次</td>
+            <td>手機錄一段固定選段 + 重做兩個自我檢測,記日期。</td>
+            <td>基準線有沒有動(同一段選段、同一個位置、標日期)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>這 20 分鐘是<strong>每次練習的第一段,不是「有空再說」的附加段</strong>。左手教材照走,但不能吃掉它。</p>
+  </section>
+
+<section>
+    <h2>松香</h2>
+    <p class="section-lede">全清單裡成本最低、最快能動的一項。這一節給的是選擇的理由與完整的操作程序——換新弓毛當天就用得到。</p>
+
+    <div class="callout correction">
+      <p class="callout-label">一個常見理由,查證後要修正</p>
+      <p>常見說法是「弦越粗用越軟」只適用於力量不足的人。查證後:「弦越粗、松香略軟」其實是<strong>廠商的正式通則</strong>(Hidersine 明寫,而且他們的中提琴專用配方就是為略粗的弦徑調的),跟力量足不足無關。而「重手該用偏硬松香」的證據其實偏弱——有來源支持(軟松香＋重弓臂＝多餘的表面噪音),但也有琴行說法相反(用力的人需要更抓的松香)。<span class="ev">〔證據等級:傾向,不是定律;自己試了算〕</span></p>
+      <p>真正站得穩的理由是<strong>氣候</strong>:深色松香較軟較黏、適合乾冷;淺色較硬較不黏、適合濕熱——六個獨立來源一致(Strings Magazine、CodaBow、Corilon、Hidersine、K.C. Strings、Kennedy)。台灣的夏天自己就把答案選好了。</p>
+    </div>
+
+    <p>所以結論不變、理由換掉:目標是<strong>中間偏淺的中提琴配方</strong>——氣候要求偏硬,C 弦要求別硬到底。Melos Viola Light 的官方定位剛好落在這格:抓弦是他們中提琴產品裡最柔的、絲滑溫暖、無雜訊無粉塵、<strong>特別做成耐高溫(春夏用)</strong>;Viola Dark 則是抓弦最強的秋冬款。官方也明說不同款可以混疊使用——所以冬天加 Dark 不用清毛重來。</p>
+
+    <div class="callout">
+      <p class="callout-label">但不要走到極端</p>
+      <p>中提琴的 C 弦確實需要一些抓力才不用「硬逼」它出聲(Hidersine:弦越粗、松香要略軟一點)。所以目標是<strong>中間偏淺</strong>,不是小提琴用的最硬那塊。試兩週,如果 C 弦的起音開始吃力,就往回一格。</p>
+    </div>
+
+    <h3>上松香:第一次(全新弓毛)</h3>
+    <p>先判斷師傅有沒有幫你「開」過毛(有些換毛師傅會用粉狀松香打底,但不是每家都做):拉一下空弦——<strong>毛白亮、滑、幾乎只有氣音</strong>=全新未上,照下面走;<strong>毛霧面、一拉就有基本抓力</strong>=已打底,直接跳到「分次建立」。</p>
+    <ol>
+      <li><strong>弓毛上緊到演奏張力</strong>,可以再略緊一點點。鬆的毛吃不均勻,松香還可能蹭到弓桿。全程<strong>不要用手指碰毛</strong>——油脂沾到的那段會永久吃不進松香。</li>
+      <li><strong>新的 Melos 表面若是光滑鏡面:先直接上。</strong>來回 20 下還完全掛不上去,再用<strong>硬幣邊緣</strong>輕劃十字紋到失去光澤即可。不要用砂紙——Melos 是純松脂手工塊,質地偏脆。(「要不要打粗」業界有分歧:CodaBow、Shar、Benning 說輕刮,Lashof 反對;折衷就是「先試、真不行再輕刮」。)</li>
+      <li><strong>分三段上,兩端加強</strong>(弓根和弓尖最不容易吃):弓根約 15 公分短距離來回 → 中段全長慢速長弓(約 1.5 秒一個弓長)→ 弓尖約 15 公分短距離來回。</li>
+      <li><strong>每一下把松香塊移一點位置或轉一下</strong>,避免磨出溝。<strong>不要快速來回猛擦</strong>——摩擦熱會把松香表面磨到發亮打滑,也傷毛。</li>
+      <li>累積 15–20 下就去弦上測試;不夠就繼續。<strong>總量 30–50 下、費時 3–5 分鐘都正常</strong>(各家琴行給的數字從 15 到 50 下都有,新毛吃量本來就大)。</li>
+      <li><strong>完成標準:</strong>拉過的弦上留下淡淡白痕,而且從弓根到弓尖<strong>整段</strong>都咬得住弦。</li>
+      <li>上完用擦琴布(不是擦弦那塊)把弓桿上的粉擦掉。</li>
+    </ol>
+
+    <h3>上松香:分次建立與日常維持</h3>
+    <ul>
+      <li><strong>不要想一次上到位。</strong>第一次上完後拉 10–20 分鐘讓松香吃進毛裡,再補 3–6 下,如此循環。頭兩三天每次練習前補幾下,之後就穩定了。過程中新毛可能把松香表面磨回發亮,必要時再輕刮一次。</li>
+      <li><strong>日常改用「症狀驅動」,不是「時間驅動」。</strong>主流琴行說每 3–5 小時演奏補 3–6 下,但 Strings Magazine 更保守:大多數人都上太多,每四五次練習補一次就綽綽有餘。下手偏重 + 淺色松香 + 台灣的夏天,採保守端:<strong>預設不補</strong>;開始打滑、發不出芯、要比平常用力才出聲,才補 3–4 下。</li>
+      <li><strong>「太多」的樣子:</strong>拉的時候有白粉雲、弓感發黏、音色渾濁沙沙。處理:用乾布把弦上的粉擦掉,正常拉半小時自然消耗——不要等它好,也不要再上。</li>
+      <li><strong>「沙沙聲」兩種情況都會出現,</strong>區分法:太多=黏滯、濁、帶粉塵;太少=空、滑、偶爾突然刮一下。</li>
+      <li><strong>Melos 熔點偏低</strong>(經銷商明確警告),別留在車上或窗邊——你的冷氣房存放沒有問題。</li>
+    </ul>
+
+    <h3>候選清單(中間偏淺帶,中提琴可用)</h3>
+    <div class="scroller">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">松香</th>
+            <th scope="col">定位</th>
+            <th scope="col">台灣取得</th>
+            <th scope="col">給你的註記</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="rowname">Melos Viola Light</td>
+            <td>官方:抓弦最柔、絲滑溫暖、耐高溫(春夏)</td>
+            <td>希爾提琴(台北,總代理)</td>
+            <td><strong>台灣夏天的預設起點。</strong>春夏用,耐高溫。</td>
+          </tr>
+          <tr>
+            <td class="rowname">Melos Viola Dark</td>
+            <td>官方:抓弦最強、飽滿(秋冬)</td>
+            <td>同上</td>
+            <td>冬天疊加調整用,官方明說可混。</td>
+          </tr>
+          <tr>
+            <td class="rowname">Gustave Bernardel</td>
+            <td>法國手工琥珀色,偏硬、低塵,四季通用</td>
+            <td>佳典等,約 NT$400</td>
+            <td>Light 之後最順手的第二塊:經典、便宜、抗濕熱。</td>
+          </tr>
+          <tr>
+            <td class="rowname">Hill Light</td>
+            <td>英國老配方,比 Hill Dark 略硬,通用三種提琴</td>
+            <td>常見進口品</td>
+            <td>再淺一格的選項——C 弦若因此吃力就退回。</td>
+          </tr>
+          <tr>
+            <td class="rowname">Pierre Guillaume</td>
+            <td>布魯塞爾弓製作家,琥珀透明、低塵、聲音強而順</td>
+            <td>進口(美國約 US$20)</td>
+            <td>製弓師系的中間款,評價穩定。</td>
+          </tr>
+          <tr>
+            <td class="rowname">Leatherwood Viola(Crisp)</td>
+            <td>澳洲訂製;Crisp 配方=果斷音頭、堅實抓弦、直率聲音(另有偏暖的 Supple,可指定比例混)</td>
+            <td>官方列台灣經銷 Chon Pei、Sun Yee;約 AUD$115</td>
+            <td>「錢不是問題」的那格。發悶的琴 + 要清晰音頭,官方就是這樣定位 Crisp 的。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+<section>
+    <h2>弦</h2>
+    <p class="section-lede">每個數字都對過 Thomastik 官方頁,兩處流傳的規格錯誤已修正,並附 2026 年的市場現況與台灣價格。</p>
+
+    <h3>查證結果:PI200 規格全數確認</h3>
+    <ul>
+      <li>整組張力(medium)<strong>25.6 kg</strong>;A 弦 PI21 <strong>碳鋼芯鉻纏</strong> 8.1 kg,D 弦正式編號是 <strong>PI22A</strong>(合成芯 chrome-combo 纏),G、C 合成芯銀纏各 5.6 kg。</li>
+      <li>張力以振動弦長 <code>37.0 cm</code> 為基準,適用到 <code>39.0 cm</code>;Rondo RO200 是 <code>36.0–39.0 cm</code>、整組 25.4 kg,略低於 PI。<strong>下單前先量自己的振動弦長。</strong></li>
+      <li>官方對 PI viola 的定位值得整段抄給你:聲音「非常有力量,但不過分大聲」,而且 <strong>chrome-combo 纏繞就是刻意設計來產生特定弓噪、把聲音送到房間最遠的角落</strong>。PI 這組弦,官方定位就是投射。</li>
+    </ul>
+
+    <div class="callout correction">
+      <p class="callout-label">高張力與弓壓:成立,但要補三個但書</p>
+      <p>「高張力弦較能承受弓壓、低張力弦容易被過度驅動」<strong>確認為真</strong>,而且有物理依據:最大弓壓與弦的特性阻抗成正比,同音高下阻抗與張力成正比——高張力弦的「壓死線」比較高。</p>
+      <p>但書一:<strong>最低弓壓的門檻也跟著變高</strong>(而且升得更快),所以高張力弦反應較鈍、弱奏較費力——它給你更高的天花板,不是更寬的容錯區。但書二:上下限同樣由弓速與接觸點決定,<strong>換弦不能取代運弓修正</strong>。但書三:張力超過樂器負荷時聲音變暗變悶、失去光彩,極端時面板可能不可逆下陷(Thomastik 自己的警告)——上限是<strong>樂器的</strong>,不是弦的。</p>
+    </div>
+
+    <div class="callout">
+      <p class="callout-label">主導弦:一個可以白拿的投射機制</p>
+      <p>Thomastik 官方:中提琴的「主導弦」是 <strong>G 弦</strong>,建議把它選得比其他弦主觀上亮 5–10%、更金屬感——可以提升整組的音色壽命與亮度;<strong>主導弦弓噪較多時,整把琴的投射能力會上升</strong>。如果只想動一條弦,先想 G。</p>
+    </div>
+
+    <h3>路線比較(右手穩定之後再啟動)</h3>
+
+    <div class="scroller">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">路線</th>
+            <th scope="col">組合</th>
+            <th scope="col">聲音走向</th>
+            <th scope="col">給你的註記</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="rowname">維持現狀</td>
+            <td>PI200 全套<span class="sub">PI21 PI22A PI23 PI24 · NT$4,600(長弓 2026-08)</span></td>
+            <td>集中、弓下反應直接、官方投射取向。A 弦碳鋼芯,起音最明確。</td>
+            <td><strong>右手重建期的正解。</strong>先把變數固定住,才判斷得出技術的進展。</td>
+          </tr>
+          <tr>
+            <td class="rowname">補低音體積</td>
+            <td>PI 的 A、D + Rondo 的 G、C<span class="sub">PI21 PI22A + RO23 RO24</span></td>
+            <td>Thomastik <strong>官方寫在 Rondo 頁上的組合</strong>:增強飽滿寬廣的性格與音色溫暖。</td>
+            <td>業餘中提聲部最常缺的就是低音域的體積。機制修好後的第一順位。</td>
+          </tr>
+          <tr>
+            <td class="rowname">樂團穿透</td>
+            <td>Spirocore 鎢纏 C(S24)+ 鉻纏 G(S20)<br>+ Larsen A</td>
+            <td>螺旋鋼芯,能量密度高,職業界的傳統力量組合。</td>
+            <td><strong>規格更正:中提琴 Spirocore 鎢纏只有 C 弦</strong>,G 只有鉻纏或銀纏——流傳的「鎢 C、G」組合不存在。適應期數週、音色偏金屬。</td>
+          </tr>
+          <tr>
+            <td class="rowname">氣候取向的新選項</td>
+            <td>Thomastik Dynamo DY200<span class="sub">NT$4,780</span></td>
+            <td>深沉有力、動態寬,官方標榜<strong>耐溫濕度變化</strong>。</td>
+            <td>2026 市場的新變數:對台灣氣候是明確賣點。另有 Rondo Gold(RG200,更暖更亮澤,NT$5,000)與 Pirastro Perpetual(官方主打音量與投射)。先知道就好,不是現在的事。</td>
+          </tr>
+          <tr>
+            <td class="rowname">只換 A</td>
+            <td>PI200 + Larsen 或 Jargar A</td>
+            <td>改變高音的集中度,其餘不動。Larsen Original A:鋼芯,soft/medium/strong 三張力。</td>
+            <td>改動最小的實驗。想試點什麼又不想大動的時候用這個。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>買弦與用弦時仍然成立的事</h3>
+    <ul>
+      <li><strong>換弦頻率沒有官方小時數。</strong>Thomastik 的正式立場是「沒有固定規則,相信耳朵」——尤其五度純度跑掉就該換。琴行的經驗法則約 <strong>120 個演奏小時</strong>(或業餘 4–9 個月一輪)。<span class="ev">〔120 小時是琴行通說,非原廠數字〕</span></li>
+      <li><strong>PI 的音準穩定是官方 5 小時</strong>(Vision/Rondo/PI 同級),不是常說的 3–7 天;音色成熟(break-in)另計,換完弦拉幾天再評價音色仍是對的。A 弦(鋼芯)裝上即可用。</li>
+      <li>照壽命決定囤貨比例:A 弦最先陣亡,C 弦最耐。</li>
+      <li>官方儲存建議(對弦):<strong>40–60% RH、20–25°C</strong>;原廠袋裝可放多年不減品質。銀纏 G、C 在袋裡變黑只是外觀,不影響聲音,也不要用化學藥劑或鋼絲絨清。防潮箱如果設得比 40% 乾,對弦沒有實害——真正的限制在琴,不在弦(見保養節奏)。</li>
+      <li>台灣參考價(長弓弦樂,2026-08):PI200 NT$4,600、Rondo NT$4,390、Dynamo NT$4,780、Rondo Gold NT$5,000、Vision Solo NT$3,430、Dominant NT$3,130;Spirocore 單弦 NT$615–1,650。</li>
+    </ul>
+  </section>
+
+<section>
+    <h2>弓</h2>
+    <p class="section-lede">選弓的規格條件(硬度優先、有原廠依據)、台灣可行的三條路徑,以及一個重要的觀念更正:硬度和重量是兩回事。</p>
+
+    <h3>硬度比重量重要——而且兩者不是同一件事</h3>
+    <p>CodaBow 官方選弓教育頁的原則:<strong>較強韌(stiffer)的弓,承受得住強力型演奏者常用的持續弓速與較重的手臂重量</strong>;較軟的弓適合輕柔、低壓力的演奏。官方公布的標準弓重:小提琴 <code>58–62 g</code>、中提琴 <code>68–72 g</code>。</p>
+    <div class="callout">
+      <p class="callout-label">觀念更正:硬 ≠ 重</p>
+      <p>證據是 Arcus:他們的中提琴弓只有約 <code>61 g</code>(遠輕於標準),卻是市場上最硬的弓桿之一——官方直接說木弓「太軟、太重」。所以選弓時要問的是<strong>弓桿的硬度(stiffness)</strong>,不是拿重量當代理指標。「偏好重弓」這種自述,通常只證明了需要中提琴弓,不證明需要重的中提琴弓——這個偏好要等右手穩定、拿真弓比過才算數。</p>
+    </div>
+
+    <h3>候選對照(價格為 2026-08 官網現價)</h3>
+
+    <div class="scroller">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">型號</th>
+            <th scope="col">USD / Thomann EUR</th>
+            <th scope="col">官方規格與描述</th>
+            <th scope="col">保固</th>
+            <th scope="col">判斷</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="rowname">Diamond GX</td>
+            <td>922.5 特價<span class="sub">原價 1,025 / €1,129</span></td>
+            <td>常規重量與平衡、Diamond 線最高階,豐厚有力、反應靈敏</td>
+            <td>終身</td>
+            <td><strong>盲買的最佳解。</strong>位置最中間、最多人用、保固最長,買錯的下限最高。</td>
+          </tr>
+          <tr>
+            <td class="rowname">Joule</td>
+            <td>885<span class="sub">€969</span></td>
+            <td>官方規格:<strong>Medium-Heavy、Center-Tip 平衡、Medium-Stiff</strong>——比標準中提琴弓重,抓弦厚實</td>
+            <td>10 年</td>
+            <td>規格方向誘人,但比標準中提琴弓重。<strong>不建議盲買,試過才買。</strong></td>
+          </tr>
+          <tr>
+            <td class="rowname">Diamond SX</td>
+            <td>755<span class="sub">€829</span></td>
+            <td>平衡點微移向弓根,音色聚焦,官方說適合戶外與吵雜場地「切穿音牆」</td>
+            <td>10 年</td>
+            <td>省 170 美元換掉終身保固。價差不大,不划算。</td>
+          </tr>
+          <tr>
+            <td class="rowname">Diamond NX</td>
+            <td>468 特價<span class="sub">原價 520 / €579</span></td>
+            <td>官方明寫「更硬更強的弓桿、更高重量」,給進階者穩定度</td>
+            <td>10 年</td>
+            <td>黑馬備案:官方描述最貼近「更硬更重」的需求,價格不到 GX 一半。當「試水溫的第一支硬弓」考慮。</td>
+          </tr>
+          <tr class="out">
+            <td class="rowname">Marquis GS</td>
+            <td>1,495<span class="sub">€1,555</span></td>
+            <td>官方:「Supple in the hand」;經銷商:比 Diamond 系列更柔韌</td>
+            <td>終身</td>
+            <td>硬度方向錯誤,而且最貴。出局。</td>
+          </tr>
+          <tr class="out">
+            <td class="rowname">Luma</td>
+            <td>885<span class="sub">€969</span></td>
+            <td>官方規格:<strong>Medium-Light、Medium-Soft</strong>、Center-Frog 平衡,輕快敏捷取向</td>
+            <td>10 年</td>
+            <td>重量偏輕、官方硬度規格也偏軟——<strong>對重手雙重出局</strong>。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout correction">
+      <p class="callout-label">查證推翻:in-home trial 不寄台灣</p>
+      <p>常見的誤解是「官網沒說限美國境內」——錯,只是沒寫在 FAQ 那頁。官方 trial 主頁明寫:<strong>「美國境外的演奏者,我們目前無法提供 In-Home Trials。」</strong>(條款細節倒是全對:7 天、最多 6 支、單次 50 美元不退、來回運費他們出。)「寄信去問」這步取消。</p>
+    </div>
+
+    <h3>取而代之的三條路徑(依序試)</h3>
+    <ol>
+      <li><strong>帕羅提琴試弓。</strong>查證更新(2026-08):CodaBow 官方經銷資料全球 415 家,<strong>台灣唯一授權經銷是帕羅提琴 Pyro Violin</strong>(竹北總部,苗栗、台南有分店),自稱獨家代理,官網明列提供試奏服務。這條路徑從「碰運氣」變成「有明確目的地」——先電話詢 Diamond GX viola 公司貨報價與現貨,能試奏就把前面所有規格推論當場驗證掉。<strong>公司貨才啟動得了保固。</strong></li>
+      <li><strong>Thomann 訂購。</strong>14 個 CodaBow 中提琴弓品項都有上架(GX €1,129、Joule €969、SX €829);一次五分鐘的結帳測試就會告訴你能不能寄台灣、運費稅費多少。注意:<strong>CodaBow 保固只對授權通路有效,且須在購買後 90 天內註冊</strong>;Thomann 是授權經銷。</li>
+      <li><strong>盲買 Diamond GX。</strong>試不到就買規格最中間、保固終身的那支。保固維修一律寄回美國明尼蘇達州 Winona——所以終身保固實務上是「早期製造瑕疵的保險」,不是持續服務。關稅與 5% 營業稅要算進總價,下單前確認是否 DDP 含稅到府。</li>
+    </ol>
+
+    <div class="callout">
+      <p class="callout-label">蝦皮等第三方賣家(水貨)的檢核法</p>
+      <p>公開網路上查不到任何 CodaBow 假貨案例——這個價位帶的真實風險不是仿造,而是<strong>真品但非授權通路 → 保固不啟動</strong>(官方條款原文:非授權通路或二手購買「保固不予啟動」)。台灣蝦皮常見價約落在美國零售價(GX viola 定價 $1,025、特價 $922.50 ≈ NT$29,000-32,000)——<strong>沒有水貨折扣,又沒有終身保固</strong>。真要買:下單前要賣家書面確認貨源與保固能否註冊;收貨立刻拆蛙看序號(在弓桿底面、蛙下方)、秤重(GX viola 約 70 g)、核對 Xebony 蛙 / 純銀纏線 / 山羊皮握把;<strong>馬上上 codabow.com 註冊</strong>——註冊要序號和購買證明,本身就是免費的真偽與通路驗證,而且有 90 天硬期限;有問題就趕在蝦皮鑑賞期內退。</p>
+    </div>
+
+    <h3>CodaBow 之外的硬弓備案</h3>
+    <ul>
+      <li><strong>JonPaul Corona</strong>(約 US$852):官方描述「firm stick、深弧度、平衡與力量」——JonPaul 家最明確的硬取向。注意同廠的 Avanti 是「sensitive stick、甜暖」,方向不同,別買錯支。</li>
+      <li><strong>Arcus T 系列</strong>(€1,650 起):輕而極硬的另一種哲學,T 系列官方就是為 37 cm 弦長的中型中提琴調的;預算上探時值得一試,台灣有些琴行有現貨。</li>
+      <li><strong>Müsing C 系列</strong>(約 US$560 起):Arcus 副牌,中空碳纖桿。入門硬弓的低價位選項。</li>
+      <li><strong>備援問題順便解決:</strong>買了主力碳纖弓之後,配置變成「碳纖主弓、原本那支木弓備援」,不需要另外買便宜弓。</li>
+    </ul>
+  </section>
+
+<section>
+    <h2>琴師的 brief</h2>
+    <p class="section-lede">買琴時琴師調過,不代表現在的設定還對:setup 是調給人和用途的,不是琴的固有屬性——製琴師自己的原則是「調整要對著你和你的弓,不是對著琴」(Fein),而且試琴間和樂團是兩種聲場。演奏方式有了明確側寫之後,值得回診一次。</p>
+
+    <p>回去的時候不要說「幫我調大聲一點」。如果你下手偏重,說這句:</p>
+
+    <blockquote class="script">「我下手偏重。這把琴吃得下嗎,還是會被我壓死?」</blockquote>
+
+    <p>這是一個可以直接往那邊調的診斷目標。音柱太緊的琴聲音會被掐住、發硬,而且要更多弓速或弓壓才推得動(Fein);太緊還會增加面板裂痕的風險。有趣的是製琴師 Dilworth 的觀察:<strong>太鬆的聲音跟太緊出奇地像</strong>——都是緊縮、空洞、無共鳴。正確的張力只比「不會倒」再緊一點(Darnton)。這正是只有製琴師當場能裁決的事。</p>
+
+    <div class="callout correction">
+      <p class="callout-label">音柱方向:最常被說反的那件事</p>
+      <p>流傳的說法是「音柱往琴橋靠會讓低音更出來、音色變亮」。查證結果:「變亮」對,「低音更出來」是誤傳(只有一家琴行文案這樣寫,三個獨立製琴師來源都相反)。正確的地圖分三個軸:</p>
+      <ul>
+        <li><strong>前後軸:</strong>靠橋=更亮、更緊、更大聲,太近會刺耳、高音弦過強;離橋=更暗、更圓潤鬆軟,太遠空洞無力。</li>
+        <li><strong>左右軸:</strong>往琴體中線移=<strong>偏向低音弦(G、C)</strong>、音色變暖變暗;往外(f 孔方向)=高音側加強、更集中清晰,代價是溫暖度。</li>
+        <li><strong>鬆緊軸:</strong>見上文。</li>
+      </ul>
+      <p>所以「C、G 更出來」的正確要求方向是<strong>左右軸往中線</strong>(或前後軸稍離橋),不是往橋。0.25–0.5 mm 就聽得出差別,1 mm 已是大調整。標準起點:音柱在高音側橋腳後方約 2.5 mm、腳內緣內約 0.5–1 mm、絕對垂直(Dilworth/Darnton)。</p>
+    </div>
+
+    <h3>同一次順便處理</h3>
+    <ul>
+      <li><strong>實際用樂團的音量拉給他聽</strong>,不要客氣地拉。他要聽的是你真正的輸入。</li>
+      <li><strong>指名問 C 弦和 G 弦的反應</strong>,並用上面的三軸語言跟他討論方向。</li>
+      <li><strong>問音柱的貼合,不只是位置。</strong>兩端有沒有削合面板背板的弧度——貼合不良的音柱聲音貧血,這比位置更常被忽略。</li>
+      <li><strong>問他當初是用什麼弦調的。</strong></li>
+      <li><strong>檢查琴橋。</strong>是否垂直(靠尾板那面與面板約成直角,可用名片當直角規比)、有無翹曲(直尺貼橋背,中間會搖就是警訊)、腳的貼合。調音柱之前這些要先排除。</li>
+      <li><strong>帶弓一起去。</strong>弓桿弧度和螺絲眼圈的磨損自己看不出來;而且調整本來就該對著你的弓做。</li>
+    </ul>
+
+    <h3>時機</h3>
+    <p>先跟老師練三到六個月的右手,期間換一輪弦、拉兩週穩定下來,再帶去。這樣他調的是實際要用的配置,而且到時候描述問題的能力會好很多。台灣的季節濕度變化會改變面背板弧度與音柱鬆緊——<strong>換季時值得回去讓他快速檢查一次</strong>,這不是重調,是校準。</p>
+  </section>
+
+<section>
+    <h2>保養節奏</h2>
+    <p class="section-lede">按頻率排列。標記 <span style="color:var(--accent);font-family:var(--font-mono);font-size:0.85em;">◆</span> 的是<strong>下手偏重的人要特別留意</strong>的項目。換弦採時數基準(不是「每三個月」),換毛頻率對回原廠說法。</p>
+
+    <div class="cadence">
+
+      <div class="beat">
+        <div class="beat-when">每次練完<small>約 2 分鐘</small></div>
+        <ul>
+          <li><strong>鬆弓毛。</strong>鬆到弓毛不再繃緊即可,不要鬆到弓毛垮下來脫出。</li>
+          <li><strong>擦弦。</strong>把松香粉擦掉,這是弦壽命最大的單一變數。</li>
+          <li><strong>擦琴身和弓桿。</strong>松香粉累積在漆面上久了會咬進去。</li>
+          <li><strong>兩塊布分開用。</strong>擦弦的布沾滿松香和汗,不要碰漆面。</li>
+        </ul>
+      </div>
+
+      <div class="beat">
+        <div class="beat-when">每週</div>
+        <ul>
+          <li><strong>檢查琴橋是否垂直。</strong>靠尾板那一面應與面板約成 90 度(名片立在側板邊當直角規比對)。機制:振動弦長的 6/7 在橋前、1/7 在橋後,調音時鬆緊主要發生在弦枕與橋之間,會慢慢把橋上緣往指板方向拉(Gusset)。放著不管,橋腰受力翹曲甚至斷裂。</li>
+          <li><strong>◆ 看弓毛。</strong>重手斷毛較快、磨損也較不均。斷毛集中在單側代表施力不均——這本身就是右手診斷資料。</li>
+          <li><strong>檢查微調器和尾繩有無鬆動。</strong></li>
+        </ul>
+      </div>
+
+      <div class="beat">
+        <div class="beat-when">每月</div>
+        <ul>
+          <li><strong>敲邊緣聽開膠。</strong>用指節沿琴身邊緣輕敲一圈,聲音應該一致;某處變悶或有雜音就可能是開膠。台灣的濕度變化下不罕見。只能由製琴師用可逆的動物膠修——<strong>絕對不要自己用家用膠</strong>,會永久破壞聲學性質。</li>
+          <li><strong>◆ 檢查琴橋有無翹曲。</strong>直尺貼橋背,中間會搖=警訊;靠尾板側橋腳下出現小縫=已在前傾。下手偏重加上中高張力弦會加速這件事。輕微歪斜可請琴師扶正(自己硬扳會斷),但扶正是暫時的——木頭會記得原形,彎過頭就該換橋。</li>
+          <li><strong>清弦。</strong>頑固的松香垢可用極少量酒精沾微纖布(幾滴、擰乾),擦完立刻用另一塊乾布擦乾;<strong>酒精絕對不能碰漆面</strong>——傳統提琴漆一碰就溶。</li>
+          <li><strong>潤滑溝槽。</strong>鉛筆芯在上弦枕和琴橋的弦槽抹一下,減少卡弦和斷弦——換弦時順手做最方便。</li>
+          <li><strong>檢查腮托、肩墊的螺絲。</strong>夾具鬆掉會有雜音,鎖太緊會壓迫面板。</li>
+        </ul>
+      </div>
+
+      <div class="beat">
+        <div class="beat-when">◆ 換弦<small>時數基準</small></div>
+        <ul>
+          <li><strong>基準:約 120 個演奏小時,或聽耳朵。</strong>Thomastik 官方沒有小時數,立場是「相信耳朵」——五度純度跑掉、反應變鈍就換;120 小時是琴行通用的經驗法則。以每天一小時計,大約 4 個月一輪。</li>
+          <li><strong>一次換一條,不要四條全拆</strong>——琴橋靠弦張力站著,全拆橋會倒,音柱也可能倒。</li>
+          <li><strong>換完的判斷時間:</strong>PI 音準穩定官方數字是約 5 小時;音色成熟再給幾天。有演出就提前一到兩週換,絕對不要演出前三天換。</li>
+        </ul>
+      </div>
+
+      <div class="beat">
+        <div class="beat-when">◆ 換弓毛<small>6–12 個月,看訊號</small></div>
+        <ul>
+          <li><strong>頻率對回原廠與琴行:</strong>CodaBow 官方對碳纖弓的建議是 6–12 個月;Johnson String:休閒玩家一年一次、每天長時間拉的 3–6 個月。你介於中間,<strong>以訊號為準、往 6 個月那端抓</strong>:音色變刮、松香吃不上、弓毛拉不緊、有霉味、斷毛變頻繁。</li>
+          <li>不要自己換,交給製琴師。</li>
+          <li><strong>絕不用手指碰弓毛;斷毛用剪的,不要用拔的</strong>(拔會鬆動弓尖和弓根的楔子,貼根剪掉就好)。</li>
+          <li><strong>弓毛髒到發膩</strong>(通常是汗)代表該換毛了,不要自行用酒精洗毛。</li>
+          <li><strong>不要長期上緊放在盒裡。</strong>弓桿的弧度靠熱處理定型,長期受力會失去回彈。</li>
+        </ul>
+      </div>
+
+      <div class="beat">
+        <div class="beat-when">每年</div>
+        <ul>
+          <li><strong>製琴師全面檢查。</strong>音柱位置與貼合、琴橋厚度弧度、指板是否需要刨修、開膠、尾繩;弓一起送去。</li>
+          <li>這是投報率最高的一筆支出,比任何一組弦都高,而且效果留在琴上。</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <h3>環境</h3>
+    <ul>
+      <li><strong>樂器目標 40–60% RH</strong>(製琴師 Burgess 與 Strings Magazine 一致)。太乾:木頭收縮、面板受張力,是裂痕與開膠的完美條件,音柱也會變得過緊;太濕:音柱失去立足點、聲音變糊軟。Burgess:台灣這種濕度環境,<strong>除濕到 60% 就足以保琴的健康</strong>——長時間開冷氣的房間本身通常就落在安全範圍。</li>
+      <li><strong>琴不要跟備用弦一起追低濕。</strong>弦的官方儲存建議也是 40–60%,但弦更乾不會壞;<strong>琴</strong>低於 40% 才有風險。防潮箱要放琴的話設 45–55%。</li>
+      <li><strong>琴盒裡放濕度計。</strong>唯一能讓你事前發現問題的東西。</li>
+      <li><strong>不要留在車上</strong>——琴和 Melos 松香都怕(Melos 熔點偏低)。</li>
+      <li><strong>到演出場地後開盒靜置 15–20 分鐘再拉。</strong>溫差會讓琴走音,也會讓金屬弦表面結露。</li>
+    </ul>
+  </section>
+
+<section>
+    <h2>該找製琴師的訊號</h2>
+    <ul>
+      <li><strong>聲音突然變悶</strong>,或某條弦特別弱、特別容易狼音 → 音柱可能移位。只有製琴師能動。</li>
+      <li><strong>換弦後平衡跑掉</strong> → 不同張力可能需要音柱微調。換路線時一併處理。</li>
+      <li><strong>加力量之後音量不再增加、聲音發硬被掐住</strong> → 與「音柱太緊」的描述一致(太緊=聲音 choke、要更多弓壓才推得動)。<span class="ev">〔間接推論:沒有來源直接寫「音量天花板=音柱太緊」,但兩端描述互相吻合〕</span>值得帶著這個症狀去問。</li>
+      <li><strong>琴橋歪了或翹了</strong> → 輕微歪斜可扶正(最好讓琴師做),已彎成弧形的要換,硬扳會斷。</li>
+      <li><strong>邊緣敲起來有雜音</strong> → 開膠。結構問題,會擴大。</li>
+    </ul>
+    <p>另外:調整音柱之前,先確認琴橋置中、與面板垂直、腳貼合。這些沒排除就動音柱是本末倒置,而且音柱放錯位置的風險很高。</p>
+  </section>
+<footer>
+    <h2>資料來源</h2>
+    <p style="max-width:46rem;font-size:0.84rem;">本版所有引述與數字均出自 2026 年 8 月實際開啟驗證過的頁面;無法開啟原站者已標明轉載來源。價格與政策以查證日為準。</p>
+
+    <h3>姊妹文件</h3>
+    <ul>
+      <li><a href="./resources.html">台灣中提琴學習資源地圖</a>——師資與課程行情、身體工作、教材與線上平台、樂譜行、練習硬體、弓與琴的通路、樂器保險、成人室內樂營。這一份講「為什麼」,那一份講「去哪裡買、多少錢」。</li>
+    </ul>
+
+    <h3>發聲教學(Fischer)</h3>
+    <ul>
+      <li><a href="https://www.simonfischeronline.com/uploads/5/7/7/9/57796211/206_aug_tone.pdf">Fischer — Basics: Tone(The Strad 2008-08)</a>(三要素、speed not pressure、lift the sound、慢速版練習)</li>
+      <li><a href="https://www.simonfischeronline.com/uploads/5/7/7/9/57796211/073tone.pdf">Fischer — Basics: Tone production(The Strad 1997-07)</a>(比例、接觸點 1–5 編號、節拍器版練習)</li>
+      <li><a href="https://www.simonfischeronline.com/store/p8/TONE_-_Experimenting_with_proportions.html">Fischer — Tone 官方商店</a>(£20,有 Viola 版)· <a href="https://www.simonfischeronline.com/tone-experimenting-with-proportions.html">書與 DVD 的關係</a></li>
+      <li><a href="https://web.archive.org/web/2020/https://www.violinist.com/blog/laurie/201012/11884/">Violinist.com 訪談(2010,Wayback 存檔)</a>(DeLay ← Galamian ← Capet 傳承,Fischer 自述)</li>
+    </ul>
+
+    <h3>物理與投射</h3>
+    <ul>
+      <li><a href="https://www.repository.cam.ac.uk/bitstream/handle/1810/245817/OA-1506_Violin.pdf?sequence=1">Woodhouse — The acoustics of the violin: a review(2014,開放取用)</a>(Helmholtz 運動、弓壓上下限、raucous/surface sound、弓噪與獨奏穿透)</li>
+      <li><a href="http://knutsacoustics.com/files/schelleng-in-retrospect.pdf">Schoonderwaldt–Guettler–Askenfelt — Schelleng in retrospect(ISMA 2007)</a>(公式、實測:上限 ∝ 弓速、下限與弓速無關)</li>
+      <li><a href="https://euphonics.org/9-3-1-shellengs-bow-force-limits/">Euphonics(Woodhouse)— Schelleng's bow force limits</a>(F_max ∝ Z₀、Z₀=√(Tm))</li>
+      <li><a href="https://knutsacoustics.com/files/The-Sound-Sculpturing-bow-CISM_7opl67i1.pdf">Guettler — A Sound-Sculpturing Wand</a>(raucous 模式輸出 +12 dB)</li>
+      <li><a href="https://josephcurtinstudios.com/wp-content/uploads/2017/05/listener_evaluations.pdf">Fritz, Curtin 等 — Listener evaluations of new and Old Italian violins(PNAS 2017, doi:10.1073/pnas.1619443114;作者自存稿)</a>(投射與耳邊音量同向、演奏者判斷七成準)</li>
+      <li><a href="https://utoronto.scholaris.ca/server/api/core/bitstreams/395ea65c-858d-4e39-89cb-6334841bcc04/content">McLeod(U. Toronto DMA 論文)</a>(Auer/Flesch 論過壓;Trendelenburg 1925 實驗轉引)</li>
+      <li><a href="https://newt.phys.unsw.edu.au/jw/Bows.html">UNSW — Bows and strings</a>(弓速決定振幅、靠橋容錯變窄)</li>
+    </ul>
+
+    <h3>中提琴教學與聲學</h3>
+    <ul>
+      <li><a href="https://stringsmagazine.com/6-simple-ways-to-improve-your-viola-tone-production/">Strings Magazine — 6 Ways to Improve Viola Tone(Heather K. Scott 報導 Helen Callus 教學)</a>(手臂重量取代食指壓力)</li>
+      <li><a href="https://www.thestrad.com/news/a-method-for-viola-playing-according-to-karen-tuttle/10256.article">The Strad — Karen Tuttle 的方法</a>(coordination、release、arm weight)</li>
+      <li><a href="https://thestrad.com/5-tips-for-viola-teachers-by-juilliard-school-professor-michael-tree/126.article">The Strad — Michael Tree 的五個建議</a>(C/G 反應慢、壓進弦、全弓毛)</li>
+      <li><a href="https://www.kimkashkashian.com/guidelines-for-violists/">Kim Kashkashian — Guidelines for Violists</a>(重力槓桿、弦引導弓)</li>
+      <li><a href="https://courses.physics.illinois.edu/phys406/sp2017/NSF_REU_Reports/2012_reu/Meredith_Powell/Meredith_Powell_Final_Paper.pdf">Powell — Viola acoustics(UIUC PHYS406 報告)</a>(共振落在空弦之間、220 Hz 空氣共振)</li>
+      <li><a href="https://en.wikipedia.org/wiki/Viola">Wikipedia — Viola</a>(51 cm 聲學等比數字)· <a href="https://en.wikipedia.org/wiki/Vertical_viola">Vertical viola</a>(Hutchins 的修正方案)</li>
+    </ul>
+
+    <h3>弓(CodaBow 與替代品牌)</h3>
+    <ul>
+      <li><a href="https://www.codabow.com/collections/viola-bows">CodaBow — Viola Bows 總覽(現價)</a> · <a href="https://www.codabow.com/products/joule-viola">Joule</a> · <a href="https://www.codabow.com/products/luma-viola">Luma</a> · <a href="https://www.codabow.com/products/marquise-gs-viola">Marquise GS</a>(官方 Balance/Weight/Stiffness 規格)</li>
+      <li><a href="https://www.codabow.com/pages/bow-types-and-bow-education">CodaBow — 選弓教育頁</a>(硬弓與臂重的對應、各樂器標準弓重)</li>
+      <li><a href="https://www.codabow.com/pages/warranty-information">CodaBow — 保固</a>(終身/10 年/5 年、90 天註冊、Winona 送修)· <a href="https://www.codabow.com/pages/codabow-trial">In-Home Trial</a>(限美國的原文)</li>
+      <li><a href="https://electricviolinshop.com/blogs/buying-guides/a-guide-to-codabow-violin-viola-cello-bow-models">Electric Violin Shop — CodaBow 型號指南</a>(Joule 弓尖配重、GS 比 Diamond 柔的出處)</li>
+      <li><a href="https://www.thomann.de/ie/codabow_bows_for_violas.html">Thomann — CodaBow 中提琴弓(歐元價)</a> · <a href="https://pyroviolin.com/technology-codabow/">帕羅提琴 — CodaBow 台灣獨家代理聲明</a> · <a href="https://www.codabow.com/a/store-locator/list">CodaBow — Find a Dealer</a>(官方經銷資料:台灣僅帕羅提琴一家)</li>
+      <li><a href="https://www.arcus-muesing.de/en/products/violabows/t-series.html">Arcus — 中提琴弓 T 系列</a>(輕而硬的反例)· <a href="https://fiddlershop.com/products/jonpaul-corona-viola-bow">JonPaul Corona</a> · <a href="https://fiddlershop.com/products/musing-viola-bows">Müsing C 系列</a></li>
+    </ul>
+
+    <h3>弦(Thomastik 官方與市場)</h3>
+    <ul>
+      <li><a href="https://www.thomastik-infeld.com/en/products/orchestral-strings/viola/peter-infeld">Thomastik — PI viola 規格</a> · <a href="https://www.thomastik-infeld.com/en/new-releases/peter-infeld/viola">PI viola 定位(弓噪與投射)</a></li>
+      <li><a href="https://www.thomastik-infeld.com/en/products/orchestral-strings/viola/rondo">Thomastik — Rondo viola 規格</a> · <a href="https://www.thomastik-infeld.com/en/new-releases/rondo/viola">官方混搭建議(PI A/D + Rondo G/C)</a></li>
+      <li><a href="https://www.thomastik-infeld.com/en/products/orchestral-strings/viola/spirocore">Thomastik — Spirocore viola</a>(鎢纏只有 C = S24)</li>
+      <li><a href="https://www.thomastik-infeld.com/en/stringtelligence/tutorial-videos/how-should-i-store-my-strings">Thomastik — 弦的儲存(40–60% RH)</a> · <a href="https://www.thomastik-infeld.com/en/stringtelligence/tutorial-videos/how-often-should-i-change-my-strings">多久換弦(相信耳朵)</a> · <a href="https://www.thomastik-infeld.com/en/stringtelligence/before-and-after-playing/how-much-time-is-needed-to-achieve-pitch-stability">音準穩定時間(PI 約 5 小時)</a> · <a href="https://www.thomastik-infeld.com/en/stringtelligence/before-and-after-playing/how-can-i-improve-the-life-span-of-my-strings">主導弦與壽命</a></li>
+      <li><a href="https://larsenstrings.com/original-viola/">Larsen — Original viola</a> · <a href="https://shop.thomastik-infeld.com/category/orchestral/viola/jargar-classic-viola/">Jargar Classic viola(官方商店)</a></li>
+      <li><a href="https://fiddlershop.com/products/thomastik-dynamo-viola-string-set">Dynamo viola(DY200)</a> · <a href="https://fiddlershop.com/products/thomastik-rondo-gold-viola-string-set">Rondo Gold viola(RG200)</a> · <a href="https://stringsmagazine.com/pirastro-completes-perpetual-line-with-new-perpetual-viola-strings-designed-for-volume-and-projection/">Strings Magazine — Perpetual viola</a> · <a href="https://www.sharmusic.com/products/evah-pirazzi-gold-viola-string-set">Shar — EP Gold viola</a></li>
+      <li><a href="https://www.thestrad.com/accessories/stringtelligence-by-thomastik-infeld-vibrating-string-length-and-string-tension/9132.article">The Strad × Stringtelligence — 張力與樂器負荷</a> · <a href="https://warchal.com/help/">Warchal — 張力與音量/泛音</a> · <a href="https://britishviolasociety.co.uk/a-rough-guide-to-viola-strings-by-william-castle/">British Viola Society — Castle 的中提琴弦指南</a></li>
+      <li><a href="https://www.sharmusic.com/blogs/all/how-to-know-when-its-time-to-change-your-violin-strings">Shar — 何時換弦(120 小時經驗法則)</a> · <a href="https://www.longwaymusic.com.tw/categories/thomastik-va-strings">長弓弦樂 — Thomastik 中提琴弦台灣價</a></li>
+    </ul>
+
+    <h3>松香</h3>
+    <ul>
+      <li><a href="https://stringsmagazine.com/the-differences-between-dark-and-amber-rosin/">Strings Magazine — Dark vs Amber</a> · <a href="https://blog.codabow.com/news/violin-rosin-types/">CodaBow — 松香種類</a> · <a href="https://www.corilon.com/us/library/practical-issues/violin-rosin-guide">Corilon — 松香指南</a> · <a href="https://www.kcstrings.com/blogs/news/rosin-101-a-quick-guide-to-selecting-the-perfect-fit-for-your-instrument">K.C. Strings — Rosin 101</a>(氣候規則的多來源)</li>
+      <li><a href="https://www.hidersine.com/education/blog/item/133-how-to-choose-the-best-rosin-for-your-violin-viola-cello-or-double-bass">Hidersine — 選松香</a>(弦越粗、松香略軟的廠商通則)· <a href="https://store.fisherviolins.com/collections/guide-to-viola-rosin">Fisher Violins — 中提琴松香指南</a></li>
+      <li><a href="https://melosrosin.gr/product/melos-rosin-viola-light/">Melos — Viola Light 官方頁</a> · <a href="https://melosrosin.gr/product/melos-rosin-viola-dark/">Viola Dark</a>(官方定位;官方無使用說明,操作程序取自下列琴行/製弓師來源)</li>
+      <li><a href="https://blog.codabow.com/news/the-bow-makers-guide-to-applying-rosin-on-a-bow/">CodaBow — 上松香指南</a> · <a href="https://adbowsllc.com/2020/02/02/starting-a-bow-with-rosin/">AD Bows — 新弓開毛</a> · <a href="https://blog.sharmusic.com/blog/bid/89254/Getting-the-Most-Out-of-Your-Bow">Shar — 弓的使用</a> · <a href="https://blogs.stringovation.com/how-to-rosin-your-bow">StringOvation</a> · <a href="https://kennedyviolins.com/blogs/education-center/how-to-rosin-a-new-bow">Kennedy — 新弓上松香</a> · <a href="https://www.benningviolins.com/players/the-right-and-wrong-ways-to-use-bow-rosin.html">Benning — 松香的對錯用法</a> · <a href="https://www.lashofviolins.com/scratching-rosin.htm">Lashof — 反對刮松香的一方</a></li>
+      <li><a href="https://www.leatherwoodrosin.com.au/products/bespoke-range-viola-rosin">Leatherwood — Viola Bespoke</a> · <a href="https://www.leatherwoodrosin.com.au/pages/stockists">台灣經銷(Chon Pei、Sun Yee)</a> · <a href="https://helstrings.com/">希爾提琴(Melos 台灣代理)</a> · <a href="https://store.lienviolins.com.tw/products/rosin-gustave-bernardel/">佳典 — Bernardel</a></li>
+      <li><a href="https://www.vermontviolins.com/faqs/summer-violin-care-guide">Vermont Violins — 夏季照護</a>(夏天換硬松香、弓毛吸濕伸長)· <a href="https://vincentypy.com/blog/rosin-selection-guide/">Vincent Yeung — 松香選擇</a>(重弓臂與表面噪音)</li>
+    </ul>
+
+    <h3>保養與製琴師</h3>
+    <ul>
+      <li><a href="https://www.thestrad.com/lutherie/small-wonders-the-soundpost/16283.article">The Strad — Dilworth 論音柱</a>(方向、標準位置、太鬆像太緊)· <a href="http://blog.feinviolins.com/2011/06/soundpost.html">Fein — 音柱調整通則</a>(往中線=偏低音弦;調給你和你的弓)· <a href="https://amorimfineviolins.com/our-blog/the-ideal-soundpost-placement/">Amorim — 音柱位置</a> · <a href="https://www.violincellomaker.com/blogs/masters-secrets/the-perfect-soundpost-position">Edgar Russ — 音柱位置</a>(太靠橋=高音弦過強)</li>
+      <li><a href="https://www.fiddlehangout.com/archive/55395">Fiddle Hangout — 音柱鬆緊討論(製琴師參與)</a>(太緊 choke、太鬆貧血)</li>
+      <li><a href="https://www.johnsonstring.com/resources/articles/instrument-care/rehair-violin-bow-how-often/">Johnson String — 換毛頻率</a> · <a href="https://blog.codabow.com/news/when-to-rehair-your-bow-and-why/">CodaBow — 何時換毛(碳纖弓 6–12 個月)</a></li>
+      <li><a href="https://www.thestrad.com/lutherie/ask-the-experts-how-to-correct-a-violin-bridge-position/515.article">The Strad — 琴橋位置(Gusset/Pasewicz)</a> · <a href="https://www.johnsonstring.com/resources/articles/instrument-care/is-my-violin-bridge-warped/">Johnson String — 琴橋翹曲</a></li>
+      <li><a href="http://www.burgessviolins.com/humidity.html">Burgess — 濕度</a>(40–60%;除濕到 60% 即可)</li>
+      <li><a href="https://www.thestrad.com/lutherie/tips-for-changing-your-violin-strings/11591.article">The Strad — 換弦要領(一次一條、石墨)</a> · <a href="https://www.johnsonstring.com/resources/articles/instrument-care/clean-rosin-off-violin/">Johnson String — 清松香(酒精規則)</a> · <a href="https://www.sharmusic.com/blogs/all/what-is-an-open-seam-on-a-string-instrument">Shar — 開膠的敲診</a></li>
+      <li><a href="https://www.johnsonstring.com/resources/articles/stringed-instruments/violin-soundpost-adjustments-results/">Johnson String — 音柱調整</a>(注意:此文「靠橋=低音更出來」為孤例,與製琴師共識不符,本手冊未採)</li>
+    </ul>
+  </footer>
+</div>
