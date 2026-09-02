@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Basics 右手篇指南</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&family=Spectral:ital,wght@0,400;0,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 <style>
 
   :root {
@@ -496,7 +496,16 @@
   /* ---------- 列印(iPad 版 PDF) ---------- */
   @media print {
     @page { size: 7.5in 10in; margin: 0.6in 0.55in 0.65in; }
-    html { font-size: 18pt; }
+    html { font-size: 16pt; }
+    :root, :root:not([data-theme="light"]), :root[data-theme="dark"] {
+      --ground: #F8F4EA; --surface: #FBF8F1; --surface-2: #EFE8D9;
+      --ink: #1F1D1A; --ink-mid: #4A4640; --ink-soft: #6E685F;
+      --rule: #D6CFBF; --rule-soft: #E4DED0;
+      --accent: #8A6224; --accent-deep: #6B4B18; --accent-wash: rgba(138, 98, 36, 0.10);
+      --flag: #7C3A2E; --flag-wash: rgba(124, 58, 46, 0.09);
+    }
+    body, p, li, td, th, .standfirst, .section-lede { font-family: "Spectral", "Noto Serif TC", "Songti TC", "Source Han Serif TC", serif; }
+    body { line-height: 1.85; }
     @page :first { margin-top: 0.4in; }
     .standfirst { font-size: 0.95rem; }
     .masthead-meta { margin-top: 0.9rem; }
@@ -511,12 +520,12 @@
     nav.toc { padding: 0.9rem 1.1rem 1rem; margin-bottom: 1.5rem; }
     nav.toc ol li { margin: 0 0 0.1rem; }
     header.masthead { padding: 1rem 0 1.4rem; margin-bottom: 1.6rem; }
-    body { background: #fff !important; color: #1B1F1C !important; padding: 0 !important; }
+    body { background: #F8F4EA !important; color: #1F1D1A !important; padding: 0 !important; }
     .wrap { max-width: none; }
     header.masthead { padding-top: 1.5rem; }
     nav.toc { break-after: auto; }
-    .exgrid a { background: transparent !important; border: 1px solid #1B1F1C; color: #1B1F1C !important; width: 1.55rem; height: 1.55rem; font-size: 0.68rem; }
-    .exno { background: #1B1F1C !important; color: #ffffff !important; }
+    .exgrid a { background: transparent !important; border: 1px solid #1F1D1A; color: #1F1D1A !important; width: 1.55rem; height: 1.55rem; font-size: 0.68rem; }
+    .exno { background: #1F1D1A !important; color: #F8F4EA !important; }
     article.ex.about .exno { background: transparent !important; color: #6E7872 !important; }
     section, footer { break-before: page; }
     article.ex { break-inside: auto; padding-top: 1.2rem; }
@@ -528,7 +537,7 @@
     .scroller { overflow: visible; }
     table { min-width: 0 !important; width: 100% !important; table-layout: auto; }
     nav.toc { break-before: page; }
-    table { font-size: 16pt; }
+    table { font-size: 14pt; }
     th, td { padding: 0.35rem 0.45rem; }
     .vocab td:first-child { white-space: normal; }
     .vocab td.rowname { white-space: normal; }
