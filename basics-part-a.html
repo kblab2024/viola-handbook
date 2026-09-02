@@ -536,7 +536,10 @@
     a { color: inherit; text-decoration: none; }
     .scroller { overflow: visible; }
     table { min-width: 0 !important; width: 100% !important; table-layout: auto; }
-    nav.toc { break-before: page; }
+    nav.toc { break-before: auto; break-inside: auto; }
+    .changelog { break-inside: auto; }
+    .exgrid { break-inside: avoid; }
+    .wrap > section:first-of-type { break-before: auto; }
     table { font-size: 14pt; }
     th, td { padding: 0.35rem 0.45rem; }
     .vocab td:first-child { white-space: normal; }
