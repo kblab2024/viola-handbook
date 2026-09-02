@@ -1,0 +1,676 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>每日練習流程</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+
+  :root {
+    --ground:      #E8EBE6;
+    --surface:     #F4F6F2;
+    --surface-2:   #DDE2D9;
+    --ink:         #1B1F1C;
+    --ink-mid:     #47504A;
+    --ink-soft:    #6E7872;
+    --rule:        #C3CBC1;
+    --rule-soft:   #D5DAD1;
+    --accent:      #8A6224;
+    --accent-deep: #6B4B18;
+    --accent-wash: rgba(138, 98, 36, 0.10);
+    --flag:        #7C3A2E;
+    --flag-wash:   rgba(124, 58, 46, 0.09);
+
+    --font-display: "Spectral", "Noto Serif TC", "Songti TC", "Source Han Serif TC", serif;
+    --font-body: "IBM Plex Sans", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+    --measure: 40rem;
+    --wide: 58rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #141815;
+      --surface:     #1C211D;
+      --surface-2:   #262C27;
+      --ink:         #E5EAE3;
+      --ink-mid:     #ACB4AA;
+      --ink-soft:    #7F8880;
+      --rule:        #333A34;
+      --rule-soft:   #29302A;
+      --accent:      #D0A461;
+      --accent-deep: #E3BC82;
+      --accent-wash: rgba(208, 164, 97, 0.13);
+      --flag:        #D98E7C;
+      --flag-wash:   rgba(217, 142, 124, 0.12);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #141815;
+    --surface:     #1C211D;
+    --surface-2:   #262C27;
+    --ink:         #E5EAE3;
+    --ink-mid:     #ACB4AA;
+    --ink-soft:    #7F8880;
+    --rule:        #333A34;
+    --rule-soft:   #29302A;
+    --accent:      #D0A461;
+    --accent-deep: #E3BC82;
+    --accent-wash: rgba(208, 164, 97, 0.13);
+    --flag:        #D98E7C;
+    --flag-wash:   rgba(217, 142, 124, 0.12);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.78;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0 1.5rem 6rem;
+  }
+
+  .wrap { max-width: var(--wide); margin: 0 auto; }
+
+  /* ---------- masthead ---------- */
+
+  header.masthead {
+    padding: 4.5rem 0 2.75rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 3.5rem;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 1.25rem;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2.1rem, 5.5vw, 3.1rem);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 0 0 1.1rem;
+  }
+
+  .standfirst {
+    font-size: 1.06rem;
+    color: var(--ink-mid);
+    max-width: 38rem;
+    margin: 0;
+  }
+
+  .masthead-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.75rem;
+    margin-top: 2rem;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+  }
+
+  .masthead-meta span { white-space: nowrap; }
+
+  /* ---------- sections ---------- */
+
+  section { margin-bottom: 4.5rem; }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.45rem, 3.2vw, 1.85rem);
+    line-height: 1.3;
+    text-wrap: balance;
+    margin: 0 0 0.55rem;
+    padding-top: 0.4rem;
+    border-top: 2px solid var(--ink);
+  }
+
+  h3 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 2.5rem 0 0.7rem;
+  }
+
+  h4 {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 2rem 0 0.6rem;
+  }
+
+  .section-lede { color: var(--ink-mid); margin: 0 0 2rem; max-width: var(--measure); }
+
+  p { margin: 0 0 1.15rem; max-width: var(--measure); }
+
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  strong { font-weight: 600; }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background: var(--accent-wash);
+    color: var(--accent-deep);
+    padding: 0.08em 0.34em;
+    border-radius: 2px;
+  }
+
+  ul, ol { margin: 0 0 1.15rem; padding-left: 1.2rem; max-width: var(--measure); }
+  li { margin-bottom: 0.45rem; }
+  li::marker { color: var(--accent); }
+
+  /* ---------- changelog ---------- */
+
+  .changelog {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 1.4rem 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .changelog h4 { margin-top: 0; }
+  .changelog ul { margin-bottom: 0; max-width: none; }
+  .changelog li { font-size: 0.92rem; color: var(--ink-mid); }
+  .changelog li strong { color: var(--ink); }
+
+  .chip {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    padding: 0.05em 0.5em;
+    border-radius: 2px;
+    border: 1px solid var(--accent);
+    color: var(--accent-deep);
+    background: var(--accent-wash);
+    white-space: nowrap;
+    vertical-align: 0.08em;
+  }
+  .chip.bad { border-color: var(--flag); color: var(--flag); background: var(--flag-wash); }
+
+  /* ---------- callouts ---------- */
+
+  .callout {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 3px;
+    padding: 1.25rem 1.4rem;
+    margin: 0 0 1.6rem;
+    max-width: var(--measure);
+  }
+
+  .callout.correction { border-left-color: var(--flag); background: var(--flag-wash); }
+  .callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
+
+  .callout-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.5rem;
+  }
+
+  .callout.correction .callout-label { color: var(--flag); }
+
+  .ev {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- profile ---------- */
+
+  .profile { display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; }
+  @media (min-width: 44rem) { .profile { grid-template-columns: repeat(3, 1fr); } }
+
+  .trait { background: var(--surface); padding: 1.2rem 1.3rem; }
+  .trait h5 { font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; margin: 0 0 0.4rem; }
+  .trait p { font-size: 0.88rem; color: var(--ink-mid); margin: 0; line-height: 1.65; max-width: none; }
+  .trait .src { display: block; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.05em; color: var(--ink-soft); margin-top: 0.6rem; }
+
+  /* ---------- diagram ---------- */
+
+  figure.diagram {
+    margin: 1.8rem 0;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: var(--surface);
+    padding: 1.4rem 1.4rem 1.1rem;
+    max-width: var(--wide);
+  }
+  figure.diagram svg { width: 100%; height: auto; display: block; }
+  figure.diagram svg text { font-family: var(--font-body); }
+  figure.diagram svg text.mono, figure.diagram svg g.mono text { font-family: var(--font-mono); }
+  figure.diagram svg .accent { stroke: var(--accent); color: var(--accent); }
+  figure.diagram svg .accent-fill { fill: var(--accent); }
+  figure.diagram svg .accent-deep-fill { fill: var(--accent-deep); }
+  figure.diagram svg .wash-fill { fill: var(--accent-wash); }
+  figure.diagram figcaption {
+    font-size: 0.84rem;
+    color: var(--ink-soft);
+    margin-top: 0.9rem;
+    line-height: 1.65;
+    max-width: none;
+  }
+
+  /* ---------- soundpoints ---------- */
+
+  .sp-wrap { border: 1px solid var(--rule); border-radius: 3px; background: var(--surface); padding: 1.5rem 1.4rem 1.2rem; margin: 0 0 1.6rem; overflow-x: auto; }
+
+  .sp-scale { display: grid; grid-template-columns: repeat(5, minmax(5.2rem, 1fr)); gap: 1px; background: var(--rule-soft); border: 1px solid var(--rule-soft); border-radius: 2px; min-width: 28rem; }
+
+  .sp { background: var(--surface); padding: 0.85rem 0.7rem; }
+  .sp-n { font-family: var(--font-mono); font-size: 1.05rem; color: var(--accent); margin: 0 0 0.35rem; }
+  .sp-where { font-size: 0.8rem; font-weight: 600; margin: 0 0 0.35rem; max-width: none; }
+  .sp-how { font-family: var(--font-mono); font-size: 0.7rem; line-height: 1.5; color: var(--ink-soft); margin: 0; max-width: none; }
+
+  .sp-ends { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin-top: 0.7rem; min-width: 28rem; }
+
+  /* ---------- ladder ---------- */
+
+  .ladder { border-top: 1px solid var(--rule); }
+
+  .rung {
+    display: grid;
+    grid-template-columns: 2.2rem 1fr;
+    gap: 0 1.1rem;
+    padding: 1.15rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    align-items: start;
+  }
+
+  @media (min-width: 46rem) {
+    .rung { grid-template-columns: 2.2rem minmax(0, 1fr) 8rem 9rem; gap: 0 1.5rem; align-items: baseline; }
+  }
+
+  .rung-rank { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-soft); padding-top: 0.15rem; }
+  .rung-name { font-weight: 600; margin: 0 0 0.15rem; max-width: none; }
+  .rung-note { font-size: 0.9rem; color: var(--ink-mid); margin: 0; line-height: 1.6; max-width: none; }
+  .rung-cost { font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-soft); grid-column: 2; margin-top: 0.4rem; }
+  @media (min-width: 46rem) { .rung-cost { grid-column: 3; margin-top: 0; } }
+
+  .meter { display: flex; gap: 3px; grid-column: 2; margin-top: 0.55rem; }
+  @media (min-width: 46rem) { .meter { grid-column: 4; margin-top: 0; } }
+  .meter i { display: block; width: 100%; max-width: 1.5rem; height: 0.5rem; background: var(--surface-2); border-radius: 1px; }
+  .meter i.on { background: var(--accent); }
+
+  .meter-key { display: flex; align-items: center; gap: 0.55rem; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.05em; color: var(--ink-soft); margin: 1rem 0 0; text-transform: uppercase; }
+
+  /* ---------- tables ---------- */
+
+  .scroller { overflow-x: auto; margin: 0 0 1.6rem; border: 1px solid var(--rule); border-radius: 3px; background: var(--surface); }
+
+  table { width: 100%; min-width: 42rem; border-collapse: collapse; font-size: 0.9rem; }
+
+  th, td { text-align: left; padding: 0.85rem 1rem; border-bottom: 1px solid var(--rule-soft); vertical-align: top; line-height: 1.6; }
+
+  thead th {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  td.rowname { font-weight: 600; white-space: nowrap; }
+  td .sub { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-mid); display: block; margin-top: 0.2rem; }
+  .out { color: var(--ink-soft); }
+  .out .rowname { text-decoration: line-through; text-decoration-color: var(--flag); }
+
+  /* ---------- tests ---------- */
+
+  .tests { display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; margin-bottom: 1.6rem; }
+  @media (min-width: 40rem) { .tests { grid-template-columns: 1fr 1fr; } }
+
+  .test { background: var(--surface); padding: 1.15rem 1.3rem; }
+  .test h5 { font-family: var(--font-body); font-weight: 600; font-size: 0.94rem; margin: 0 0 0.4rem; }
+  .test p { font-size: 0.88rem; color: var(--ink-mid); margin: 0 0 0.5rem; line-height: 1.65; max-width: none; }
+  .test p:last-child { margin-bottom: 0; }
+  .verdict { font-family: var(--font-mono); font-size: 0.76rem; color: var(--accent-deep); }
+
+  /* ---------- script ---------- */
+
+  .script {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    border-left: 3px solid var(--accent);
+    padding: 0.3rem 0 0.3rem 1.2rem;
+    margin: 1.4rem 0;
+    max-width: var(--measure);
+    color: var(--ink);
+  }
+
+  /* ---------- cadence ---------- */
+
+  .cadence { border-top: 1px solid var(--rule); }
+
+  .beat { display: grid; grid-template-columns: 1fr; gap: 0.4rem 2rem; padding: 1.7rem 0; border-bottom: 1px solid var(--rule-soft); }
+  @media (min-width: 46rem) { .beat { grid-template-columns: 9.5rem minmax(0, 1fr) ; } }
+
+  .beat-when { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.06em; color: var(--accent); padding-top: 0.28rem; }
+  .beat-when small { display: block; font-size: 0.7rem; letter-spacing: 0.04em; color: var(--ink-soft); margin-top: 0.25rem; }
+  .beat ul { margin: 0; }
+  .beat ul li:last-child { margin-bottom: 0; }
+
+  /* ---------- footer ---------- */
+
+  footer { border-top: 1px solid var(--rule); padding-top: 1.75rem; font-size: 0.84rem; color: var(--ink-soft); }
+  footer h2 { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-soft); border: none; padding: 0; margin: 0 0 0.85rem; }
+  footer h3 { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); margin: 1.6rem 0 0.5rem; }
+  footer ul { padding-left: 1.05rem; max-width: 46rem; }
+  footer li { margin-bottom: 0.3rem; }
+
+  @media (prefers-reduced-motion: no-preference) { a { transition: color 0.15s ease; } }
+
+
+  html { font-size: 18px; }
+  body { font-size: 1rem; line-height: 1.8; }
+  .section-lede, .standfirst { font-size: 1.08rem; }
+  .masthead-meta span { white-space: normal; overflow-wrap: anywhere; }
+  nav.toc { border: 1px solid var(--rule); background: var(--surface); padding: 1.3rem 1.6rem 1.4rem; margin: 0 0 3.2rem; border-radius: 4px; }
+  nav.toc h4 { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin: 0 0 0.7rem; }
+  nav.toc ol { margin: 0; padding-left: 1.4rem; columns: 2; column-gap: 2.5rem; }
+  nav.toc ol li { margin: 0 0 0.3rem; break-inside: avoid; }
+  nav.toc a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  nav.toc a:hover { border-color: var(--accent); color: var(--accent-deep); }
+  .plan { margin: 1.6rem 0 2.2rem; }
+  .plan h3 { margin-bottom: 0.5rem; }
+  .plan .total { font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.08em; color: var(--accent); text-transform: uppercase; }
+  td.min { font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.src { font-size: 0.86rem; color: var(--ink-mid); }
+  article.block { border-top: 1px solid var(--rule); padding: 1.6rem 0 1.2rem; scroll-margin-top: 1.2rem; }
+  article.block h3 { margin: 0 0 0.3rem; font-size: 1.25rem; }
+  .block-src { font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-soft); letter-spacing: 0.03em; overflow-wrap: anywhere; margin: 0 0 0.9rem; }
+  article.block h4 { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 1.1rem 0 0.35rem; }
+  .block-min { font-family: var(--font-mono); font-size: 0.82rem; background: var(--surface-2); padding: 0.5rem 0.8rem; border-radius: 3px; margin: 0.4rem 0 0.2rem; overflow-wrap: anywhere; }
+  .block-min .lbl { color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.68rem; margin-right: 0.6rem; }
+  .backtop { font-family: var(--font-mono); font-size: 0.72rem; margin: 0.8rem 0 0; }
+  .backtop a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule-soft); }
+  .beat ul.dont li { color: var(--flag); }
+  .beat-label { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); margin: 0.6rem 0 0.2rem; }
+  .beat h3.beat-when { font-family: var(--font-mono); font-size: 0.78rem; font-weight: 400; letter-spacing: 0.06em; color: var(--accent); padding-top: 0.28rem; margin: 0; line-height: 1.6; }
+  @media (max-width: 640px) { nav.toc ol { columns: 1; } }
+  @media print {
+    @page { size: 7.5in 10in; margin: 0.6in 0.55in 0.65in; }
+    html { font-size: 16pt; }
+    :root, :root:not([data-theme="light"]), :root[data-theme="dark"] {
+      --ground: #F8F4EA; --surface: #FBF8F1; --surface-2: #EFE8D9;
+      --ink: #1F1D1A; --ink-mid: #4A4640; --ink-soft: #6E685F;
+      --rule: #D6CFBF; --rule-soft: #E4DED0;
+      --accent: #8A6224; --accent-deep: #6B4B18; --accent-wash: rgba(138, 98, 36, 0.10);
+      --flag: #7C3A2E; --flag-wash: rgba(124, 58, 46, 0.09);
+    }
+    body, p, li, td, th, .standfirst, .section-lede { font-family: "Spectral", "Noto Serif TC", "Songti TC", "Source Han Serif TC", serif; }
+    body { line-height: 1.85; }
+    @page :first { margin-top: 0.4in; }
+    .standfirst { font-size: 0.95rem; }
+    .masthead-meta { margin-top: 0.9rem; }
+    .changelog { font-size: 0.86rem; padding: 0.7rem 1rem; margin-bottom: 1rem; }
+    .changelog li { margin: 0.05rem 0; }
+    nav.toc ol { font-size: 0.92rem; }
+    nav.toc ol li { margin: 0; }
+    .exgrid { gap: 0.28rem; }
+    .exgrid a { width: 1.4rem !important; height: 1.4rem !important; font-size: 0.6rem !important; }
+    body { background: #F8F4EA !important; color: #1F1D1A !important; padding: 0 !important; }
+    .wrap { max-width: none; }
+    header.masthead { padding: 1rem 0 1.4rem; margin-bottom: 1.6rem; }
+    section, footer { break-before: page; }
+    article.block { break-inside: auto; }
+    .block-min, figure.diagram, .callout, .changelog, .beat { break-inside: avoid; }
+    tr { break-inside: auto; }
+    h2, h3, h4 { break-after: avoid; }
+    .backtop { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .scroller { overflow: visible; }
+    table { min-width: 0 !important; width: 100% !important; table-layout: auto; }
+    nav.toc { break-before: auto; break-inside: auto; }
+    .changelog { break-inside: auto; }
+    .exgrid { break-inside: avoid; }
+    .wrap > section:first-of-type { break-before: auto; }
+    table { font-size: 14pt; }
+    th, td { padding: 0.35rem 0.45rem; }
+    .vocab td:first-child { white-space: normal; }
+    figure.diagram svg { max-width: 100%; height: auto; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+</style>
+<div class="wrap">
+<header class="masthead">
+    <p class="eyebrow">Viola · Fischer 三本書 · 公開版</p>
+    <h1>每日練習流程</h1>
+    <p class="standfirst">每次練習的第一段是《中提琴聲量手冊》那 20 分鐘,不動。核心之外每天再加兩到五格,短的 5 分鐘,長的最多 15 分鐘;《Tone》和《The Violin Lesson》的右手練習從第 5 週起進來,一週一條,規矩在第 4 節。左手照老師走,三本書給它的只有檢查;p.73 那兩條要老師點頭才進。</p>
+    <div class="masthead-meta"><span>《Basics》Edition Peters 1997 小提琴版,頁碼照《Basics 右手篇指南》(書頁 N = PDF N+9)</span><span>《Tone》Fitzroy Music Press,前言署 2012 年春,手上是小提琴版 PDF(書頁 N = PDF N−3)</span><span>《The Violin Lesson》Edition Peters 2013(書頁 N = PDF N+26,已對頁腳)</span><span>查證日期:2026-09-02</span><span>單一變數期:從器材最後一次變動那天起算三個月</span><span>弦名已換成中提琴的 C、G、D、A</span></div>
+  </header>
+
+<nav class="toc" id="toc" aria-label="目錄"><h4>章節</h4><ol><li><a href="#how-to-use">這份怎麼用</a></li><li><a href="#books">三本書各自是什麼、怎麼分工</a></li><li><a href="#daily">每天的流程</a></li><li><a href="#weekly">每週的輪替</a></li><li><a href="#months">三個月的進程</a></li><li><a href="#blocks">每個時段的做法</a></li><li><a href="#record">記錄</a></li><li><a href="#symptoms">症狀對照</a></li><li><a href="#sources">來源與查證紀錄</a></li></ol></nav>
+
+<section id="how-to-use"><h2>這份怎麼用</h2>
+<p>這是公開版。原版是替一位從小提琴轉中提琴、下手偏重的業餘樂團中提琴手排的,他的每日核心是《中提琴聲量手冊》那 20 分鐘;公開版把個人的時間點改成週次,其餘照原版。如果你沒有那 20 分鐘的核心,先讀手冊的「核心」一章。</p><p>這是排程,不是教材。每天只用第 3 節:看今天有 30、45 還是 60 分鐘,挑那張表照著拉。每一格怎麼做寫在第 6 節,練到出問題翻第 8 節。第 4、5 節是一週和三個月的規矩,錄音那天看一次就夠。</p><p>幾條規矩貫穿全文。20 分鐘核心在每一種總長裡都是第一段。一週最多加一條新練習,三本書共用這一個名額;預測和結果怎麼寫,在第 4 節。剛換橋、換弦或換弓毛之後的前一到三週,手還在適應,會改持弓的練習不做:《Basics》ex.2、6、21、22。琴的擺法或抬手肘的做法要動,單獨算一週,那週不加練習。要診斷的事請老師在課堂做。器材全部不動。</p><p>書上有講的寫「Fischer 說」並給書頁,自己推的寫「推論」。兩本書都是小提琴版,弦名已經換成 C、G、D、A;牽涉到中提琴弓重、弦粗、C 弦發音慢的地方,全是推論。</p>
+</section>
+
+<section id="books"><h2>三本書各自是什麼、怎麼分工</h2>
+<p>《Basics》是動作的零件。三百條,每一條把一個動作拆出來單獨練,重心在右手;右臂與右手在 Part A,只有 Part A 有逐條指南,其餘各 Part 這裡不用。它是參考書不是進程,要有人替你挑;《Basics 右手篇指南》已經挑好了,這裡只用它的熱身輪替表(第 1 週 ex.23、第 2 週 ex.20、第 3 週 ex.22、第 4 週 ex.9;每週一次 ex.34)和第 12 節的症狀對照。</p><p>《Tone》是比例的實驗。五十七條,每一條都是弓速、弓壓、接觸點三個變數的一種組合,譜上印好了接觸點、力度、速度、弓毛用量。Fischer 在前言說發聲的第一原則建立在弓速上,不在壓力上,並給了一個 1 到 9 的量表,每個接觸點上速度加壓力等於 10(p.vi)。它就是把手冊的練習 A、B 往每種弓法、每條弦展開的那本書,是右手的主幹;但要到第 5 週才進來,一週一條,理由在第 5 節。</p><p>《The Violin Lesson》是老師的思路:怎麼找最重要的下一步(p.xviii:注意到一切、列清單、排順序),怎麼安排練習(pp.330–333:先定總長再分配、樂段分 A、B、C、碼表、每日記錄),各領域的核心練習是哪幾條(右手是 p.11 的五個發聲練習,左手是 p.73 的兩個音準練習)。在這份流程裡它管的是形狀:格子怎麼切、樂團譜那句怎麼練、筆記怎麼寫、什麼時候該停。右手練習只從它拿兩條(p.49、p.216),其餘當診斷用。</p><p>能這樣分工,是因為三本書的第一條練習其實是同一條。手冊的練習 A 就是《The Violin Lesson》pp.11–13 的 Exercise 1,《Tone》ex.2(p.10)是同一條印成譜的版本;《Tone》ex.1(p.9)印的是空弦全弓在五個接觸點各配一組速度、弓毛、力度,和核心的長音、練習 A 差的只有弓毛傾斜這一個變數。練習 B 是手冊的節拍器版(1997 年專欄);說它是 Exercise 1 加節拍器,是推論。推論:同一件事的幾個版本不算幾條練習,所以核心之外右手不必每天再加東西;ex.1 要進來,只能當第 5 週起的一條,排在第 6 節末尾。</p>
+<div class="scroller"><table><thead><tr><th scope="col">書</th><th scope="col">它是什麼</th><th scope="col">在流程裡負責什麼</th><th scope="col">從哪裡開始</th></tr></thead><tbody><tr><td class="rowname">《Basics》</td><td>三百條動作的零件;Part A 已有逐條指南</td><td>熱身裡的 Basics 一條(第 1 到 4 週)、每週一次 ex.34、弓歪那天的 ex.36、症狀對照</td><td>指南的熱身輪替表:第 1 週 ex.23 p.15、第 2 週 ex.20 p.14、第 3 週 ex.22 p.14、第 4 週 ex.9 pp.5–6;每週一次 ex.34 p.19</td></tr><tr><td class="rowname">《Tone》</td><td>五十七條比例的實驗,譜上印好接觸點、力度、速度、弓毛</td><td>第 5 週起本週那一條的主要來源;評估之後一節一節加</td><td>先讀 pp.vi–vii;第一批:ex.39 pp.74–75、37 p.66、34 p.60、18 p.36、14 p.30、15 p.32、1 p.9</td></tr><tr><td class="rowname">《The Violin Lesson》</td><td>十二課,老師的思路與各領域的核心練習;沒有全書統一的練習編號,只有各課內的 Exercise 1 到 5 之類,引用時一律附書頁</td><td>流程怎麼排、樂團譜的練法、記錄、課堂診斷、伸展;右手練習兩條</td><td>pp.xviii–xx、pp.330–333、pp.9–13、p.49、p.216;左手 p.73、p.302;身體 pp.165–167</td></tr></tbody></table></div>
+</section>
+
+<section id="daily"><h2>每天的流程</h2>
+<p>Fischer 說開拉之前先決定總長,再決定每一部分給幾分鐘(p.330);這裡替你把這件事做一次,三種總長各一張表。p.333 的邊註講的是一小時拆成兩個半小時、中間短休,專注力的高峰就從兩個變成四個;60 分鐘的日子中間停錶三分鐘,是照它做的。把核心之外切成 5 分鐘上下的短段是推論:段與段之間沒有停錶,算不算新的開頭,書上沒說。</p><p>核心那 20 分鐘不動。手冊說它是每次練習的第一段,而且它是這三個月裡唯一在量的東西,量尺不能動;這裡只在「在檢查什麼」那一欄加東西。Fischer 說 p.11 那五個發聲練習花的時間最少,省下的卻是幾年(p.11);練習 A 就是他的 Exercise 1(pp.11–13),他說職業演奏者一輩子都在用它(p.11);練習 B 是手冊的節拍器版。A1 是 p.330 的分法:要練的句子分成 A、B、C 三級,A 再分 A1、A2、A3,A1 就是最差的那一句;Fischer 說急的時候先做 A1(p.330)。30 分鐘的日子核心之後就是 A1;45 和 60 分鐘的日子先做本週那一條再做 A1,因為新練習要趁手還沒累的時候做(推論)。核心那 2 分鐘已經在做接觸點的遷移,所以 A1 那段改用他的節奏練法(pp.114–116)。</p><p>幾種日子要調。ex.34 那天核心是 21 分鐘,多的 1 分鐘從那天最後一段扣。錄音那天要拿琴 5 分鐘,從左手教材那段讓;30 分鐘的日子沒得讓,就直接取代練樂團譜那 5 分鐘。回聽的 10 分鐘不拿琴,照 p.333 也算練習,但表裡只算拿琴的時間,它在每日記錄另記一行。換譜那天要花 10 分鐘分類:60 分鐘的日子從練樂團譜那 12 分鐘裡拿;45 分鐘的日子取代 A1 那 8 分鐘、左手教材再讓 2;30 分鐘的日子核心之後那兩段各讓 5。團練當天照第 4 節的表。</p>
+<h3>第一段:固定的 20 分鐘</h3>
+<div class="scroller"><table><thead><tr><th scope="col">時間</th><th scope="col">內容</th><th scope="col">在檢查什麼</th></tr></thead><tbody><tr><td class="rowname">5 分鐘</td><td>空弦長音熱身,接觸點 3,全弓,無揉弦,四條弦各幾弓,C 弦多拉幾弓。第 1 到 4 週前一兩分鐘先做本週的 Basics 一條。</td><td>弓直不直、弓毛平貼(中提琴用全部弓毛)、有沒有芯。加:弦的模糊影像整弓一樣寬、主音後面聽得到殘響(《Tone》p.vii);每一弓當成曲子裡的一句拉(p.12)。</td></tr><tr><td class="rowname">8 分鐘</td><td>練習 A:接觸點 5 到 1,每個接觸點固定速度只調重量,加揉弦收尾。</td><td>每個接觸點的正確壓力。加:找到平衡後留在原地追求更平均(p.12 邊註 2);刮聲用 p.13 的判斷句分方向。</td></tr><tr><td class="rowname">5 分鐘</td><td>練習 B:♩=50 起,一拍兩個全弓,5 到 2。</td><td>比例在速度壓力同時變動時撐不撐得住。加:換弓那一下不能被聽成重音。</td></tr><tr><td class="rowname">2 分鐘</td><td>遷移:當週樂團譜挑一句,同一句用接觸點 2、3、4 各拉一次。</td><td>練習能不能離開空弦活下來。加:挑的那一句用 A1;f 的地方弓毛平不平(p.265);每個音第一瞬間就和一秒後一樣(p.270)。</td></tr><tr><td class="rowname">每週一次</td><td>手機錄一段固定選段加兩個自我檢測,記日期。</td><td>基準線有沒有動(第 4 節)。</td></tr></tbody></table></div>
+<div class="plan"><h3>總長 30 分鐘</h3>
+<div class="scroller"><table><thead><tr><th scope="col">時段</th><th scope="col">做什麼</th><th scope="col">從哪裡</th><th scope="col">分鐘</th><th scope="col">在檢查什麼</th></tr></thead><tbody><tr><td class="rowname">0–20</td><td>手冊的 20 分鐘核心,五格照抄。</td><td>手冊;指南的熱身輪替表;《The Violin Lesson》pp.11–13;《Tone》p.vii</td><td>20</td><td>上表。</td></tr><tr><td class="rowname">20–25</td><td>樂團譜的 A1。快句:用一種附點節奏拉整句,再用反過來的附點節奏拉一次,約 3 分鐘;然後不停地照拍拉完一次,約 2 分鐘。慢句:先在最長的音上釘住弓段、弓速、接觸點,只找重量,再放回整句。</td><td>《The Violin Lesson》pp.114–116、p.109、pp.271–272</td><td>5</td><td>音準、聲音、節奏、輕鬆四項(p.114);附點的短音在 C 弦有沒有立刻出聲。</td></tr><tr><td class="rowname">25–30</td><td>上課前三天:老師的左手教材(當週樂團譜那個調的 Barber 音階,或指定的一行 Wohlfahrt)。上完課後四天:本週那一條。第 1 到 4 週七天都給左手。</td><td>老師的教材;《The Violin Lesson》p.302、p.62;第 6 節</td><td>5</td><td>每個 C、G、D、A 對空弦查;那一條照第 6 節,做第一次之前先寫預測。</td></tr></tbody></table></div>
+</div>
+<div class="plan"><h3>總長 45 分鐘</h3>
+<div class="scroller"><table><thead><tr><th scope="col">時段</th><th scope="col">做什麼</th><th scope="col">從哪裡</th><th scope="col">分鐘</th><th scope="col">在檢查什麼</th></tr></thead><tbody><tr><td class="rowname">0–20</td><td>核心。</td><td>同上</td><td>20</td><td>上表。</td></tr><tr><td class="rowname">20–25</td><td>本週那一條。第 1 到 4 週給樂團譜第二差的那句(A2),做法同下一格。</td><td>第 6 節各條</td><td>5</td><td>照該條的檢查欄。</td></tr><tr><td class="rowname">25–33</td><td>樂團譜的 A1:附點節奏正反各一遍 3 分鐘;整句過一遍,只在長音上試比例 2 分鐘;節拍器照上次的速度拉一次,四項都達標(音準、聲音、節奏、輕鬆都對)就升一格再拉一次,3 分鐘。</td><td>《The Violin Lesson》pp.114–116、p.331、pp.271–272</td><td>8</td><td>同上;升速的條件是四項都達標(p.116)。</td></tr><tr><td class="rowname">33–45</td><td>老師的左手教材,照他的順序與量。老師同意就照 p.73 的排法:音階 2 分鐘,p.73 的練習 8 分鐘,再音階 2 分鐘;沒指定就 Barber 4 加 Wohlfahrt 或 Essential Elements 8。錄音日讓 5,換譜那天讓 2。</td><td>老師的教材;《The Violin Lesson》p.73、p.62、p.302</td><td>12</td><td>前後兩次音階差多少(p.73 說十分鐘後會明顯變好);每個 C、G、D、A 對空弦查。</td></tr></tbody></table></div>
+</div>
+<div class="plan"><h3>總長 60 分鐘</h3>
+<div class="scroller"><table><thead><tr><th scope="col">時段</th><th scope="col">做什麼</th><th scope="col">從哪裡</th><th scope="col">分鐘</th><th scope="col">在檢查什麼</th></tr></thead><tbody><tr><td class="rowname">0–20</td><td>核心。</td><td>同上</td><td>20</td><td>上表。</td></tr><tr><td class="rowname">20–25</td><td>本週那一條;第 1 到 4 週給 A2。</td><td>第 6 節各條</td><td>5</td><td>照該條。</td></tr><tr><td class="rowname">25–30</td><td>留下來的那一條:前幾週預測成立的練習,一次一條輪流做。還沒有留下來的練習時(第 1 到 5 週),給樂團譜第三差的那句(A3),做法同 A1。</td><td>第 6 節</td><td>5</td><td>照該條;A3 照 A1 的檢查欄。</td></tr><tr><td class="rowname">30–33</td><td>停錶休息:弓放下,離開琴;回來把弓放回弦上的前一刻再按錶。</td><td>《The Violin Lesson》p.333 邊註與碼表規則</td><td>3</td><td>每日記錄寫 57 分鐘。</td></tr><tr><td class="rowname">33–45</td><td>樂團譜的 A1:附點節奏正反 4 分鐘,長音上試比例 3 分鐘,節拍器拉一次、四項都達標就升一格 3 分鐘,不停拉完一次 2 分鐘。</td><td>同 45 分鐘那格</td><td>12</td><td>同 45 分鐘那格。</td></tr><tr><td class="rowname">45–60</td><td>左手教材,排法同上,放到 15 分鐘:音階兩次各 2,p.73 的練習 10,多的 1 分鐘給音階。每月一次改成:開拉前把 Baillot 的八項各看一眼(腳、身體、琴、弓、手臂與手肘、手與手指、頭、整體沒有僵硬);一首會的舊練習曲拉到音準、聲音、節奏、輕鬆各 10 分;過去幾季的一份中提琴聲部拉過去,不修。</td><td>老師的教材;《The Violin Lesson》p.73、p.328、pp.328–329</td><td>15</td><td>同上。每月那次:p.328 的 10 分制之外這裡加一條,四項任何一項掉下來就停,找原因;舊聲部拉的時候,聽核心校準出來的東西離開空弦之後還在不在。</td></tr></tbody></table></div>
+</div>
+</section>
+
+<section id="weekly"><h2>每週的輪替</h2>
+<p>每天做的是核心、A1、左手教材或本週那一條;一週一次的東西都在表裡。本週那一條的規矩在這裡寫一次就好:一週最多一條,三本書共用這個名額;做第一次之前寫預測,那週錄音之後寫結果;結果和預測相反,那條就停掉,不留著它再加下一條;分不出是哪一條在起作用,就退回上一週只剩一條的狀態。</p><p>名額是這樣算的。熱身裡的輪替(第 1 週 ex.23、第 2 週 ex.20、第 3 週 ex.22、第 4 週 ex.9)已經用掉第 1 到 4 週的名額。第 5 週起,熱身那一條可以停在最有感覺的那條,或重跑一圈(這是原版定的規矩)。推論:停留或重跑做的是已經寫過結果的練習,不是第二條新的;「不要同時留兩條」這條規矩,指的是兩條結果分不開的新練習,所以第 5 週起這個名額空出來,給另外兩本書。本週那一條在 45 和 60 分鐘的日子每天做,30 分鐘的日子只在上完課後的四天做,因為 Fischer 說技術練習每週幾次、短而規律,就有快的結果(p.327),而糾正要持續到新習慣形成,一兩次很少夠(p.200)。上課前三天給左手教材,因為老師下一堂要聽的是那個;上完課後四天這一段才空出來(推論)。</p>
+<div class="scroller"><table><thead><tr><th scope="col">什麼時候</th><th scope="col">做什麼</th><th scope="col">從哪裡</th><th scope="col">為什麼</th></tr></thead><tbody><tr><td class="rowname">每週一次,固定同一天,建議團練隔天,和 ex.34 分開</td><td>拿琴 5 分鐘:手機放三公尺外錄固定選段,重做食指放掉測試,做一次 Fig. 40 的對比。疲勞測試不在這 5 分鐘裡,改在練完伸展過、等一小時後做;這個條件和手冊不同,理由在第 6 節。不拿琴 10 分鐘:同一段聽三遍,寫上週那一條的結果和留或停,再挑下週那一條並寫預測。做法都在第 6 節。</td><td>手冊時程那節;《The Violin Lesson》p.49、p.330、p.xviii、p.325、p.333</td><td>Fischer 說演奏者有看不到的盲點,也有聽不到的東西,他叫它 aural blind spot(pp.xix–xx);手冊查到演奏位置的判斷三成是錯的;推論:錄音是繞過這兩件事的方法。和 ex.34 分開是推論:撐到極限的那幾弓會影響同一天錄音裡的長音。</td></tr><tr><td class="rowname">每週一次,和錄音不同天</td><td>Basics ex.34 當那天的整段熱身,記數字;那天核心 21 分鐘。</td><td>Basics ex.34 p.19;指南:每週一次用 ex.34 當熱身,記那個數字</td><td>指南定的:一趟從慢到快走完,第一次撐不住的那一階當天就出來;條件固定,數字才能比。</td></tr><tr><td class="rowname">每週那一條的名額</td><td>第 1 到 4 週照熱身的輪替,第 1 週 ex.23、第 2 週 ex.20、第 3 週 ex.22、第 4 週 ex.9;適應期沒過,第 3 週的 ex.22 延一週,後面整排往後推。第 5 週起照第 6 節的順序:《The Violin Lesson》p.49、《Tone》39、37、34、18、14、15、《The Violin Lesson》p.216、《Tone》1;排不到的留到評估之後。預測成立的,進 60 分鐘那天留下來的那一條那 5 分鐘輪流做;反了就停。單一變數期最後一週(換弦前那週)不加。</td><td>指南的熱身輪替表;第 6 節;《The Violin Lesson》p.333</td><td>順序從你最不確定的事開始(重量從哪裡進來),再到錄音要比的兩項(音頭的雜訊、C 弦的厚度),再到移動中守住校準,然後是重音的能量從弓量來,壓底的才是只多弓毛傾斜一個變數的 ex.1。這是推論,錄音日可以重排,但一次只有一條在跑。</td></tr><tr><td class="rowname">換譜那週的第一次練習;每週團練完 1 分鐘</td><td>新譜那天 10 分鐘:整段拉一次,列出要練的句子,分 A、B、C,A 再分 A1、A2、A3,標在譜上;取代那天練樂團譜的時間,怎麼扣在第 3 節。每週團練完 1 分鐘:排練裡絆到的那句,就是下週的 A1。</td><td>《The Violin Lesson》p.330</td><td>Fischer 說寫在紙上可能只做一次,之後練起來自然就有條理(p.330);每天 5 分鐘只夠一句,那一句不能隨便挑。</td></tr><tr><td class="rowname">團練當天</td><td>有 30 分鐘就照 30 的表,練樂團譜那 5 分鐘改拉當天要排練的段落,像演出那樣不停拉完;只有 20 分鐘就只做核心。坐下看 5 秒:肩和髖同向,不扭身。跳弓段落有刮聲,先懷疑左手沒按實,撥一遍再拉,不改右手。</td><td>手冊;《The Violin Lesson》p.332、p.177、pp.286–287</td><td>推論:團練已經是那天的曲子時間;右手校準是團練給不了的,所以在家只做核心。Fischer 說越接近演出,越要換成像在演出裡那樣拉(p.332);跳弓刮聲先查左手再怪弓(pp.286–287),才不會誤改右手。</td></tr><tr><td class="rowname">每週上課那天</td><td>帶著回聽錄音之後照 p.xviii 寫的那張清單,問第 2、3 項;請老師做一兩樣第 6 節那張清單上的診斷。第 1 到 2 週先做手冊定的:診斷是壓還是重量;示範同一句用三種接觸點。</td><td>手冊;《The Violin Lesson》pp.9–10、p.204、p.33、pp.39–40、p.197;Basics ex.19</td><td>「壓還是重量」是你自己回答不了的;這幾條都要第二個人,都是診斷不是練習,不占名額。</td></tr><tr><td class="rowname">鏡子裡看到弓歪的那天</td><td>熱身裡做 Basics ex.36 用譜架的做法 2 分鐘,做之前先看琴頭有沒有掉下去。</td><td>Basics ex.36 pp.20–21 邊註 2</td><td>弓一斜,接觸點自己走掉,校準好的重量對不上位置(Basics ex.39);中提琴手特別常把琴頭拿太低(Basics Part B p.35)。</td></tr><tr><td class="rowname">每月一次,用 60 分鐘那天的左手教材時間</td><td>開拉前把 Baillot 的八項各看一眼(腳、身體、琴、弓、手臂與手肘、手與手指、頭、整體沒有僵硬);一首會的舊練習曲拉到音準、聲音、節奏、輕鬆各 10 分;舊聲部拉過去,不修。</td><td>《The Violin Lesson》p.328、pp.328–329</td><td>Fischer 說程度高的人要不時回頭把簡單的練習曲拉到完美(p.328);「聲音」那一項就是右手 20 分鐘的實戰檢查。每月一次而不是每週,是推論:不讓每週的表越長越大。</td></tr></tbody></table></div>
+</section>
+
+<section id="months"><h2>三個月的進程</h2>
+<p>手冊唯一的排程原則是一次只動一個變數,不然三個月後分不出改變的是弦、是弓、還是你。Fischer 講的是同一件事:進步最快的方式是把最重要的一點隔離出來改善,有了進展它就從清單上掉下去(p.xviii);練發聲練習要像做科學實驗,一次只變一個因素(p.12)。一週一條、留或停,就是那張清單在動。</p>
+<div class="cadence">
+<div class="beat">
+<h3 class="beat-when">第 1 到 3 週(剛換橋、換弦或換弓毛之後的前一到三週)</h3>
+<div><p class="beat-label">做</p><ul><li>每天 20 分鐘核心;熱身那 5 分鐘輪 ex.23、ex.20;第 3 週的 ex.22 只在手感穩了才做,沒穩就延一週重做 20,後面整排往後推,排不到的留到評估之後。</li><li>長的日子本週那一條那 5 分鐘先給 A2,60 分鐘的日子留下來的那一條那 5 分鐘給 A3。松香照手冊分兩期:前幾次補到飽和,之後凍結。</li><li>第 1 到 2 週的課堂請老師診斷是壓還是重量,並示範同一句用三種接觸點。每週錄音、兩個自我檢測、Fig. 40 照做,器材最後一次變動後第一週那次就是基準線。推論:器材變了,變動前的基準檔是另一個配置;單一變數期從器材最後一次變動那天重算,基準線跟著重錄。</li></ul><p class="beat-label">不做</p><ul class="dont"><li>不做會改持弓的練習:Basics ex.2、6、21、22;《The Violin Lesson》裡改持弓的那幾條(p.20、pp.38–39、p.47、p.264、p.277、p.281、pp.282–283、p.293)。</li><li>不動琴的擺法(Basics p.20;《The Violin Lesson》p.117、pp.32–37、p.30)、不換抬手肘的做法(Basics p.17;《The Violin Lesson》pp.127–129)、不換肩墊腮托、不動調音(p.313、p.92)。</li><li>不把這幾週手感的變化歸給任何練習;左手的座標在重找,音準的結果先不記。不開始《Tone》和《The Violin Lesson》的右手練習。</li></ul><p>手冊說這段期間的手感變化不能歸給任何練習或器材;剛換橋、換弦或換弓毛之後的前一到三週不做會改持弓的 ex.2、6、21、22,因為你分不出手感變了是因為器材還是持弓。Fischer 說習慣是慢慢長出來的,等它固定下來,你已經覺得那樣才正常(p.xx);座標還在動的時候,不放新習慣進去。</p></div></div>
+<div class="beat">
+<h3 class="beat-when">第 4 到 12 週</h3>
+<div><p class="beat-label">做</p><ul><li>從第 5 週起每週加本週那一條,照第 6 節的順序,排不到的留到評估之後;預測、結果、留或停照第 4 節;成立的進 60 分鐘那天留下來的那一條那 5 分鐘輪流做。</li><li>熱身那一兩分鐘停在最有感覺的那條 Basics,或重跑一圈;ex.34 照舊。樂團譜每天 A1;左手照老師;每月一次 Baillot 加舊練習曲加舊聲部。</li><li>單一變數期最後一週,也就是換弦前那週,不加新東西。單一變數期結束時換第一輪弦,維持同一款。換完先拉兩週,弦穩了再做評估;手冊的第一次評估沒說要等弦穩,這兩週是借手冊給琴師回診定的等待期(推論)。評估怎麼做:兩支手機錄同一段,一支放遠處,一支放譜架旁;和基準檔比三件事,音頭的雜訊量、長音的厚度、遠端那支的清晰度;再重做兩個自我檢測和 Fig. 40。</li></ul><p class="beat-label">不做</p><ul class="dont"><li>同一週不加兩條。當週的換弦有疙瘩、要在 A1 那段用 Basics 46 或 53 時,那週不加新的一條;琴的擺法要動的話,單獨算一週。</li><li>《Tone》第 6 節順序以外的節先不碰:28 到 33、21 到 27、41 到 46、47 到 56、57;第五把位那頁等左手座標穩。《The Violin Lesson》pp.125–126 把弓桿壓進弓毛,等老師診斷完再加;推論:它和食指壓的感覺相近而機制不同,弓桿壓向弓毛是手腕以下的動作,重量還是從手臂來,食指壓是把重量集中到一點。pp.273–274 要你試著壓到極限,和你要改的方向相反,不做。</li><li>不自己加左手的新練習,第 3、6、9、10 課的留到評估之後由老師排。器材不動;換弦是換弦,不是實驗。</li></ul><p>《Tone》28 到 33 留到之後,因為靠橋慢弓只在弓和琴橋平行時成立(Basics ex.39),中提琴更長,弓更難拉直;熱身每天都在看弓直不直,同一段期間再加一條故意讓弓斜的練習,兩個檢查會互相抵銷(推論)。57 一口氣換十五種弓法和音型,等於一次加十五個變數(推論)。</p></div></div>
+<div class="beat">
+<h3 class="beat-when">單一變數期之後,第 13 週起(評估通過那天起;沒過就延時間表,不跳順序)</h3>
+<div><p class="beat-label">做</p><ul><li>重跑一次 p.xviii 那三步(注意到一切、列清單、排順序),把清單整個重排;機制改了才往下,沒改就繼續同一件事。</li><li>30 分鐘的表不變,變的只是本週那一條那 5 分鐘。《Tone》照節加,一節穩了再下一節:換弦的 10、12、13;接觸點之間移動的 15 的變奏、16、19;起音的 35、36;《Tone》Fast-slow, heavy-light 那節的 38、40;短弓和弓毛傾斜的 3、8;讓弓自己漂向琴橋再回來的那幾條(28、30、32);離弦從 23 起;換把時弦變短的 47、51、52;雙音等老師教到。仍然一週一條、寫預測與結果、先 D、G 弦後 C 弦。</li><li>《The Violin Lesson》Exercise 3 壓力練習(pp.18–19)和 Exercise 4 速度練習(pp.21–22)並排做,並排才聽得出「深」和「快」的差別;穩了再 Exercise 5(pp.22–25);son filé(pp.262–263)另外開一段。老師診斷完之後,pp.125–126 和持弓的改動一次一條,自己算一週。</li><li>左手的新東西跟老師談,由他排。候選是第 6 課的每日暖手(p.136、p.138、p.148、p.151),還有 p.155、pp.187–188、p.256、pp.235–236、p.244。仍然一週一條,和右手共用那一個名額。60 分鐘的日子在核心之後另外開 10 分鐘做《Tone》57(pp.99–102):♩=120,主題和十五個變奏連續拉完,再全部用分弓拉一遍(p.99)。那 10 分鐘從左手教材讓 5、A1 讓 5;A1 剩下的 7 分鐘做附點節奏 3、長音上試比例 2、節拍器一次 2,不停拉完那一次併進團練。核心的熱身不換。</li></ul><p class="beat-label">不做</p><ul class="dont"><li>評估沒過就不往下走:手冊說時間表可以延、順序不能跳;Fischer 說不要給自己設期限(p.332)。不同一週加左手和右手各一條;不跳《Tone》的節。</li></ul><p>Fischer 說每個零件只往上推一級,是最快也最舒服的方法之一(p.326);右手從「差」推到「普通」,就算這三個月達標。《Tone》一節一節加,是因為每一節都把一個新變數加進三個變數的比例裡,同時加兩節就分不出是哪一個在動(推論)。</p></div></div>
+</div>
+</section>
+
+<section id="blocks"><h2>每個時段的做法</h2>
+<p>每一項都寫到能照著做:弦、接觸點、弓段、速度、力度、次數、幾分鐘、在聽什麼。書上的數字是起點,不是規定。Fischer 說比例的規則對任何弦樂器都成立,會把小提琴弦拉得自由振動的人,不用練也能在中提琴上做同一件事(p.6);推論:搬得過去的是找比例的方法,每個接觸點的配比數字要重找。「預測可以寫」那一句是範例,寫你自己的。</p>
+<article class="block" id="block-1">
+<h3>空弦長音熱身(核心第一格)</h3>
+<p class="block-src">手冊;《Tone》p.vii;《The Violin Lesson》p.12、p.13、p.14</p>
+<h4>怎麼做</h4><p>接觸點 3,全弓,無揉弦,mf 上下;四條弦各三四弓,C 弦再多三四弓,速度以一弓走完不抖為準。第 1 到 4 週的前一兩分鐘先做本週的 Basics 一條,做完照舊拉長音。每一弓當成曲子裡的一句來拉,不是握著弓上下推(p.12);弓抖了就讓弓帶著手走(p.13)。</p>
+<p class="block-min"><span class="lbl">分鐘</span>5;ex.34 那天整段換成 ex.34(6 分鐘),不拉長音 <span class="lbl">在檢查什麼</span>弓直不直、弓毛平貼、有沒有芯(手冊)。弦的模糊影像要整弓一樣寬,窄掉的那一段就是比例歪掉的那一段;主音後面聽得到殘響(《Tone》p.vii);下弓到弓中、手肘打開的那一刻,弓有沒有突然變快(p.14)。</p>
+<h4>中提琴</h4><p>手冊定的:全部弓毛,C 弦多拉。推論:C 弦擺幅大,模糊影像最好看;但 C 弦的殘響短而悶,那種聽法先在 D、A 弦學會。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p></article>
+<article class="block" id="block-2">
+<h3>熱身裡的 Basics 一條,與每週一次的 ex.34</h3>
+<p class="block-src">指南的熱身輪替表;ex.23 p.15、ex.20 p.14、ex.22 p.14、ex.9 pp.5–6、ex.34 p.19</p>
+<h4>怎麼做</h4><p>第 1 到 4 週那四條(第 1 週 ex.23、第 2 週 ex.20、第 3 週 ex.22、第 4 週 ex.9)的做法與檢查照指南裡各條的說明,不重抄;一週一條,做完照舊拉長音。</p><p>ex.34:節拍器 60,同一條空弦,靠橋,下弓上弓各 10 拍起,每組加 2 拍到 20,再減回一拍一弓,全程不停,約 6 分鐘,不改階梯。</p>
+<p class="block-min"><span class="lbl">分鐘</span>1 到 4;ex.34 那天整段 6,那天不拉長音 <span class="lbl">在檢查什麼</span>那四條照指南裡各條的檢查。ex.34 記的是加拍那一半第一次撐不住的那一階;減拍往回退時,重量有沒有跟著減。</p>
+<h4>中提琴</h4><p>指南已寫(推論):ex.34 先在 A、D 弦做過幾趟,再記 C 弦的數字。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p></article>
+<article class="block" id="block-3">
+<h3>練習 A(核心第二格)</h3>
+<p class="block-src">手冊;《The Violin Lesson》pp.11–13、p.215;《Tone》ex.2 p.10、p.vi</p>
+<h4>怎麼做</h4><p>照手冊:在接觸點 5 拉連續全弓,接觸點和弓速固定,只調重量,調到弦振得最寬;確定了再加揉弦,平衡不能跑;移到 4、3、2、1 各重複一次,力度大約是 mp、mf、f、ff、f。速度以書上的數字起步:5、4、3 一拍一弓,2、1 兩拍一弓,1 可以再延長(p.12 譜例);建議速度 5 ♩=80、4 ♩=75、3 ♩=70、2 ♩=56、1 ♩=40,《Tone》ex.2 印的是 80、75、65、60。找到平衡之後不要馬上換接觸點,留在原地追求更平均(p.12 邊註 2)。手冊沒定弦;推論:8 分鐘只夠一條弦,一天一條輪,C 弦一週兩次。</p>
+<p class="block-min"><span class="lbl">分鐘</span>8 <span class="lbl">在檢查什麼</span>每個接觸點的正確壓力(手冊)。刮聲要分方向:高頻、泛音多的刮是太輕或太快,低頻、撕弦的刮是太重或太慢,在 1 多半是太輕太快(p.13)。《Tone》p.vi 點名 5、4、3 上稍微太多壓力的那種壓住、受限的聲音;手冊引專欄說那種聲音較小、較薄、較硬;推論:這種錯在耳邊不明顯,要看擺幅、聽錄音。右手沉進弦的時候,左手有沒有跟著捏(p.215)。</p>
+<h4>中提琴</h4><p>推論:中提琴弓重,在 5 要提走的重量更多,弓抖是正常的起點;C 弦發音慢,1 和 2 可能要再慢一格才抓得住弦。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p></article>
+<article class="block" id="block-4">
+<h3>練習 B(核心第三格)</h3>
+<p class="block-src">手冊;《The Violin Lesson》p.218、p.14、p.263</p>
+<h4>怎麼做</h4><p>照手冊:♩=50,同一條空弦連續全弓,一拍兩個全弓,從 5 依序到 2;全程平滑就升到 55,從 5 重來,逐步到約 70。弦用練習 A 當天那一條。</p>
+<p class="block-min"><span class="lbl">分鐘</span>5 <span class="lbl">在檢查什麼</span>比例撐不撐得住:弓不抖、不滑出表面音、接觸點不漂(手冊)。心裡把每一拍切成兩半,再切成四份(p.218);弓中前臂打開的那一段,速度有沒有疊上去(p.14);換弓那一下弦停一瞬是正常的(p.263),但接縫不能被聽成重音。</p>
+<h4>中提琴</h4><p>推論:C 弦在 2 一拍兩弓最容易先壓住,先在 D、G 弦達標,再上 C 弦。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p></article>
+<article class="block" id="block-5">
+<h3>樂團譜那一句用三個接觸點(核心第四格)</h3>
+<p class="block-src">手冊;《The Violin Lesson》p.16、p.266、p.265、p.270、p.208、p.173、p.174</p>
+<h4>怎麼做</h4><p>當週樂團譜挑一句,就用 A1 那一句,同一句用接觸點 2、3、4 各拉一次。拉之前回答四個問題(p.266):音從弓的哪裡開始、在哪裡結束、離橋多遠、弓速與壓力是不變還是增減。Fischer 的版本是從 5 往橋走,1 做不到不要緊(p.16)。</p>
+<p class="block-min"><span class="lbl">分鐘</span>2 <span class="lbl">在檢查什麼</span>能不能離開空弦活下來(手冊);f 的地方弓毛平不平(p.265);每個音第一瞬間就和一秒後一樣(p.270);接觸點 2 那一次試 p.208 的做法。Fischer 講的是獨奏者在樂團上方的 p(p.208):靠橋、進弦、相當大聲,只要音頭沒有重音,性格就還是 p。推論:套到聲部投射上,聲部的音量不是你一個人定的,這一次練的是不加重音也能靠橋進弦的那隻手,不是音量。</p>
+<h4>中提琴</h4><p>Fischer 說用力的重音容易和往下拉綁在一起,琴頭在那個音上看得見地掉下去(p.173)。推論:C 弦手臂抬得最高,往下做重音時重量最容易往琴身壓,琴頭跟著往下;琴頭對準牆上一點,看它動不動(p.174)。C 弦在 1 的出聲門檻高,先從 D、A 弦上的句子做。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p></article>
+<article class="block" id="block-6">
+<h3>樂團譜的 A1(核心之外;30 分鐘的日子緊接核心,長的日子在本週那一條之後)</h3>
+<p class="block-src">《The Violin Lesson》p.330、pp.114–116、p.109、pp.271–272、p.331、pp.148–149、p.113</p>
+<h4>怎麼做</h4><p>只練那一週的 A1。快句:挑一種兩音或三音的附點節奏,用它拉整句,再用反過來的附點節奏拉整句;有進步就換一種節奏,不練到完美(pp.114–115);然後不停地照拍拉完一次,節拍器照上次的速度,四項都達標才升一格(p.116)。慢句:先在最長的音上釘住弓段、速度、接觸點,只調重量,調到弦振最寬,再放回整句(pp.271–272)。</p><p>拉弓之前可以先撥一遍,十秒:撥弦時本能會先按實再撥,那個時間點換回弓之後還留著(pp.148–149)。長的日子多一段:整句過一遍,只在長音上試比例(p.331)。換弦有疙瘩的句子用 Basics 53 或 46 的做法,那週不加新的一條。</p>
+<p class="block-min"><span class="lbl">分鐘</span>5、8、12 <span class="lbl">在檢查什麼</span>四項:音準、聲音、節奏、輕鬆(p.114);難的地方不加速,稍微拉回來(p.113);附點的短音在 C 弦有沒有立刻發聲,沒有就是弓還沒貼好弦就動了(推論)。</p>
+<h4>中提琴</h4><p>推論:C 弦上的重音最容易變成壓;pp.114–115 那種短—長的附點節奏,短音在 C 弦弦還沒振起來就到了長音,所以先在 D、G 弦的段落做,C 弦的句子先用長—短的附點節奏。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p></article>
+<article class="block" id="block-7">
+<h3>左手教材(核心之外;30 分鐘的日子上課前三天,長的日子每天)</h3>
+<p class="block-src">老師的教材;《The Violin Lesson》p.73、p.62、p.302、pp.302–303、p.307、pp.146–147、p.75</p>
+<h4>怎麼做</h4><p>30 分鐘的日子:5 分鐘,拉當週樂團譜那個調的 Barber 音階,或老師指定的一行 Wohlfahrt;Fischer 說用曲子的調練音階,換弓、換弦、換把三處特別留意(p.302)。長的日子:老師的教材照他的順序與量;他同意的話就照 p.73 的順序:音階一次,兩個音準練習之一(Exercise 1 只做一條弦,Exercise 2 只做那個調)8 到 10 分鐘,再音階一次。三本書給左手的只有檢查:每個 C、G、D、A 對空弦查(p.62);第一指全程留在弦上(pp.302–303);拉完在音階表上寫調、日期、速度(p.307)。</p>
+<p class="block-min"><span class="lbl">分鐘</span>5、12、15;錄音日讓 5,換譜那天讓 2 <span class="lbl">在檢查什麼</span>前後兩次音階差多少(p.73);換弦的第一個音,手指有沒有在弓到之前就放好(pp.146–147);五個部位沒有持續收縮:指根關節、拇指、手腕、上臂、頭頸(p.75);右手用練習 A 剛找到的重量,不因為左手在忙就退回習慣。</p>
+<h4>中提琴</h4><p>推論:剛換橋、換弦或換弓毛之後的前一到三週,音準結果不記,只記有沒有照方法去調。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p></article>
+<article class="block" id="block-8">
+<h3>本週那一條,第一條:上半弓用弓速補,不用食指</h3>
+<p class="block-src">《The Violin Lesson》p.49,道理在 pp.46–47</p>
+<h4>怎麼做</h4><p>空弦,先 D、G 再 A、C,每條弦四到六弓,f 全弓。下弓的前半略少於半弓、慢,後半略多於半弓、快;上弓反過來。四段的感覺照書:弓根靠小指平衡,往上走開始感覺第二指,上半弓從手製造重量,回程把重量移回小指;弓速的差別要小到別人看不出來(p.49)。Fischer 說上半弓弓輕、手離弦遠,人會靠到食指上補重量,結果是壓扁的音(p.46);用弓速補是三個替代裡不碰持弓的那一個(p.47)。剩下的時間再做一遍,或拉長音。</p>
+<p class="block-min"><span class="lbl">分鐘</span>2 <span class="lbl">在檢查什麼</span>上半弓的 f 是圓潤、甜、有共鳴,還是變硬變扁;做完當場做一次食指放掉測試;C 弦下弓開頭那段慢弓,弦有沒有先動起來再加速。預測可以寫:錄音裡上半弓長音的厚度不掉。</p>
+<h4>中提琴</h4><p>書上沒指定弦。推論:C 弦發音慢,開頭的慢段一用食指補,弦還沒動就被壓住;那一段靠小指平衡讓弦先動,再加速。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p></article>
+<article class="block" id="block-9">
+<h3>第二條:一弓之內 f 立刻放成 p</h3>
+<p class="block-src">《Tone》ex.39 pp.74–75;《The Violin Lesson》pp.20–21</p>
+<h4>怎麼做</h4><p>接觸點 2,全弓,空弦(推論:書上是按弦的音,空弦少一個變數)。一弓一組:♩=60,半弓 f、半弓 p,下弓上弓交替,每條弦八到十弓;一弓兩組:二分音符 = 70;三組(80)和四組(90)等兩組乾淨了再加。Fischer 說(p.74):每個連弓平滑無縫、不加斷句,f 和 p 是一個音不是兩個,但那個音裡要突然變小聲(subito piano),不是漸弱。每組之間插幾個中速全弓,每一弓拇指和小指一起慢慢彎再伸直 10 或 12 次(《The Violin Lesson》pp.20–21)。剩下的時間再做一遍,或拉長音。</p>
+<p class="block-min"><span class="lbl">分鐘</span>2 到 3 <span class="lbl">在檢查什麼</span>放掉重量時弓速有沒有跟著變,變了就是在壓,食指一鬆弓也跟著鬆掉;p 那半弦還有沒有在振,沒有就是掉進表面音;f 那半在 2 出雜音,先退到 3 學放掉,再回 2(推論)。預測可以寫:食指放掉測試的結果和這條的感覺一致。</p>
+<h4>中提琴</h4><p>推論:2 比核心長音的 3 靠橋一格,可演奏區更窄,f 那半最容易就是平常的壓法;先 D、G 再 A,C 弦殿後,而且 f 用 mf 的量。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p></article>
+<article class="block" id="block-10">
+<h3>第三條:重音用弓速做,配 Basics ex.20 第 3 步當對照</h3>
+<p class="block-src">《Tone》ex.37 p.66(第一把位);Basics ex.20 p.14</p>
+<h4>怎麼做</h4><p>♩=90,一天一條弦,先 D、G,再 A,C 殿後。每條弦四行:第一行是短音接長音的連弓,短音在弓根快弓、長音在弓中慢弓,下一弓從弓尖起;第二到四行是節奏變形,各標 slightly slower。每一行在四個接觸點各做一次,力度跟著接觸點走:5 pp、4 mp、3 f、2 ff;C 弦跳過 pp(推論)。Fischer 說(p.66):重音主要用弓速;多出來的弓速免不了配一點壓力,但盡量少;弓要從弦的表面掠過。</p><p>對照:Basics ex.20 第 3 步,整小節一個均勻的弓速,重音只用手做。它留給課堂,只是因為熱身 5 分鐘塞不下;這一週先在課堂請老師看一次,之後在家用同一條弦(和 ex.37 當天那一條)做一分鐘,兩條並排,才分得出自己的重音是哪個變數做的。推論:它是同一個問題的另一半,不算第二條新練習。剩下的時間再做一遍,或拉長音。</p>
+<p class="block-min"><span class="lbl">分鐘</span>3;對照 1 <span class="lbl">在檢查什麼</span>快的那一段重量有沒有跟著加,加了就是壓;Fischer 說判準是弦振得寬、琴響起來,幾乎只靠弓速(p.66),不是手有沒有輕(推論);C 弦的短音有沒有進弦。預測可以寫:C 弦的重音不扁。</p>
+<h4>中提琴</h4><p>推論:弓從表面掠過的拉法,在 C 弦會更早掉進表面音;「免不了配一點壓力」在 C 弦要當真。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p></article>
+<article class="block" id="block-11">
+<h3>第四條:弓尖和弓根的起音</h3>
+<p class="block-src">《Tone》ex.34 p.60(第一把位)、p.vi;《The Violin Lesson》p.199、p.275、p.277</p>
+<h4>怎麼做</h4><p>♩=50,只做第一把位那一頁。每個接觸點三個起音,每個起音後面都有休止,每一下都從靜止重新起:3 公分的弓、四分之一弓、半弓。第一行全用上弓在弓尖,5 p、4 mp、3 f、2 ff;第二行全用下弓在弓根,反過來 2 ff、3 f、4 mp、5 p。弦序換成 C、G、D、A;先 D、G,再 A,C 排末尾。一頁約 3 分鐘。剩下的時間再做一遍,或拉長音。</p>
+<p class="block-min"><span class="lbl">分鐘</span>3 <span class="lbl">在檢查什麼</span>每個音的開頭有沒有一絲刮或吱。Fischer 要每個音的開頭、中段、結尾都是 p.vi 那個量表的 10,也就是弦振到最寬(《Tone》p.vi);咬弦那一刻只用弓桿壓向弓毛、弓毛壓進弦所需要的肌肉,不抬上臂、不抬肩、左手不捏琴頸、左手指不多壓(《The Violin Lesson》p.199),不憋氣(p.277);弓放在弦上等的那一刻,重量有沒有已經壓進去(p.275 講的是別的弓法,借來用是推論)。預測可以寫:錄音裡音頭的雜訊變少。</p>
+<h4>中提琴</h4><p>推論:弓根本來就重,C 弦又慢,弓根那一行先在 D、G 做乾淨再上 C 弦;弓尖的上弓在 C 弦起不來時,補的是手臂重量,不是食指。《Basics》也有一條 ex.34,筆記裡書名要寫清楚。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p></article>
+<article class="block" id="block-12">
+<h3>第五條:弦越高越靠橋</h3>
+<p class="block-src">《Tone》ex.18 p.36(第一把位);《The Violin Lesson》pp.5–6</p>
+<h4>怎麼做</h4><p>♩=100,f sempre,第一把位五行:跨四條弦的音階與琶音音型,一組一弓,譜上畫了漸強漸弱。從 C 弦的接觸點 5(More bow)起,每上一條弦往橋靠一格,G 在 4、D 在 3、A 在 2(Less),頂端到 1(Little bow);下行退回來。起弓標了上弓和下弓兩種,都做。約 2 分鐘,一到兩遍;第五把位不做。剩下的時間再做一遍,或拉長音。</p>
+<p class="block-min"><span class="lbl">分鐘</span>2 <span class="lbl">在檢查什麼</span>四條弦是不是一樣大聲,這是這一條的目的;C 弦是不是真的退到 5、靠弓速拉,A 弦頂端那幾個音是不是真的到 1;A 弦靠橋時弓有沒有慢下來。預測可以寫:樂團那一句裡 C 弦不再比別的弦小。</p>
+<h4>中提琴</h4><p>Fischer 說粗弦要離橋遠一點、用更快更長的弓,細弦靠橋(pp.5–6)。推論:A 弦比小提琴的 E 弦粗,最佳位置可能比 2 遠一點;樂團裡 C 弦出不來,常常是接觸點沒有跟著弦換。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p></article>
+<article class="block" id="block-13">
+<h3>第六條:兩個接觸點之間立刻切換</h3>
+<p class="block-src">《Tone》ex.14 p.30(第一把位)</p>
+<h4>怎麼做</h4><p>♩=75,起弓下弓。第一把位那一頁:分解四度的單音,不換把;兩個音在接觸點 5 拉 p,接下來兩個音在 2 拉 f,之後交替;下半頁順序反過來。一頁約 2 分鐘,做兩三遍。頁首的變奏等分弓版乾淨了再加;第五把位不做。剩下的時間再做一遍,或拉長音。</p>
+<p class="block-min"><span class="lbl">分鐘</span>2 到 3 <span class="lbl">在檢查什麼</span>5 和 2 各自的配比是不是練習 A 找到的那兩組;兩個音之內切換到位,不是慢慢滑過去;切到 2 那一下,重量是手臂一次到位,還是食指補壓(推論)。預測可以寫:兩個音內換好配比,食指放掉測試不變。</p>
+<h4>中提琴</h4><p>推論:C 弦先做 5 和 3 之間的版本,再進到 2;這一步書上沒有,是這裡加的。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p></article>
+<article class="block" id="block-14">
+<h3>第七條:一格一格走到琴橋再回來</h3>
+<p class="block-src">《Tone》ex.15 p.32;《The Violin Lesson》p.24、p.214、p.215</p>
+<h4>怎麼做</h4><p>♩=100,四分音符,分弓。第一把位那一段:從接觸點 5 一格一格走到 1,再回到 4,反覆;往 1 漸強、離開 1 漸弱,音符底下有 Little bow、More、Less 的弓量提示。一遍約 30 秒,做四到六遍;九種弓法變奏留到評估之後。Fischer 說(p.32):先用分弓當一個完整的序列拉,再套變奏;靠近琴橋要減慢多少就減慢多少,用比較少的弓,離開再加快。剩下的時間再做一遍,或拉長音。</p>
+<p class="block-min"><span class="lbl">分鐘</span>3 <span class="lbl">在檢查什麼</span>往 1 走,弓有沒有真的慢下來:第一次做的人往橋走時會不自覺加快弓(《The Violin Lesson》p.24),靠橋時不自覺把弓加快,常是音不純的原因(p.214);離開 1 回 4,重量有沒有跟著減(推論:對下手偏重的人,這一半才難);弓沉進弦時左手指有沒有跟著壓得更重(p.215)。預測可以寫:練習 A 從 2 回 3 那一步,長音的厚度一樣。</p>
+<h4>中提琴</h4><p>推論:♩=100 時接觸點 1 的四分音符只有 0.6 秒,弓量要小到幾公分;C 弦先做到 2 就回頭。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p></article>
+<article class="block" id="block-15">
+<h3>第八條:重音開頭那一下快弓用更多的弓</h3>
+<p class="block-src">《The Violin Lesson》p.216 的熱身練習;pp.215–216</p>
+<h4>怎麼做</h4><p>同一個空弦音反覆拉有重音的弓,每次快的那一段用更多的弓;每一對連結線是一個沒有中斷的音,前一半快、後一半慢。六組的起點與持續處照書:弓根起,在平衡點、弓中、或弓中到弓尖之間持續;弓尖起,在弓中到弓尖之間、弓中、或平衡點持續。再只在下半弓、只在上半弓各做一遍。先 D、G。Fischer 說學生快的那一段用 10 公分的弓,名家用 20(p.216)。剩下的時間再做一遍,或拉長音。</p>
+<p class="block-min"><span class="lbl">分鐘</span>2 到 3 <span class="lbl">在檢查什麼</span>開頭那一下是弓量做的還是弓重做的,弓重在快的那段有沒有跟著加;快的那一段和持續的那一段是不是接成一個音;過樂團譜時,弓速不均的地方問一句:能不能用更多的弓做這個(p.216)。預測可以寫:A1 的重音處,錄音裡音頭乾淨。</p>
+<h4>中提琴</h4><p>推論:開頭那一下用壓力做,C 弦會直接被壓住;平衡點在中提琴弓上的位置,自己量。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p></article>
+<article class="block" id="block-16">
+<h3>第九條:《Tone》ex.1,五個接觸點各配一組速度、弓毛、力度的空弦全弓</h3>
+<p class="block-src">《Tone》ex.1 p.9;《The Violin Lesson》p.13</p>
+<h4>怎麼做</h4><p>一天一條空弦。每個接觸點兩小節四分音符,每個四分音符一個全弓;接觸點 1 是一小節兩個二分音符。5 弓毛斜著、♩=80、p;4 少斜一點、♩=75、mf;3 再少一點、♩=70、f;2 較平、♩=60、ff;1 平貼、二分音符 = 40、f。整條的設計是靠指板快弓、靠橋慢弓:一弓從 5 的 0.75 秒到 1 的 1.5 秒。它排在第九,多半留到評估之後;它和核心的長音、練習 A 差的只有弓毛傾斜這個變數,名額給它的理由是弓毛傾斜,不是那五組速度。剩下的時間再做一遍,或拉長音。</p>
+<p class="block-min"><span class="lbl">分鐘</span>一條弦約 1 分鐘;5 <span class="lbl">在檢查什麼</span>Fischer 說聲音要絕對均勻,製造它的因素就必須均勻:弓不漂,速度與壓力不波動(p.9);接觸點 1 一弓約 1.5 秒,在 C 弦會貼著刮的邊,用 p.13 的判斷句分方向。預測可以寫:D、A 弦在 5 用斜著的弓毛拉 p,擺幅仍然整弓一樣寬。</p>
+<h4>中提琴</h4><p>推論:C、G 弦在 5 用斜著的弓毛拉 p,可能只出表面音;手冊要平貼全部弓毛,所以 C、G 弦每個接觸點的弓毛都比書上印的再平一級。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p></article>
+<article class="block" id="block-17">
+<h3>留下來的那一條(60 分鐘那天,本週那一條之後的 5 分鐘)</h3>
+<p class="block-src">第 6 節各條</p>
+<h4>怎麼做</h4><p>留下來的練習一次一條輪流做,做法照原本的說明。還沒有留下來的練習時(第 1 到 5 週),這 5 分鐘給樂團譜的 A3,做法同 A1。</p>
+<p class="block-min"><span class="lbl">分鐘</span>5 <span class="lbl">在檢查什麼</span>留下來的那條照原本的檢查欄,不再寫預測;A3 照 A1 的檢查欄。</p>
+<h4>中提琴</h4><p>沒有另外要改的。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p></article>
+<article class="block" id="block-18">
+<h3>每週錄音、兩個自我檢測、Fig. 40、聽、挑下週那一條</h3>
+<p class="block-src">手冊時程那節;《The Violin Lesson》p.49、p.330、p.xviii、p.325、p.333</p>
+<h4>怎麼做</h4><p>拿琴 5 分鐘:手機放三公尺外,錄同一段固定選段(樂團當期最吃力的一句,加 C 弦空弦長音),標日期;重做食指放掉測試;做 Fig. 40(p.49):右手輕放在左前臂上,一次只從手腕壓、一次用整條手臂的重量壓,記兩種感覺差在哪。疲勞測試改在練完伸展過、等一小時後做;手冊的測試沒有伸展這一步,條件改了就不和器材變動前那次比,基準線用器材最後一次變動後第一週那次(推論,理由在「練完伸展」那條)。</p><p>不拿琴的 10 分鐘不計入當天的表。聽法照 p.330:同一段聽三遍,一遍只聽一件事。p.330 列的是揉弦、均勻、音準、換弓,項目照自己要比的東西換,這裡定的三件是音頭的雜訊、長音的厚度、換弓。聽完照 p.xviii 那三步寫清單:注意到一切,列出來,排順序,只寫前三項。這張清單決定下週那一條是哪一條,或者這週不加。上週那一條對不對得上預測,決定留或停;停掉的寫「這樣不行」,不重做,因為 Fischer 說不要重複已知行不通的事(p.333)。下週的預測用現在式、第一人稱、肯定句寫(p.325)。</p>
+<p class="block-min"><span class="lbl">分鐘</span>5 拿琴,10 不拿琴 <span class="lbl">在檢查什麼</span>和基準檔比:音頭的雜訊量、長音的厚度、遠端的清晰度;兩個自我檢測有沒有動;Fig. 40 哪一種感覺比較像練習 A 找到平衡時的手。</p>
+<h4>中提琴</h4><p>推論:錄音裡的壞聲音用《Tone》p.vi 的兩句判斷:吱是太快或太輕,刮是太慢或太重,C 弦更常是後者;中提琴弓自重大,食指放掉時垮掉的程度比小提琴小。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p></article>
+<article class="block" id="block-19">
+<h3>上課那天的診斷清單(都要第二個人;都是診斷不是練習,不占名額)</h3>
+<p class="block-src">手冊;《The Violin Lesson》pp.9–10、p.204、p.33、pp.39–40、p.197;Basics ex.19 pp.12–13</p>
+<h4>怎麼做</h4><p>一堂做一兩樣,順序由老師定。(1) 老師拉十種毛病的聲音,你只能用三種句型描述:對這個距離太輕或太重、太快或太慢、對這個速度壓力太近或太遠(pp.9–10)。(2) 演奏中老師喊定格、拿走琴,你維持姿勢看自己在做什麼(p.204);再從外面看琴的角度(p.33)。(3) 槓桿實驗:食指放在離拇指不同距離的地方慢慢壓、放,離得越遠需要的壓力越小(pp.39–40);適應期內只感覺,不移食指。(4) Basics ex.19:老師一站一站接手你整條手臂的重量,每一站都整個交出去。(5) 老師看你拉 C、G 弦時右手肘夠不夠高;手肘太低會逼人用手指壓弓補力量(p.197)。</p>
+<p class="block-min"><span class="lbl">分鐘</span>0(課堂時間) <span class="lbl">在檢查什麼</span>老師的答案寫進每週筆記:壓還是重量、手肘高度、食指離拇指的距離、琴的角度;適應期內只記不動。</p>
+<h4>中提琴</h4><p>推論:C 弦手臂最高,右手肘高度在中提琴上更常是問題;ex.19 一個人做不出來,弦是唯一能接你手臂重量的東西。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p></article>
+<article class="block" id="block-20">
+<h3>練完伸展(停錶後,不計入總長,每天固定做)</h3>
+<p class="block-src">《The Violin Lesson》pp.165–167 Example 1、Example 4;pp.174–175</p>
+<h4>怎麼做</h4><p>Example 1(p.166):兩臂交叉、兩手互扣、拇指交扣,慢慢輕輕舉過頭;書上沒給時間,這裡定 30 秒。Example 4(p.167):手臂垂在身側、手肘打直,手抬到與前臂成 90 度,整條手臂很慢地順時針、逆時針各轉到底,感覺肌肉從前臂一路拉到肩;這裡也定 30 秒。書上寫的是左臂,右臂照做是推論:運弓的前臂旋轉用的是同一組肌肉。右肩酸的那一週加(pp.174–175):左手托住右腋窩那塊肌肉,肩往下往前推讓它變硬、回原位變軟,幾次;再做空的運弓動作,那塊肌肉不許收縮。</p>
+<p class="block-min"><span class="lbl">分鐘</span>1 <span class="lbl">在檢查什麼</span>疲勞測試那天,伸展做完再等一小時,查右肩、前臂、脖子。Fischer 說練完沒收操,乳酸留著就造成酸痛(pp.165–166)。推論:收操做不做會改疲勞測試的讀數,所以固定做,而且從第 1 週起,一律在「伸展過、等一小時」的條件下測;手冊的測試沒有伸展這一步,器材變動前那次條件不同,不拿來比,基準線以器材最後一次變動後第一週為準。</p>
+<h4>中提琴</h4><p>Fischer 說手臂緊張的主因之一是腋窩這塊肌肉夾緊,很多學生弓一拿到演奏位置它就凸出來(pp.174–175);弓重是不是讓它更早夾緊,沒有依據。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p></article>
+</section>
+
+<section id="record"><h2>記錄</h2>
+<p>Fischer 的每日記錄只有一行:練習的時刻和分鐘數,用碼表計,接電話、泡茶停錶,看譜、想結構不停錶(p.333);打勾只代表做過並往前走了幾步(p.327)。這裡加在那一行上面的東西,全都是為了三個月後能比。描述聲音只用三種句型——對這個離橋距離太重或太輕、太快或太慢、太近或太遠(p.9)——可以再用《Tone》p.vi 的 1 到 9 給速度和重量各一個數字;不寫「用力」「放鬆」這種沒有座標的字,否則三個月後的筆記比不了。</p>
+<ul><li>每天:練習時間,寫成「時刻 – 分鐘數」(p.333),60 分鐘的日子寫 57,錄音日的回聽另記一行「回聽 10 分鐘」;今天是哪一張表;本週那一條做了就在書上打勾或寫日期(p.327);A1 用了哪一種節奏型,下次換一種;停錶後有沒有伸展;適應期內手感有變化就寫「適應中」,不寫原因。</li><li>每週:錄音檔名與日期;和基準檔比的三件事各一句(音頭的雜訊、長音的厚度、遠端的清晰度);食指放掉測試、Fig. 40 那兩種感覺差在哪、疲勞測試(練完伸展過、等一小時後)。</li><li>每週:本週那一條做之前的預測(現在式、第一人稱、肯定句,p.325)、錄音後的結果、留或停;停掉的寫「這樣不行」(p.333)。下週那一條是哪一條,或「這週不加」和理由。Basics ex.34 的數字,條件寫明(哪條弦、同一個時段、哪個起點)。</li><li>每週:回聽三遍各一句,和 p.xviii 那張清單的前三項;這週的 A1 是哪一句,下週是哪一句;老師的診斷(壓還是重量、手肘高度、食指離拇指的距離、琴的角度)、老師加了什麼;用了 p.73 的排法就寫前後兩次音階的差別;每月那次舊練習曲四項各幾分。</li></ul>
+</section>
+
+<section id="symptoms"><h2>症狀對照</h2>
+<p>Basics 的條目已在指南第 12 節,這裡以另外兩本書為主。</p>
+<div class="scroller"><table><thead><tr><th scope="col">症狀</th><th scope="col">翻哪裡</th><th scope="col">為什麼</th></tr></thead><tbody><tr><td class="rowname">音悶、被壓死,C 弦最常;3、4、5 上聲音變小變硬但沒有刮</td><td>指南第 12 節;《The Violin Lesson》pp.2–3、p.13;《Tone》p.vi</td><td>壓力超過那個弓速和接觸點吃得下的量,出來的是雜訊(手冊);Fischer 說稍微放掉壓力反而得到更多聲音(p.2);《Tone》p.vi 點名 5、4、3 上稍微太多壓力的壓住、受限。修法:加弓速,不是減力量。</td></tr><tr><td class="rowname">靠橋(1、2)出刮聲,或吱、哨</td><td>《The Violin Lesson》p.13、p.24、p.273(只用那句);《Tone》p.vi</td><td>在 1 很多人誤讀刮聲,通常是太輕、弓太快(p.13);弓速夠時再重也刮不出來,刮只代表弓太慢(p.273)。聽頻率分:高而尖是太輕太快,低而撕是太重太慢。</td></tr><tr><td class="rowname">音頭有雜音,或音鼓起來才出聲</td><td>《The Violin Lesson》pp.9–10、p.270、p.275、p.291;《Tone》ex.34</td><td>起弓瞬間壓太重、弓太慢就刮一下(p.10);鼓起來的成因是弓速慢快、壓力輕重、揉弦延遲(p.270);p.291 證明壓本身無聲,雜音來自壓著動。推論:兩種症狀對應兩種順序,雜音是重量先進去弓才走,鼓起來是弓先走重量後到;哪一種是你的,聽錄音裡音頭那一下。</td></tr><tr><td class="rowname">上半弓變薄、弓尖的 f 出不來,只好靠食指</td><td>《The Violin Lesson》pp.46–49、p.129;Basics ex.20;ex.22(適應期過後)</td><td>上半弓弓輕、手離弦遠,人會靠食指補重量,結果是壓扁的音(p.46);三個替代:第二指分擔、從手製造重量、更快的弓速(p.47),第三條就是本週那一條的第一條;手腕在弓尖太低,力量從手腕漏掉(p.129)。</td></tr><tr><td class="rowname">下半弓刮、弓根重</td><td>《The Violin Lesson》pp.46–47、p.278;Basics ex.4、5</td><td>下半段本來就重,要把重量拿出弦,手旋後、小指平衡弓(pp.46–47);拇指跟著往上頂就是捏(p.278)。推論:中提琴弓根更重,是最容易壓的地方。</td></tr><tr><td class="rowname">換弦不順、換弦處掉音量</td><td>Basics ex.46、53、30;《The Violin Lesson》p.294、p.205</td><td>換弦不順通常是轉太晚;動作要比聲音早,弓要在出聲之前就往新弦移(p.205:Fischer 說音樂上的時間點是你要音出來的那一刻,技術上的時間點常在那之前);Galamian 從長雙音逐步縮短(p.294)。用在 A1 那段,那週不加新的一條。</td></tr><tr><td class="rowname">C 弦出不來</td><td>Basics ex.25、44、51、27;《Tone》ex.18、10;《The Violin Lesson》pp.5–6、p.127</td><td>粗弦有兩條路:退到 4 附近用更快更長的弓,或留在原地用更少的弓(pp.5–6),兩條都試;拉低弦手肘不要太低(p.127)。推論:先看手肘高度,再看接觸點有沒有跟著弦換。</td></tr><tr><td class="rowname">重音只會用力做</td><td>《Tone》ex.37;《The Violin Lesson》pp.215–216;Basics ex.20 第 3 步</td><td>不能只靠加弓重做漸強和高潮(p.216);重音主要用弓速(《Tone》p.66);ex.20 第 3 步是只用手的版本,並排才分得出你的重音是哪個變數做的。</td></tr><tr><td class="rowname">樂團裡每個音都一樣重,還是送不出去;p 沒人聽到</td><td>《The Violin Lesson》p.206、p.208、p.209、pp.213–216</td><td>要給得更多,先要給得更少(p.206)。Fischer 講獨奏者在樂團上方的 p(p.208):p 是性格不是分貝,可以靠橋、進弦、相當大聲,只要音頭沒有重音;推論:聲部裡的音量不是你一個人定的,借的是那隻不加重音也能靠橋進弦的手。推論:pp.213–216 列的能量來源裡,弓沉進弦、靠橋你本來就有;缺的是用更多的弓、更快的弓速和重音,因為它們和靠橋重壓的本能方向相反。</td></tr><tr><td class="rowname">練完一小時右肩、前臂、脖子酸</td><td>手冊疲勞測試;《The Violin Lesson》pp.165–167、pp.174–175、p.195、p.197</td><td>先排除兩個來源:沒收操,乳酸留著(p.165);右手肘太低,用手指壓弓補力量(p.197)。伸展過再測,酸還在才算,這個條件和手冊不同,理由在第 6 節;拉弓覺得很用力,常是肩膀在固定(p.195)。</td></tr><tr><td class="rowname">不知道這週該加哪一條,或加了看不出差別</td><td>《The Violin Lesson》p.xviii、p.333;指南:一週最多加一條新練習,寫預測與結果</td><td>最快的進步來自隔離最重要的一點(p.xviii);不重複已知行不通的事(p.333);分不出是哪一條起作用,就照第 4 節退回上一週只剩一條。</td></tr></tbody></table></div>
+</section>
+
+<footer id="sources"><h2>來源與查證紀錄</h2><p>三本書都是純影像 PDF,只能逐頁看。頁碼換算:《Tone》書頁 N = PDF N−3,全書到 p.102;《The Violin Lesson》書頁 N = PDF N+26,從書 p.9 的頁腳確認;《Basics》照《Basics 右手篇指南》,書頁 N = PDF N+9。手冊的內容照《中提琴聲量手冊》;Basics 的條目照《Basics 右手篇指南》的症狀對照(第 12 節)、熱身輪替表,和剛換橋後不做的那幾條。書上的話都標了頁碼;推論集中在這幾處:三本書的第一條練習和手冊練習 A 當成同一條、練習 B 當成 Exercise 1 加節拍器、《Tone》ex.1 只多弓毛傾斜一個變數、第 5 週起九條的順序、左手不占右手的名額、ex.34 與錄音分開、收操當疲勞測試的固定條件並把基準線重定在器材最後一次變動後第一週、中提琴的弦序、C、G 弦的弓毛再平一級、C 弦的力度降一級、每條的「預測可以寫」。</p><ul><li>查證那天重讀對過的頁:《Tone》pp.vi–viii、9–10、30–32、36、37、60、66、74–75;《The Violin Lesson》pp.xviii、9、11–13、49、73、114–116、166–167、200、216、302、325–327、330–333。其餘頁碼照設計階段的讀書地圖與核對紀錄。</li><li>設計階段修正過的頁碼與讀法:「持續糾正直到新習慣形成」在 p.200,不在 p.xvii;「一次只變一個因素」在 p.12;「看譜、想結構也算練習」在 p.333;撥弦當練法在 pp.148–149;pp.xix–xx 是盲點與聽不到的東西(aural blind spot)兩句,「錄音是繞過去的方法」是推論;《Tone》pp.30–38 沒有節首說明,p.32 有兩句做法,p.37 有 M、UH、LH 的弓段標記,其餘只有譜例;《Tone》ex.1(p.9)放大重讀後改正:四分音符一弓,接觸點 5 到 2 各兩小節,接觸點 1 是兩個二分音符、二分音符 = 40,不是全音符;《The Violin Lesson》p.12 的譜例只有 5、4、3 是四分音符,2、1 是二分音符。p.332「沒人在乎練了多久」是 Fischer 引 Brodsky 的話,他自己的小標是不要設期限。</li><li>Fischer 講到中提琴的地方只有這幾處:比例規則對任何弦樂器成立,會把小提琴弦拉得自由振動的人不用練也能在中提琴上做同一件事(p.6),每個接觸點的數字要重找是推論;小提琴手和中提琴手都得花很多時間把弓往橋拉(pp.6–7);往下拉是拉小提琴或中提琴的職業傷害(p.173);Basics Part B p.35 中提琴手常把琴頭拿太低。其餘中提琴的話全是推論。</li><li>會過期的:單一變數期的起點以器材最後一次變動那天為準;「下手偏重的機制未確認」在老師診斷後應該已有答案,依賴它的順序(第一到第三條)要重看。</li></ul><h3>姊妹文件</h3><ul><li><a href="./index.html">中提琴聲量手冊</a></li><li><a href="./basics-part-a.html">Basics 右手篇指南</a></li><li><a href="./resources.html">台灣中提琴學習資源地圖</a></li><li><a href="./daily-routine.pdf">這一份的 PDF(iPad 版)</a></li></ul></footer>
+</div>
