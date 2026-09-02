@@ -1,0 +1,1766 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Basics 右手篇指南</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&family=Spectral:ital,wght@0,400;0,600&display=swap">
+<style>
+
+  :root {
+    --ground:      #E8EBE6;
+    --surface:     #F4F6F2;
+    --surface-2:   #DDE2D9;
+    --ink:         #1B1F1C;
+    --ink-mid:     #47504A;
+    --ink-soft:    #6E7872;
+    --rule:        #C3CBC1;
+    --rule-soft:   #D5DAD1;
+    --accent:      #8A6224;
+    --accent-deep: #6B4B18;
+    --accent-wash: rgba(138, 98, 36, 0.10);
+    --flag:        #7C3A2E;
+    --flag-wash:   rgba(124, 58, 46, 0.09);
+
+    --font-display: "Spectral", "Noto Serif TC", "Songti TC", "Source Han Serif TC", serif;
+    --font-body: "IBM Plex Sans", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+    --measure: 40rem;
+    --wide: 58rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #141815;
+      --surface:     #1C211D;
+      --surface-2:   #262C27;
+      --ink:         #E5EAE3;
+      --ink-mid:     #ACB4AA;
+      --ink-soft:    #7F8880;
+      --rule:        #333A34;
+      --rule-soft:   #29302A;
+      --accent:      #D0A461;
+      --accent-deep: #E3BC82;
+      --accent-wash: rgba(208, 164, 97, 0.13);
+      --flag:        #D98E7C;
+      --flag-wash:   rgba(217, 142, 124, 0.12);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #141815;
+    --surface:     #1C211D;
+    --surface-2:   #262C27;
+    --ink:         #E5EAE3;
+    --ink-mid:     #ACB4AA;
+    --ink-soft:    #7F8880;
+    --rule:        #333A34;
+    --rule-soft:   #29302A;
+    --accent:      #D0A461;
+    --accent-deep: #E3BC82;
+    --accent-wash: rgba(208, 164, 97, 0.13);
+    --flag:        #D98E7C;
+    --flag-wash:   rgba(217, 142, 124, 0.12);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.78;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0 1.5rem 6rem;
+  }
+
+  .wrap { max-width: var(--wide); margin: 0 auto; }
+
+  /* ---------- masthead ---------- */
+
+  header.masthead {
+    padding: 4.5rem 0 2.75rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 3.5rem;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 1.25rem;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2.1rem, 5.5vw, 3.1rem);
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 0 0 1.1rem;
+  }
+
+  .standfirst {
+    font-size: 1.06rem;
+    color: var(--ink-mid);
+    max-width: 38rem;
+    margin: 0;
+  }
+
+  .masthead-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.75rem;
+    margin-top: 2rem;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+  }
+
+  .masthead-meta span { white-space: nowrap; }
+
+  /* ---------- sections ---------- */
+
+  section { margin-bottom: 4.5rem; }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.45rem, 3.2vw, 1.85rem);
+    line-height: 1.3;
+    text-wrap: balance;
+    margin: 0 0 0.55rem;
+    padding-top: 0.4rem;
+    border-top: 2px solid var(--ink);
+  }
+
+  h3 {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 2.5rem 0 0.7rem;
+  }
+
+  h4 {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin: 2rem 0 0.6rem;
+  }
+
+  .section-lede { color: var(--ink-mid); margin: 0 0 2rem; max-width: var(--measure); }
+
+  p { margin: 0 0 1.15rem; max-width: var(--measure); }
+
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  strong { font-weight: 600; }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background: var(--accent-wash);
+    color: var(--accent-deep);
+    padding: 0.08em 0.34em;
+    border-radius: 2px;
+  }
+
+  ul, ol { margin: 0 0 1.15rem; padding-left: 1.2rem; max-width: var(--measure); }
+  li { margin-bottom: 0.45rem; }
+  li::marker { color: var(--accent); }
+
+  /* ---------- changelog ---------- */
+
+  .changelog {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 1.4rem 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .changelog h4 { margin-top: 0; }
+  .changelog ul { margin-bottom: 0; max-width: none; }
+  .changelog li { font-size: 0.92rem; color: var(--ink-mid); }
+  .changelog li strong { color: var(--ink); }
+
+  .chip {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    padding: 0.05em 0.5em;
+    border-radius: 2px;
+    border: 1px solid var(--accent);
+    color: var(--accent-deep);
+    background: var(--accent-wash);
+    white-space: nowrap;
+    vertical-align: 0.08em;
+  }
+  .chip.bad { border-color: var(--flag); color: var(--flag); background: var(--flag-wash); }
+
+  /* ---------- callouts ---------- */
+
+  .callout {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    border-radius: 3px;
+    padding: 1.25rem 1.4rem;
+    margin: 0 0 1.6rem;
+    max-width: var(--measure);
+  }
+
+  .callout.correction { border-left-color: var(--flag); background: var(--flag-wash); }
+  .callout p:last-child, .callout ul:last-child { margin-bottom: 0; }
+
+  .callout-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.5rem;
+  }
+
+  .callout.correction .callout-label { color: var(--flag); }
+
+  .ev {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- profile ---------- */
+
+  .profile { display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; }
+  @media (min-width: 44rem) { .profile { grid-template-columns: repeat(3, 1fr); } }
+
+  .trait { background: var(--surface); padding: 1.2rem 1.3rem; }
+  .trait h5 { font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; margin: 0 0 0.4rem; }
+  .trait p { font-size: 0.88rem; color: var(--ink-mid); margin: 0; line-height: 1.65; max-width: none; }
+  .trait .src { display: block; font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.05em; color: var(--ink-soft); margin-top: 0.6rem; }
+
+  /* ---------- diagram ---------- */
+
+  figure.diagram {
+    margin: 1.8rem 0;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    background: var(--surface);
+    padding: 1.4rem 1.4rem 1.1rem;
+    max-width: var(--wide);
+  }
+  figure.diagram svg { width: 100%; height: auto; display: block; }
+  figure.diagram svg text { font-family: var(--font-body); }
+  figure.diagram svg text.mono, figure.diagram svg g.mono text { font-family: var(--font-mono); }
+  figure.diagram svg .accent { stroke: var(--accent); color: var(--accent); }
+  figure.diagram svg .accent-fill { fill: var(--accent); }
+  figure.diagram svg .accent-deep-fill { fill: var(--accent-deep); }
+  figure.diagram svg .wash-fill { fill: var(--accent-wash); }
+  figure.diagram figcaption {
+    font-size: 0.84rem;
+    color: var(--ink-soft);
+    margin-top: 0.9rem;
+    line-height: 1.65;
+    max-width: none;
+  }
+
+  /* ---------- soundpoints ---------- */
+
+  .sp-wrap { border: 1px solid var(--rule); border-radius: 3px; background: var(--surface); padding: 1.5rem 1.4rem 1.2rem; margin: 0 0 1.6rem; overflow-x: auto; }
+
+  .sp-scale { display: grid; grid-template-columns: repeat(5, minmax(5.2rem, 1fr)); gap: 1px; background: var(--rule-soft); border: 1px solid var(--rule-soft); border-radius: 2px; min-width: 28rem; }
+
+  .sp { background: var(--surface); padding: 0.85rem 0.7rem; }
+  .sp-n { font-family: var(--font-mono); font-size: 1.05rem; color: var(--accent); margin: 0 0 0.35rem; }
+  .sp-where { font-size: 0.8rem; font-weight: 600; margin: 0 0 0.35rem; max-width: none; }
+  .sp-how { font-family: var(--font-mono); font-size: 0.7rem; line-height: 1.5; color: var(--ink-soft); margin: 0; max-width: none; }
+
+  .sp-ends { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); margin-top: 0.7rem; min-width: 28rem; }
+
+  /* ---------- ladder ---------- */
+
+  .ladder { border-top: 1px solid var(--rule); }
+
+  .rung {
+    display: grid;
+    grid-template-columns: 2.2rem 1fr;
+    gap: 0 1.1rem;
+    padding: 1.15rem 0;
+    border-bottom: 1px solid var(--rule-soft);
+    align-items: start;
+  }
+
+  @media (min-width: 46rem) {
+    .rung { grid-template-columns: 2.2rem minmax(0, 1fr) 8rem 9rem; gap: 0 1.5rem; align-items: baseline; }
+  }
+
+  .rung-rank { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-soft); padding-top: 0.15rem; }
+  .rung-name { font-weight: 600; margin: 0 0 0.15rem; max-width: none; }
+  .rung-note { font-size: 0.9rem; color: var(--ink-mid); margin: 0; line-height: 1.6; max-width: none; }
+  .rung-cost { font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-soft); grid-column: 2; margin-top: 0.4rem; }
+  @media (min-width: 46rem) { .rung-cost { grid-column: 3; margin-top: 0; } }
+
+  .meter { display: flex; gap: 3px; grid-column: 2; margin-top: 0.55rem; }
+  @media (min-width: 46rem) { .meter { grid-column: 4; margin-top: 0; } }
+  .meter i { display: block; width: 100%; max-width: 1.5rem; height: 0.5rem; background: var(--surface-2); border-radius: 1px; }
+  .meter i.on { background: var(--accent); }
+
+  .meter-key { display: flex; align-items: center; gap: 0.55rem; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.05em; color: var(--ink-soft); margin: 1rem 0 0; text-transform: uppercase; }
+
+  /* ---------- tables ---------- */
+
+  .scroller { overflow-x: auto; margin: 0 0 1.6rem; border: 1px solid var(--rule); border-radius: 3px; background: var(--surface); }
+
+  table { width: 100%; min-width: 42rem; border-collapse: collapse; font-size: 0.9rem; }
+
+  th, td { text-align: left; padding: 0.85rem 1rem; border-bottom: 1px solid var(--rule-soft); vertical-align: top; line-height: 1.6; }
+
+  thead th {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+
+  tbody tr:last-child td { border-bottom: none; }
+  td.rowname { font-weight: 600; white-space: nowrap; }
+  td .sub { font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-mid); display: block; margin-top: 0.2rem; }
+  .out { color: var(--ink-soft); }
+  .out .rowname { text-decoration: line-through; text-decoration-color: var(--flag); }
+
+  /* ---------- tests ---------- */
+
+  .tests { display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; margin-bottom: 1.6rem; }
+  @media (min-width: 40rem) { .tests { grid-template-columns: 1fr 1fr; } }
+
+  .test { background: var(--surface); padding: 1.15rem 1.3rem; }
+  .test h5 { font-family: var(--font-body); font-weight: 600; font-size: 0.94rem; margin: 0 0 0.4rem; }
+  .test p { font-size: 0.88rem; color: var(--ink-mid); margin: 0 0 0.5rem; line-height: 1.65; max-width: none; }
+  .test p:last-child { margin-bottom: 0; }
+  .verdict { font-family: var(--font-mono); font-size: 0.76rem; color: var(--accent-deep); }
+
+  /* ---------- script ---------- */
+
+  .script {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    border-left: 3px solid var(--accent);
+    padding: 0.3rem 0 0.3rem 1.2rem;
+    margin: 1.4rem 0;
+    max-width: var(--measure);
+    color: var(--ink);
+  }
+
+  /* ---------- cadence ---------- */
+
+  .cadence { border-top: 1px solid var(--rule); }
+
+  .beat { display: grid; grid-template-columns: 1fr; gap: 0.4rem 2rem; padding: 1.7rem 0; border-bottom: 1px solid var(--rule-soft); }
+  @media (min-width: 46rem) { .beat { grid-template-columns: 9.5rem minmax(0, 1fr) ; } }
+
+  .beat-when { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.06em; color: var(--accent); padding-top: 0.28rem; }
+  .beat-when small { display: block; font-size: 0.7rem; letter-spacing: 0.04em; color: var(--ink-soft); margin-top: 0.25rem; }
+  .beat ul { margin: 0; }
+  .beat ul li:last-child { margin-bottom: 0; }
+
+  /* ---------- footer ---------- */
+
+  footer { border-top: 1px solid var(--rule); padding-top: 1.75rem; font-size: 0.84rem; color: var(--ink-soft); }
+  footer h2 { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-soft); border: none; padding: 0; margin: 0 0 0.85rem; }
+  footer h3 { font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); margin: 1.6rem 0 0.5rem; }
+  footer ul { padding-left: 1.05rem; max-width: 46rem; }
+  footer li { margin-bottom: 0.3rem; }
+
+  @media (prefers-reduced-motion: no-preference) { a { transition: color 0.15s ease; } }
+
+
+  /* ---------- 這份指南新增的元件 ---------- */
+  .masthead-meta span { white-space: normal; overflow-wrap: anywhere; }
+  nav.toc {
+    border: 1px solid var(--rule);
+    background: var(--surface);
+    padding: 1.4rem 1.6rem 1.5rem;
+    margin: 0 0 3.5rem;
+    border-radius: 4px;
+  }
+  nav.toc h4 {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.8rem;
+  }
+  nav.toc ol {
+    margin: 0 0 1.2rem;
+    padding-left: 1.4rem;
+    columns: 2;
+    column-gap: 2.5rem;
+  }
+  nav.toc ol li { margin: 0 0 0.3rem; break-inside: avoid; }
+  nav.toc a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  nav.toc a:hover { border-color: var(--accent); color: var(--accent-deep); }
+  .exgrid { display: flex; flex-wrap: wrap; gap: 0.42rem; }
+  .exgrid a {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 2.05rem; height: 2.05rem; border-radius: 50%;
+    background: var(--ink); color: var(--ground);
+    font-family: var(--font-mono); font-size: 0.78rem; font-weight: 600;
+    text-decoration: none; border: none;
+    font-variant-numeric: tabular-nums;
+  }
+  .exgrid a:hover, .exgrid a:focus-visible { background: var(--accent-deep); color: var(--ground); outline: none; }
+  .exgrid .gap { flex-basis: 100%; height: 0; }
+
+  .section-span {
+    font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.06em;
+    color: var(--ink-soft); margin: -0.6rem 0 1.2rem;
+  }
+
+  article.ex {
+    border-top: 1px solid var(--rule);
+    padding: 2rem 0 1.4rem;
+    scroll-margin-top: 1.2rem;
+  }
+  article.ex .ex-head { display: flex; gap: 1rem; align-items: flex-start; }
+  .exno {
+    flex: 0 0 auto;
+    width: 2.5rem; height: 2.5rem; border-radius: 50%;
+    background: var(--ink); color: var(--ground);
+    font-family: var(--font-mono); font-weight: 600; font-size: 1.02rem;
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-top: 0.15rem;
+    font-variant-numeric: tabular-nums;
+  }
+  article.ex.about .exno {
+    background: transparent; border: 1px solid var(--rule); color: var(--ink-soft);
+    font-size: 0.62rem; letter-spacing: 0.08em;
+  }
+  article.ex h3 { margin: 0; font-size: 1.32rem; line-height: 1.25; }
+  article.ex .ex-zh { margin: 0.15rem 0 0; color: var(--ink-mid); font-size: 1.02rem; }
+  .ex-loc {
+    font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.03em;
+    color: var(--ink-soft); overflow-wrap: anywhere; margin: 0.7rem 0 1.1rem;
+  }
+  .ex-one { font-size: 1.06rem; font-weight: 500; margin: 0 0 0.6rem; }
+  article.ex h4 {
+    font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent);
+    margin: 1.35rem 0 0.4rem;
+  }
+  article.ex ol, article.ex ul { margin: 0.2rem 0 0.4rem; }
+  article.ex li { margin: 0 0 0.45rem; }
+  .ex-params {
+    font-family: var(--font-mono); font-size: 0.82rem; line-height: 1.6;
+    background: var(--surface-2); padding: 0.55rem 0.8rem; border-radius: 3px;
+    overflow-wrap: anywhere; margin: 0.4rem 0 0.2rem;
+  }
+  .ex-params .lbl { color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.68rem; margin-right: 0.6rem; }
+  .ex-meta {
+    font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-soft);
+    margin: 1.2rem 0 0; letter-spacing: 0.03em;
+  }
+  .ex-quote {
+    font-family: var(--font-display); font-style: italic; color: var(--ink-mid);
+    border-left: 2px solid var(--rule); padding-left: 0.9rem; margin: 1rem 0 0; font-size: 0.98rem;
+  }
+  .ex-flag {
+    border-left: 3px solid var(--flag); background: var(--flag-wash);
+    padding: 0.5rem 0.8rem; font-size: 0.9rem; margin: 1rem 0 0;
+  }
+  .rulecode { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); }
+  .backtop { font-family: var(--font-mono); font-size: 0.72rem; margin: 0.8rem 0 0; }
+  .backtop a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--rule-soft); }
+  .vocab td:first-child { font-family: var(--font-mono); font-size: 0.82rem; white-space: nowrap; }
+  /* ---------- 列印(iPad 版 PDF) ---------- */
+  @media print {
+    @page { size: 7.5in 10in; margin: 0.6in 0.55in 0.65in; }
+    html { font-size: 12pt; }
+    .changelog { padding: 0.9rem 1.1rem; }
+    .changelog li { margin: 0.15rem 0; }
+    nav.toc { padding: 0.9rem 1.1rem 1rem; margin-bottom: 1.5rem; }
+    nav.toc ol li { margin: 0 0 0.1rem; }
+    header.masthead { padding: 1rem 0 1.4rem; margin-bottom: 1.6rem; }
+    body { background: #fff !important; color: #1B1F1C !important; padding: 0 !important; }
+    .wrap { max-width: none; }
+    header.masthead { padding-top: 1.5rem; }
+    nav.toc { break-after: auto; }
+    .exgrid a { background: transparent !important; border: 1px solid #1B1F1C; color: #1B1F1C !important; width: 1.55rem; height: 1.55rem; font-size: 0.68rem; }
+    .exno { background: #1B1F1C !important; color: #ffffff !important; }
+    article.ex.about .exno { background: transparent !important; color: #6E7872 !important; }
+    section, footer { break-before: page; }
+    article.ex { break-inside: auto; padding-top: 1.2rem; }
+    .ex-head, .ex-params, figure.diagram, .callout, .changelog, tr { break-inside: avoid; }
+    h2, h3, h4 { break-after: avoid; }
+    .backtop { display: none; }
+    a { color: inherit; text-decoration: none; }
+    .scroller { overflow: visible; }
+    table { font-size: 10pt; }
+    nav.toc ol { columns: 2; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  @media (max-width: 640px) {
+    nav.toc ol { columns: 1; }
+    article.ex h3 { font-size: 1.15rem; }
+    .vocab td:first-child { white-space: normal; }
+  }
+
+</style>
+<div class="wrap">
+<header class="masthead">
+    <p class="eyebrow">Viola · Fischer《Basics》Part A · 2026-09</p>
+    <h1>Basics 右手篇指南</h1>
+    <p class="standfirst">Simon Fischer《Basics》(Peters 1997)的 Part A 是右臂與右手的 53 條練習。這份指南把它一條一條講清楚:書的版面怎麼讀、術語是什麼、每條在練什麼、為什麼有用、步驟和數字、照片在看什麼、邊註在講什麼;弦名全部換成中提琴的;最後附一張症狀對照表,從症狀查該看哪幾條。</p>
+    <div class="masthead-meta">
+      <span>書 · Simon Fischer, Basics, Edition Peters 7440(1997)</span>
+      <span>範圍 · Part A 書 pp.1–34,練習 1–53</span>
+      <span>換算 · 書頁 N = PDF 第 N+9 頁</span>
+      <span>核對 · 2026-09,逐條對書</span>
+    </div>
+  </header>
+
+<div class="changelog">
+    <h4>這一份是什麼、不是什麼</h4>
+    <ul>
+      <li><strong>是解釋,不是書。</strong>每條練習只寫它在練什麼、為什麼、怎麼做、數字是多少;步驟是改寫的,譜例只描述不重製。你還是要翻書看照片和譜。</li>
+      <li><strong>編號和書一樣。</strong>黑圈裡的數字是全書連號;「書 p.」是頁腳印的頁碼,「PDF」是掃描檔的頁數。</li>
+      <li><strong>弦名已經換成中提琴的。</strong>換法在「改成中提琴要注意的 13 件事」;每條的「中提琴」欄會寫用了哪幾條規則。除了一句以外,所有關於中提琴的話都是推論,不是 Fischer 說的。</li>
+      <li><strong>和《中提琴聲量手冊》分工。</strong>手冊講三個變數(弓速、弓壓、接觸點)和器材;這一份講手和手臂本身。接觸點的編號只在這裡當指標,內容在手冊(<a href="./index.html">公開版在這裡</a>)。</li>
+      <li><strong>這是公開版。</strong>拿掉了寫給原讀者個人的兩節(哪幾條和他的問題直接有關、怎麼排進他的每日課表),其餘和原版相同;文中的「你」是任何一個拉中提琴的人。</li>
+    </ul>
+  </div>
+
+<nav class="toc" id="toc" aria-label="目錄">
+      <h4>章節</h4>
+      <ol><li><a href="#layout">先讀這一節:這本書的版面怎麼讀</a></li><li><a href="#vocab">名詞對照</a></li><li><a href="#viola-rules">改成中提琴要注意的 13 件事</a></li><li><a href="#sec-bow-hand-1">弓手</a> <span class="rulecode">ex.1–18</span></li><li><a href="#sec-weight">把重量放進弦裡</a> <span class="rulecode">ex.19–23</span></li><li><a href="#sec-arm">前臂與上臂</a> <span class="rulecode">ex.24–30</span></li><li><a href="#sec-sonfile">慢的長音(son filé)</a> <span class="rulecode">ex.31–35</span></li><li><a href="#sec-straight">弓與琴橋平行</a> <span class="rulecode">ex.36–41</span></li><li><a href="#sec-crossing">換弦與 pivoting</a> <span class="rulecode">ex.42–53</span></li><li><a href="#symptoms">症狀對照表</a></li><li><a href="#sources">資料來源與查證紀錄</a></li></ol>
+      <h4>練習 1–53(黑圈號,和書一樣)</h4>
+      <div class="exgrid"><a href="#ex-1">1</a><a href="#ex-2">2</a><a href="#ex-3">3</a><a href="#ex-4">4</a><a href="#ex-5">5</a><a href="#ex-6">6</a><a href="#ex-7">7</a><a href="#ex-8">8</a><a href="#ex-9">9</a><a href="#ex-10">10</a><a href="#ex-11">11</a><a href="#ex-12">12</a><a href="#ex-13">13</a><a href="#ex-14">14</a><a href="#ex-15">15</a><a href="#ex-16">16</a><a href="#ex-17">17</a><a href="#ex-18">18</a><a href="#ex-19">19</a><a href="#ex-20">20</a><a href="#ex-21">21</a><a href="#ex-22">22</a><a href="#ex-23">23</a><a href="#ex-24">24</a><a href="#ex-25">25</a><a href="#ex-26">26</a><a href="#ex-27">27</a><a href="#ex-28">28</a><a href="#ex-29">29</a><a href="#ex-30">30</a><a href="#ex-31">31</a><a href="#ex-32">32</a><a href="#ex-33">33</a><a href="#ex-34">34</a><a href="#ex-35">35</a><a href="#ex-36">36</a><a href="#ex-37">37</a><a href="#ex-38">38</a><a href="#ex-39">39</a><a href="#ex-40">40</a><a href="#ex-41">41</a><a href="#ex-42">42</a><a href="#ex-43">43</a><a href="#ex-44">44</a><a href="#ex-45">45</a><a href="#ex-46">46</a><a href="#ex-47">47</a><a href="#ex-48">48</a><a href="#ex-49">49</a><a href="#ex-50">50</a><a href="#ex-51">51</a><a href="#ex-52">52</a><a href="#ex-53">53</a></div>
+    </nav>
+
+<section id="layout"><h2>先讀這一節:這本書的版面怎麼讀</h2>
+
+<p>每一條練習旁邊都有一個黑色圓圈,圈裡的數字是全書的連號。Part A 從 1 編到 53,Part B 接著往下編,一路編到書尾的 Part G,封面寫 300 條。圓圈印在頁面外側的邊上:右頁(奇數頁)在右邊,左頁(偶數頁)在左邊,高度對著那條練習開頭的那一行。書自己引用練習時用的就是這個號碼,ex.17 說也拉 Exercise 49,ex.26 說用 Exercise 17 和 18,ex.20 標題下說另見 Exercise 78 的 Pressure exercise,指的都是黑圈號。目錄只列標題和書頁碼,沒有列黑圈號,所以按號碼找一條練習,得翻到那一頁去看邊上的圈。這份指南全部用黑圈號稱呼練習,寫成 ex.N。</p><p>粗體標題是一個主題,不是一條練習。標題底下只有一條練習時,黑圈直接印在標題那一行旁邊,Thumb counter-pressure 是 1,Hand balance 是 9,Changing bow 是 14。有好幾條時,每條有一個小標「Exercise 1」「Exercise 2」,有時後面接一個短名,像「Exercise 1 – Vertical」「Exercise 2 – In and out」。這些小編號只在那個標題裡面有意義:Balancing with the fourth finger 底下的 Exercise 1 和 2 是黑圈 4 和 5,Holding the bow without gripping 底下的 Exercise 1、2、3 是黑圈 6、7、8,Pivoting 底下的 Exercise 1 到 6 是黑圈 44 到 49。「Exercise 2」這個小標在 Part A 出現了十一次(黑圈 5、7、12、17、22、25、29、32、43、45、51),所以引用和做筆記只用黑圈號,小編號只當頁面上定位的路標。</p><p>標題和第一條練習之間常有一到三段引言,管的是這個標題底下的每一條,不只第一條。p.3 Balancing with the fourth finger 標題下講小指在下半弓和上半弓各做什麼,ex.4 和 ex.5 都要照它讀。</p><p>沒有黑圈的段落是說明,不是練習。「About …」開頭的兩段(p.17 的 About raising the elbow、p.20 的 About the angle of the violin to the body)講的是各派做法和怎麼調整姿勢,沒有步驟可做。p.26 的 Practice method: balancing double stops 是掛在 ex.43 後面的一個練法,也沒有編號。p.25 那張三欄、七個項目的 Seven levels of the bow 表,和 p.27 Pivoting 標題下解釋名詞和箭頭記號的半頁引言,同樣沒有黑圈。</p><p>每一節開頭有一個灰底的圓角框,框裡是節名。Part A 一共六個:Bow hand(p.1)、Putting weight into the string(p.12)、Forearm and upper-arm movements(p.15)、Long, slow sustained bows(p.18)、Bowing parallel to the bridge(p.20)、Pivoting and string crossing(p.25)。框旁邊的字要看有沒有粗體標題。沒有標題、直接接著框開始的那段才是這一節的引言,Part A 只有兩處:p.12 那段講手臂重量和手的重量各在什麼時候用,p.18 那段說這一節的練法叫 son filé。p.1、p.15、p.20 框旁邊的字屬於第一個粗體標題(Thumb counter-pressure、Forearm rotation、About the angle of the violin to the body),照那個標題讀。頁面最上方外側的小字是書眉,印的就是節名,翻到中間的頁面時靠它知道自己在哪一節。頁腳印「Right Arm and Hand」(Part 的名字)和一個灰圈頁碼,那才是書頁碼。這份 PDF 前面多了九頁,書 p.N 是 PDF 第 N+9 頁,指南裡兩個都寫。</p><p>內文裡的上標小數字對應到頁邊的小字邊註。邊註和黑圈一樣印在外側,右頁在右、左頁在左;編號每頁重新從 1 開始,所以 p.9 和 p.17 各有一個「1」,不是同一條。邊註常常是引別人的話:p.9 引 Carl Flesch(1931)說手指換弓只能少量用,又引 Costantakos(1988)轉述 Dounis 把弓手比成刷子;p.4 引 Nachmanovitch(1990)蠟燭的比喻;p.27 引 Galamian(1962)講技術上的時間點和音樂上的時間點。也常補另一派的做法或教學順序,像 p.3 說有些學派在上半弓把小指拿開,p.17 說教初學者要先學手肘和弓同高的手臂,再學抬手肘。有幾個要緊的定義只在邊註裡:平衡點在弓中偏弓根那側(p.4),square 是 Galamian 的用語(p.22),ex.39 的 in 和 out 指的是弓根的位置不是弓尖(p.22)。有些邊註只是指路,ex.36 邊註 3(書 p.20 · PDF 29)寫「See Hand balance, page 5」,ex.41 邊註 1(書 p.24 · PDF 33)只說另見 p.41 的 Soundpoints。掃描檔的邊註字很小,看不清要放大;指南裡每條的邊註都另外摘出來了。</p><p>照片統一叫 Fig.,編號印在頁邊,Part A 從 Fig. 1 到 Fig. 25;一張 Fig. 裡有幾張照片,就用 (a)(b)(c) 分開。(a) 和 (b) 多半是一組對比:Fig. 1a 是弓根時放鬆的拇指,1b 是弓尖時多頂一點的拇指;Fig. 16a 是 high wrist,16b 是 low wrist(這兩個詞書上的定義和直覺相反,見名詞對照);Fig. 21a 是旋前,21b 是旋後;Fig. 25a 弓斜向內,25b 弓斜向外。少數是連續動作:Fig. 17 的 (a) 到 (i) 是 ex.19 七個步驟的九個畫面,Fig. 24 的 (a) 到 (e) 是弓在弓根、平衡點、square、square 到弓尖之間、弓尖五個位置各用到哪段手臂。說明文字有兩種印法,一種是照片下面的粗體字(Fig. 1、9、12、17、24、25),一種是直接印在照片裡的白字(Fig. 6、7、13、16、23),有時兩種都有(Fig. 3),所以兩個地方都要找。書上的左右是演奏者自己看出去的方向,ex.1、ex.2、ex.22 都特別註明是演奏者的視角;但很多照片是從正面對著模特兒拍的,照片裡的左右和文字裡的左右相反,對照時要在心裡翻一下。</p><p>粗體標題底下常有一行小的斜體字「See also …」或「Also see …」,指到書後面的條目:ex.2 指 p.72 的 About the movement of the bow within the hand(ex.27 的邊註 2 也指同一頁),ex.20 指 Exercise 78 的 Pressure exercise,ex.23 指 Exercise 55 的 String tensions,ex.39 指 Exercise 67 的 Changing soundpoint 和 Exercise 72 的 Speed exercise moving across soundpoints,Pivoting 的引言指 Exercises 124–5 的 Smooth pivoting。這些都在 Part B 和 C,講的是弓壓、弦的張力、接觸點、和弦裡的 pivoting,是那條練習往後延伸的方向;知道那是後面的東西就好,現在不用翻。內文裡也有指回 Part A 自己的:ex.17 叫你順便拉 ex.49,ex.26 用 ex.17 和 18 的譜在下三分之一做,ex.40 叫你回頭看 p.6 的 Fig. 9,ex.41 叫你用 ex.15 的手指來控制弓的方向,ex.17 講前臂旋轉時寫「see page 15」。這一類是同一個 Part 裡互相借用,直接翻過去看。</p><p>步驟有兩種印法。數字 1、2、3 是有順序的程序,一步做完才做下一步:ex.1 從弓根一公分一公分往上壓到弓尖,ex.19 七步把手臂的重量從手肘一路交到弓上,ex.34 從十拍加到二十拍再減回一拍。圓點是並列的要求,是同時要守的條件,或各自獨立的做法:ex.10 的四個圓點分別說 f 時怎麼拿、p 時怎麼放、弓速要均勻、在弓的哪幾段做;ex.35 的四個圓點是弓離弦半公分時要同時守的四件事,移動本身、放鬆的部位、手形的變化、呼吸。有幾個數字列表不是程序,是並列的項目,像 ex.9 說食指有兩件工作、ex.28 說這條有兩種做法、ex.10 列三個調;看列表前面那句引言就分得出來。數字步驟底下偶爾接一段沒有編號的文字,那還是同一步的一部分,ex.6 步驟 1、ex.9 步驟 1、ex.16 步驟 1、ex.20 步驟 1 都有。列表結束後的一兩句話也是規定,不是可有可無的補充:ex.3 步驟後的「Repeat on each string」(書 p.3 · PDF 12)接著還要你雙音和單音都做,ex.32、ex.33、ex.41 譜後各有一句要你每條弦都做,ex.20 第 4 步的句尾也有。</p><p>譜例不是曲子,是把弓段、力度、弦、指法型寫成音符讓你照做,所以上面的記號比音高重要。♩=60 這類是節拍器速度;ex.33 寫的是 ♪=40–60,單位是八分音符,不要當成四分音符讀。f、p、ff、mf 是力度,常和 subito、sostenuto 並排。</p><p>弓的位置直接用字寫在譜上。ex.40 的 fr 和 pt 是弓根和弓尖,ex.41 從 Extreme heel 到 point 一路標的是弓走到哪一段,ex.32 寫 At the heel、At the point。ex.37 譜下面另外畫了一把弓,用 A 到 E 把弓分成四段,A 在弓根、E 在弓尖。</p><p>動作和方向也用字或箭頭標。ex.30 的 elbow 和 hand 標在休止符上,是哪一拍動哪個部位;p.27 的 ← 是往低弦 pivot、→ 是往高弦 pivot,ex.46 的 * 是逐漸轉到新的弦。ex.39 的 'in'、'out' 配 Bridge、Fingerboard,是弓斜的方向和弓毛會漂去的地方;ex.51 打叉的音符是弓往外側弦靠但不發聲。</p><p>譜上的數字有兩種。ex.49 譜上一排 2 0 4 1 4 0 是指法;(1)(2)(3) 是變奏或型的編號,simile 和 etc. 是照前面的方式繼續。書上真正的曲子只有三個小片段(Kreutzer 第 29 首、Bach BWV 1004 的 Allemanda、Beethoven op.50 的第 58 小節),都是拿來示範記號怎麼用,不是要你練那首曲子。</p>
+
+<h3>Fischer 自己怎麼分這些練習</h3><p>書 p.VIII(PDF 9)的 How to use Basics 這一頁,Fischer 把練習分成三類。第一類是把演奏裡的某一件事看清楚用的,他舉的是 nos. 1, 2, 6, 19, 54, 55;這些偶爾回來看一次就好,不必固定練。第二類是讓手和手臂記住某個動作是什麼感覺,像每根手指在弓上怎麼放、抬指和落指、把弓拉直;大多很短很簡單,不超過六十或九十秒,他舉的是 nos. 3, 4, 5, 9, 56, 89, 98, 128。這一類不必每天做,但他說很多人會有幾條自己常回去做的,可以天天做,把技術慢慢累積起來,也可以固定回去做,很快就知道手有沒有哪裡跑掉。第三類是扎實的日常練習,像音階一樣可以每天做,他點名的是發聲、換把、音準、揉弦這幾組,沒有列號碼。Part A 裡屬於第一類的是 1、2、6、19,屬於第二類的是 3、4、5、9,其他號碼都在 Part B 以後。</p><p>用法上他說了幾件事。很多練習是用來省時間的:音準練習先把手「調準」,花十五分鐘做,之後在曲子裡處理音準可能從兩小時變一小時;換把練習把所有指頭之間的換把都包了,做一小時或十分鐘之後,曲子裡的換把等於都先練過。有人喜歡一天的練習全部只做換把或發聲練習,他說效果會維持很久。這本書不是從頭拉到尾的書,一種做法是每天從每一節各挑一點來做,有的三十秒、有的三十分鐘,看你的需要和時間。</p><p>他還要你做記錄:像 p.142 那排調號,每拉一個打一個勾;每做一次一條練習就打一個勾;做發聲練習時記下「A 弦、低把位」「D 弦、高把位」這種細節。</p>
+
+</section>
+
+<section id="vocab"><h2>名詞對照</h2>
+
+<p class="section-lede">有現成中文就用現成的;沒有的保留英文原詞,用一句話解釋。全文不用「弓頭」,因為台灣有人拿它指弓尖、有人指弓根。</p>
+
+<figure class="diagram">
+      <svg viewBox="0 0 680 250" role="img" aria-label="弓的示意圖:左端弓根(弓庫),右端弓尖;弓根與弓中之間標平衡點,弓中偏上標 square 的範圍;下方括號標下半弓、上半弓與下三分之一。">
+        <!-- 弓桿 -->
+        <path d="M 70 92 Q 360 60 640 84" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <!-- 弓毛 -->
+        <line x1="78" y1="118" x2="636" y2="102" stroke="currentColor" stroke-width="1.1" opacity="0.6"/>
+        <!-- 弓庫 -->
+        <rect x="52" y="86" width="30" height="40" rx="3" class="accent-deep-fill"/>
+        <!-- 弓尖 -->
+        <path d="M 636 84 L 652 72 L 650 104 Z" class="accent-deep-fill"/>
+        <!-- 標記點 -->
+        <g class="mono" font-size="11.5" fill="currentColor" text-anchor="middle">
+          <line x1="66" y1="132" x2="66" y2="150" stroke="currentColor" stroke-width="1"/>
+          <text x="66" y="166">弓根</text>
+          <text x="66" y="181" font-size="10" opacity="0.75">frog · heel</text>
+          <line x1="250" y1="132" x2="250" y2="150" stroke="currentColor" stroke-width="1"/>
+          <text x="250" y="166">平衡點</text>
+          <text x="250" y="181" font-size="10" opacity="0.75">point-of-balance</text>
+          <line x1="355" y1="132" x2="355" y2="150" stroke="currentColor" stroke-width="1"/>
+          <text x="355" y="166">弓中</text>
+          <text x="355" y="181" font-size="10" opacity="0.75">middle</text>
+          <line x1="645" y1="132" x2="645" y2="150" stroke="currentColor" stroke-width="1"/>
+          <text x="645" y="166">弓尖</text>
+          <text x="645" y="181" font-size="10" opacity="0.75">point · tip</text>
+        </g>
+        <!-- square 範圍 -->
+        <rect x="352" y="40" width="120" height="18" rx="2" class="wash-fill"/>
+        <text x="412" y="53" font-size="11" class="mono accent" fill="currentColor" text-anchor="middle">square(依手臂長短落在這一帶)</text>
+        <!-- 括號:下半弓、上半弓 -->
+        <path d="M 70 208 L 70 216 L 355 216 L 355 208" stroke="currentColor" stroke-width="1" fill="none"/>
+        <path d="M 358 208 L 358 216 L 645 216 L 645 208" stroke="currentColor" stroke-width="1" fill="none"/>
+        <g class="mono" font-size="11" fill="currentColor" text-anchor="middle">
+          <text x="212" y="234">下半弓 lower half</text>
+          <text x="502" y="234">上半弓 upper half</text>
+        </g>
+        <!-- 下三分之一 -->
+        <line x1="70" y1="198" x2="262" y2="198" class="accent" stroke-width="2"/>
+        <text x="166" y="193" font-size="10.5" class="mono accent" fill="currentColor" text-anchor="middle">下三分之一 lower third</text>
+      </svg>
+      <figcaption>弓的部位。平衡點在弓中偏弓根那側(書 p.4 邊註),因為弓庫端比弓尖端重;square 是 Galamian 的用語,指弓和前臂成直角、前臂和上臂也成直角的地方,手臂長的人在弓中偏上,手臂短的人就在弓中(書 p.22 邊註)。兩個位置都要在你自己的弓上找。</figcaption>
+    </figure>
+
+<div class="scroller"><table class="vocab"><thead><tr><th scope="col">原文</th><th scope="col">本指南寫法</th><th scope="col">說明</th><th scope="col">首見</th></tr></thead><tbody><tr><td>heel</td><td class="rowname">弓根</td><td>弓靠近手的那一端。台灣有人叫「弓頭」,但這個詞有人指弓尖、有人指弓根,指南全文不用。</td><td>ex.1</td></tr><tr><td>frog</td><td class="rowname">弓根(弓庫)</td><td>弓根那塊黑色的弓庫。書上用 frog 多半是在講手指放在弓庫上的位置:ex.6 把第二指放在 frog 上,ex.21 把小指放在 frog 側面。</td><td>ex.5</td></tr><tr><td>nut</td><td class="rowname">弓根(弓庫)</td><td>舊用法,就是弓庫。ex.1 說拇指右側靠在 nut 上,ex.11 說在 nut 的位置把弓舉在弦上兩公分。</td><td>ex.1</td></tr><tr><td>point</td><td class="rowname">弓尖</td><td>弓離手最遠的那一端。</td><td>ex.1</td></tr><tr><td>tip</td><td class="rowname">弓尖;講手指時是指尖</td><td>ex.2 的 tip of the bow 是弓尖;ex.1 講拇指、ex.7 講拇指和小指時的 tip 是指尖。</td><td>ex.1(指尖)、ex.2(弓尖)</td></tr><tr><td>point-of-balance</td><td class="rowname">平衡點</td><td>在弓中偏弓根那側,因為弓根那端比弓尖重(p.4 邊註)。位置每把弓不同,用拇指和小指托著弓自己找,不看數字。</td><td>ex.2(定義在 ex.5 邊註)</td></tr><tr><td>middle</td><td class="rowname">弓中</td><td>弓長的正中間。</td><td>ex.2</td></tr><tr><td>square</td><td class="rowname">square</td><td>Galamian 的用語:弓和前臂成直角、前臂和上臂也成直角的那個地方。手臂長的人在弓中偏上,短的人就在弓中;它是前臂唯一能單獨動的地方,只有幾公分長(ex.38 邊註)。Fig. 24c 的說明說它是拉短而快的十六分音符最好的地方。</td><td>ex.36(Fig. 24c 說明);定義在 ex.38 邊註</td></tr><tr><td>lower half</td><td class="rowname">下半弓</td><td>弓根到弓中。</td><td>ex.4 的標題引言(p.3)</td></tr><tr><td>upper half</td><td class="rowname">上半弓</td><td>弓中到弓尖。</td><td>ex.2</td></tr><tr><td>lower third</td><td class="rowname">下三分之一</td><td>從弓根算起的三分之一。</td><td>ex.26</td></tr><tr><td>extreme heel / extreme point (extreme tip)</td><td class="rowname">最靠弓根 / 最靠弓尖</td><td>弓的兩個盡頭。書上弓尖那端寫的是 extreme tip(ex.28),ex.41 譜上寫 Extreme heel。</td><td>ex.25(extreme heel)、ex.28(extreme tip)</td></tr><tr><td>whole bows / half bows / quarter-length strokes / three-quarter bows / an eighth of a bow</td><td class="rowname">全弓 / 半弓 / 四分之一弓 / 四分之三弓 / 八分之一弓</td><td>弓段的長度。書上反覆出現的那組要求是先四分之一弓在弓根、弓中、弓尖各做一次,再半弓在下半弓、中段、上半弓各做一次。</td><td>ex.3(全弓)、ex.10(半弓、四分之一弓)、ex.14(八分之一弓)、ex.37(四分之三弓)</td></tr><tr><td>down-bow / up-bow</td><td class="rowname">下弓 / 上弓</td><td>譜上的記號是 ⊓ 和 V。</td><td>ex.8(up-bow);ex.9(down-bow)</td></tr><tr><td>tiré / poussé</td><td class="rowname">拉 / 推</td><td>法文的下弓和上弓,字面就是拉和推;ex.23 整條的重點就是這兩個字。</td><td>ex.23</td></tr><tr><td>détaché</td><td class="rowname">分弓</td><td>照 ex.42 的定義:慢、平滑、f、整個音撐滿,每一弓和下一弓接得很緊。平常說的分弓多半只是一音一弓,ex.42 的定義多了接得緊、撐滿的要求。</td><td>ex.42</td></tr><tr><td>martelé</td><td class="rowname">頓弓</td><td>開頭咬一下,整弓留在弦上(ex.42 的定義)。</td><td>ex.6 的標題引言(p.4);定義在 ex.42</td></tr><tr><td>spiccato</td><td class="rowname">跳弓</td><td>ex.42 分三種:弓中偏下(快、輕、短、低)、平衡點(中等)、靠弓根(慢、重、長、高)。</td><td>ex.5 邊註;定義在 ex.42</td></tr><tr><td>son filé</td><td class="rowname">son filé</td><td>慢的長音。p.18 節首說這是弓的控制和發聲最重要的練法之一。</td><td>ex.31 的節首(p.18)</td></tr><tr><td>sostenuto</td><td class="rowname">持續、撐住</td><td>譜上寫 sostenuto 是說每個音都撐滿、不要斷。ex.33 把它和 crescendo、decrescendo 並列,當作三種力度變化的做法之一。</td><td>ex.18</td></tr><tr><td>subito</td><td class="rowname">突然</td><td>subito f、subito p 是立刻換力度,中間不漸強漸弱。</td><td>ex.10</td></tr><tr><td>pivoting</td><td class="rowname">pivoting</td><td>換弦之前先在前一個音上把弓往新的弦轉過去,弓一邊走一邊轉(p.27 引言);ex.44 到 49 全在練它。台灣沒有固定的中文說法,保留原詞。</td><td>ex.42 邊註(p.25);定義在 p.27 引言</td></tr><tr><td>string level / seven levels of the bow</td><td class="rowname">弓的高度 / 弓的七個高度</td><td>四條單弦加三組相鄰雙弦,右手臂在每一個高度都有一個位置。書上單獨說 level 時就是這個意思。</td><td>ex.25(change levels);表在 p.25</td></tr><tr><td>bite</td><td class="rowname">咬弦</td><td>音頭一開始弓先抓住弦。ex.6 說有些弓法一開始就要咬一下,ex.42 的 martelé 定義用它。</td><td>ex.6</td></tr><tr><td>pronation / supination</td><td class="rowname">旋前 / 旋後</td><td>解剖名詞。Fischer 的操作定義:手往食指那邊倒是加重,往小指那邊倒是減重;ex.27 說這個動作來自前臂旋轉,不是手本身。</td><td>ex.27</td></tr><tr><td>forearm rotation</td><td class="rowname">前臂旋轉</td><td>像轉門把(ex.24 的比喻)。ex.17 先提到,並指去 p.15。</td><td>ex.17;定義在 ex.24</td></tr><tr><td>high wrist / low wrist</td><td class="rowname">手腕高 / 手腕低</td><td>書上的定義和直覺相反:high wrist 是手從手腕往下掉到前臂以下,low wrist 是手抬到前臂以上(ex.16 步驟 1、Fig. 16a–b)。ex.17、18 說高的弦用 higher wrist、低的弦用 lower wrist,要照這個定義讀;指南裡每次出現都會再提醒一次。</td><td>ex.16</td></tr><tr><td>knuckles</td><td class="rowname">掌指關節</td><td>手背和手指交接的那一排關節。ex.10 的 lower / raise the knuckles 是整排一起降下或抬起。</td><td>ex.10</td></tr><tr><td>nail joint / middle joint / base joint</td><td class="rowname">遠端指節 / 中指節 / 掌指關節</td><td>ex.9 用食指哪一節碰弓桿說明弓根和弓尖的差別:弓根靠遠端指節,弓尖靠中指節。base joint 在 Part A 沒看到,Part D 才用。</td><td>ex.7(the joint nearest the nail)、ex.9</td></tr><tr><td>pad / tip(手指)</td><td class="rowname">指腹 / 指尖</td><td>ex.6 說弓的重量放在食指指腹上;ex.7 說食指和第三指用指腹、拇指和小指用指尖。</td><td>ex.6</td></tr><tr><td>counter-pressure</td><td class="rowname">拇指往回頂住弓桿的力</td><td>手指往下壓弓,拇指就得往上頂。ex.1 說這個力越少越好,弓尖比弓根需要得多。指南裡不用「反壓」這個詞。</td><td>ex.1</td></tr><tr><td>give</td><td class="rowname">手指順著弓的方向稍微鬆一下當緩衝</td><td>ex.10 的標題和 ex.14 都用這個字。沒有現成的中文,指南裡每次都用句子講。</td><td>ex.10</td></tr><tr><td>flat bow arm</td><td class="rowname">手肘和弓同高的手臂</td><td>ex.36 說就是弓走到哪一段都讓手肘和弓桿差不多同高;p.17 邊註說教初學者先學這個,再學抬手肘。</td><td>p.17 About raising the elbow 邊註 2;ex.36 內文</td></tr><tr><td>'in' / 'out'</td><td class="rowname">'in'、'out'(兩個意思,見說明)</td><td>ex.29:上臂往前推是 out,往後收是 in。ex.39:弓根靠近身體是 in,離開身體是 out;p.22 邊註 3 說指的是弓根的位置,不是弓尖。</td><td>ex.29;第二個意思在 ex.39</td></tr><tr><td>rim</td><td class="rowname">琴身的邊</td><td>ex.44 和 51 把它當成多一條弦,弓毛靠過去但不碰到。</td><td>ex.44</td></tr><tr><td>outer edge / inner edge of the hair</td><td class="rowname">弓毛外側 / 內側</td><td>弓往指板傾是用外側,往琴橋傾是用內側(ex.25 的說明)。ex.4 和 ex.6 說的 upper, inside edge of the bow 是另一件事:弓桿靠自己這一側的上緣,小指平常放的位置。</td><td>ex.6;定義在 ex.25</td></tr><tr><td>soundpoint</td><td class="rowname">接觸點</td><td>Part B 的詞,Part A 只在 ex.41 出現一次,邊註指到 p.41。這份指南不展開;要用接觸點 1–5 的說法,見《中提琴聲量手冊》。</td><td>ex.41</td></tr><tr><td>fr / pt</td><td class="rowname">弓根 / 弓尖</td><td>ex.40 譜上的縮寫,標在每個短音底下。</td><td>ex.40</td></tr><tr><td>x-notes</td><td class="rowname">打叉的音符</td><td>ex.51 譜例末尾那一小節:弓往外側弦靠但不發聲。</td><td>ex.51</td></tr><tr><td>semiquaver / quaver / crotchet / minim / semibreve / demisemiquaver</td><td class="rowname">十六分 / 八分 / 四分 / 二分 / 全音符 / 三十二分音符</td><td>書的正文先印美式名稱(sixteenth-note、eighth-note、quarter-note、half-note、whole-note、thirty-second-note),括號附英式(semiquaver、quaver、crotchet、minim、semibreve、demisemiquaver)。台灣課堂用美式那套,看正文就好。</td><td>ex.32</td></tr><tr><td>double stop</td><td class="rowname">雙音</td><td>兩條弦同時拉。</td><td>ex.3</td></tr><tr><td>open string</td><td class="rowname">空弦</td><td>左手不按。</td><td>ex.12(Making sure only the fingers move)</td></tr><tr><td>position</td><td class="rowname">把位</td><td>ex.10 的 1st、5th、8th position。</td><td>ex.10</td></tr><tr><td>scroll</td><td class="rowname">琴頭</td><td>p.20 About the angle 用琴頭指的方向來說琴和身體的角度。</td><td>p.20 About the angle of the violin to the body</td></tr><tr><td>bridge / fingerboard</td><td class="rowname">琴橋 / 指板</td><td>弓和弦的接觸點在這兩者之間移動;ex.3 用「靠指板、中間、靠琴橋」三個位置。</td><td>ex.3</td></tr><tr><td>stick / hair</td><td class="rowname">弓桿 / 弓毛</td><td>書也用 the wood of the bow 指弓桿;ex.1 的 push the wood down 是把弓桿壓向弓毛。</td><td>ex.1(stick)、ex.4(hair)</td></tr><tr><td>assistant</td><td class="rowname">幫忙的人</td><td>ex.19 要一個人托手臂,ex.36 要一個人拿弓;ex.36 邊註說沒人幫忙可以把弓庫架在譜架上。</td><td>ex.19</td></tr><tr><td>collé</td><td class="rowname">collé(Part A 不講)</td><td>只在 ex.27 邊註 1 出現一次,和 martelé 並列,當成一開始先咬住弦再發音的弓法的例子,沒有解釋。是 Part C 的弓法,本指南不展開。</td><td>ex.27 邊註 1</td></tr><tr><td>bow hold / bow balance / bow grip</td><td class="rowname">持弓 / 弓的平衡 / 抓弓</td><td>ex.6 把三個分開:平常是讓弓在手裡平衡,需要力的時候才抓,抓完就放。</td><td>ex.6</td></tr><tr><td>'cello' bow hold</td><td class="rowname">像大提琴的持弓</td><td>ex.21:小指放在弓庫側面,重量會散到整隻手。</td><td>ex.21</td></tr><tr><td>string crossing</td><td class="rowname">換弦</td><td>從一條弦換到另一條弦。</td><td>ex.16 的標題引言(p.10)</td></tr><tr><td>lifted / semi-lifted / off-the-string bowings</td><td class="rowname">離弦的弓法;semi-lifted</td><td>弓會離開弦的那一類弓法;p.3 引言說小指的平衡是所有離弦弓法的一大部分。semi-lifted 書上沒有定義,中文也沒有現成的說法,指南裡照英文寫;推論:照字面是弓只稍微離開弦、介於在弦上和跳起來之間的那類弓法。ex.5 邊註說跳弓和 semi-lifted 的弓法在平衡點附近特別平衡、舒服。</td><td>ex.4 的標題引言(p.3)、ex.5 邊註</td></tr><tr><td>legato</td><td class="rowname">legato</td><td>連著拉、音和音之間不斷。ex.46 說 legato 的換弦不夠平滑,多半是換太晚。</td><td>ex.46</td></tr><tr><td>tremolo</td><td class="rowname">震音</td><td>ex.43 的練法:在兩條弦之間很快來回,之後雙音的平衡會比較均勻。</td><td>ex.43</td></tr><tr><td>slur</td><td class="rowname">連弓</td><td>一弓拉幾個音。ex.52 說也兩個一組連起來,ex.53 的練習曲有兩個、三個、四個音一弓的。</td><td>ex.52</td></tr><tr><td>separate bows</td><td class="rowname">一音一弓</td><td>只說每個音換一次弓,沒規定弓法的性格;不是 détaché 的翻譯。</td><td>ex.41</td></tr><tr><td>squashed tone</td><td class="rowname">被壓扁的音</td><td>ex.27 邊註 1:用食指壓重量常出這種音,重量要散在各指。</td><td>ex.27 邊註 1</td></tr><tr><td>pause</td><td class="rowname">延長記號的音</td><td>英式用法,pause 就是 fermata。ex.32 的 pause note 是那個要撐 10、20、30 秒的長音。</td><td>ex.32</td></tr><tr><td>stresses / accent</td><td class="rowname">重音</td><td>ex.20 要你只用手的動作做出重音;ex.47 要你在雙音裡給四分音符重音,又不干擾全音符。</td><td>ex.20</td></tr><tr><td>technical timing / musical timing</td><td class="rowname">技術上的時間點 / 音樂上的時間點</td><td>p.27 邊註 1(引 Galamian 1962):動作有時要比聲音早,pivoting、咬弦前的準備、換把都是。</td><td>p.27 Pivoting 引言的邊註 1</td></tr><tr><td>seesaw</td><td class="rowname">蹺蹺板</td><td>Fischer 的比喻:弓在拇指和第二指上像蹺蹺板的中心(ex.2),小指在下半弓像坐在蹺蹺板一端(p.3 引言)。</td><td>ex.2</td></tr><tr><td>screw</td><td class="rowname">弓尾的螺絲</td><td>ex.36 幫忙的人只捏著螺絲拿弓,好把弓桿空出來給你的手。</td><td>ex.36</td></tr><tr><td>upper arm / forearm / wrist / elbow</td><td class="rowname">上臂 / 前臂 / 手腕 / 手肘</td><td>書把手臂拆成幾段分別練:ex.16 的手是從手腕動,ex.24 到 27 是前臂,ex.28、29 是上臂,ex.30 是手和手肘誰先走。</td><td>ex.2(forearm)</td></tr><tr><td>hair's breadth</td><td class="rowname">一根頭髮的寬度</td><td>ex.9 說食指在下半弓有時離弓桿一根頭髮寬;ex.34 說再靠琴橋一根頭髮寬聲音就會破。</td><td>ex.9</td></tr><tr><td>drift</td><td class="rowname">漂</td><td>ex.39:弓斜了以後自己往指板或琴橋漂過去,書叫你不要用手去推它。</td><td>ex.39</td></tr><tr><td>crawl</td><td class="rowname">爬</td><td>ex.8:只用手指在弓桿上爬上爬下,整隻手不動。</td><td>ex.8</td></tr><tr><td>lever / float</td><td class="rowname">用槓桿把重量撐進弦 / 讓弓浮起來</td><td>p.17 About raising the elbow:抬手肘可以把重量從弦上拿掉(float),也可以把重量撐進去(lever),看在弓的哪一段。</td><td>p.17 About raising the elbow</td></tr></tbody></table></div>
+
+</section>
+
+<section id="viola-rules"><h2>改成中提琴要注意的 13 件事</h2>
+
+<p class="section-lede">書是為小提琴寫的。下面每一條練習的「中提琴」欄都會引用這裡的編號;標「推論」的是我們的判斷,不是書上的話。</p>
+
+<figure class="diagram">
+      <svg viewBox="0 0 680 220" role="img" aria-label="弓的七個高度:小提琴 G、G–D、D、D–A、A、A–E、E;中提琴 C、C–G、G、G–D、D、D–A、A。編號 1 到 7 不變。">
+        <text x="24" y="75" font-size="12" fill="currentColor" class="mono">小提琴</text><rect x="90" y="52" width="60" height="36" rx="18" class="accent-fill"/><text x="120" y="75" font-size="12.5" text-anchor="middle" fill="var(--ground)" class="mono">G</text><text x="120" y="106" font-size="10.5" text-anchor="middle" fill="currentColor" opacity="0.7" class="mono">1</text><rect x="166" y="52" width="60" height="36" rx="18" class="wash-fill"/><text x="196" y="75" font-size="12.5" text-anchor="middle" fill="currentColor" class="mono">G–D</text><text x="196" y="106" font-size="10.5" text-anchor="middle" fill="currentColor" opacity="0.7" class="mono">2</text><rect x="242" y="52" width="60" height="36" rx="18" class="accent-fill"/><text x="272" y="75" font-size="12.5" text-anchor="middle" fill="var(--ground)" class="mono">D</text><text x="272" y="106" font-size="10.5" text-anchor="middle" fill="currentColor" opacity="0.7" class="mono">3</text><rect x="318" y="52" width="60" height="36" rx="18" class="wash-fill"/><text x="348" y="75" font-size="12.5" text-anchor="middle" fill="currentColor" class="mono">D–A</text><text x="348" y="106" font-size="10.5" text-anchor="middle" fill="currentColor" opacity="0.7" class="mono">4</text><rect x="394" y="52" width="60" height="36" rx="18" class="accent-fill"/><text x="424" y="75" font-size="12.5" text-anchor="middle" fill="var(--ground)" class="mono">A</text><text x="424" y="106" font-size="10.5" text-anchor="middle" fill="currentColor" opacity="0.7" class="mono">5</text><rect x="470" y="52" width="60" height="36" rx="18" class="wash-fill"/><text x="500" y="75" font-size="12.5" text-anchor="middle" fill="currentColor" class="mono">A–E</text><text x="500" y="106" font-size="10.5" text-anchor="middle" fill="currentColor" opacity="0.7" class="mono">6</text><rect x="546" y="52" width="60" height="36" rx="18" class="accent-fill"/><text x="576" y="75" font-size="12.5" text-anchor="middle" fill="var(--ground)" class="mono">E</text><text x="576" y="106" font-size="10.5" text-anchor="middle" fill="currentColor" opacity="0.7" class="mono">7</text><text x="24" y="165" font-size="12" fill="currentColor" class="mono">中提琴</text><rect x="90" y="142" width="60" height="36" rx="18" class="accent-fill"/><text x="120" y="165" font-size="12.5" text-anchor="middle" fill="var(--ground)" class="mono">C</text><text x="120" y="196" font-size="10.5" text-anchor="middle" fill="currentColor" opacity="0.7" class="mono">1</text><rect x="166" y="142" width="60" height="36" rx="18" class="wash-fill"/><text x="196" y="165" font-size="12.5" text-anchor="middle" fill="currentColor" class="mono">C–G</text><text x="196" y="196" font-size="10.5" text-anchor="middle" fill="currentColor" opacity="0.7" class="mono">2</text><rect x="242" y="142" width="60" height="36" rx="18" class="accent-fill"/><text x="272" y="165" font-size="12.5" text-anchor="middle" fill="var(--ground)" class="mono">G</text><text x="272" y="196" font-size="10.5" text-anchor="middle" fill="currentColor" opacity="0.7" class="mono">3</text><rect x="318" y="142" width="60" height="36" rx="18" class="wash-fill"/><text x="348" y="165" font-size="12.5" text-anchor="middle" fill="currentColor" class="mono">G–D</text><text x="348" y="196" font-size="10.5" text-anchor="middle" fill="currentColor" opacity="0.7" class="mono">4</text><rect x="394" y="142" width="60" height="36" rx="18" class="accent-fill"/><text x="424" y="165" font-size="12.5" text-anchor="middle" fill="var(--ground)" class="mono">D</text><text x="424" y="196" font-size="10.5" text-anchor="middle" fill="currentColor" opacity="0.7" class="mono">5</text><rect x="470" y="142" width="60" height="36" rx="18" class="wash-fill"/><text x="500" y="165" font-size="12.5" text-anchor="middle" fill="currentColor" class="mono">D–A</text><text x="500" y="196" font-size="10.5" text-anchor="middle" fill="currentColor" opacity="0.7" class="mono">6</text><rect x="546" y="142" width="60" height="36" rx="18" class="accent-fill"/><text x="576" y="165" font-size="12.5" text-anchor="middle" fill="var(--ground)" class="mono">A</text><text x="576" y="196" font-size="10.5" text-anchor="middle" fill="currentColor" opacity="0.7" class="mono">7</text>
+        <text x="120" y="24" font-size="11" fill="currentColor" class="mono" opacity="0.8">實心是單弦,淡色是相鄰雙弦;數字是書上的編號 1–7</text>
+      </svg>
+      <figcaption>弓的七個高度(書 p.25)。Fischer 把四條單弦和三組相鄰雙弦各算一個高度;換弦就是在這七個高度之間移動。中提琴照規則 2 把弦名往下換,編號照舊。</figcaption>
+    </figure>
+
+<div class="scroller"><table><thead><tr><th scope="col">編號</th><th scope="col">規則</th><th scope="col">理由或證據</th><th scope="col">影響的條目</th></tr></thead><tbody><tr><td class="rowname">規則 1</td><td>弦對應 E→A、A→D、D→G、G→C;相鄰雙弦 A–E→D–A、D–A→G–D、G–D→C–G。</td><td>低五度,排列相同。</td><td>18, 25, 30, 44, 46, 51</td></tr><tr><td class="rowname">規則 2</td><td>弓的七個高度改成:1 C、2 C–G、3 G、4 G–D、5 D、6 D–A、7 A,編號不變。</td><td></td><td>42–53</td></tr><tr><td class="rowname">規則 3</td><td>ex.25「手肘和中間兩條弦同高」成立,但從 C 到 A 要轉的角度比小提琴 G 到 E 大;先做三個高度(C、G、D)再加 A。</td><td>推論:弦距和琴橋弧度較大,外側兩條弦的夾角較大。不給數字,自己量:弓先靠 C 再靠 A,看前臂差多少。</td><td>25, 30, 43, 44</td></tr><tr><td class="rowname">規則 4</td><td>琴頭的高度。Fischer 在 Part B 書 p.35(PDF 44)明說中提琴手特別常把琴頭拿太低,弓就坐在往下的斜坡上。</td><td>這是全書離 Part A 最近的一句講中提琴的話,可以直接引用。</td><td>29, 36–41, p.20 那段</td></tr><tr><td class="rowname">規則 5</td><td>套用 p.20「琴和身體的角度」時,把自己當成比拉小提琴時手臂短一號的人。</td><td>推論:接觸點離肩膀更遠(琴身更長),到弓尖要伸得更多,幾何上和短手臂一樣,所以琴頭偏前、琴拿高、考慮不用最後幾公分。</td><td>p.20, ex.4 邊註, 29, 36–38</td></tr><tr><td class="rowname">規則 6</td><td>本來就有的重量比較大(弓重、弦粗),所以 p.12 節首那兩半裡,「手腕以下的手做細緻接觸」比「手臂重量」更重要;對下手重的人,20–23 和 27 排在 19 前面。</td><td>推論:可用的重量已經夠多,要練的是比例不是量。</td><td>19–23, 27</td></tr><tr><td class="rowname">規則 7</td><td>C 弦發音慢,同樣的壓力和速度比下比較早破;ex.34 那個「再靠近一根頭髮就破」的位置在 C 弦和 A 弦不一樣;ex.44 和 51 往琴身邊的那一側,中提琴是 C(左)和 A(右)。</td><td>推論:頻率低、弦重。</td><td>31–35, 44, 51</td></tr><tr><td class="rowname">規則 8</td><td>節拍器、秒數、公分、步驟數都照書,不改。</td><td></td><td>全部</td></tr><tr><td class="rowname">規則 9</td><td>譜例保留弦和手指的幾何,也就是讀低五度(中音譜號);ex.10 的 A、E、A 音階變 D、A、D;空弦型的不用移。</td><td></td><td>10, 17, 18, 42–53</td></tr><tr><td class="rowname">規則 10</td><td>ex.10 的「第八把位」只做第一和第五把位的版本;音階只是右手的載具。</td><td>左手伸展不是這份指南的目標。</td><td>10, 47</td></tr><tr><td class="rowname">規則 11</td><td>雙音的平衡(p.26):中提琴一對弦裡低的那條要多一點重量;震音那個練法照用。</td><td>Fischer 自己講的是弦的粗細;推到中提琴是推論。</td><td>43 的練法, 46–51</td></tr><tr><td class="rowname">規則 12</td><td>持弓的練習(2, 6–9, 21):在自己的弓上找平衡點,不假設照片裡手離弓庫的距離。</td><td>中提琴弓庫和弓桿各不同,不給數字。</td><td>5, 8, 9, 40</td></tr><tr><td class="rowname">規則 13</td><td>上半弓放開小指(ex.4 邊註)在中提琴比較常見;如果你這樣做,Fischer 對「食指壓過頭」的警告加倍適用。</td><td></td><td>4, 9, 22</td></tr></tbody></table></div>
+
+</section>
+
+<section id="sec-bow-hand-1"><h2>弓手</h2>
+
+<p class="section-span">ex.1–18 · 書 pp.1–11</p>
+
+<p class="section-lede">拉弓的手臂從肩膀到手指是一條鏈,手是最末端那一環,弓桿只碰到手。手臂的重量、前臂的旋轉、上臂的進出,不管怎麼動,都要經過手指才到弓、再到弦。「Bow hand」這一節(書 pp.1–12,ex.1–18)先不談手臂,只談手。推論:手要做的事可以整理成三件。把上面傳下來的重量原樣放進弓,不用手指的肌力另外加壓;用手指(食指的側面、小指)控制弓的方向和它在弦上的壓力;換弓的瞬間手指順著弓的方向稍微鬆一下當緩衝,弓桿才不會抖。前九條全部在講持弓本身:拇指要頂多少(1),拇指和第二指是弓在手裡轉動的支點(2),拇指在任何弓壓下都要能動(3),小指怎麼平衡弓的重量(4、5),怎麼讓弓靠重量平衡在手裡而不是握緊它(6、8),握緊了手指還能不能動(7),手在弓根和弓尖的形狀有什麼不同(9)。10 到 18 接著練手指和手在拉弓當中的動作。推論:書從手開始而不從手臂開始,是因為手一旦握緊,手臂的重量和手指的壓力就分不開,弓桿的顫動也沒有地方緩衝,後面練重量、旋轉、換弦的每一條都練不準。推論(規則 6):中提琴弓比小提琴弓重、弦比較粗,本來就進弦的重量比較多。下面每條的中提琴欄都從這個前提出發,不再每條重講。</p>
+
+<p class="section-lede">前一節(ex.1–9)講弓怎麼拿在手裡;這一節(書 pp.6–12,ex.10–18)講手指和手在拉弓當中怎麼動。手指的伸直和彎曲先單獨拿出來練:ex.11 讓弓上下,ex.12 讓弓沿弦走,ex.13 把兩個合起來畫圓。這組動作接著用在兩個地方:換弓的瞬間當緩衝(ex.10 練手順著弓的重量鬆進去,ex.14 把換弓時的緩衝放大),和修正弓跟琴橋不平行(ex.15)。後面三條(ex.16–18)把手腕加進來:先不拿琴,把手腕能動的幾個方向分開找出來,再用手腕換弦,先誇大到極限,再縮小到幾乎看不見。推論:手指和手腕離弓最近,同樣的修正由它們做,移動的距離最短。這一節先練它們,下一節才到手臂。</p>
+
+<article class="ex" id="ex-1">
+<header class="ex-head"><span class="exno">1</span><div class="ex-titles">
+<h3>Thumb counter-pressure</h3>
+<p class="ex-zh">拇指往回頂住弓桿的力</p>
+</div></header>
+<p class="ex-loc">書 p.1 · PDF 10 · Thumb counter-pressure · Fig. 1a–b</p>
+<p class="ex-one">只用拇指和食指持弓,從弓根起一公分一公分往弓尖移,每一段都把弓桿壓進弦裡,摸清楚拇指往回頂的力在弓的每一段各要多少,以及它在弓根可以有多輕。</p>
+<h4>為什麼有用</h4><p>Fischer 說拇指往回頂的力有多少,看壓進弦的量和用的弓段。在弓根,拉最大聲拇指也可以很輕;到弓尖,拇指要用力對抗手指往下壓弓的力;不管需要多少,永遠盡量少。他也說這個力是自動的、不必去想,但刻意去放會有幫助:拇指緊最常見的原因不是頂得太用力,而是需要少頂的時候沒有放掉。推論:手指從上面壓弓桿,弓桿要靠下面的拇指撐住才不會被壓下去。在弓根,弓碰弦的地方就在手指正下方,拇指和它幾乎沒有距離,拇指要頂的很少;越往弓尖,弓碰弦的點離手越遠,同樣的手指壓力變成越大的力矩,拇指要頂回去的力跟著變大。這條練習把這個變化一公分一公分走一遍。</p>
+<h4>怎麼做</h4>
+<ol><li>弓根放上弦,弓毛碰弦的地方就在食指前面一點(往弓尖那邊),只用拇指和食指持弓(Fig. 1a)。</li><li>慢慢把弓桿往下壓到底。不管壓弦壓得多重,拇指都可以又輕又鬆。</li><li>把弓往弓尖方向移一公分再放回弦上,同樣慢慢壓到底。感覺拇指要多頂回去一點點。</li><li>繼續只用拇指和食指,一公分一公分往弓尖移,走完整根弓,每一段都壓進弦裡,把拇指每一段不同的用力程度都感覺一遍。在弓尖壓,拇指要頂的力最大(Fig. 1b)。</li><li>換回正常持弓,在弓的每一段壓弦,同樣把拇指用力程度的變化感覺一遍。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>拇指與弓桿約 45°,拇指尖的左側(從自己看)貼弓桿、右側靠弓庫,拇指永遠向外彎;從弓根起每次往弓尖移 1 cm;走完整根弓;每段慢慢壓到底;弦沒有指定</p>
+<h4>照片與譜例在看什麼</h4><p>Fig. 1a 是弓在弓根,只有拇指和食指持弓,弓桿壓進弦裡但拇指是鬆的;Fig. 1b 是在弓尖壓弦,拇指頂回去的力最大。兩張對照的是弓的兩端,拇指的負擔一輕一重。</p>
+<h4>中提琴</h4><p>一公分一公分、走完整根弓,照書(規則 8)。推論:「壓到底」走到弓尖時,食指壓下去的力矩比小提琴大(弓重、弦粗),拇指要頂回去的力也跟著大。所以第 5 步做到弓根那一段時,要特別檢查拇指有沒有真的放掉。Fischer 說的那個問題(該放的時候沒放)在需要頂得更多的樂器上更容易發生:從弓尖回到弓根,要放掉的量本來就比小提琴大,少放一點就留下來了。書上沒有指定弦,C、G、D、A 哪一條都可以。</p>
+<h4>容易看錯的地方</h4><p>「nut」在這裡是弓庫,不是琴頸上端的弦枕。「拇指的左側」是從你自己看過去的左側。「拇指向外彎」是指節往外凸,不是往內塌。前四步都只用拇指和食指持弓,第 5 步才換回正常持弓。</p>
+<p class="ex-meta">Fischer 的分類:看一次就懂、不必常練 · 時間:書上(p.VIII)歸在看一次就懂、不必常練的那類;估計:走完整根弓兩到三分鐘</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-2">
+<header class="ex-head"><span class="exno">2</span><div class="ex-titles">
+<h3>The thumb and second finger</h3>
+<p class="ex-zh">拇指和第二指</p>
+</div></header>
+<p class="ex-loc">書 p.2 · PDF 11 · The thumb and second finger · Fig. 2, 3a–b · 書上另見:See also About the movement of the bow within the hand, page 72</p>
+<p class="ex-one">食指壓下、放開,讓弓尖上下動,確認弓是繞著拇指和第二指這個支點在轉,而第二指要在拇指稍微偏左的位置。</p>
+<h4>為什麼有用</h4><p>Fischer 說拇指和第二指是持弓的中心,第二指要坐在拇指稍微偏左(從你自己看)的位置。他排除了兩個位置,理由各不同。拇指卡在第二、三指之間,拇指根部的肌肉會硬:不拿弓,慢慢把拇指往小指移,就摸得到那塊肌肉越來越硬。拇指卡在第一、二指之間,手指變成三根在一邊、一根在另一邊;而且食指離拇指太近,要出更多力才有效果,因為食指往下壓的效果離拇指越遠越大。蹺蹺板是 Fischer 自己的比喻:弓繞著拇指和第二指轉,那裡像蹺蹺板的中心。書上說用左手抓住右手(左手拇指放右手手背、左手食指放右手掌心),是為了把手固定住,讓動作只剩手指的。推論:食指壓下去弓根翹起、小指跟著彎,就是蹺蹺板的兩頭。這個動作讓你直接感覺支點在哪裡;如果弓不是繞著拇指和第二指轉,而是整隻手在動,那就是手在代替手指工作。</p>
+<h4>怎麼做</h4>
+<ol><li>手放在上半弓持弓(Fig. 3a)。感覺弓的全部重量都落在食指上。</li><li>食指往下壓,讓弓根往上翹(Fig. 3b)。注意小指同時會跟著彎。前臂不動,只用手指動弓。</li><li>食指放掉,讓弓根落回去。感覺弓繞著拇指和第二指轉,像蹺蹺板的中心。連續重複幾次。</li><li>手換到弓中重做,這裡壓在食指上的重量比較少;再換到平衡點,弓感覺兩邊一樣重;再換到正常持弓的位置,這裡換成小指撐住弓的全部重量。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>四個位置依序:上半弓、弓中、平衡點、正常持弓位置;弓在空中;整條練習都用正常持弓;重複幾次,書上沒給確切次數</p>
+<h4>照片與譜例在看什麼</h4><p>Fig. 2 是三張沒有拿弓的手部照片,總說明是「拇指和第二指的關係」,三張沒有各自的 (a)(b) 標示。三張拍的是同一個正確位置的三個角度(拇指那一側、掌心正面、另一側),看的都是拇指指尖和第二指的相對位置:第二指在拇指稍微偏左。書上沒有拍被排除的那兩個位置。Fig. 3a 是手在上半弓,左手抓著右手,弓的重量全落在食指;Fig. 3b 是食指壓下去,弓根翹起。兩張的差別只在食指有沒有壓、弓根有沒有抬。</p>
+<h4>中提琴</h4><p>弓庫和弓桿每支都不同,第 4 步的平衡點要在自己的弓上找(規則 12):把弓桿橫架在伸直的食指上,找到不往任一邊倒的那一點,不要拿照片量手離弓庫的距離。推論:中提琴弓整支比較重、弓庫的形狀也不同,平衡點在哪裡不能照小提琴弓的經驗抓。後面幾條講到平衡點,都用這個方法找。四個位置的順序照書(規則 8)。推論:第 1 步落在食指上的重量比小提琴多(弓重),壓下去讓弓根翹起也要多一點力;所以「食指離拇指越遠效果越大」這件事在中提琴上差得更多,拇指和第二指更不能往食指那邊擠。書上說另見 p.72 的 About the movement of the bow within the hand(Part A 以外,本指南範圍外)。</p>
+<h4>容易看錯的地方</h4><p>「左邊」是從你自己往下看的左邊。書上排除的是兩個不同的位置,理由也不同,不要記成一個。左手抓右手是讓手不動的輔助方法,不是步驟。「See also」指到的 p.72 不在 Part A。</p>
+<p class="ex-meta">Fischer 的分類:看一次就懂、不必常練 · 時間:書上(p.VIII)歸在看一次就懂、不必常練的那類;估計:一到兩分鐘</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-3">
+<header class="ex-head"><span class="exno">3</span><div class="ex-titles">
+<h3>Thumb flexibility</h3>
+<p class="ex-zh">拇指的靈活度</p>
+</div></header>
+<p class="ex-loc">書 p.3 · PDF 12 · Thumb flexibility · Fig. 4a–b</p>
+<p class="ex-one">拉全弓時故意讓拇指一彎一直、手指跟著一起彎、一起直,弓碰弦的位置從靠指板輕拉到靠琴橋重拉三段都做,確認拇指在任何壓力下都還能動。</p>
+<h4>為什麼有用</h4><p>Fischer 說幾乎所有弓法都靠拇指看不見、不自覺的小動作;拇指一僵,整條拉弓的手臂都受影響。推論:拇指是弓在手裡唯一從下面撐住的一點。它如果鎖死,弓桿和手之間就沒有餘裕吸收弓桿的顫動,顫動就直接傳到手臂,手臂就用更多肌力去壓住它。這條練習用誇大的動作(每弓十次以上)確認拇指還能動,再把弓碰弦的位置一段一段往琴橋移。壓力越大,拇指要頂回去的力越大(ex.1),越容易順勢鎖死,所以要在重壓下測。</p>
+<h4>怎麼做</h4>
+<ol><li>在靠指板的位置輕輕拉,一個音拉全弓。手和手指放鬆。</li><li>每一弓當中,拇指彎、直十次以上(Fig. 4a、4b)。手指要同時跟著彎和直。</li><li>換到琴橋和指板中間拉,弓會比較重、比較進弦;重做,手指和拇指保持放鬆。</li><li>換到靠琴橋、拉得很重;雖然現在有很多重量要進弓,拇指和手指還是要能動。右肩放鬆。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>每弓拇指彎了再直,10 次以上;全弓;弓碰弦的位置三段(靠指板、中間、靠橋),力度從輕到很重;每條弦都做;單音和雙音</p>
+<h4>照片與譜例在看什麼</h4><p>Fig. 4a 是拇指彎、Fig. 4b 是拇指較直,兩張都是弓在弦上靠弓根的位置,對照的只有拇指彎還是直,和手指跟著的形狀。(b) 的圖說是 straighter,比較直,不是打直。</p>
+<h4>中提琴</h4><p>「每條弦」是 C、G、D、A,雙音是 C–G、G–D、D–A(規則 1)。推論(規則 7):C 弦發音慢,第 4 步靠橋、拉得很重的時候,弓還沒把弦帶動就壓到底,C 弦會先壓死。差的不是重量的多少,是加上去的時間:先讓弦動起來,再加到很重;動起來之後,C 弦要的重量並不比 A 弦少。第 4 步的「很重」以聲音不破為準,不是以手的感覺為準。推論:第 3、4 步拇指鎖死的機會比小提琴高(要的弓壓大),這條在中提琴上更值得每天做。十次以上照書,不改(規則 8)。</p>
+<h4>容易看錯的地方</h4><p>三個位置(靠指板、中間、靠橋)是弓碰弦的位置,不是弓段;整條都是全弓。拇指的「直」在書上是比較直,拇指仍然是彎的。「每條弦都做、也拉雙音」那一行在四步之後,意思是四步每條弦都要做完,不是第五步。</p>
+<p class="ex-meta">Fischer 的分類:一兩分鐘做完、找手感 · 時間:書上(p.VIII)歸在一兩分鐘做完的那類;估計:四條弦加雙音走完三到五分鐘</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-4">
+<header class="ex-head"><span class="exno">4</span><div class="ex-titles">
+<h3>Balancing with the fourth finger</h3>
+<p class="ex-zh">用小指平衡弓</p>
+</div></header>
+<p class="ex-loc">書 p.3 · PDF 12 · Balancing with the fourth finger · Exercise 1 · Fig. 5a–b</p>
+<p class="ex-one">把弓向右轉到弓毛朝上,再快速甩回正常位置,讓弓的全部重量突然落到小指上,摸到小指接住弓的感覺。</p>
+<h4>為什麼有用</h4><p>Fischer 在標題下先講小指的角色:在下半弓,小指坐在弓上像蹺蹺板的一頭,控制弓進弦的壓力;在上半弓,小指平衡食指,免得音被壓扁;所有提起來的弓法也都靠小指平衡弓。做之前他要你把弓略朝左肩,像平常拉琴那樣,拇指彎、放鬆,小指全程彎著。而且這條小指要放在弓桿正上方,不是平常放的那條稜(弓桿上方靠內側的邊)。他要你聽到弓毛切過空氣的 'swishing' 聲(p.3)。推論:這條要的是「弓的重量進小指」這個感覺,用快速甩回來製造它。弓從弓毛朝上轉回弓毛朝下,轉動的慣性把弓桿壓到小指上,比慢慢放上去明顯得多;那個聲音是在檢查速度夠不夠。小指放在正上方,重量才會垂直落在指尖,不會滑掉。</p>
+<h4>怎麼做</h4>
+<ol><li>手順時針轉,讓弓指向右邊,弓毛翻到弓桿上面(Fig. 5a)。</li><li>快速逆時針轉回來,讓弓一下子回到正常位置;要快到弓毛切過空氣有「咻」的一聲。感覺弓的全部重量進到小指(Fig. 5b),拇指放鬆。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>弓在空中、略朝左肩;小指在弓桿正上方、全程彎著;轉回要快到有風聲;沒有次數</p>
+<h4>照片與譜例在看什麼</h4><p>Fig. 5a 是弓已經轉到指向右邊、弓毛在上,準備要甩回的位置;Fig. 5b 是甩回之後,弓在正常位置,重量落在小指。對照的是轉動前後,要看的是 (b) 的小指。</p>
+<h4>邊註</h4><p>邊註 1(p.3):Fischer 說有些學派主張上半弓把小指拿開;手臂短的人如果不放開小指,弓拉直時常常到不了弓尖;放開小指的話,要特別小心不要用食指壓過頭把聲音壓扁。</p>
+<h4>中提琴</h4><p>標題下的邊註說有些學派在上半弓放開小指,這在中提琴手身上更常見(規則 13)。如果你平常上半弓就放開小指,這條和 ex.5 是把小指放回去的起點;Fischer 說放開小指就要特別小心食指壓過頭,這句警告對你加倍適用。推論(規則 5):邊註說短手臂的人到弓尖時往往非放不可,而拉中提琴時你的手臂等於短一號,所以這句對中提琴手也成立。推論:甩回來時進小指的重量比小提琴多(弓重),小指要撐住而不是被壓垮,「小指全程彎著」在中提琴上更不能省。</p>
+<h4>容易看錯的地方</h4><p>「Exercise 1」是這個標題底下的小編號,黑圈裡的編號是 4。「順時針」是從你自己往下看右手的方向。小指平常在弓桿上方靠內側的稜,這條特別要放在正上方。「弓指向右邊」是弓尖朝你的右邊,弓不在弦上。</p>
+<p class="ex-meta">Fischer 的分類:一兩分鐘做完、找手感 · 時間:書上(p.VIII)歸在一兩分鐘做完的那類</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-5">
+<header class="ex-head"><span class="exno">5</span><div class="ex-titles">
+<h3>Balancing with the fourth finger</h3>
+<p class="ex-zh">用小指平衡弓</p>
+</div></header>
+<p class="ex-loc">書 p.4 · PDF 13 · Balancing with the fourth finger · Exercise 2 · Fig. 6a–b</p>
+<p class="ex-one">只用拇指和小指在平衡點靠弓根那側持弓,小指壓下讓弓尖抬起再放回,然後一次幾公分往弓庫退到正常位置,讓小指從最省力的地方開始學平衡弓。</p>
+<h4>為什麼有用</h4><p>Fischer 在邊註說平衡點在弓中偏弓根那側,因為弓根那頭比弓尖那頭重;很多跳弓和半提起的弓法在這裡特別平衡、舒服。做之前他要你把弓略朝左肩,拇指彎、放鬆,和 ex.4 一樣。推論:手在平衡點附近時弓兩頭差不多重,小指幾乎不用力就能讓弓尖抬起;手每往弓庫退幾公分,弓尖那頭相對變重,小指要壓下去的力就多一點。所以這條從最省力的位置開始,一段一段加到正常持弓位置的負荷,而不是一開始就在最重的地方硬撐。只用拇指和小指,是把食指和第二、三指排除掉,確認抬弓尖的力真的來自小指。</p>
+<h4>怎麼做</h4>
+<ol><li>只用拇指和小指持弓,手放在平衡點稍微靠弓根那側(Fig. 6a);小指放在弓桿正上方。</li><li>小指往下壓,讓弓尖抬起(Fig. 6b),再讓弓尖落回原位(Fig. 6a)。前臂不動,只用手指動弓。連續重複幾次。</li><li>手往弓庫移幾公分重做。繼續一次幾公分往弓庫退,直到手回到平常持弓的位置。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>起點在平衡點靠弓根那側;每次往弓庫移「幾公分」;弓在空中、略朝左肩;沒有次數</p>
+<h4>照片與譜例在看什麼</h4><p>Fig. 6a 是只用拇指和小指在平衡點靠弓根那側撐住弓、弓桿放平的位置;Fig. 6b 是小指壓下去、弓尖抬起。兩張對照的是小指有沒有壓,以及弓尖的高度。</p>
+<h4>邊註</h4><p>邊註 1(p.4):Fischer 說平衡點在弓中偏弓根,因為弓根那端比弓尖那端重;許多跳弓和半提起的弓法在這個位置特別平衡、舒服。</p>
+<h4>中提琴</h4><p>平衡點照 ex.2 的方法在自己的弓上找(規則 12)。「幾公分」照書,不給數字(規則 8)。推論:第 3 步越接近正常位置,小指要壓下去的力越多,弓越重,差得越多;ex.4 標題下說下半弓的弓壓由小指控制,第 3 步走到正常位置,摸到的就是中提琴上那個量有多少。如果到正常位置時小指撐不住、拇指開始緊,退回前一段多做幾次再往前。</p>
+<h4>容易看錯的地方</h4><p>「Exercise 2」是標題內的小編號,黑圈裡的編號是 5。「平衡點下方(below)」是靠弓根那側,不是垂直方向的下面。這頁的邊註 1 講平衡點,和 p.3 的邊註 1(小指離弓)不是同一條。</p>
+<p class="ex-meta">Fischer 的分類:一兩分鐘做完、找手感 · 時間:書上(p.VIII)歸在一兩分鐘做完的那類</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-6">
+<header class="ex-head"><span class="exno">6</span><div class="ex-titles">
+<h3>Holding the bow without gripping</h3>
+<p class="ex-zh">持弓而不握緊</p>
+</div></header>
+<p class="ex-loc">書 p.4–5 · PDF 13–14 · Holding the bow without gripping · Exercise 1 · Fig. 7a–b</p>
+<p class="ex-one">先拿掉第二、三指,再換成拿掉第一、三指,兩種只剩三根手指的持弓都讓弓靠重量平衡在手裡,然後把手指全部放回去,找同一種靠平衡不靠握的感覺。</p>
+<h4>為什麼有用</h4><p>Fischer 在標題下說手指在弓上要一直是活的:演奏的條件每個音都在變,腦子不停送出小訊號讓手指調整和弓的接觸;這些調整是本能反應,教不來,但弓握太緊它們就出不來。他也說有力的弓法(例如開頭要咬弦的那種)本來就要握緊,問題只在用完之後有沒有放掉。常態應該是平衡、需要時才加握力,不是反過來。書上第 1 步說三根手指都在撐,拿掉任何一根弓就掉。推論:每次拿掉兩根手指,剩下的三根剛好是讓弓不掉的最少支撐,你只能靠重量分配讓它停在手裡,沒有多餘的手指可以拿來握。做完再把手指放回去,目標是保留這種分配,不因為手指多了就開始捏。</p>
+<h4>怎麼做</h4>
+<ol><li>弓桿往外倒,像用弓毛外側拉琴那樣;小指放在弓桿上方靠內側的稜;第二、三指離開弓(Fig. 7a)。注意弓的重量落在食指指腹上,小指和拇指把它撐住;三根都在撐,拿掉任何一根弓就掉。這時弓是平衡在手裡,不必去握。</li><li>第二指放到弓庫上、比平常更靠拇指左邊一點;食指拿開。現在弓靠第二指、小指和拇指平衡(Fig. 7b);感覺弓的重量靠在第二指上。</li><li>第一、三指放回去,用全部手指正常持弓。在每一根手指上找到剛才那種重量和平衡的感覺,不用手指握弓。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>弓在空中(照片裡沒有琴);弓桿往指板那邊倒,像用弓毛外側拉;兩種組合:拇指+食指+小指、拇指+第二指+小指;沒有次數</p>
+<h4>照片與譜例在看什麼</h4><p>Fig. 7a 是沒有第二、三指的持弓,弓桿往外倒,只剩拇指、食指、小指;Fig. 7b 是沒有第一、三指,換成拇指、第二指、小指。兩張對照的是哪兩根手指拿掉、重量落在哪一根上。</p>
+<h4>邊註</h4><p>邊註 2(p.4)引 Stephen Nachmanovitch《Free Play – Improvisation in Life and Art》(1990,p.63)的蠟燭比喻:感覺的敏銳度隨總刺激量遞減,兩根蠟燭的房間點第三根看得出變亮,五十根的房間點第五十一根看不出來;弦壓得越用力越感覺不到弦,拉得越大聲聽到的越少,肌肉越鬆能做的動作越多。這段是 Nachmanovitch 的話,不是 Fischer 的。</p>
+<h4>中提琴</h4><p>第二指放在弓庫上的位置、小指在稜上的位置,都照自己的弓庫形狀來(規則 12)。推論:第 1 步落在食指指腹、第 2 步靠在第二指上的重量都比小提琴多(弓重);重量大就讓人想用握力補,做第 3 步時如果覺得手指開始捏,回到第 1 步。標題下說 pp 和頓弓之間要能切換,這件事和小提琴一樣。推論:頓弓咬弦那一下要的握力因為弦粗會多一點,所以咬完那一下要放掉的握力也比較多,放的時候要真的鬆到弓又是靠平衡停在手裡,不是握力減一點就算。</p>
+<h4>容易看錯的地方</h4><p>「Exercise 1」在這裡是新標題底下的小編號,黑圈裡的編號是 6,不是 ex.4。標題下的兩段引言(手指要活的、pp 和頓弓)管的是整個標題,同時屬於 6、7、8。「弓毛外側」是弓桿往指板那邊倒時貼弦的那一側。</p>
+<p class="ex-meta">Fischer 的分類:看一次就懂、不必常練 · 時間:書上(p.VIII)歸在看一次就懂、不必常練的那類;估計:一分鐘</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-7">
+<header class="ex-head"><span class="exno">7</span><div class="ex-titles">
+<h3>Holding the bow without gripping</h3>
+<p class="ex-zh">持弓而不握緊</p>
+</div></header>
+<p class="ex-loc">書 p.5 · PDF 14 · Holding the bow without gripping · Exercise 2 · Fig. 8</p>
+<p class="ex-one">手不動、弓握得很緊,只用手指讓弓尖畫圈,弓朝三個方向各做一次:握得再緊,手指還是要動得了,而且不靠手。</p>
+<h4>為什麼有用</h4><p>Fischer 說不管手指握弓多緊,都應該能自由、靈活地動,而且不靠手。他要你先確認弓和手指的接觸部位:食指和第三指是指腹,第二指是最靠指甲的那一節,拇指和小指是指尖。推論:這條和 ex.6 是一組。ex.6 練的是不握,這條練的是握緊了還能動;演奏裡兩者都會發生,咬弦的那一下要握緊,緊完要能立刻調整,如果握緊等於鎖死,每一次強奏之後都要重新找一次手感。用左手抓住右手是為了排除手的動作,讓畫圈只能由手指完成。三種方向(垂直、演奏位置、向右且弓毛朝上)是讓重力從不同方向落在手指上,同一組手指動作在每一種負荷下都要做得出來。</p>
+<h4>怎麼做</h4>
+<ol><li>弓垂直朝上拿著。</li><li>只用手指讓弓尖畫圈(Fig. 8)。弓要握得很緊,手指要動到最大幅度。可以用左手抓住右手,確定只有手指在動。</li><li>弓在演奏位置重做。</li><li>弓指向右邊、弓毛翻到弓桿上面,重做。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>三種方向依序:垂直(空中)、演奏位置(書沒說在不在弦上)、向右且弓毛朝上;握很緊;手指動到最大幅度;沒有次數</p>
+<h4>照片與譜例在看什麼</h4><p>Fig. 8 只有一張:弓垂直、弓尖朝上,演奏者低頭看著手指讓弓尖畫圈;沒有 (a)(b) 對照。</p>
+<h4>中提琴</h4><p>三種接觸部位(指腹、第二指靠指甲那節、指尖)照書上的描述在自己的手上找(規則 12)。推論:弓重,弓尖畫圈時手指承受的力矩比小提琴大;動作幅度照書,盡量大,但那是手指能動的極限,不是弓尖畫多大的圈。沒有弦名,不需要換。</p>
+<h4>容易看錯的地方</h4><p>「Exercise 2」是標題內的小編號,黑圈裡的編號是 7,和 ex.5 的「Exercise 2」是不同的練習。書上寫的三種接觸部位(指腹、第二指靠指甲那節、指尖)不一樣,不要全部讀成指尖。「握很緊」是這條刻意要求的,和 ex.6 的不握相反,不是矛盾。</p>
+<p class="ex-meta">時間:估計:一到兩分鐘</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-8">
+<header class="ex-head"><span class="exno">8</span><div class="ex-titles">
+<h3>Holding the bow without gripping</h3>
+<p class="ex-zh">持弓而不握緊</p>
+</div></header>
+<p class="ex-loc">書 p.5 · PDF 14 · Holding the bow without gripping · Exercise 3</p>
+<p class="ex-one">一邊拉 ff 全弓,一邊只用手指讓手沿著弓桿從弓根爬到弓中再爬回來,逼手指在弓壓著弦的時候還能換位置。</p>
+<h4>為什麼有用</h4><p>書上沒有另外解釋,只說爬到弓中附近某一點以後就爬不上去了;Fischer 說最難的是爬回弓庫,沒有給理由。推論:手指在拉弓的同時要一根一根放掉再抓住弓桿,又要維持弓在弦上的壓力和方向。任何一根手指如果是用握力在撐弓,放掉它的那一瞬間弓就會抖或掉;能爬,就表示弓在剩下的手指上是平衡的。這和 ex.6 要的是同一件事,只是加上了拉弓和 ff。書上說手在弓中附近時上弓仍然要拉到弓根;推論:這是為了確認手在哪裡和弓走多遠是兩件事,弓不能因為手往上爬就走得短。</p>
+<h4>怎麼做</h4>
+<ul><li>拉幾個慢的全弓,ff。</li><li>一邊連續上下弓,一邊只用手指沿弓桿往上爬到弓中,再爬回弓根。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>ff;慢;全弓;手從弓根爬到弓中再回弓根;弦沒有指定</p>
+<h4>中提琴</h4><p>ff、全弓照書(規則 8)。「弓中」在自己的弓上看,能爬到哪就到哪(規則 12)。推論:弓重,手離弓根越遠,弓根那頭撐在手指上的力矩越大,ff 的壓力又要靠手指維持,整段爬的難度比小提琴高。書上沒指定弦,C、G、D、A 都可以(規則 1)。推論:弦越粗,ff 要的弓壓越大,手指在爬的時候要維持的壓力越多,C 弦最難;可以從 D 弦做順了再到 C 弦,而且 C 弦要多做幾次,不是做一次收工。</p>
+<h4>容易看錯的地方</h4><p>「Exercise 3」的黑圈編號是 8。這條是圓點不是數字:第一點先把慢的 ff 全弓拉穩,第二點在同樣的拉弓當中加上手指爬弓桿的動作。「爬到弓中」是方向,不是要求,書上明說到不了。「手在弓中時上弓仍然拉到弓根」講的是弓要走到哪裡,不是手的位置。這條沒有照片。</p>
+<p class="ex-meta">時間:估計:兩到三分鐘</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-9">
+<header class="ex-head"><span class="exno">9</span><div class="ex-titles">
+<h3>Hand balance</h3>
+<p class="ex-zh">手的平衡</p>
+</div></header>
+<p class="ex-loc">書 p.5–6 · PDF 14–15 · Hand balance · Fig. 9a–b, 10a–b</p>
+<p class="ex-one">拉靠橋的 ff 全弓,下弓時從弓根一根一根拿掉手指、到弓尖只剩拇指和食指,上弓再一根一根放回,摸到手的重量分配從弓根的小指那邊移到弓尖的食指那邊。</p>
+<h4>為什麼有用</h4><p>Fischer 說在弓根,食指碰弓桿的地方比較靠遠端指節,手在弓上比較直立,弓的重量由小指平衡;在弓尖,食指碰弓桿的地方靠中指節,手往食指那邊倒。食指有兩件工作:在弓桿上面的那部分把重量送進弦,除了 f 以外都只是輕碰,在下半弓有時只差一根頭髮沒碰到;在弓桿側面的那部分幫弓走直。食指側面碰弓桿的地方不變,所以感覺上食指像是固定的,雖然上面碰到弓桿的那一段從弓根到弓尖一直在移。小指在上半弓要留在弓上(除非手太小),手才能保持平衡、食指才不會壓太多。從弓根的直立到弓尖的傾斜要平順地過去,不然一個下弓拉到弓中附近弓會抖。推論:六個步驟是把這個過渡拆開來摸。下弓從弓根出發時故意沒有食指,重量只能在小指那邊;到弓尖時只剩拇指和食指,重量只能全在食指那邊;中間一根一根拿掉,就是重量分配移動的路徑。後面幾步把手指一根一根留下,到第 6 步全部留下,是要在正常持弓裡也感覺到同樣的重量移動,而不是靠拿掉手指才感覺得到。</p>
+<h4>怎麼做</h4>
+<ol><li>在弓根開始拉,不用食指(Fig. 10a);拉幾公分之後把食指放回它平常在弓桿上的位置。下弓繼續,依序拿掉小指、第三指、第二指;到弓尖時弓上只剩食指和拇指(Fig. 10b)。</li><li>上弓:從只有拇指和食指開始;依序把第二、三、四指放回弓上;拿掉食指,到弓根時弓上是除了食指以外的全部手指。放回去的手指要注意形狀和位置正確。</li><li>下弓上弓完全照做,但第二指不拿掉。</li><li>一樣,第三指也不拿掉。</li><li>開始和結束同樣不用食指,但其他手指全程留在弓上平常的位置。</li><li>任何手指都不拿掉,每一根都穩穩留在弓上,拉 f 全弓,聲音要扎實均勻;從弓根到弓尖再回來,感覺同樣的重量分配變化。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>慢、均勻、ff、全弓、靠橋;第 1 步拿掉手指的順序 4、3、2;第 2 步放回的順序 2、3、4;第 6 步是 f;弦沒有指定</p>
+<h4>照片與譜例在看什麼</h4><p>Fig. 9a 是手在弓根,食指碰弓桿的地方在遠端指節和中指節之間,手比較直立;Fig. 9b 是手在弓尖,食指碰弓桿的地方靠中指節,手往食指那邊倒。兩張對照的是食指哪一段碰弓桿、手倒向哪邊。Fig. 10a 是弓根的起始位置,食指離開弓桿;Fig. 10b 是第一個下弓的終點,弓尖上只剩拇指和食指。兩張對照的是第 1 步的頭和尾。</p>
+<h4>邊註</h4><p>邊註 1(p.5):Fischer 說第二指也把重量送進弦,要做到這點它必須在拇指對面、稍微偏中心的左邊(見 Fig. 2,p.2);重量由食指和第二指分擔,音比只用食指的少壓扁、圓一點。</p>
+<h4>中提琴</h4><p>「小指在上半弓要留在弓上,除非手太小」這句在中提琴上要重看(規則 13)。推論(規則 5):拉中提琴時你等於手臂短一號,到弓尖時放開小指的人比小提琴多。如果你放開,ex.4 邊註和這條都提到的「食指壓過頭」在這裡也一樣會發生;第 1 步到弓尖只剩拇指和食指時聲音有沒有被壓扁,是這條裡最該聽的一件事。食指碰弓桿的兩個地方(靠遠端指節、靠中指節)在自己的手上找(規則 12)。步驟數、ff、全弓不改(規則 8)。推論:弓和手臂已經給了足夠的重量(弓重、弦粗),食指「除了 f 以外輕碰、有時差一根頭髮」這句在中提琴上更值得照做,下半弓食指多壓的都是多的。書上沒指定弦。推論(規則 7):靠橋 ff 一開弓時,C 弦最容易在弦還沒動起來之前就被壓死,先在 D 或 G 弦(規則 1)把六步做順,再到 C 弦,C 弦多做幾輪。</p>
+<h4>容易看錯的地方</h4><p>p.5 中間的「1」「2」是食指的兩件工作,不是步驟;六個步驟在 p.6。Fig. 10 是這條的照片,不是 ex.10 的(ex.10 的照片是 Fig. 11)。Fig. 9a 的圖說寫「在遠端指節和中指節之間」,正文寫「比較靠遠端指節」,講的是同一個位置:正文是和弓尖時比較,圖說是絕對位置。第 1 步拿掉手指的順序是小指、第三指、第二指,第 2 步放回是第二、三、四指,方向相反。第 6 步是 f,前面五步是 ff。</p>
+<p class="ex-meta">Fischer 的分類:一兩分鐘做完、找手感 · 時間:書上(p.VIII)歸在一兩分鐘做完的那類;估計:六步走完三到四分鐘</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-10">
+<header class="ex-head"><span class="exno">10</span><div class="ex-titles">
+<h3>The give of the hand into the bow</h3>
+<p class="ex-zh">手對弓的緩衝(手指順著弓鬆一下;掌指關節的降和抬)</p>
+</div></header>
+<p class="ex-loc">書 p.6–7 · PDF 15–16 · The give of the hand into the bow · Fig. 11a–b</p>
+<p class="ex-one">用突然交替的 f 和 p,把掌指關節降下去(f)和抬起來(p)的動作放大,讓手學會順著弓的重量鬆進去,而不是用手指夾住弓桿出力。</p>
+<h4>為什麼有用</h4><p>Fischer 說這條是故意誇大掌指關節的降和抬,並把兩個狀態各綁在一個力度上:f 的時候握緊弓、掌指關節降低、拇指和小指彎起來;p 的時候手指放鬆、掌指關節抬高、拇指和小指稍微伸直。推論:掌指關節降低,手的重量從關節上方直接落在弓桿上,手指只是把重量傳過去;掌指關節抬高,手指變直,手的重量被手腕和手臂撐住、沒有落到弓桿,聲音就小。兩端都做到極端,是為了讓手在極端之間找到平常演奏用的那個小得多的緩衝;Fischer 在 ex.14 說真正換弓時,最小的緩衝就夠了。</p>
+<h4>怎麼做</h4>
+<ul><li>拉 f 的時候把弓握緊、掌指關節降下去(Fig. 11a),同時拇指和小指彎起來。書上註明握緊是為了練習才這樣做。</li><li>拉 p 的時候手指在弓上放鬆、掌指關節抬起來(Fig. 11b),同時讓拇指和小指稍微伸直。</li><li>每一弓的弓速和弓壓保持平均,弓和弓之間接得沒有縫。f 和 p 都是突然換的,不加漸強漸弱。</li><li>先用四分之一弓在弓根、弓中、弓尖各做一次;再用半弓在下半弓、中段、上半弓各做一次。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>f 與 p 突然交替,無漸強漸弱;四分之一弓(弓根、弓中、弓尖),半弓(下半弓、中段、上半弓);兩個八度音階,同一把位跨四條弦,大調或小調;1 A(第一把位)、2 E(第五把位)、3 A(第八把位)</p>
+<h4>照片與譜例在看什麼</h4><p>Fig. 11a 是掌指關節降低、準備開始下弓,手壓在弓上的樣子;Fig. 11b 是掌指關節抬高、準備開始上弓,手指比較直、手背比較高。兩張要看的是手背相對於弓桿的高度差。譜例(書 p.7 上方 · PDF 16)是 A 大調音階,一個音一弓,f 和 p 逐音交替,寫了兩行:第一行從 f 開始,第二行從 p 開始,這樣下弓和上弓都會輪到 f 和 p;書上用 etc. 表示往上繼續到兩個八度。</p>
+<h4>中提琴</h4><p>譜例的 A、E、A 三個音階低五度讀,變成 D(第一把位)、A(第五把位)、D(第八把位)(規則 9);第一把位那個從 C 弦的一指 D 上到 A 弦的三指 D,剛好兩個八度跨四條弦,弦和手指的幾何和小提琴相同。第八把位的版本不做,只做第一和第五把位(規則 10),音階在這條裡只是讓右手有東西可拉。力度和弓段照書(規則 8)。推論(規則 7):C 弦發音慢,p 的那一弓如果手指鬆得太徹底、弓又走得快,弦可能還沒振動起來弓就走完了。先在 G 弦和 D 弦把 f 和 p 兩種手的狀態做出來,再把同一個動作搬到 C 弦,不要在 C 弦上把 p 加重。</p>
+<h4>容易看錯的地方</h4><p>「1 A、2 E、3 A」是三個調的編號,不是步驟編號;步驟是圓點。譜例印在下一頁(書 p.7)頂端,文字在書 p.6 底部,容易誤以為譜例屬於 ex.11。「握緊弓」書上寫明是為了練習,不是平常拉 f 的握法。「lower the knuckles」是掌指關節往弓桿方向降,不是手指彎多一點。</p>
+<p class="ex-meta">時間:估計:每個調六種弓段組合,中提琴做兩個調,約 10 分鐘</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-11">
+<header class="ex-head"><span class="exno">11</span><div class="ex-titles">
+<h3>Vertical and horizontal finger movement</h3>
+<p class="ex-zh">手指的上下與橫向動作:練習 1(上下)</p>
+</div></header>
+<p class="ex-loc">書 p.7 · PDF 16 · Vertical and horizontal finger movement · Exercise 1 – Vertical · Fig. 12a–b</p>
+<p class="ex-one">在弓根把弓懸在弦上方 2 cm,只靠手指伸直和彎曲把弓放上弦、再抬起來,手臂和手都不動,把手指的上下動作單獨拿出來練。</p>
+<h4>為什麼有用</h4><p>Fischer 說這條只用手指降和抬弓,手臂和手保持不動;他另外要求拇指跟著手指一起動,手指伸直時拇指伸直,手指彎時拇指彎。推論:手指伸直,指尖離掌指關節的距離變長,握著的弓就往下走;手指彎回來,弓就上來。拇指如果固定不動,手指伸直時弓桿會被拇指卡住,弓不會真的往下走,動作就變成手腕在代替。ex.12 的沿弦推弓和 ex.14 換弓時的緩衝,用的是同一組伸直和彎曲,差別只在手指放在弓上的角度。</p>
+<h4>怎麼做</h4>
+<ul><li>在弓根把弓拿在弦上方 2 cm 的地方,手指誇張地彎圓、掌指關節放低(Fig. 12a)。</li><li>把手指伸直,讓弓落到弦上(Fig. 12b);再把手指彎回來,把弓抬回起點。</li><li>手臂和手保持不動,只用手指讓弓下去和上來。上下重複幾次。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>弓根;弦上方 2 cm;重複數次</p>
+<h4>照片與譜例在看什麼</h4><p>Fig. 12a 是手指彎成圓形、掌指關節低,弓懸在弦上方準備放下去;Fig. 12b 是手指伸直了,弓已經落在弦上。兩張對照的是手指彎還是直,手背和前臂的位置應該幾乎沒變。</p>
+<h4>中提琴</h4><p>這條在中提琴上沒有差別:沒有指定弦,弓拿在弓根、懸在弦上方,也不用伸到弓尖,幾何和小提琴一樣;2 cm 照書(規則 8)。推論:中提琴弓比小提琴弓重,手指把弓懸在弦上方的時候,拇指和手指承受的負荷比較大,容易不知不覺捏緊。書上要的是手指圓、掌指關節低,不是握緊;做幾次就覺得虎口緊,先回 ex.6–8(不握緊弓的那三條)做一遍再回來。手離弓庫的距離在自己的弓上找,不照照片量(規則 12)。</p>
+<h4>容易看錯的地方</h4><p>「at the nut」這裡是弓根(弓庫那一端懸在弦上方),不是琴頸上端的弦枕。「low knuckles」和手指圓是同一件事的兩面。標題底下的「Exercise 1」是小編號,黑圈裡的編號是 11。</p>
+<p class="ex-meta">時間:估計:一到兩分鐘</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-12">
+<header class="ex-head"><span class="exno">12</span><div class="ex-titles">
+<h3>Vertical and horizontal finger movement</h3>
+<p class="ex-zh">手指的上下與橫向動作:練習 2(橫向)</p>
+</div></header>
+<p class="ex-loc">書 p.8–9 · PDF 17–18 · Vertical and horizontal finger movement · Exercise 2 – Horizontal · Fig. 13a–e</p>
+<p class="ex-one">只用手指的伸直和彎曲來拉弓,手臂和手盡量不動,讓手指沿著弦的方向推動弓;再用左手抓住右手,確認真的只有手指在動。</p>
+<h4>為什麼有用</h4><p>Fischer 一開頭就說手指其實沒有橫向的動作,手指幾乎不能往側邊動;它們能把弓沿著弦推動,是因為放在弓上時是往食指那邊斜靠的,不是垂直立在弓上,伸直和彎曲的方向就有一部分落在弓的走向上。推論:手指靠向食指的角度越明顯,手指伸直同樣的幅度,弓走的距離越長;手指立得很直,伸直只會把弓往下壓,拉不出橫向的距離。手不動、只有手指繞著掌指關節伸縮,指尖走的是一段弧,弓跟著走弧線,容易跟琴橋不平行,所以書上要你用鏡子看。「Making sure only the fingers move」那一段(書 p.9)是檢查方法:在弓根拉幾個空弦,左手握住右手,左手拇指放進右手掌心、左手食指放在右手手背上,手本身被固定住,能動的只剩手指。</p>
+<h4>怎麼做</h4>
+<ul><li>拉 f,但只用手指讓弓動,手臂和手盡可能不動。</li><li>手指彎曲是拉上弓,伸直是拉下弓。Fig. 13a 和 13c 是手指彎著、準備伸直拉下弓;Fig. 13b 和 13d 是手指比較直、準備彎回來拉上弓。</li><li>用鏡子看弓有沒有一直跟琴橋平行。</li><li>在弓根、弓中、弓尖各做一次。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>f;弓根、弓中、弓尖;空弦;譜例前段每條弦四個四分音符,後段八分音符換弦</p>
+<h4>照片與譜例在看什麼</h4><p>Fig. 13 的 a–d 是兩組對照:a 和 b 都在弓根,a 手指彎(下弓之前)、b 手指較直(上弓之前);c 和 d 都在弓尖,同樣是 c 彎、d 較直。要看的是同一組裡手臂和手背幾乎沒動,只有手指彎的程度不同。Fig. 13e 在書 p.9 頂端,左手握住右手、弓在弓根,是「Making sure only the fingers move」那段的做法。譜例三段:第一段 f,一條弦一小節、每小節四個四分音符,順序 G、D、A、E、A、D,有反覆記號;第二段改成八分音符,相鄰弦成對來回,一小節一對,G–D、D–A、A–E、E–A、A–D、D–G,有反覆;第三段隔一條弦成對來回,G–A、D–E、E–D、A–G,有反覆。</p>
+<h4>中提琴</h4><p>譜例全是空弦,G、D、A、E 換成 C、G、D、A(規則 1),型不用移,照弦的順序拉就是(規則 9):第一段一條弦一小節,順序 C、G、D、A、D、G;第二段相鄰弦成對來回,C–G、G–D、D–A、A–D、D–G、G–C;第三段隔一條弦成對來回,C–D、G–A、A–G、D–C。推論(規則 5):中提琴的接觸點離肩膀更遠,到了弓尖手臂已經伸得比較開,手為了搆到,手指本來就比在弓根時直,剩下能伸的量少,所以弓尖那一組弓走的距離會比弓根短。這是幾何造成的,不用勉強拉長。推論(規則 7):C 弦粗、反應慢,只用手指推弓時弓速本來就慢,f 在 C 弦上容易變成壓。先在 G、D 弦把「手指推弓、弓仍然跟琴橋平行」做穩;C 弦的 f 用聲音有沒有芯判斷,不用音量判斷。左手抓右手那段沒有差別:左手離開琴頸時,琴靠下巴和肩膀撐住,中提琴和小提琴一樣。</p>
+<h4>容易看錯的地方</h4><p>「horizontal」書上自己加了引號,Fischer 明說沒有這種手指動作,不要去找一個側向的動作。「move the bow up」和「move down」是上弓和下弓,不是把弓抬高放低。Fig. 13e 印在下一頁(書 p.9),但它是 Fig. 13 的 e,和 a–d 同一組;「Making sure only the fingers move」那個小標題也在 p.9,屬於這條。「thumb in the palm」「first finger on the back of the hand」講的是左手的拇指和食指放在右手上。</p>
+<p class="ex-quote">There is really no such thing as a 'horizontal' finger movement.(書 p.8 · PDF 17)</p>
+<p class="ex-meta">時間:估計:三段譜例乘三個弓段,加鏡子檢查,約 5 分鐘;左手抓右手那段一分鐘</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-13">
+<header class="ex-head"><span class="exno">13</span><div class="ex-titles">
+<h3>Vertical and horizontal finger movement</h3>
+<p class="ex-zh">手指的上下與橫向動作:練習 3(上下與橫向合起來)</p>
+</div></header>
+<p class="ex-loc">書 p.9 · PDF 18 · Vertical and horizontal finger movement · Exercise 3 – Vertical and horizontal combined · Fig. 14</p>
+<p class="ex-one">把手指的彎和伸直加上一點點手的繞圈合起來,讓弓在弦上方畫小圓,圓的最低點碰弦出聲;練的是手指做主、手只幫一點忙,兩個動作合起來的那個畫圓。</p>
+<h4>為什麼有用</h4><p>Fischer 說要用盡量多的手指動作、盡量少的手的動作、完全不用手臂,在圓的底部碰到弦發出聲音。推論:ex.11 練的是手指讓弓垂直上下,ex.12 練的是手指讓弓沿弦走,兩個合起來就是一個圓;手的繞圈只是把兩段直線接圓,主力還在手指。弓碰弦的那一瞬間在圓的最低點,弓是斜著進入、斜著離開弦的,所以出來的聲音短而輕,像弓從空中落到弦上再離開。</p>
+<h4>怎麼做</h4>
+<ol><li>手指彎著拿弓,弓在弦上方大約 2 cm。手背和手指要在同一條直線上。</li><li>用畫圓的方式把弓降到弦上,手指順勢稍微伸直;拉出聲音,然後手指彎回來把弓抬回起點。</li><li>順時針和逆時針都做,動作連續不停,在弓根、弓中、弓尖各做一次。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>弦上方約 2 cm;順時針與逆時針;弓根、弓中、弓尖;連續不停</p>
+<h4>照片與譜例在看什麼</h4><p>Fig. 14 只有一張:弓在弓根附近、弦的上方,圖上畫了一個帶箭頭的圓,圖說寫弓的路徑主要靠手指帶動。要看的是手背和手指成直線,前臂不動。</p>
+<h4>中提琴</h4><p>這條也沒有中提琴的差別,因為沒有指定弦、沒有力度、沒有速度,只有一個 2 cm 的高度,照書(規則 8)。推論:中提琴弓重,畫圓的時候弓的慣性大一點,在圓的底部碰弦那一下容易變成砸。手的繞圈本來就要小,在中提琴上可以先把圓畫得更小、更慢,確認聲音是碰出來的不是砸出來的,再放大。推論(規則 5):到了弓尖手指本來就比在弓根時直,剩下能伸的量比在小提琴上少(ex.12 講過為什麼),圓會小一點,就讓它小。</p>
+<h4>容易看錯的地方</h4><p>「2 cm 左右」是大約值,書上寫 or so。順時針和逆時針是兩個方向都做,不是選一個。「手背和手指成直線」是起點的姿勢,不是整個動作中都要維持。標題底下的「Exercise 3」是小編號,黑圈裡的編號是 13;書 p.9 右上角的黑圈 13 印在邊註的文字中間,容易被邊註擋住。</p>
+<p class="ex-meta">時間:估計:兩到三分鐘</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-14">
+<header class="ex-head"><span class="exno">14</span><div class="ex-titles">
+<h3>Changing bow</h3>
+<p class="ex-zh">換弓</p>
+</div></header>
+<p class="ex-loc">書 p.9 · PDF 18 · Changing bow · Fig. 13a–d(引用 ex.12 的照片)</p>
+<p class="ex-one">在下弓和上弓的末尾、弓還在走的時候,讓手指和拇指順著弓的方向稍微伸直或彎曲當緩衝,方向反轉的那一下才接得平;這條把那個緩衝放大成看得見的動作。</p>
+<h4>為什麼有用</h4><p>Fischer 說手指的一點緩衝能讓換弓平滑,這條練習故意把緩衝做成大而有意識的手指動作。推論:弓要反向,速度必須經過零;手和弓之間如果一點彈性都沒有,速度是零的那一瞬間弓毛對弦的摩擦狀態會突然改變,聲音就有縫。手指順著弓的舊方向再走一點、再帶著弓回頭,等於在手和弓之間放了一段彈性,方向反轉的那一下就變平順。書上同時說,真正拉的時候這些動作可以小到看不見,最小的緩衝就夠了;邊註更進一步警告,換弓時的手指動作應該減到最少,因為手指在換弓時彈一下會讓弓速突然加快,平滑的換弓更多來自換弓之前先減弓速、減弓的重量。</p>
+<h4>怎麼做</h4>
+<ul><li>每個下弓快到底、弓還在走的時候,平順地把手指和拇指伸直;同時讓手跟著手指往同一個方向稍微動一下(也就是往下,手腕的弧度會變得更往上拱)。</li><li>每個上弓快到底、弓還在走的時候,平順地把手指和拇指彎回來(掌指關節降低);手跟著手指稍微動一下(也就是往上,手腕的弧度變小)。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>八分之一弓的短弓;平滑、每一弓撐住不減(sustained);弓根、弓中、弓尖</p>
+<h4>照片與譜例在看什麼</h4><p>這條沒有自己的照片,書上要你回看 ex.12 的 Fig. 13:13a 和 13c 是下弓開始前的手指(彎),13b 和 13d 是上弓開始前的手指(較直)。對這條來說,下弓末尾的動作就是從 a/c 的樣子變成 b/d 的樣子,上弓末尾相反。</p>
+<h4>邊註</h4><p>邊註 1(標號在第一段「movement of the fingers」之後):Fischer 說緩衝和主動的手指動作是兩回事;換弓時的手指動作應該減到最少,因為手指一彈弓速就加快;平滑的換弓比較容易從(1)換弓前減弓速、(2)換弓前減弓的重量得到。弓根的主動手指動作一般都算在 Carl Flesch 那一派名下,但 Flesch 自己說,他把手指動作放進教學只是當一個有用的練習,從沒打算讓它成為弓法的核心;他還說手指的動作只能小劑量用,換弓被看見就會被聽見(Carl Flesch,《Problems of Tone Production in Violin Playing》,Baden-Baden,1931,p.14)。邊註 2(標號在「bow changes smooth」之後):Dounis 反過來建議一個更大、看得見的動作,叫它 brush stroke:想像右手是一把刷子,手指是刷毛,手是刷柄(Chris A. Costantakos,《Demetrios Constantine Dounis: His Method in Teaching the Violin》,New York,1988,p.76)。</p>
+<h4>中提琴</h4><p>八分之一弓和三個弓段照書(規則 8)。推論:中提琴弓和弦都比較重,弓反向時要吸收的慣性比小提琴多一點,同樣大小的緩衝在中提琴上會顯得不夠,容易讓人把手指動作加大。但邊註的警告在這裡更重要:C 弦反應慢(規則 7),換弓時弓速如果被手指彈一下加快,C 弦來不及跟上,縫反而更明顯。比較穩的做法是照邊註說的,先在換弓之前把弓速和弓的重量減下來,再加上很小的手指緩衝,而不是把緩衝做大。</p>
+<h4>容易看錯的地方</h4><p>邊註 1 印在書 p.9 右上,位置緊挨著 ex.13 的文字,但它的標號在 ex.14 第一段的句尾,是 ex.14 的邊註。步驟裡「手往下、手腕更往上拱」要和 ex.16 的用語對起來:ex.16 把手掉到前臂以下叫做手腕高(high wrist),這裡下弓末尾手往下就是往那個方向;上弓末尾手往上、手腕弧度變小,是往手腕低(low wrist)的方向。「sustained」這裡指每一弓都撐住不減,不是長音。</p>
+<p class="ex-quote">if the change of bow is seen, it will also be heard(Flesch 的話,書 p.9 · PDF 18)</p>
+<p class="ex-meta">時間:估計:三個弓段各半分鐘到一分鐘</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-15">
+<header class="ex-head"><span class="exno">15</span><div class="ex-titles">
+<h3>Bow angle</h3>
+<p class="ex-zh">弓的角度</p>
+</div></header>
+<p class="ex-loc">書 p.10 · PDF 19 · Bow angle · Fig. 15a–b</p>
+<p class="ex-one">在弓根把弓懸在弦上方,只用食指和小指的一收一伸,把弓尖轉向琴橋、再轉離琴橋;練的是用手指而不是手臂去修正弓和琴橋不平行。</p>
+<h4>為什麼有用</h4><p>Fischer 說手指幫忙維持弓和琴橋平行;常見的錯誤是弓拉歪了就去改手臂,但問題其實在手指,結果手臂動得彆扭、反而繃緊。書上要你把硬幣放在手背上,就是要手不動,只有手指動。推論:弓桿是一根槓桿,弓根在手裡,手指在弓根附近施力,食指和小指一點點長度差到了弓尖就放大成好幾公分的偏移;反過來用手臂去修弓尖的角度,手臂要移動的距離大得多,而且會連帶改變弓在弦上的接觸點和高度。所以弓歪時先看手指:食指收進來、小指伸出去,弓尖往琴橋靠;小指收進來、食指伸出去,弓尖往外走。</p>
+<h4>怎麼做</h4>
+<ul><li>在弓根把弓拿在弦的上方。只用手指,把弓尖轉向琴橋(Fig. 15a),再轉離琴橋(Fig. 15b)。</li><li>要把弓尖往琴橋方向轉:食指收進來、小指伸出去。要把弓尖轉回外側:小指收進來、食指伸出去。</li><li>弓根一直留在弦的上方。</li><li>手臂和手保持不動。在手背上放一枚硬幣,做動作時硬幣不能掉。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>弓根;弓懸在弦上方;硬幣一枚放手背</p>
+<h4>照片與譜例在看什麼</h4><p>Fig. 15 兩張都在弓根、弓懸在弦上方,手臂位置幾乎相同;a 是弓尖轉向琴橋,b 是弓尖轉離琴橋。兩張看起來很像,要看弓桿和琴橋的夾角,不要看手。</p>
+<h4>中提琴</h4><p>練法本身沒有差別:動作在弓根、弓懸在弦上方,沒有弦別和力度。推論(規則 5):中提琴的接觸點離肩膀比較遠,拉到上半弓時手臂伸得比小提琴開;手臂接近打直時,手肘還能補的空間變小,弓根容易被肩膀畫的弧線帶向身體,而 ex.39 會講弓根往身體靠時下弓會漂向指板。所以這條練的「用手指修角度」,在中提琴上用得更頻繁。推論:中提琴弓重一點,食指和小指一收一伸要轉的槓桿重一點,手更容易偷偷幫忙,硬幣也就更容易掉;掉了就是手動了。</p>
+<h4>容易看錯的地方</h4><p>「point in towards the bridge」是弓尖往琴橋那邊轉,弓根不動;弓是以弓根為軸在轉,不是整支弓平移。食指「pull in」是收回來(彎),小指「extend」是伸出去,兩根手指同時反向做才會轉。這條沒有小編號,黑圈裡的編號是 15。</p>
+<p class="ex-meta">時間:估計:一到兩分鐘</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-16">
+<header class="ex-head"><span class="exno">16</span><div class="ex-titles">
+<h3>Hand movements</h3>
+<p class="ex-zh">手的動作:練習 1(基本動作)</p>
+</div></header>
+<p class="ex-loc">書 p.10–11 · PDF 19–20 · Hand movements · Exercise 1 – Basic movements · Fig. 16a–d</p>
+<p class="ex-one">左手抓住右前臂靠近手腕的地方,不用琴,只動手腕:手往下掉(書上叫手腕高)、往上抬(手腕低)、左右擺、再合起來畫圓,把手腕能動的幾個方向分開練。</p>
+<h4>為什麼有用</h4><p>「Hand movements」這個標題底下的引言裡 Fischer 說,換弦時從手腕動手,可以減少上臂和前臂要動的量,一點點手的動作可以取代很多手臂的動作。推論:手腕離弓最近,同樣的角度變化由手腕做只要移動手掌那一小段,由肩膀做則整條手臂都要移動;換弦時弓只需要換一個很小的高度,由手腕做最省。這條先不拉琴、左手抓住右前臂,是為了把前臂固定住,確認動的真的是手腕,不是前臂旋轉或手肘在代替。第 3 步把上下和左右合起來畫圓,同時手指也跟著動:手上去時彎、手下來時伸直。ex.13 是手指畫圓,這條換成手腕畫圓。</p>
+<h4>怎麼做</h4>
+<ol><li>前臂和手先排成一直線。然後從手腕把手往下放,低於前臂的高度,這就是 Fischer 說的手腕高(high wrist,Fig. 16a);回到直線,連續重複幾次。接著把手抬到前臂以上,這是手腕低(low wrist,Fig. 16b);回到直線,重複幾次。整段前臂都要和地面平行,只動手。</li><li>把手左右擺,前臂和手都和地面平行。手往左擺,弓尖就往肩膀方向掃(Fig. 16c);手往右擺,弓尖就擺回去(Fig. 16d)。Fischer 註明這個動作實際演奏裡從來不會用到。</li><li>把上下和左右合起來畫圓。手往上時手指和拇指彎,手往下時伸直。只動手,前臂保持和地面平行,弓和前臂保持直角。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>左手抓住右前臂近手腕處;前臂與地面平行;弓與前臂成直角;各重複數次</p>
+<h4>照片與譜例在看什麼</h4><p>Fig. 16 四張都是不拿琴、左手握右前臂的姿勢:a(High wrist)是手掉到前臂以下,弓尖翹高;b(Low wrist)是手抬到前臂以上,弓尖仍朝右上、角度比 a 平一些;c 是手往左擺,弓尖掃向肩膀;d 是手往右擺,弓尖擺開。a 和 b 對照的是手腕上下,c 和 d 對照的是左右;四張的前臂都平行地面。</p>
+<h4>中提琴</h4><p>沒有琴、沒有弦,弓只是拿在手上看手腕往哪裡動,找的是手腕本身能動多大,這條在中提琴上和小提琴一樣。不過 ex.17、18 之前要先做這條,而 ex.17 跨四條弦。推論(規則 3):中提琴從 C 弦到 A 弦要轉的角度比小提琴的 G 到 E 大(弓先靠 C 弦、再靠 A 弦,看前臂差多少),所以在這條把手腕上下能動的最大範圍找出來,對中提琴更有用。推論:中提琴弓重,第 2 步左右擺時弓尖的慣性比較大,手腕容易被弓帶著走;弓尖擺慢一點,確認是手在帶弓,不是弓在帶手。</p>
+<h4>容易看錯的地方</h4><p>手腕高(high wrist)和手腕低(low wrist)的定義和直覺相反:high wrist 是手掉到前臂以下(手腕相對變成最高點),low wrist 是手抬到前臂以上。全書都用這個定義,ex.17、18 的「higher wrist 拉高弦」也是這個意思。第 1 步在書上分成三小段(往下、往上、前臂保持和地面平行),是同一步。「Exercise 1」是小編號,黑圈裡的編號是 16;Fig. 16 的四張照片印在下一頁(書 p.11)。</p>
+<p class="ex-meta">時間:估計:兩到三分鐘</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-17">
+<header class="ex-head"><span class="exno">17</span><div class="ex-titles">
+<h3>Hand movements</h3>
+<p class="ex-zh">手的動作:練習 2</p>
+</div></header>
+<p class="ex-loc">書 p.11 · PDF 20 · Hand movements · Exercise 2 · Fig. 16a–b(引用) · 書上另見:Also play Exercise 49 in the upper half;(see page 15)</p>
+<p class="ex-one">上半弓,手肘停在中間高度不動,只靠手腕(高弦手往下掉、低弦手往上抬)加前臂旋轉,在四條弦之間連弓換弦,把手的換弦動作放大。</p>
+<h4>為什麼有用</h4><p>Fischer 說這條要用盡量少的手臂動作換弦,好把手的動作誇大;主要用從手腕動的手,加上前臂旋轉(書上指到 p.15,就是 Part A 從 ex.24 開始的前臂旋轉那幾條)。推論:手肘固定在能舒服碰到兩條外側弦的中間高度,弓要換弦就只剩兩個辦法:手腕上下改變弓的高度,前臂旋轉把弓毛的角度轉過去。這條把兩者做到極限,是要讓你知道不動手臂的情況下手能換到哪裡;ex.18 再把手臂加回來,讓手的動作縮到幾乎看不見。「higher wrist 拉 higher string」要照 ex.16 的定義讀:高弦是手往下掉,低弦是手往上抬,因為手往下掉時弓尖翹高、弓根往下,弓就落到高的弦上。</p>
+<h4>怎麼做</h4>
+<ul><li>只在上半弓拉。</li><li>每一小節裡,把手肘放在一個中間的高度,讓手可以舒服地碰到最外側的兩條弦。</li><li>拉比較高的弦用比較高的手腕(Fig. 16a,手往下掉),拉比較低的弦用比較低的手腕(Fig. 16b,手往上抬)。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>♩=60;上半弓;手肘停在中間高度;十六分音符連弓,跨四條弦;另外用 ex.49 在上半弓只用手換弦</p>
+<h4>照片與譜例在看什麼</h4><p>這條沒有新照片,用 ex.16 的 Fig. 16a(手腕高,手往下)和 16b(手腕低,手往上)當高弦和低弦的手勢。譜例:♩=60,兩段各有反覆,都是十六分音符的連弓,每四個十六分音符一弓。第一小節只在 G、D 兩弦之間,第二小節起一小節內從 G 弦跨到 E 弦再回來,上行經過一個 B♭;第二段從比較高的音起頭。每段結尾各印兩個四音和弦(最低 G、最高 E,中間各有一個變化音)標 simile,意思是用那組音再做同一個跨弦型。</p>
+<h4>中提琴</h4><p>譜例是跨四條弦的型,全部低五度讀,空弦的部分直接對應 C、G、D、A,結尾兩個標 simile 的和弦也一樣低五度讀(規則 1、9)。推論(規則 3):手肘停在中間高度不動的前提下,從 C 弦到 A 弦要轉的角度比小提琴的 G 到 E 大,只靠手腕和前臂旋轉可能碰不到兩條外側弦。先把譜例的型限制在三條弦(C、G、D)做,手肘放在 G 弦的高度(C–G 和 G–D 兩組雙弦的中間),確認手能碰到 C 和 D 兩端,再把 A 加進來;自己量的方法是弓先靠 C 弦、再靠 A 弦,看前臂差多少。推論(規則 5):把自己當成手臂短一號的人,琴拿高、琴頭偏前,手肘跟著琴走,上半弓時手肘的中間高度就比拉小提琴時再高一點、往前一點;確切位置自己找,以手能舒服碰到兩條外側弦為準。♩=60 照書(規則 8)。ex.49 在 Part A 的 pivoting 那一節(書 pp.30–31),照書上說的在上半弓只用手換弦再做一次。</p>
+<h4>容易看錯的地方</h4><p>「higher wrist」是手掉下去,不是手抬起來(ex.16 的定義)。「Exercise 2」是小編號,黑圈 17 印在頁面右側偏中間,和上方的 Fig. 16 隔開。「see page 15」指的是前臂旋轉那幾條(ex.24 起),在 Part A;Exercise 49 也是 Part A 的,不是 Part B。</p>
+<p class="ex-meta">時間:估計:兩段譜例加 simile 版本,約 5 分鐘;加 ex.49 再 3 分鐘</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-18">
+<header class="ex-head"><span class="exno">18</span><div class="ex-titles">
+<h3>Hand movements</h3>
+<p class="ex-zh">手的動作:練習 3</p>
+</div></header>
+<p class="ex-loc">書 p.12 · PDF 21 · Hand movements · Exercise 3 · Fig. 16a–b(引用)</p>
+<p class="ex-one">在兩條相鄰弦之間用很短的弓連續換弦,先在弓中和弓尖各用 10 cm只靠手腕和前臂旋轉,再用上半弓的半弓改成手臂為主、手的動作縮到幾乎看不見。</p>
+<h4>為什麼有用</h4><p>Fischer 說做法和 ex.17 一樣,盡量不用上臂,把手的動作誇大,高弦手腕高(手往下)、低弦手腕低(手往上),而且要用很多前臂旋轉。推論:♩=50 的十六分音符每個音只有 0.3 秒,上臂抬放一次跟不上這個速度,換弦只能交給手腕和前臂旋轉,這是逼你用手換弦的條件;10 cm 的弓段是另一件事,它限制的是弓走多遠,讓前臂沒有理由大動。到了第 3 步弓段放大到半弓,手臂得動起來拉弓,這時手的動作縮到幾乎看不見,但不是消失,因為往高的弦換弦時第一下還是手先走(ex.30 會講)。這條和 ex.17 的差別在弦數:這裡只有兩條相鄰弦,來回頻率高,手腕的動作小而快;ex.17 跨四條弦,動作大而慢。</p>
+<h4>怎麼做</h4>
+<ol><li>先在弓中用 10 cm 的弓把譜例整段拉一遍。</li><li>再在弓尖用 10 cm 的弓拉一遍。</li><li>改用上半弓的半弓。這時改成以手臂為主,手的動作和前面一樣,但小到幾乎看不見。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>♩=50;sostenuto;f;每弓 10 cm(弓中),再 10 cm(弓尖),再半弓(上半弓);先在 G–D(中提琴 C–G),再 D–A、A–E(中提琴 G–D、D–A);譜例三個降記號,十六分音符</p>
+<h4>照片與譜例在看什麼</h4><p>沒有新照片,手勢用 Fig. 16a(高弦,手往下)和 16b(低弦,手往上)。譜例四行:♩=50,sostenuto,f,三個降記號,全是十六分音符,在兩條相鄰弦之間來回,中間有臨時記號;連弓從兩個十六分音符一弓開始,往後逐漸拉長到四個以上一弓。寫的是 G–D 那組,拉完再照譜例底下那行字搬到 D–A 和 A–E。</p>
+<h4>中提琴</h4><p>譜例寫的是 G–D,中提琴改成 C–G;書上接著說的 D–A 和 A–E,改成 G–D 和 D–A(規則 1)。整段低五度讀,弦和手指的位置照舊,調號從三個降記號變成四個(規則 9)。♩=50、10 cm、半弓都照書(規則 8)。推論(規則 2、3):C–G 這一對是中提琴弓的七個高度裡的第 2 級,手臂最高的那一側,手肘要比拉 G–D(第 4 級)時再高一點;但因為是相鄰弦,兩弦之間要轉的角度本身沒有比小提琴的 G–D 大很多,主要差在整隻手臂的起點。推論(規則 7):♩=50 加十六分音符,每個音只有 0.3 秒,弓速慢又要 f,C 弦在這個條件下比 G 弦更容易被壓破。在 C–G 這組,f 用手的重量落下去、不用食指壓,聲音有芯就算數,不用追 G–D 那組的音量。</p>
+<h4>容易看錯的地方</h4><p>「Exercise 3」是小編號,黑圈裡的編號是 18。這條只佔書 p.12 的上半頁,同一頁下半的「Putting weight into the string」是下一節的節首,不屬於這條。第 3 步的「主要用手臂」和前兩步相反,不要把三步都做成只用手。譜例本身只寫了 G–D,另外兩組弦是譜例底下一行字交代的。</p>
+<p class="ex-meta">時間:估計:三組弦乘三種弓段,約 8 分鐘</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+</section>
+
+<section id="sec-weight"><h2>把重量放進弦裡</h2>
+
+<p class="section-span">ex.19–23 · 書 pp.12–15</p>
+
+<p class="section-lede">這一節講弓壓從哪裡來。前面十八條練的是手指和手怎麼拿弓、怎麼動;這裡把重量拆成手臂和手兩個來源:19 練手臂那一半,20 到 22 練手那一半,23 提醒你弓是拉過弦和推過弦的,不是壓在弦上的。</p>
+
+<article class="ex about" id="about-putting-weight-into-the-string">
+<header class="ex-head"><span class="exno">說明</span><div class="ex-titles">
+<h3>Putting weight into the string</h3>
+<p class="ex-zh">把重量放進弦裡(節首)</p>
+</div></header>
+<p class="ex-loc">書 p.12 · PDF 21 · Putting weight into the string</p>
+<p class="ex-one">弓壓有兩個來源,上臂的重量和手從手腕往下的動作;每一種弓法要的是這兩者不同的比例。</p>
+<h4>為什麼有用</h4><p>Fischer 說拉 ff 或厚重的和弦時用一些上臂的重量,但手臂的重量對細緻的變化常常太笨重;細的接觸要靠手,手臂其他地方不出力。不那麼用力的演奏,或者要在一弓之內做細微的音色變化,手臂只負責帶著手和弓沿著弦走,聲音是手從手腕往下的動作做出來的。推論:整條手臂動起來慢,一給就是一大塊;手腕以下動起來快,給的量小。所以大的力度靠手臂,細的靠手。書上列的那一串比例(全手臂不用手、一半一半、全手不用手臂)是同一組工具在不同弓法裡各占多少。</p>
+<h4>中提琴</h4><p>推論(規則 6):中提琴的弓比較重、弦比較粗,本來就有的重量比小提琴多。所以這一段講的兩半裡,手那一半(細的接觸)比手臂那一半(重量)更值得練:可用的重量已經夠,要練的是比例,不是量。對下手偏重的人,這一節可以先做 20、21、22、23,19 放到後面。</p>
+<h4>容易看錯的地方</h4><p>書上說聲音是手從手腕往下動做出來的。這個「往下」和 ex.16 的手腕高(high wrist)是同一個方向:書上的手腕高是手掉到前臂以下,不是手腕抬高,ex.20 的第 1 步會直接指回 Fig. 16a。書上說手臂其他地方是 passive(被動)的,那也不是手臂不動:手臂還是帶著手和弓在走,只是不出重量。</p>
+<p class="ex-quote">"move the hand down from the wrist to make the sound"(書 p.12 · PDF 21)</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-19">
+<header class="ex-head"><span class="exno">19</span><div class="ex-titles">
+<h3>Using weight from the arm</h3>
+<p class="ex-zh">用手臂的重量</p>
+</div></header>
+<p class="ex-loc">書 p.12–13 · PDF 21–22 · Using weight from the arm · Fig. 17a–i</p>
+<p class="ex-one">找一個人托住你整條手臂的重量,托的位置從手肘換到手腕、再換到手掌、再換到弓;每換一次你都要把重量全部交出去,同時不讓上臂和手腕垂下來,直到重量能穿過弓落到對方手上。</p>
+<h4>為什麼有用</h4><p>Fischer 在節首說 ff 和厚重的和弦用的是上臂的重量;這條練習本身沒有再解釋為什麼要這樣練。推論:手臂的重量要進弦有兩個條件,一是你肯放掉它,不用肌肉把手臂提著;二是關節不塌。平常這兩件事綁在一起,上臂一放鬆就往下掉,手腕一放鬆就垂。這條練習把支撐點一次一次往外移,每一次都要求重量全部交出去、手臂的形狀不變,兩件事就這樣拆開來練。到了弓,支撐點是弓毛,和拉琴時弓毛靠在弦上是同一個情況,只是弦換成了對方的手。</p>
+<h4>怎麼做</h4>
+<ol><li>幫忙的人用一隻手托在你的手肘下,撐住整條手臂的重量(Fig. 17a)。</li><li>幫忙的人把另一隻手的手指放到你的手腕下面,兩隻手平均分擔手臂的重量(Fig. 17b)。</li><li>幫忙的人非常慢地把手肘下面的手抽走,重量逐漸全部轉到手腕下面的手指上。這時你的上臂不能垂,整條手臂的重量卻還是要全部放在對方的手指上(Fig. 17c)。</li><li>幫忙的人把空出來的那隻手的手指放到你弓手的手掌下面,兩隻手再一次平均分擔重量(Fig. 17d)。</li><li>幫忙的人非常慢地把手腕下面的手指抽走,重量逐漸全部轉到弓手下面的手指上。這時你的手腕不能垂(Fig. 17e)。</li><li>幫忙的人把弓放進你的手裡,你的手臂重量仍然整個放在托著手掌的那些手指上(Fig. 17f、17g)。然後幫忙的人把另一隻手的手背放到靠弓根的弓毛下面;你的手臂重量平均分給托手掌的手指和托弓毛的手背(Fig. 17h)。</li><li>幫忙的人非常慢地把弓手下面的手指抽走,你的手臂重量逐漸全部透過弓落到對方托著弓毛的手上(Fig. 17i)。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>沒有速度和數字;需要一位幫忙的人;七步,每一次轉移都「非常慢」;不拿琴,只在第 6 步起拿弓</p>
+<h4>照片與譜例在看什麼</h4><p>九張照片都沒有拿琴,畫面裡只有幫忙的人和一條手臂。(a) 幫忙的人單手托在手肘下,前臂和手自然垂著。(b) 加上另一隻手的手指托在手腕下,兩手平分重量。(c) 手肘下的手抽走(照片說明寫的是幫忙的人的左手),只剩手腕下的手指;看的是上臂有沒有掉。(d) 一手托手腕,另一手的手指放到弓手的手掌下,平分。(e) 手腕下的手抽走,只剩手掌下的手指;看的是手腕有沒有垂。(f) 幫忙的人的左手繼續托著手掌,(g) 右手把弓放進弓手裡。(h) 左手托手掌,右手手背在靠弓根的弓毛下面,平分。(i) 托手掌的手抽走,只剩托弓毛的手,重量全部經過弓進到對方手上。照片說明用左手、右手指幫忙的人的手,步驟文字只說一隻手、另一隻手、空出來的手;照 (c)(f)(g) 的說明對起來,手肘是左手,手腕是右手,手掌是左手,弓和弓毛是右手。(f)(g)(h) 裡托手掌的手從畫面左下伸進來,拿弓的手在弓根那一側,和說明一致。</p>
+<h4>中提琴</h4><p>步驟照書,不改(規則 8)。這條不拿琴,不必換弦名。推論(規則 6):中提琴弓重、弦粗,本來就有的重量比較多,對下手偏重的人這條不是第一優先;先做 20 到 23,把手的那一半練出來,再回頭做這條。做的時候要帶回琴上的是第 3 步和第 5 步的不能垂,往下的力通常不缺。推論:下手重的人,往下的力多半是食指壓出來的,手臂其實一直被肌肉提著,沒有真的放掉過。所以這條對你的用處不是多給重量,是第 3、5 步:放掉的同時上臂和手腕不塌。20 到 23 練的是手那一半,用不到這件事,所以這條排在後面。</p>
+<h4>容易看錯的地方</h4><p>書上的步驟是寫給幫忙的人看的,原文的 you 是幫忙的人;上面的步驟改成了對拉琴的人說話,「你」是拉琴的人。你自己要做的只有兩件事:第 3 步上臂不能垂,第 5 步手腕不能垂,同時把重量整個交出去。第 6 步底下那段「然後把手背放到弓毛下面」是第 6 步的一部分,不是另一步,所以全部是七步,不是八步。</p>
+<p class="ex-meta">Fischer 的分類:看一次就懂、不必常練 · 時間:書上(p.VIII)歸在看一次就懂、不必常練的那類;估計:走完一輪約五分鐘</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-20">
+<header class="ex-head"><span class="exno">20</span><div class="ex-titles">
+<h3>Using weight from the hand</h3>
+<p class="ex-zh">用手的重量</p>
+</div></header>
+<p class="ex-loc">書 p.14 · PDF 23 · Using weight from the hand · 書上另見:Also see the Pressure exercise, Exercise 78.</p>
+<p class="ex-one">弓停在弦上,用手從手腕往下把弓桿往弓毛壓、再放開,從弓中一公分一公分做到弓尖;然後在上半弓只用這個動作做每個音的重音和沉重的長音,不用食指壓,也不改弓速。</p>
+<h4>為什麼有用</h4><p>Fischer 說這條的動作小到看不見。壓弓桿的動作和做出手腕高(high wrist)的那個往下動作類似(Fig. 16a),做了之後手腕會稍微更往上彎;他要你不用食指壓,也不把手轉到食指那一邊,而是感覺多出來的壓力來自手和手腕,平均分到各手指。推論:書上禁止的是兩件事。用食指壓,是食指自己把力集中在弓桿上那一點;把手轉到食指上是旋前,整隻手的重心倒到食指那一側。兩件事常一起出現,因為食指要壓得動,手多半先轉過去了。手從手腕往下不一樣,那是整隻手的重量落到弓上,分到四指和拇指;力量進了弦,而且因為沒有一根手指在死撐,手指還能動。第 3 步規定整小節一個均勻的弓速、重音只用手做,是把手的動作和弓速的變化拆開:弓速一快一慢也做得出重音,不拆開你分不清自己用的是手還是速度。</p>
+<h4>怎麼做</h4>
+<ol><li>弓中放在弦上。用手把弓桿往弓毛壓下去,動作和做出手腕高的那個往下動作類似(Fig. 16a;ex.16 的手腕高是手掉到前臂以下),做了手腕會稍微更往上彎一點。再把弓桿放開。不要用食指壓,也不要把手轉到食指那邊去;要感覺多出來的壓力來自手和手腕,平均分在各手指上。</li><li>把弓放在弓中往弓尖一公分的地方,重做一次。每次再往弓尖移一公分,一直做到弓尖。</li><li>在上半弓拉譜上的型,每個音的重音只用手的動作做。不要每個音都用一快一慢的弓速去拉,整小節用一個均勻的弓速。</li><li>在上半弓拉慢的、f 的下弓和上弓,只用手的動作把弓毛沉沉地壓進弦裡。每條弦都做。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>第 1 步弓中;第 2 步每次往弓尖 1 cm,做到弓尖;第 3、4 步上半弓;f;弓速整小節均勻;第 4 步慢弓、每條弦</p>
+<h4>照片與譜例在看什麼</h4><p>沒有自己的照片;第 1 步指回 ex.16 的 Fig. 16a(手腕高),那張是手從手腕往下掉到前臂以下的樣子。譜例四小節,f。每小節同一個音拉八個十六分音符,一條連弓線罩住整小節,每個音上都有保持音記號(短橫線),每小節有反覆記號;由低到高一小節一條弦。第 3 步說的重音(stress)就是這些保持音:每個音用手壓一下,弓速整小節不變。譜例規定的東西第 3 步的文字裡都有:上半弓、一個弓速、重音只用手。</p>
+<h4>中提琴</h4><p>推論(規則 6):在中提琴上這條比 19 更重要,因為弓和弦本來就重,要練的是手能不能給出小而準的壓力。第 4 步的「每條弦」是 C、G、D、A(規則 1)。推論(規則 7):C 弦發音慢,第 4 步慢弓、f、把弓毛沉沉壓進弦,在 C 弦要多等一下聲音才整個進弦;等的這段時間最容易忍不住改用食指補一下,那正是第 1 步禁止的事。聲音一變成嘎吱的雜訊就是壓過頭了,退回聲音還乾淨的量。推論(規則 13):上半弓放開小指的人,第 1 步那句不要用食指壓、不要把手轉到食指上,對你更要緊:小指一離開弓,弓根那一頭沒有手指撐著弓平衡,手會自己倒向食指那邊,壓力就集中到食指那一點。公分數照書(規則 8)。</p>
+<h4>容易看錯的地方</h4><p>手腕高(high wrist)的定義和直覺相反:ex.16 的手腕高是手掉到前臂以下,所以「做出手腕高的往下動作」是手往下,不是手腕往上抬。Fischer 說做完手腕會更往上彎;推論:那是因為手往下之後,手腕關節變成最高點。第 1 步底下那一整段(壓弓桿、放開、不用食指)都是第 1 步的內容,四步不是五步。標題下的「另見 Pressure exercise,第 78 條」在 Part B/C,本指南範圍外。</p>
+<p class="ex-meta">時間:估計:第 1、2 步三分鐘,第 3、4 步每條弦一兩分鐘,總共十分鐘上下</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-21">
+<header class="ex-head"><span class="exno">21</span><div class="ex-titles">
+<h3>Spreading weight through the hand</h3>
+<p class="ex-zh">把重量分散到整隻手(練習 1)</p>
+</div></header>
+<p class="ex-loc">書 p.14 · PDF 23 · Spreading weight through the hand · Exercise 1 · Fig. 18</p>
+<p class="ex-one">用像大提琴那樣的持弓(小指指腹貼在弓庫側面,挨著第三指)拉中速、f 的下弓上弓,感覺重量分在整隻手上而不是只從食指壓下去,再換回正常持弓找同一種感覺。</p>
+<h4>為什麼有用</h4><p>Fischer 在小標底下說,弓壓要分散到整個弓手,不是只用食指壓進弦裡;這條和 22 是同一句話的兩個練法。推論:小指指腹一放到弓庫側面,整隻手就更包住弓庫,拇指對面同時有第二、三、四指,往下的力落在弓庫附近而不是食指那一點,食指不再是唯一的槓桿。Fischer 說這樣拿弓拉不到弓尖。推論:手臂往弓尖伸出去的時候手要跟著展開,包著弓庫的手形撐不住。所以換回正常持弓時要找的是重量在整隻手的感覺,不是那個手形。</p>
+<h4>怎麼做</h4>
+<ul><li>小指的指腹放在弓庫側面(緊挨第三指),像大提琴的持弓(Fig. 18),拉中速、f 的下弓和上弓。這樣拿弓拉不到弓尖,所以上下弓只拉到還舒服的範圍。</li><li>注意重量的感覺是分散在整隻手上,而不是只從食指壓下去。</li><li>然後換回正常的持弓,找同一種感覺。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>中速;f;下弓和上弓;拉到還舒服的範圍為止,不到弓尖</p>
+<h4>照片與譜例在看什麼</h4><p>Fig. 18「'Cello' bow hold」從側上方拍一隻右手拿著弓根。食指到第三指跨在弓桿上,小指的指腹貼在弓庫側面、和第三指並排,手比正常持弓更包住弓庫,拇指在下面對著。和正常持弓的差別主要在小指:平常小指立在弓桿上面,這裡改成貼在弓庫側面。</p>
+<h4>中提琴</h4><p>中提琴的弓庫和弓桿各家不同,小指貼弓庫側面的位置要在自己的弓上找,照片裡手和弓庫的距離不能照搬(規則 12)。推論(規則 5):琴身長,接觸點離肩膀更遠,伸到弓尖要多伸一截,所以「還舒服的範圍」會比小提琴短,不要硬往弓尖伸。推論(規則 6):這條屬於手那一半,順序照節首說的。</p>
+<h4>容易看錯的地方</h4><p>標題內的「Exercise 1」是小編號,全書號是 21,不是第 1 條。小標底下那句「弓壓分散到整個弓手」同時管 21 和 22 兩條。</p>
+<p class="ex-meta">時間:估計:兩三分鐘</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-22">
+<header class="ex-head"><span class="exno">22</span><div class="ex-titles">
+<h3>Spreading weight through the hand</h3>
+<p class="ex-zh">把重量分散到整隻手(練習 2)</p>
+</div></header>
+<p class="ex-loc">書 p.14 · PDF 23 · Spreading weight through the hand · Exercise 2</p>
+<p class="ex-one">第二指放到比拇指稍微偏左一點的位置,先不放食指拉 ff,感覺第二指在發聲;再把食指放回去,第二指照樣分擔,整隻手的重量平均落在弓庫上。</p>
+<h4>為什麼有用</h4><p>Fischer 說第二指如果放在比拇指稍微偏左的位置(從你自己看過去),一部分弓壓就可以從食指拿走,交給第二指。推論:拇指是支點,手指要把力傳到弓上,得站在支點靠弓尖那一側才有力臂;第二指正對拇指時只能夾住弓,往弓尖挪一點,它就和食指一樣有了力臂,分擔得了往下的力。先拿掉食指,是逼你只能靠第二指發聲;等食指放回去,手已經記得第二指要出多少力。第三點結尾說第三指要往內拉緊、貼著弓庫。推論:那是讓手在弓庫上多一個接觸面,重量才分得到整個弓庫,不是全走食指和拇指。</p>
+<h4>怎麼做</h4>
+<ul><li>拿弓時食指不放在弓桿上,第二指放得比平常稍微再往拇指的左邊一點。</li><li>每條弦拉幾個長的 ff 音;或者拉整段曲子。感覺第二指在幫忙發聲。</li><li>把食指放回弓上再做一次。注意第二指仍然從食指那裡分走一部分工作,感覺整隻手的重量平均分在弓庫上。第三指往內拉緊,貼著弓庫。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>ff;長音;每條弦各幾個;或整段曲子</p>
+<h4>中提琴</h4><p>推論(規則 13):上半弓放開小指的人,食指很容易一個人扛下所有壓力;這條讓第二指分擔,擋的就是這件事。做完第三點之後到上半弓試一次,看第二指還在不在工作。「每條弦」是 C、G、D、A(規則 1),順序見節首(規則 6)。</p>
+<h4>容易看錯的地方</h4><p>「左」是從演奏者自己看過去的左,弓放在弦上時就是往弓尖的方向。標題內的「Exercise 2」是小編號,全書號是 22。</p>
+<p class="ex-meta">時間:估計:三到五分鐘</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-23">
+<header class="ex-head"><span class="exno">23</span><div class="ex-titles">
+<h3>Pull and push</h3>
+<p class="ex-zh">拉和推</p>
+</div></header>
+<p class="ex-loc">書 p.15 · PDF 24 · Pull and push · 書上另見:Also see String tensions, Exercise 55.</p>
+<p class="ex-one">下弓不放食指、上弓不放小指,拉幾個大聲的持續全弓,感覺下弓是拉、上弓是推:弓是拉過弦和推過弦的,不是壓在弦上的。</p>
+<h4>為什麼有用</h4><p>Fischer 提了兩件事:英文叫 bow stroke,不叫 bow press(stroke 是一筆、一揮);法文的下弓上弓 tiré、poussé 本來就是拉和推。他說最容易出聲、最甜、最有共鳴的聲音,靠的是弓速多過壓力,因為那樣弦才能自由地左右擺動。推論:拿掉食指,下弓就沒辦法用旋前把弓壓下去,只剩手臂把弓拉過弦這一條路;拿掉小指,上弓靠近弓根時沒辦法用小指把弓撐起來或壓下去,手能做的只剩把弓往前送。Fischer 沒說為什麼是這兩根手指,上面兩個理由都是我們推的。換回正常持弓要找的是同樣的拉和推,不是把食指放回去接著壓。</p>
+<h4>怎麼做</h4>
+<ul><li>下弓:食指不放在弓上。上弓:小指不放在弓上。</li><li>下弓用拉的,上弓用推的。</li><li>然後換回正常持弓,找同樣的拉和推的感覺。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>大聲;持續的全弓;同一個音拉幾弓;每條弦;單音和雙音都做</p>
+<h4>中提琴</h4><p>「每條弦」是 C、G、D、A(規則 1)。推論(規則 11):拉雙音的時候,一對弦裡低的那條要多一點重量,拉和推的感覺要同時在兩條弦上。推論(規則 7):C 弦發音慢,大聲的全弓在 C 弦容易一開弓就先壓;這條要你做的是力量不減,靠拉和推把弓速加上去。</p>
+<h4>容易看錯的地方</h4><p>書 p.15 的頁眉印的是「Forearm and upper-arm movements」,但 23 還在「Putting weight into the string」這一節,下一節的灰底標題印在 23 後面。tiré 是拉、是下弓;poussé 是推、是上弓。第一點有兩行(下弓、上弓),是一點不是兩點。圓點前面那句「拉幾個大聲的持續全弓,同一個音」和圓點後面那句「每條弦,單音和雙音都做」是整條的前提,不是步驟。標題下的「另見 String tensions,第 55 條」在 Part B/C,本指南範圍外。</p>
+<p class="ex-quote">"produced more by speed of bow than pressure"(書 p.15 · PDF 24)</p>
+<p class="ex-meta">時間:估計:每條弦幾弓,五分鐘內</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+</section>
+
+<section id="sec-arm"><h2>前臂與上臂</h2>
+
+<p class="section-span">ex.24–30 · 書 pp.15–18</p>
+
+<p class="section-lede">這一節(書 pp.15–18,ex.24–30)把右臂拆開來練:前臂、上臂、手肘,各自能做什麼。Fischer 說一點點前臂旋轉,就是轉門把的那個動作,可以取代整隻手臂大得多的動作;書上拿它做兩件事:換弦(ex.25、26)和加壓減壓(ex.27),都靠前臂繞著自己的軸轉一點,不必整隻手臂抬起放下。上臂和手肘負責其餘的:換弦時把整隻手臂搬到新的弦的高度(ex.28),在弓尖附近往前送、往後收讓弓保持和琴橋平行(ex.29),抬手肘把重量從弦上拿掉或壓進弦裡(About raising the elbow),還有換弦時手和手肘誰先動(ex.30)。推論:這一節排在弓手那幾節後面,大概是因為手指和手腕能做的小動作先分清楚了,才分得出哪些動作該交給前臂、哪些該交給上臂。</p>
+
+<article class="ex" id="ex-24">
+<header class="ex-head"><span class="exno">24</span><div class="ex-titles">
+<h3>Forearm rotation</h3>
+<p class="ex-zh">前臂旋轉 練習 1</p>
+</div></header>
+<p class="ex-loc">書 p.15 · PDF 24 · Forearm rotation · Exercise 1 · Fig. 19</p>
+<p class="ex-one">把弓從弦上翻到底朝上再翻回來,單獨感覺前臂繞著自己的軸轉是什麼動作,把它從整隻手臂的動作裡分出來。</p>
+<h4>為什麼有用</h4><p>Fischer 說前臂旋轉就是轉門把的那個動作,一點點旋轉可以取代整隻手臂大得多的移動。推論:把弓整個翻到底朝上,是這個動作的極端版本。轉的幅度大到手腕和手指做不出來,又用不到上臂,所以做的時候你會清楚感覺到是前臂在轉,手只是跟著。弓翻過去的方向(往右、弓毛朝上)就是 ex.27 講的旋後,也就是手往小指那邊倒,放大到底的樣子。先用誇張的幅度找到動作,之後在 ex.25–27 把幅度縮回換弦和調壓力需要的那一點點,比較不會退回去用整隻手臂抬。</p>
+<h4>怎麼做</h4>
+<p>把弓放在 D 弦的弓根。手順時針轉,把弓抬離弦、往右繞過去,直到弓翻成底朝上(Fig. 19)。</p><p>回到弦上,再翻,連續做幾次,動作不要斷。</p>
+<p class="ex-params"><span class="lbl">數字</span>D 弦;弓根;連續做幾次</p>
+<h4>照片與譜例在看什麼</h4><p>Fig. 19 只有一張:弓在弓根,已經翻成底朝上,弓毛朝上、弓桿朝下;手在弓庫上還是平常的持弓,手腕沒有折。要看的是手和弓的關係沒變,變的是整個前臂的朝向。</p>
+<h4>中提琴</h4><p>規則 1:D 弦換成 G 弦。其他沒有差別,因為這個動作繞的是前臂自己的軸,和琴身大小、弦距都無關,琴只決定弓回來時落在哪一條弦。推論:中提琴弓比小提琴弓重,翻到底朝上那一瞬間手指要接住的重量多一點。翻到一半弓會滑,問題在持弓(ex.1、6–9),不是這條要修的。</p>
+<h4>容易看錯的地方</h4><p>「順時針」是從你自己看自己的右手講的:右前臂旋後(掌心轉朝上、手往小指那邊倒)時,拇指從左邊經過上面轉到右邊,那就是順時針。書上沒說是誰的視角,但這樣讀和「往右繞、翻成底朝上」、Fig. 19、ex.27 的旋後都對得上;不要對著鏡子想方向。這裡的「Exercise 1」是全書號 24,下一頁「Upper-arm movement」底下也有一個「Exercise 1」,那是 ex.28。</p>
+<p class="ex-meta">時間:估計:一分鐘以內。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-25">
+<header class="ex-head"><span class="exno">25</span><div class="ex-titles">
+<h3>Forearm rotation</h3>
+<p class="ex-zh">前臂旋轉 練習 2</p>
+</div></header>
+<p class="ex-loc">書 p.15 · PDF 24 · Forearm rotation · Exercise 2 · Fig. 20a–b</p>
+<p class="ex-one">手肘固定在中間兩條弦的高度,在最靠弓根的地方只用前臂旋轉把弓從 E 弦搬到 G 弦再搬回來,讓你確認最外側兩條弦之間的換弦不需要動上臂。</p>
+<h4>為什麼有用</h4><p>Fischer 說手肘擺在中間兩條弦的高度,只動前臂;左手可以扶住右上臂,幫它不動。書上沒說為什麼選最靠弓根。推論:弓要換到另一條弦,弓桿得繞著弓和弦接觸的地方轉一個角度。手肘停在中間高度時,往 E 那邊(手放低)和往 G 那邊(手抬高)要轉的角度差不多大,前臂繞著自己的軸轉就供應得了,上臂留在原地。在最靠弓根的地方,手就在接觸點旁邊,弓轉這個角度時手幾乎不必搬位置,只要跟著轉,而轉正是前臂旋轉做的事。到了弓尖,手離接觸點有一整支弓那麼遠,同樣的角度手得走一大段弧,那就要上臂(ex.28)。每一步之間停下來,是為了確認剛才動的是誰。書上另外說,上面的弦用弓毛外側(弓往指板傾)、下面的弦用弓毛內側(弓往琴橋傾)會比較順,沒有給理由。</p>
+<h4>怎麼做</h4>
+<ol><li>在最靠弓根的地方,在 E 弦拉一個短的上弓。停(Fig. 20a)。</li><li>只用前臂改變弓的高度,把弓移到 G 弦。停(Fig. 20b)。</li><li>在 G 弦拉一個短的下弓。停。</li><li>只用前臂回到 E 弦。停。</li><li>再把弓移到 G 弦,這樣來回做幾次。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>最靠弓根;短弓;E 弦和 G 弦;手肘在中間兩條弦的高度;來回幾次</p>
+<h4>照片與譜例在看什麼</h4><p>Fig. 20a 是弓在最靠弓根、E 弦上,準備拉短的上弓,手臂低;Fig. 20b 是弓已經到了 G 弦,手和弓根抬高了,手肘卻和 (a) 在同一個位置。兩張的左手都繞過來扶在右上臂上,琴只靠下巴和肩膀夾住。要比的是 (a) 到 (b) 手肘有沒有動:沒有。</p>
+<h4>中提琴</h4><p>規則 1:E 弦換成 A 弦、G 弦換成 C 弦;中間兩條弦是 G 和 D,手肘停在那個高度。規則 3(推論):「手肘和中間兩條弦同高」在中提琴上成立,但從 C 到 A 要轉的角度比小提琴 G 到 E 大。弦距和琴橋的弧度都比較大,外側兩條弦的夾角就大,前臂要多轉一些。所以先只用 C、G、D 三條弦,弓在 C 和 D 之間來回,中間跨過 G;穩了再把 A 加進來,做 C 和 A。要多轉多少,自己量一次:弓先靠在 C 弦、再靠在 A 弦,看前臂轉了多少,那就是第 2 步和第 4 步各要走完的量。書上沒有這個數字,每把琴也不一樣。左手扶右上臂的做法照用。推論:中提琴比小提琴重,只靠下巴和肩膀夾住的時候,先確認琴不會掉再開始。</p>
+<h4>容易看錯的地方</h4><p>「Exercise 2」是全書號 25;弓手那節的 ex.17 也叫 Exercise 2。第 2 步書上寫「hand (forearm)」,重點在括號:不是 ex.16 那種手從手腕上下折的動作,是前臂在轉。弓毛外側是弓往指板傾,內側是往琴橋傾。E 和 G 不相鄰,中間隔著 A 和 D,這條走的是弓的高度最高和最低那兩個。</p>
+<p class="ex-meta">時間:估計:兩到三分鐘。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-26">
+<header class="ex-head"><span class="exno">26</span><div class="ex-titles">
+<h3>Forearm rotation</h3>
+<p class="ex-zh">前臂旋轉 練習 3</p>
+</div></header>
+<p class="ex-loc">書 p.16 · PDF 25 · Forearm rotation · Exercise 3</p>
+<p class="ex-one">把 ex.17 和 ex.18 兩條換弦練習搬到下三分之一弓,手腕完全不動,只用前臂旋轉加一點手指的動作換弦。</p>
+<h4>為什麼有用</h4><p>Fischer 說完全不用手的動作,換弦靠轉前臂,再加一點手指的動作,而且換弦要平滑、圓。手指的動作書上只寫「見第 7 頁」,那一頁是 ex.11 手指的垂直動作;對到 ex.11 是我們對照頁碼的判斷。ex.17 規定在上半弓,主要靠手從手腕動、再加前臂旋轉,ex.18 在弓中、弓尖和上半弓,都是書 pp.11–12 寫的。Fischer 沒說為什麼這條要換到下三分之一。推論:下三分之一手離弓和弦碰到的地方近,前臂轉一點,弓就到了另一條弦;上半弓手離那個點有大半支弓遠,同樣的角度手得走一段弧,所以 ex.17 在那裡用的是手腕。同一份譜在兩端各做一次,你就分別摸過手腕換弦和前臂換弦是什麼感覺。</p>
+<h4>怎麼做</h4>
+<p>把 ex.17 和 ex.18 拿來,在弓的下三分之一拉。</p><p>完全不用手(手腕)的動作。換弦靠轉前臂,再加一點點手指的動作(書上寫見第 7 頁)。換弦要平滑、圓,聽不出稜角。</p>
+<p class="ex-params"><span class="lbl">數字</span>下三分之一;速度照原練習:ex.17 ♩=60(書 p.11),ex.18 ♩=50、sostenuto、f(書 p.12)</p>
+<h4>中提琴</h4><p>規則 1 和規則 9:ex.17 的譜按中音譜號讀低五度,弦的幾何不變;ex.18 譜上那組在 G–D 兩弦,書上說再做 D–A 和 A–E,中提琴就是 C–G、G–D、D–A。動作本身沒有差別:下三分之一的換弦靠前臂繞著自己的軸轉,和琴的大小無關。規則 3(推論):ex.17 的型跨到最外側兩條弦時,中提琴 C 到 A 的角度比小提琴大,前臂要多轉一點,手指補的那一點也多一點。先用慢的速度確認手腕真的沒動,再回到書上的速度。</p>
+<h4>容易看錯的地方</h4><p>「Exercise 3」是全書號 26;弓手那節的 ex.18 也叫 Exercise 3。「see page 7」書上只給頁碼,沒有給練習號;書 p.7 是 ex.10 的尾巴和 ex.11(手指的上下動作),從內容看指的是 ex.11,不在這一節。ex.17 原本就寫要加前臂旋轉,這條的差別在把手腕拿掉、把弓段換到下三分之一。</p>
+<p class="ex-meta">時間:估計:兩條各拉一遍約五分鐘。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-27">
+<header class="ex-head"><span class="exno">27</span><div class="ex-titles">
+<h3>Forearm rotation</h3>
+<p class="ex-zh">前臂旋轉 練習 4</p>
+</div></header>
+<p class="ex-loc">書 p.16 · PDF 25 · Forearm rotation · Exercise 4 · Fig. 21a–b · 書上另見:See About the movement of the bow within the hand, page 72</p>
+<p class="ex-one">用前臂旋轉把手往食指那邊倒(旋前),弓桿壓到弓毛;往小指那邊倒(旋後),弓桿放開。再練手照樣倒來倒去但壓力不放,把旋轉和壓力分成兩個各自控制的量。</p>
+<h4>為什麼有用</h4><p>Fischer 說手往食指那邊倒(旋前),進弦的壓力就加大;往小指那邊倒(旋後),壓力就減少;很多離弦的弓法都少不了一點旋後。這條裡手的所有動作都來自前臂旋轉,不是手本身。他在第 3 步說手是繞著拇指在轉。推論:拇指是支點,食指和第二指那一側往弓桿壓下去,弓桿就壓向弓毛,弦感受到的重量增加;反方向轉,小指那側接住重量,食指的中指節離開弓桿,重量退出。第 4 步是整條的重點:手做完全一樣的旋轉,弓桿卻一直壓在弓毛上。這說明旋轉和壓力是兩件事,旋後的時候重量不一定要掉,旋前的時候也不一定要加。</p>
+<h4>怎麼做</h4>
+<ol><li>把弓中輕輕放在弦上,手在弓上的位置照平常。</li><li>手往左倒(旋前),食指和第二指把弓桿往下壓到碰到弓毛,小指會微微伸直(Fig. 21a)。再把手稍微往右倒(旋後),弓桿放開回彈:小指彎得更多,食指的中指節離開弓桿(Fig. 21b)。</li><li>這樣左右來回做幾次,動作連續。上臂和手肘不動,只動手指和前臂,感覺手是繞著拇指在轉。</li><li>同樣的動作再做一遍,但弓桿全程壓在弓毛上,旋後的時候也不放。食指和第二指要一直壓著,食指的中指節留在弓桿上,手做的動作和第 2、3 步完全一樣。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>弓中;上臂和手肘不動;來回幾次</p>
+<h4>照片與譜例在看什麼</h4><p>Fig. 21a 是手旋前:往食指那側倒,食指和第二指壓在弓桿上,小指伸得比較直。Fig. 21b 是手旋後:往小指那側倒,小指彎起來,食指的中指節離開弓桿。兩張弓都在弓中、上臂位置相同,差別只在手的傾斜。</p>
+<h4>邊註</h4><p>邊註 1(Fischer):用食指壓來增加弓的重量,常常壓出壓扁的音,一般要避免;重量進弦的感覺應該分散在各根手指。最直接的食指壓力留給頓弓和 collé 這類咬弦的起音,但就算那時候,也最好由第二指(放在拇指稍前方,見書 p.2 的 Fig. 2)一起把壓力送進去,弓手的觸感才細、控制才準。邊註 2:另見書 p.72 的 About the movement of the bow within the hand(Part A 以外,本指南範圍外)。</p>
+<h4>中提琴</h4><p>規則 6(推論):中提琴弓重、弦粗,本來就有的重量比較多,這條要練的不是旋前能加多少壓力,是第 4 步:旋後的時候重量不要跟著掉,旋前的時候重量不要多加。對下手偏重的人,這條和 ex.20–23 排在 ex.19 前面。邊註 1 的警告(食指壓出壓扁的音)在中提琴上更容易踩到。推論:C 弦和 G 弦發音慢,壓下去的當下聽不到反應,人會再多壓一點,音就扁了,這是規則 7 講的機制。規則 13:上半弓放開小指的人,食指壓過頭的警告加倍適用;這條在弓中做、不會放小指,但邊註 1 講的就是那件事。這條沒有指定弦,規則 1 用不上。</p>
+<h4>容易看錯的地方</h4><p>旋前、旋後是解剖名詞,Fischer 的操作定義是往食指倒加重、往小指倒減重。動作來自前臂,不是手;只動手腕,那是 ex.16 的動作,不是這條。第 4 步不是新動作,是第 2、3 步的動作加上「壓力不放」。「Exercise 4」是全書號 27。</p>
+<p class="ex-meta">時間:估計:兩到三分鐘。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-28">
+<header class="ex-head"><span class="exno">28</span><div class="ex-titles">
+<h3>Upper-arm movement</h3>
+<p class="ex-zh">上臂的動作 練習 1 – 上下</p>
+</div></header>
+<p class="ex-loc">書 p.16 · PDF 25 · Upper-arm movement · Exercise 1 – Vertical movement</p>
+<p class="ex-one">在最靠弓尖的地方用極短的弓,換弦時把整隻手臂從肩膀整塊搬到新的弦的高度,單獨練上臂的上下;和前面只動前臂的幾條正好相反。</p>
+<h4>為什麼有用</h4><p>Fischer 說為了練習的目的,整隻手臂從肩膀動。推論:在最靠弓尖的地方,手離弓和弦接觸的地方有一整支弓那麼遠,弓要繞著接觸點轉到另一條弦的高度,手就得走一大段弧,這段距離只有上臂從肩膀動才走得出來;ex.25 在弓根是反過來的情況。用極短的弓,是讓每個音之間只剩「換高度」這一件事,沒有弓走的距離可以掩蓋手臂搬得夠不夠。譜例第一行每個音後面都接休止,休止就是給手臂搬家的時間。兩種做法對應兩種時機:先拉、停、搬、停,把發聲和換高度拆成兩件分開做的事,確認搬的是上臂;再拉和搬合成一個動作,讓上臂在音還在響的時候就開始移動,這比較接近實際演奏時的時間關係。</p>
+<h4>怎麼做</h4>
+<ol><li>換到下一條弦的高度之前,弓先在弦上停住:拉、停;搬到下一條弦、停;拉、停;搬、停……</li><li>拉和搬合成一個動作:拉的同時就搬過去、拉的同時就搬過去……</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>最靠弓尖;極短的弓;整隻手臂從肩膀動;兩種做法</p>
+<h4>照片與譜例在看什麼</h4><p>譜例是 G 大調、4/4 拍,兩行,尾端有反覆記號。第一行每個音都是短音接休止,音在不同的弦之間跳,休止的長度就是搬手臂的時間。第二行開頭和後段各有一個帶連線的空弦音,中段有一組沒有休止的連續音,弓法是兩個下弓接兩個上弓;其他地方多半上下弓交替,標了幾個指法(0、2、3、4)。譜例規定的是弓要照什麼順序走過哪幾個高度,不是旋律,音準不是重點。</p>
+<h4>中提琴</h4><p>規則 9:譜按中音譜號讀低五度,弦的順序不變,手臂要走的高度順序也不變。規則 3(推論):中提琴從 C 弦到 A 弦上臂要走的總角度比小提琴 G 到 E 大,譜上跳到最外側兩條弦的地方,手臂搬的距離也比在小提琴上大,兩種做法都先用慢一點的速度。規則 5(推論):「最靠弓尖」在中提琴上等於伸得更遠,可以考慮不用弓尖末端那幾公分。到弓尖手臂打直時弓保持不了和琴橋平行,那是 ex.29 處理的事;這條的重點是上臂的上下,不是弓尖那幾公分,在離弓尖幾公分的地方做就可以。規則 4:Fischer 在 Part B 書 p.35 說中提琴手特別常把琴頭拿太低,弓就坐在往下的斜坡上。推論:斜坡往琴頭那邊低,弓會往指板那頭滑,弓的高度還沒穩,弓在弦上的位置先跑掉。書 p.35 另外說弦往琴橋那邊斜,能幫弓留在離琴橋不遠的接觸點;反過來就是往指板漂,這是我們反推的。</p>
+<h4>容易看錯的地方</h4><p>「Exercise 1」是全書號 28,前一頁 Forearm rotation 底下的「Exercise 1」是 ex.24。這裡的 vertical 是手臂在各條弦的高度之間上下,不是 ex.11 那個手指的垂直動作。</p>
+<p class="ex-meta">時間:估計:兩種做法各一遍,三到五分鐘。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-29">
+<header class="ex-head"><span class="exno">29</span><div class="ex-titles">
+<h3>Upper-arm movement</h3>
+<p class="ex-zh">上臂的動作 練習 2 – 往前往後(out 與 in)</p>
+</div></header>
+<p class="ex-loc">書 p.17 · PDF 26 · Upper-arm movement · Exercise 2 – In and out · Fig. 22a–c</p>
+<p class="ex-one">在弓尖四分之一拉短弓,對著鏡子確認弓和琴橋平行,誇大上臂在下弓末尾往前(out)、上弓開頭往後(in)的動作,順便找到琴對身體的正確角度。</p>
+<h4>為什麼有用</h4><p>Fischer 說下弓快到弓尖時上臂往前推(out),上弓一開始上臂往後收(in);這條把兩個動作誇大,也幫你找到琴該擺在什麼角度。推論:弓要和琴橋平行,弓尖那一段手得走直線,而手到肩膀的距離在這段一直變長。快到弓尖時手肘已經打直,手只剩繞著肩膀的圓弧可以走,再往直線上走就伸不到了,只能把上臂連肩膀往前送(out),上弓一開始再收回來(in)。第 1 步把琴擺得稍微太靠左,手臂更早打直,要送要收的量最大,你才感覺得到;第 3 步把琴轉回來,動作縮小,感覺要留住。</p>
+<h4>怎麼做</h4>
+<ol><li>弓放在 A 弦弓尖,和琴橋平行。把琴的角度故意擺得稍微太靠左,多到弓要和琴橋平行、手臂就非打直不可(Fig. 22c)。</li><li>在弓尖四分之一拉上弓下弓的短弓。為了保持弓和琴橋平行,上臂上弓時要往後(in)、下弓時要往前(out),幅度比平常大得多。每條弦都做。</li><li>再找出琴的正確角度:下弓末尾手臂既不太直也不太彎。同樣在弓尖拉短弓,感覺同樣的往前往後,只是幅度變小。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>弓尖四分之一;短弓;A 弦起,每條弦都做;對著鏡子,琴和鏡子平行</p>
+<h4>照片與譜例在看什麼</h4><p>Fig. 22a 是弓在上半弓中途,圖說寫從這裡到弓尖上臂往前(out);Fig. 22b 是弓在弓尖、上弓剛開始,上臂往後(in);Fig. 22c 是琴擺得太靠左,手臂在弓尖只能打直,就是第 1 步的樣子。三張都從正面拍,弓和琴橋平不平行、手臂直不直都看得到。比 (a) 和 (b) 時看上臂相對於身體的前後,不是手肘的高低。</p>
+<h4>邊註</h4><p>邊註 1(Fischer):上半弓的上臂並不總是照這條講的往前往後,很多時候相反,特別是快的弓法:下弓時上臂微微往後、上弓時微微往前。這給人用整隻手臂拉、力量從上臂發出的感覺,雖然大部分的動作其實來自前臂。</p>
+<h4>中提琴</h4><p>規則 5(推論):把自己當成手臂短一號的人。中提琴弓和弦接觸的地方離肩膀更遠,到弓尖要伸得更多,所以第 3 步找到的「正確角度」會比你在小提琴上習慣的更偏前(琴頭比較不往左),也可以考慮不用弓尖末端那幾公分;這條本來就在弓尖四分之一做,不必到最尖端。規則 4:Fischer 在 Part B 書 p.35 說中提琴手特別常把琴頭拿太低,弓就坐在往下的斜坡上。對著鏡子的時候除了看弓和琴橋平不平行,也看琴頭有沒有掉下去;推論:琴頭一低,弓順著斜坡往指板滑,平行就保不住。規則 1:A 弦換成 D 弦,從 D 弦開始,每條弦都做。</p>
+<h4>容易看錯的地方</h4><p>in 和 out 在這條是上臂的前後(out 往前、in 往後),和 ex.39 弓根靠近身體(in)、離開身體(out)是兩回事。方向是下弓「末尾」往外、上弓「開頭」往內,不是整個下弓都往外。邊註說快弓時可以相反,這條的誇大動作不是所有弓法的通則。「Exercise 2」是全書號 29。</p>
+<p class="ex-meta">時間:估計:四條弦、三個步驟,約五分鐘。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex about" id="about-about-raising-the-elbow">
+<header class="ex-head"><span class="exno">說明</span><div class="ex-titles">
+<h3>About raising the elbow</h3>
+<p class="ex-zh">關於抬手肘</p>
+</div></header>
+<p class="ex-loc">書 p.17 · PDF 26 · About raising the elbow</p>
+<p class="ex-one">手肘的兩種用法,全程和弓同高,或下半弓抬起來,各有什麼用;還有上半弓稍微抬手肘,像槓桿一樣把重量壓進弦裡。</p>
+<h4>為什麼有用</h4><p>Fischer 說有的學派主張手肘大多數時候和弓同高;有的主張下半弓手肘要比較高(上弓時抬、下弓時放)。兩種各有好處,很多人看曲子混用。手肘和弓同高的好處是在最靠弓根那段,手肘和弓以同樣的速度前進,控制感很好。抬手肘在下半弓可以把重量從弦上拿掉,讓弓浮起來,也可以反過來像槓桿一樣把重量壓進弦裡;它讓你比較不會有手臂被身體側邊卡住的感覺,而且換弓之前手肘先改方向,整隻手臂會出現 Fischer 說的像波浪的動作。上半弓要不費力地撐住 f,就稍微抬手肘,把弓和手臂一起壓進弦裡;這個抬通常小到看不見,但很多人得抬得相當多才找得到足夠的力量。推論:抬手肘能兩用,是因為手肘一高,前臂就從手肘往下斜向弓,手臂的重量順著前臂往弓的方向落,重量進弦;要讓弓浮起來,則是抬手肘的時候肩膀把手臂撐住,手臂的重量不落在弓上,弓就浮起來。</p>
+<p class="ex-params"><span class="lbl">數字</span>最靠弓根那段;下半弓;上半弓、f</p>
+<h4>邊註</h4><p>邊註 2(Fischer):教初學者最好一次只教一件事。先學會手肘和弓同高的手臂,手肘全程和弓同高;等這個穩了(一週、一個月或一年都有可能),再加下半弓抬手肘;再穩了,再加上半弓抬手肘。進階的人也可以照這個順序練:幾分鐘手肘和弓同高,幾分鐘只在下半弓抬,再幾分鐘上半弓抬。</p>
+<h4>中提琴</h4><p>規則 6(推論):中提琴本來就有的重量多,上半弓「抬手肘把重量壓進弦」對下手偏重的人是次要的;下半弓「抬手肘讓弓浮起來」才是先要會的那一半。弓根那段是弓本身最重、又最靠近手的地方,中提琴弓又更重,不把它浮起來,弓根的每一弓進弦的重量都比別的弓段多一截,下手偏重的人在這一段最容易壓過頭。規則 4 的機制(推論):「手肘和弓同高」是以弓為基準,琴頭一低,弓就是往下的斜坡,「同高」的手肘也跟著低;先把琴頭的高度弄對,再談手肘。邊註 2 的順序照做,時間照書。</p>
+<h4>容易看錯的地方</h4><p>flat bow arm 是手肘和弓同高的手臂,不是手臂放低。抬手肘可以加重也可以減重,方向由你決定,不是「抬手肘等於加壓」。這段沒有黑圈號,不是一條練習,但邊註 2 給了一個可以直接練的順序。</p>
+<p class="ex-meta">時間:邊註 2 說的是幾分鐘一段,三段輪流。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-30">
+<header class="ex-head"><span class="exno">30</span><div class="ex-titles">
+<h3>Leading string crossing</h3>
+<p class="ex-zh">換弦時哪一部分先動</p>
+</div></header>
+<p class="ex-loc">書 p.18 · PDF 27 · Leading string crossing</p>
+<p class="ex-one">把換弦的手臂動作拆成兩段,往高的弦是手先走、手肘跟,往低的弦是手肘先走、手跟;先停頓分開做,再連起來,讓你看見換弦時手臂不是一整塊在動。</p>
+<h4>為什麼有用</h4><p>Fischer 說換弦時右臂不必整塊一起動:從低的弦到高的弦是手先動、手肘跟上;從高的弦到低的弦是手肘先動、手跟上。平常演奏幾乎看不見,這條把它誇大,拆成兩個分開的動作。推論:先停頓,是因為兩個動作之間一停,你就能檢查剛才動的是手肘還是手;數三拍,是把發聲、動一部分、動另一部分各給一拍,先後就不會糊掉。譜例用 A 弦和 G 弦,跨過 D 弦、不相鄰,要走的角度大,兩段動作才分得開來看。</p>
+<h4>怎麼做</h4>
+<p>先每個動作之間都停:在上面的弦拉一個音,停;手肘移到下面那條弦的高度,停;手和前臂移到下面那條弦的高度,停;依此類推。</p><p>再把動作連起來:不停頓,一個動作順著流進下一個;但時機還是要誇大,清楚地先動手臂的一部分、再動另一部分。</p><p>照譜用慢速(♩=60)數三拍。第 1 小節:第 1 拍拉 B,整隻手臂在 A 弦的高度;第 2 拍手肘移到 G 弦的高度,弓留在 A 弦上;第 3 拍弓移到 G 弦。</p><p>第 2 小節:第 1 拍拉 G,整隻手臂在 G 弦的高度;第 2 拍弓移到 A 弦的高度,手肘留在 G 弦的高度;第 3 拍手肘移到 A 弦的高度。</p>
+<p class="ex-params"><span class="lbl">數字</span>♩=60;3/4 拍,數三拍;A 弦上的 B 和 G 弦空弦;每小節一個音加兩拍休止</p>
+<h4>照片與譜例在看什麼</h4><p>譜例是 G 大調、3/4 拍,三行。每小節一個四分音符加兩個四分休止符,休止符上方標著 elbow、hand 或 hand、elbow,告訴你那一拍該動哪一部分。第 1 小節是 A 弦上的 B,第 2 小節是 G 弦空弦;第 1 小節上方標下弓、下方標上弓,第 2 小節相反。第 2 行起標 simile,換別的兩個音繼續同一個型,有空弦(0)和第四指(4)的標記。譜例規定的是哪一拍動哪一部分,不是旋律。</p>
+<h4>中提琴</h4><p>規則 1:A 弦換成 D 弦、G 弦換成 C 弦。規則 9:譜按中音譜號讀低五度,第 1 小節的 B 變成 D 弦上第一指的 E,第 2 小節變成 C 弦空弦。規則 3(推論):從 D 到 C 跨過 G,是中提琴那個比小提琴大的總角度的一部分,手肘在第 2 拍要走的量比在小提琴上大。要多大,自己量一次:弓先靠在 D 弦、再靠在 C 弦,看手肘的位置差多少,那就是第 2 拍要走完的距離;書上沒有這個數字,每把琴也不一樣。速度照書 ♩=60(規則 8)。規則 7 的機制(推論):C 弦發音慢,第 1 拍拉 C 弦空弦時給它整拍,不要因為聽不到反應就在第 2 拍還在壓;第 2 拍弓已經要離開 C 弦的高度,只剩手肘留著。</p>
+<h4>容易看錯的地方</h4><p>方向:往高的弦手先走、往低的弦手肘先走。第 1 小節從 A 到 G 是往低,所以第 2 拍動的是手肘;第 2 小節從 G 到 A 是往高,第 2 拍動的是弓(手)。「A string level」是弓的高度,不是把位。A 和 G 不相鄰,中間隔著 D。譜例第 1 小節上方是 ⊓、下方是 V,第 2 小節相反,書上沒有解釋為什麼有兩排記號;這裡讀成兩種弓法各做一次,先照上排拉一遍,再照下排拉一遍。這是推論。</p>
+<p class="ex-meta">時間:估計:三行譜、兩種弓法各一遍,約五分鐘。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+</section>
+
+<section id="sec-sonfile"><h2>慢的長音(son filé)</h2>
+
+<p class="section-span">ex.31–35 · 書 pp.18–20</p>
+
+<p class="section-lede">這一節的節首只有一句話:這種練法叫 son filé,Fischer 說它是弓的控制和發聲最重要的練法之一(書 p.18 · PDF 27)。son filé 是法文,這裡保留原詞,意思就是慢的長音,用最慢的弓速把一個音撐住。推論:前面幾節把右手拆成手指、手、前臂、上臂分開練,到這一節不再拆,檢查的標準只剩聲音。五條練習從最基本的撐住開始(ex.31),再從又快又重的十六分音符直接切進撐住(ex.32),加上力度變化(ex.33),找每一種弓速對應的離琴橋距離(ex.34),到 ex.35 把弦拿掉、只剩手臂的軌跡。這一節沒有照片、沒有邊註;只有 ex.32 和 ex.33 有譜例,其他三條只有文字。</p>
+
+<article class="ex" id="ex-31">
+<header class="ex-head"><span class="exno">31</span><div class="ex-titles">
+<h3>Long, slow sustained bows</h3>
+<p class="ex-zh">慢的長音(son filé)</p>
+</div></header>
+<p class="ex-loc">書 p.18 · PDF 27 · Long, slow sustained bows · Exercise 1</p>
+<p class="ex-one">用全弓在靠琴橋的位置把一個音撐 30 到 60 秒;弓速慢到極限,弓還是要走得平均、聲音還是要乾淨。練的是在極窄的範圍裡把重量調到剛好。</p>
+<h4>為什麼有用</h4><p>Fischer 說 son filé 是弓的控制和發聲最重要的練法之一。他在步驟後面補了一段:盡量把聲音撐住、弓走得平均;弓速慢到這個程度,聲音偶爾刮到或消失也沒關係,好處仍然非常大(書 p.18 · PDF 27)。推論:一弓 30 秒,弓每秒只走兩公分左右,弦從弓得到的能量極少。弓壓多一點,弦就被壓住而刮;少一點,弦就黏不住弓毛,滑成表面音。可以用的範圍窄到只剩一條線,要在這條線上撐 30 秒,手臂得學會用極小的加減來調重量。正常弓速時可用的範圍寬得多,在那條線上練出來的精度,回到正常弓速就有餘裕。靠琴橋是因為那裡弦最硬、容許的範圍最窄,錯一點就聽得到。</p>
+<h4>怎麼做</h4>
+<ul><li>每條弦都做:用全弓,把單音撐得越久越好。弓放在靠琴橋的位置,自始至終追求乾淨的聲音,就算有時候覺得根本不可能也一樣。</li><li>節拍器設 60(一拍一秒)。先做下弓 30 秒、上弓 30 秒,然後一天一天加長,加到一弓 60 秒或更久。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>節拍器 60(一拍一秒);全弓;每弓 30 秒起,逐日加到 60 秒或更久;靠琴橋;四條弦各做</p>
+<h4>中提琴</h4><p>四條弦是 C、G、D、A(規則 1)。節拍器 60、30 秒起、60 秒為目標,都照書(規則 8)。推論(規則 7):C 弦粗而重,弓速這麼慢時弦要更久才進入規律振動,聲音消失的機會比 A 弦多,同樣的壓力也比 A 弦更早刮。先在 A、D 弦找到那條線的手感,再到 G、C。推論(規則 6):這條練習把弓速釘在最慢,《中提琴聲量手冊》裡「加弓速」那條修法在這裡用不到,只剩重量可以調。弓速這麼慢,弦能接受的重量上下限幾乎貼在一起:虛是太輕,刮是太重,兩邊都要用極小的加減去找。對下手偏重的人,越過上限那一邊會比較常發生,所以多數時候是在往回收;但那是校準,不是「不要壓」。</p>
+<h4>容易看錯的地方</h4><p>30 秒是每一弓的長度(下弓 30 秒、上弓 30 秒),不是一來一回合計 30 秒。節拍器在這裡只是計秒的鐘,不是要你照拍子拉。弓要走得平均,不是只求撐到 30 秒。「追求乾淨的聲音」是標準,不是及格線:Fischer 自己寫了聲音會偶爾刮到或消失。</p>
+<p class="ex-meta">時間:估計:四條弦各下弓上弓一次,30 秒一弓是 4 分鐘,60 秒一弓是 8 分鐘。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-32">
+<header class="ex-head"><span class="exno">32</span><div class="ex-titles">
+<h3>Long, slow sustained bows</h3>
+<p class="ex-zh">慢的長音(son filé)</p>
+</div></header>
+<p class="ex-loc">書 p.18–19 · PDF 27–28 · Long, slow sustained bows · Exercise 2</p>
+<p class="ex-one">先用 ff 的快速十六分音符連拉 10 到 30 秒,再直接接進一個 p 的長音。練的是手臂剛做完又快又重的動作之後,能在一瞬間切到極慢、極輕、極均勻的弓。</p>
+<h4>為什麼有用</h4><p>Fischer 說,十六分音符拉得越久、越大聲、越快,要把接下來的長音乾淨地開始,需要的控制就越多(書 p.18 · PDF 27)。推論:快速大聲的十六分音符讓手臂處在肌肉緊、快速來回的狀態,弦也在大幅振動;緊接的 p 長音要弓速和壓力同時降到很低,而且第一瞬間就要穩。手臂裡還沒放掉的張力,會在長音開頭變成一下抖動或一個重音。切換做得乾淨,表示手能在一瞬間放掉多餘的力,只留下慢弓需要的那一點。</p>
+<h4>怎麼做</h4>
+<ul><li>把那一小節快速十六分音符反覆拉 10、20、30 秒或更久。拉得越久、越大聲、越快,接下來要乾淨地開始那個長音,就需要越多控制。</li><li>從十六分音符直接接進長音,用 p 開始,不能有任何遲疑,弓也不能有一點不平均。長音撐 10、20、30 秒或更久,要撐得均勻。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>十六分音符 ff,連拉 10、20、30 秒或更久;長音 p,撐 10、20、30 秒或更久;第一行(弓根、下弓起)和第二行(弓尖、上弓起);四條弦各做</p>
+<h4>照片與譜例在看什麼</h4><p>譜例兩行,在書 p.19 · PDF 28 上方。第一行:下弓記號,ff,標「At the heel」(在弓根),一小節快速十六分音符加反覆記號,註明這小節反覆多次;接一個帶延長記號的全音符,p。第二行:上弓記號,ff,標「At the point」(在弓尖),其餘一樣。推論:十六分音符從下弓起,一小節是偶數個,反覆之後長音也從下弓起;所以第一行的長音是從弓根出發的整個下弓,第二行是從弓尖出發的整個上弓,十六分音符本身則是在弓根或弓尖用很短的弓拉。譜上是單一個音反覆,書上寫每條弦都做。</p>
+<h4>中提琴</h4><p>弦的對應和數字照書(規則 1、8)。推論(規則 7):ff 十六分音符停下時弦還在大幅擺動,p 的長音要用很輕的壓力讓它重新進入穩定振動;C 弦發音慢,這個開頭比 A 弦更容易變成不是刮就是沒聲音。推論(規則 6):對下手偏重的人,最容易錯的是把 ff 的手臂重量整個帶進 p 的長音,那是把弦慢慢壓住,不是慢弓。切換的動作是放掉重量,不是只把弓放慢。</p>
+<h4>容易看錯的地方</h4><p>書上的 pause 是英式用法,指帶延長記號的那個長音,不是休止或停頓。長音的力度是 p,不是延續 ff。第一行和第二行是兩個獨立的版本(弓根、下弓起;弓尖、上弓起),不是連著拉的。</p>
+<p class="ex-meta">時間:估計:每條弦兩個版本、三種長度都做約 16 分鐘;只做 30 秒那一種約 8 分鐘。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-33">
+<header class="ex-head"><span class="exno">33</span><div class="ex-titles">
+<h3>Long, slow sustained bows</h3>
+<p class="ex-zh">慢的長音(son filé)</p>
+</div></header>
+<p class="ex-loc">書 p.19 · PDF 28 · Long, slow sustained bows · Exercise 3</p>
+<p class="ex-one">用極慢的速度(♪=40–60)一弓一個全音符,拉八種漸強、漸弱、持平的基本組合,全部留在靠琴橋的位置;弓走到哪一段,都要能把力度推上去、收下來,或撐住不動。</p>
+<h4>為什麼有用</h4><p>Fischer 說,長音配上不同弓段、換弦、把位之後,漸強、漸弱、持續的組合有無限多種,但全部都是這八個基本型的變化,所以只練這八個就夠了;他也要求拉 p 時留在琴橋附近,不要退到指板(書 p.19 · PDF 28)。推論:一弓要撐滿一個全音符,♪=40–60 時一弓 8 到 12 秒,一弓的平均弓速就被釘死了(書上沒指定弓段,全弓是我們的假設)。被釘死的是平均值,不是一弓之內的分配:p 那段可以少走一點弓,f 那段多走一點,這是做漸強漸弱最常用的路。重量同時要跟著變:弓走得快的那段,弦能承受的重量上限跟著抬高,f 需要的重量放得進去;走得慢的那段上限降下來,重量就要收回。書上沒說用哪一種,兩種都要做得出來:樂曲裡弓段常被樂句和弓法定死,重量那條路要能單獨用,弓的分配那條路也不能丟。弓和琴橋的距離不動,或幾乎不動:留在琴橋附近拉 p,是因為那裡的 p 需要極輕但精確的重量,弦還是整條被帶動,聲音有芯;退到指板拉 p 是把難題躲掉,出來的聲音是浮的。</p>
+<h4>怎麼做</h4>
+<ul><li>盡量慢、盡量平均地拉,速度大約 ♪=40–60(越慢越好)。</li><li>留在靠琴橋的位置;拉 p 的時候不要退到指板那邊。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>♪=40–60(八分音符,越慢越好);一個全音符一弓,下上交替(書上沒指定弓段);靠琴橋,p 也不退到指板;八個型(漸強、漸弱、持平的組合);四條弦各做</p>
+<h4>照片與譜例在看什麼</h4><p>譜例四行,每行兩個型,每個型是兩個全音符,第一個下弓、第二個上弓,各型加反覆記號。八個型是:(1) 下弓 p 漸強到 f,上弓 f 漸弱到 p;(2) 下弓 f 漸弱到 p,上弓 p 漸強到 f;(3) 下弓 p 漸強到 f,上弓也 p 漸強到 f,換弓時力度從 f 掉回 p;(4) 下弓 f 漸弱到 p,上弓也 f 漸弱到 p,換弓時力度從 p 跳回 f;(5) 下弓 p 漸強到 f 再漸弱回 p,上弓一樣;(6) 下弓 f 漸弱到 p 再漸強回 f,上弓一樣;(7) 下弓一整弓 f 持平,上弓一整弓 p 持平;(8) 下弓一整弓 p 持平,上弓一整弓 f 持平。第一、二行是單向的漸強漸弱,第三行是一弓之內的來回,第四行沒有漸變,只在換弓時從 p 直接跳到 f,或從 f 直接掉到 p。譜例沒印拍號,譜號後直接接反覆記號;把全音符當四拍算是推論:♪=40 時一弓約 12 秒,♪=60 時約 8 秒。各行的音高看起來不同,但書上只寫每條弦都做。</p>
+<h4>中提琴</h4><p>弦的對應和數字照書(規則 1、8)。推論(規則 7):同樣的重量和弓速,在 C 弦比 A 弦早刮,型 (1)(3)(5) 漸強到 f 的頂點,在 C 弦要停在比 A 弦輕一點的重量上。靠琴橋拉 p 在 C 弦最難,弦重、反應慢,p 的開頭常常出不來,型 (7)(8) 的 p 那一弓值得在 C 弦單獨多做。推論(規則 6):對下手偏重的人,漸弱比漸強難,因為漸弱是弓走著的同時持續減重量,而手上的習慣是加。型 (2)(4)(6),還有第四行換弓瞬間從 f 直接掉到 p 的那一下,是重量最容易帶錯方向的地方。</p>
+<h4>容易看錯的地方</h4><p>♪ 是八分音符,不是四分音符:♪=40–60 換算成四分音符是 20–30,比看起來慢一倍。型 (3) 換弓那一瞬間要重新從 p 開始,型 (4) 要重新從 f 開始;型 (7)(8) 的力度變化只發生在換弓,一弓之內不變。八個型都要在每條弦上做。</p>
+<p class="ex-meta">時間:估計:八個型各拉一遍約 3 分鐘,四條弦約 12 分鐘。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-34">
+<header class="ex-head"><span class="exno">34</span><div class="ex-titles">
+<h3>Long, slow sustained bows</h3>
+<p class="ex-zh">慢的長音(son filé)</p>
+</div></header>
+<p class="ex-loc">書 p.19 · PDF 28 · Long, slow sustained bows · Exercise 4</p>
+<p class="ex-one">同一個音、全弓、節拍器 60,每弓的拍數從 10 一階一階加到 20,再減回一拍一弓;弓速每變一次,就重新找一次離琴橋的距離。練的是弓速和離琴橋距離的對應。</p>
+<h4>為什麼有用</h4><p>Fischer 說,每一種弓速都有一個精確的離琴橋距離,在那裡聲音最好、弓的手感也最好。那個位置的感覺是,再靠近琴橋一根頭髮的寬度聲音就會破,而你要把弓毛頂在這個點上,像衝浪的人頂著一道水牆(這是他的比喻,書 p.19 · PDF 28)。推論:弓速越慢,弦每秒從弓得到的能量越少,要維持完整的振動,弓就得靠近琴橋,重量也要跟著加;弓速快起來,能量夠了,弓可以往指板退,重量也要放掉。這條練習把弓速做成連續的階梯,加拍那一半每一階都有十幾二十秒讓你把弓推到破音邊緣再退回一根頭髮,減拍那一半每弓只有幾秒,要在更短的時間裡找到那個位置。練完得到的不是一個固定位置,而是一整張「這個速度配這個距離」的對照表。全程不停也是為了這個:一停下來,每一階就變成獨立的嘗試,連續的對應就練不到。</p>
+<h4>怎麼做</h4>
+<ol><li>弓靠近琴橋,下弓拉 10 拍、上弓拉 10 拍。這一組裡弓速、壓力、離琴橋的距離三樣完全不變。</li><li>不停,下一組下弓、上弓各拉 12 拍,再來 14、16、18、20。拍數越多,弓越靠近琴橋。</li><li>再慢慢加快:拍數減到 18、16,依此類推到 10,再 8、6、4、3、2,直到一拍一弓。拍數越少,弓離琴橋越遠,但仍然盡量靠近。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>♩=60;全弓,同一個音;每弓拍數 10→12→14→16→18→20→18→16→…→10→8→6→4→3→2→1;越慢越靠琴橋,越快越往外,但始終盡量靠近;全程不停</p>
+<h4>中提琴</h4><p>♩=60 和拍數的階梯全部照書(規則 8)。推論(規則 7):「再近一根頭髮就破」那條線,在 C 弦和 A 弦不在同一個位置。書上只說「一個音」,在中提琴上值得至少在 C 弦和 A 弦各做一趟,用耳朵找,兩張對照表不一樣。推論(規則 6):對下手偏重的人,加拍數(變慢)那一半的問題和 ex.31 一樣,多數時候是在往回收;減拍數那一半多一個新問題。弓速加快本身會把弦能承受的重量上限抬高,留著原來的重量不會壓死;會出問題的是書上第 3 步同時要你往外退。離琴橋越遠,那個位置能承受的重量越少,退出去之後還留著靠橋時的重量,弦就被壓住,聲音扁。所以每減一階要看的是退了多少、重量跟著減了多少;「仍然盡量靠近」正是為了把上限留高。</p>
+<h4>容易看錯的地方</h4><p>拍數變多是變慢:10 拍一弓在 ♩=60 就是 10 秒一弓,20 拍是 20 秒一弓;階梯的盡頭是一拍一弓,也就是一秒一個全弓。「再近一根頭髮就破」是用手感找位置的標準,Fischer 寫的是感覺上好像會破,不是要你真的拉破。全程不停,包括從 20 拍轉頭往回減的那一刻。</p>
+<p class="ex-quote">'Ride' the hair against this point like a surfer riding against a wall of water.(書 p.19 · PDF 28)</p>
+<p class="ex-meta">時間:估計:一趟的拍數加起來是 184 拍,下弓上弓各一次,♩=60 就是 368 秒,一條弦一趟大約 6 分鐘。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-35">
+<header class="ex-head"><span class="exno">35</span><div class="ex-titles">
+<h3>Long, slow sustained bows</h3>
+<p class="ex-zh">慢的長音(son filé)</p>
+</div></header>
+<p class="ex-loc">書 p.20 · PDF 29 · Long, slow sustained bows · Exercise 5</p>
+<p class="ex-one">弓離弦半公分、全程不碰弦,在空中用最慢的速度從弓根走到弓尖再回來,手臂和背全部放鬆。弦不再幫忙撐弓,整條手臂要自己走出平穩的全弓軌跡。</p>
+<h4>為什麼有用</h4><p>Fischer 說每條弦都要做,而且在每個高度上做起來感覺差很多(書 p.20 · PDF 29)。推論:弓在弦上時,弦撐住一部分弓的重量,手臂的小抖動和角度偏差有一部分被弦吸收;弓離弦半公分,重量全部回到手臂,多餘的肌肉緊張直接變成弓在空中的晃動,馬上看得見。要求極慢,是因為慢到極限時肌肉沒辦法靠動量帶過去,每一段都要靠持續的控制。手型從弓根到弓尖一路在變,真正拉弓時也是這樣,在空中做等於把這個漸變單獨拿出來練。放鬆背部和正常呼吸列成步驟,是因為手臂懸空時,肩胛骨之間和脊椎兩側最先繃緊來頂住重量,憋氣又把整個上半身固定住,兩樣都會沿著肩膀傳到弓。</p>
+<h4>怎麼做</h4>
+<ul><li>弓保持在弦上方半公分,用最慢的速度從弓根走到弓尖,再走回來。</li><li>把拉弓那條手臂的肌肉全部放鬆,背部的肌肉也放鬆:肩胛骨之間,還有脊椎兩側。</li><li>弓手的形狀從弓根時的手型慢慢、平順地變成弓尖時的手型,弓在弦上方平均地移動。</li><li>正常呼吸。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>離弦 0.5 cm;弓根到弓尖再回來(全弓);盡量慢;四條弦的高度各做</p>
+<h4>中提琴</h4><p>四個高度是 C、G、D、A(規則 1)。推論(規則 5):中提琴琴身長,弓和弦的接觸點離肩膀更遠,到弓尖要伸得更多,幾何上和手臂短一號的人一樣。弓懸空時弦不再幫你撐,手肘在弓尖附近快要伸直的那一刻會直接感覺到;這時照書 p.20 下半那段(琴和身體的角度)的做法調整,琴頭偏前一點、琴拿高一點,書上也說有些老師建議手臂很短的人,弓尖末端那兩吋不要用。規則 4:Fischer 在 Part B(書 p.35 · PDF 44)說中提琴手特別常把琴頭拿太低,弓就坐在往下的斜坡上。推論:這條練習是在空中描一條和弦平行的軌跡,琴頭太低,描出來的就是下坡,手臂學到的也是下坡,所以開始前先確認琴頭的高度。推論:中提琴弓比較重,懸空時整個重量由手臂承受,背部繃緊的傾向更明顯,步驟 2 和步驟 4 在中提琴上要真的做。</p>
+<h4>容易看錯的地方</h4><p>半公分是弓和弦的距離,不是移動的距離。書上的 level 是弓的高度,也就是哪一條弦的高度,四條弦四個高度。手型的變化是一路漸變,不是到弓中突然換。</p>
+<p class="ex-meta">時間:估計:一個高度來回一趟 1 到 2 分鐘,四個高度約 5 到 8 分鐘。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+</section>
+
+<section id="sec-straight"><h2>弓與琴橋平行</h2>
+
+<p class="section-span">ex.36–41 · 書 pp.20–24</p>
+
+<p class="section-lede">弓要和琴橋平行。Fischer 在書 p.22 給的理由很短:弓不平行,一邊拉就一邊沿著弦滑,角度越大滑得越快。推論:弓走的方向就是弓桿指的方向,除非你刻意去擋。弓桿一斜,弓走的方向裡就多了一個沿著弦的成分,弓毛碰弦的那一點就以那個速度往指板或往琴橋跑;前一節長弓練出來的壓力和接觸點的搭配,就跟著換掉了。「Bowing parallel to the bridge」這一節(書 pp.20–24,ex.36–41)的順序是這樣:先調琴和身體的角度,讓你在弓尖那端伸得到;再請人把弓固定住,讓手臂走一遍拉直弓該走的路(ex.36;Fig. 24 標出弓的每一段用的是哪一段手臂);接著把弓切成段,對著鏡子一段一段檢查(ex.37、38);然後故意把弓拉斜,讓「弓歪了」和「接觸點跑了」變成同一個感覺(ex.39);再讓弓離開弦在空中走,練一條全弓是一個動作(ex.40)。ex.41 的快速短弓是這一節的測試。</p>
+
+<article class="ex about" id="about-about-the-angle-of-the-violin-to-the-body">
+<header class="ex-head"><span class="exno">說明</span><div class="ex-titles">
+<h3>About the angle of the violin to the body</h3>
+<p class="ex-zh">琴和身體的角度</p>
+</div></header>
+<p class="ex-loc">書 p.20 · PDF 29 · About the angle of the violin to the body</p>
+<p class="ex-one">琴頭指哪裡、琴在肩上放多高,這兩件事同時決定左手指搆不搆得到弦、右手到弓尖伸不伸得到;這段要你用這兩個變數調出一個位置,拉到弓尖時手肘不打直也不太彎。</p>
+<h4>為什麼有用</h4><p>Fischer 說琴頭越往左指,或琴在肩上放得越低,左手指越容易搆到弦,但右臂要伸得越遠才能在弓尖把弓拉直;琴頭越往前指,或琴在肩上放得越高,弓尖越容易拉直,但左前臂要扭得越多手指才搆得到弦。他給兩種人各一組擺法。手臂長的人:琴頭多往左指,琴在肩上放低一點,他的括號說明是下巴在拉弦板左邊更多。手臂短的人:琴頭多往前指,琴在肩上放高一點,下巴靠近或就在拉弦板上方。判斷的標準只有一個,拉到弓尖時手肘不打直也不太彎;琴頭方向和琴在肩上的位置調一調,每個人都找得到一個舒服的位置。他也提到有些老師建議手臂很短的人不用弓尖那端的兩吋,或把弓握高一點。推論:弓尖那一刻手要到的地方,是從接觸點沿著弓桿的方向再走一整條弓長。接觸點在哪裡由琴頭方向和琴在肩上的位置決定,手臂長度改不了,所以能動的只有琴怎麼擺、弓用多少。</p>
+<p class="ex-params"><span class="lbl">數字</span>弓尖時手肘不打直也不太彎;手臂很短的人可以不用弓尖那端 2 吋(約 5 cm)的弓,或握高一點</p>
+<h4>邊註</h4><p>邊註 1 印在 ex.36 旁邊,上標卻在這段第三段的句尾。Fischer 要你想像琴和弓黏成一塊木頭:弓尖固定在琴橋和指板之間,弓和琴橋平行,下巴留在腮托上不動。琴頭往左轉,弓根離你更遠;琴頭往右轉,弓根回來靠近你。琴頭不動,把腮托那端往右移(下巴在拉弦板左邊很多),弓根又往前跑;把腮托那端往左移(下巴在拉弦板上方),弓根回來靠近你。這就是琴頭方向和琴在肩上的位置各自怎麼改變弓根離你的距離,也就是拉到弓尖時手要伸多遠。</p>
+<h4>中提琴</h4><p>把自己當成比拉小提琴時手臂短一號的人(規則 5)。推論:中提琴琴身長,接觸點離肩膀更遠,到弓尖要伸得更多;幾何上這和手臂短的人拉小提琴是同一件事,所以直接用 Fischer 給短手臂的那組:琴頭多往前指,琴在肩上放高一點,下巴靠近或就在拉弦板上方。這樣弓尖還是到不了,就照那些老師的建議,弓尖那幾公分不用,或把弓握高一點,不要拿打直的手肘去換。規則 4:Fischer 在 Part B 書 p.35(PDF 44)明說,中提琴手因為琴長又重,特別常把琴頭拿太低,弓就得坐在一個往下的陡坡上。這是離 Part A 最近的一句講中提琴的話,和這段講的是兩個不同的變數:琴在肩上放多高改的是弓尖伸不伸得到,琴頭拿多高改的是弦的坡度。對著鏡子分開看。</p>
+<h4>容易看錯的地方</h4><p>「lower / higher on the shoulder」是琴在肩上放多低多高,Fischer 自己用括號定義成下巴的位置:低是下巴在拉弦板左邊更多,高是下巴靠近或就在拉弦板上方。不要讀成琴頭的高低;琴頭高低是 Part B 書 p.35 那句講的另一件事。邊註 1 的上標在這段,附錄 A 把它算在 ex.36,以頁面為準。</p>
+<p class="ex-quote">"particularly violists, because of the viola's extra length and heaviness"(書 p.35 · PDF 44)</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-36">
+<header class="ex-head"><span class="exno">36</span><div class="ex-titles">
+<h3>Moving the hand along the bow</h3>
+<p class="ex-zh">手沿著弓移動</p>
+</div></header>
+<p class="ex-loc">書 p.20–21 · PDF 29–30 · Moving the hand along the bow · Fig. 23, Fig. 24a–e</p>
+<p class="ex-one">請人把弓固定在弦上、和琴橋平行,你的手沿著不動的弓桿從一端滑到另一端再滑回來;手臂只剩一條路可走,就是拉直弓時該走的那條,你記住的是那條路的感覺,不是鏡子裡的角度。</p>
+<h4>為什麼有用</h4><p>Fischer 說弓已經和琴橋平行、又不會動,手臂沒有別的選擇,只能做出完全正確的動作。他說這是最好的練習之一,因為它給你的是拉直弓的感覺。推論:平常拉弓,手臂的路徑是原因,弓的角度是結果;弓歪了你只能事後從鏡子裡、或從接觸點跑掉發現,再回頭改手臂。這條練習把結果固定住,手臂的路徑就只剩一個解,每一次都一樣,身體記的是路徑本身。弓的重量、弓毛和弦的摩擦、聲音全都拿掉了,剩下的只有手臂怎麼走。</p>
+<h4>怎麼做</h4>
+<ul><li>先把琴擺好,讓手滑到下弓結尾那個位置時,手肘不打直也不太彎。</li><li>手輕輕沿著弓上下滑,弓本身不動。先慢,之後把動作加快。</li><li>手滑到弓的哪一段都保持持弓的形狀,讓它從弓根的形狀自然變成弓尖的形狀(邊註 3 指到 ex.9 的手的平衡)。</li><li>先用手肘和弓同高的手臂做,也就是弓走到哪一段,手肘都和弓桿大約同高;之後再把你平常會做的動作加回來,例如下半弓抬手肘。</li><li>幫忙的人把弓固定在每一條弦上各做一次,離琴橋不同的距離也各做一次,每一次都和琴橋平行。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>弓尖擱在弦上,幫忙的人只捏弓的螺絲把弓固定、和琴橋平行,留最多的弓桿給你的手;每條弦;離琴橋不同距離;先慢後快;先用手肘和弓同高的手臂</p>
+<h4>照片與譜例在看什麼</h4><p>Fig. 23 裡幫忙的人站在你右手邊,只捏著弓的螺絲,把弓橫在弦上和琴橋平行,弓尖那頭擱在弦上,你的手放在弓桿上。圖說寫的是手臂自然做出直弓該有的動作。Fig. 24a–e 是這條的附圖,弓的五個位置各用哪一段手臂,拆在下一條讀。</p>
+<h4>邊註</h4><p>邊註 2:沒人幫忙,可以把弓根那端擱在譜架上。邊註 3:手在弓根和弓尖的形狀怎麼變,見書 p.5 的 Hand balance(ex.9,Fig. 9a–b)。邊註 1 印在這條旁邊,上標卻在上面「琴和身體的角度」那段,摘要放在那一條。</p>
+<h4>中提琴</h4><p>「每一條弦」是 C、G、D、A(規則 1)。第一個圓點要手滑到弓根那端時手肘不打直;推論(規則 5):中提琴的接觸點離肩膀更遠,你可能要把琴頭往前一點、下巴往拉弦板上方靠一點才做得到。還是做不到,就請幫忙的人把弓往琴的方向多送幾公分,讓弓尖多伸出弦外幾公分,弓根那端就離你近一點,用你搆得到的弓長做;這和上一段說的少用弓尖那幾公分是同一件事。做之前先在鏡子裡看琴頭有沒有掉下去(規則 4,見「琴和身體的角度」那段)。推論:琴頭一低,弦就是往下的坡,坡低的那頭是琴頭,弓會順著坡往那頭滑。固定住的弓和琴橋平行沒問題,但換成你自己拉,弓就偏往指板跑,你會以為是手臂的路徑錯了而去改它,其實該改的是琴頭。推論:弓的重量由幫忙的人扛著,中提琴弓比較重這件事在這條沒有影響。</p>
+<h4>容易看錯的地方</h4><p>方向容易想反。推論:弓尖擱在弦上,手往弓尖那端滑時是靠近弦,手臂做的是平常拉到弓根時的動作;手往弓根那端滑(靠近幫忙的人)時手臂伸出去,做的是平常拉到弓尖的動作。弓不動手動,和手不動弓動,手和弦的相對位置是同一組,所以第一個圓點說的「下弓結尾」就是手在弓根那端。附錄 A 說這條有邊註 1–3,頁面上邊註 1 屬於上一段。</p>
+<p class="ex-meta">時間:估計:每次 5–10 分鐘,要有人幫忙;沒人時照邊註 2 用譜架。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex about" id="about-fig-24">
+<header class="ex-head"><span class="exno">說明</span><div class="ex-titles">
+<h3>Fig. 24</h3>
+<p class="ex-zh">Fig. 24(ex.36 的附圖):弓的每一段用哪一段手臂</p>
+</div></header>
+<p class="ex-loc">書 p.21 · PDF 30 · Moving the hand along the bow · Fig. 24a–e</p>
+<p class="ex-one">這一條不是書上的段落,是把 ex.36 的附圖拆出來單獨讀。五張照片把弓分成弓根、平衡點、square、square 到弓尖、弓尖五個位置,每一張標出在那裡動的是上臂、前臂、還是兩者各動多少;ex.38 為什麼以 square 分段,依據就在這裡。</p>
+<h4>為什麼有用</h4><p>Fischer 的圖說只講哪一段在動:弓根只有上臂,前臂幾乎不動;平衡點上臂一些、前臂一些;square 只有前臂;square 到弓尖主要是前臂,上臂下弓時往前、上弓時往後一些;弓尖前臂一些,上臂往前往後更多。推論:弓要走的是一條和琴橋平行的直線,而手掛在上臂加前臂這兩節的末端。弓根時手肘是彎的,前臂單獨伸出去會把手掃成一道弧,要走直線只能靠上臂開合。到了 square,前臂和弓成直角,前臂伸出去那一瞬間的方向剛好就是弓的方向,所以那幾公分可以只用前臂。過了 square 前臂再伸,手又離開直線,上臂得往前補一點,上弓回來時往後補。越靠弓尖前臂越接近伸直,能貢獻的位移越少,上臂往前往後的份就越多。</p>
+<h4>照片與譜例在看什麼</h4><p>(a) 弓根:只有上臂動,前臂幾乎不動。(b) 平衡點:上臂和前臂各動一些。(c) square:只有前臂,Fischer 說這是拉短而快的十六分音符最好的地方。(d) square 到弓尖之間:主要是前臂,上臂下弓時往前、上弓時往後一些。(e) 弓尖:前臂一些,上臂往前往後更多。五張都是同一個人的正面、同一條弦,只有弓在弦上的位置不同;要看的是手肘的角度和上臂離身體的距離怎麼一張一張變。</p>
+<h4>中提琴</h4><p>square 的位置隨手臂長短變,ex.38 邊註說手臂長的人在弓中偏上、手臂短的人剛好在弓中;規則 5 要你把自己當成短手臂的人。推論:你在中提琴上的 square,照 Fischer 給短手臂的說法,大約就在弓中,不在弓中偏上。不要拿小提琴上的記憶去找,照 ex.38 邊註的定義在中提琴上重找一次:弓和前臂成直角、前臂和上臂也成直角的那個地方。(b) 的平衡點在自己的弓上找(規則 12);中提琴的弓庫和弓桿每支都不同,平衡點離弓根多遠可能和照片不一樣。推論:square 如果比你在小提琴上習慣的位置靠弓根,(d)、(e) 那段就變長,(a)、(b) 那段變短。(d)、(e) 那段要前臂和上臂同時動,比例還隨位置變;這段越長,上臂往前往後要補的距離就越長。</p>
+<h4>容易看錯的地方</h4><p>(c) 的圖說「只有前臂」指的是 square 那兩三公分,不是整個弓中;ex.38 邊註說上下再加幾公分,還是以前臂為主。square 不是弓上的固定刻度,是你手臂的角度決定的一個位置。書上沒有這一條的標題,只印了「Fig. 24」和 ex.36 內文的一句話,說 Fig. 24 畫的是弓的每一段,手臂各怎麼動;拆成一條是為了讀圖。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-37">
+<header class="ex-head"><span class="exno">37</span><div class="ex-titles">
+<h3>Dividing the bow into four parts</h3>
+<p class="ex-zh">把弓分成四段</p>
+</div></header>
+<p class="ex-loc">書 p.21 · PDF 30 · Dividing the bow into four parts</p>
+<p class="ex-one">把弓等分成四段,A 在弓根、E 在弓尖,每個音拉四弓:先每段各拉四分之一弓,再兩段接起來的半弓,三段的四分之三弓,然後全弓;對著鏡子看弓在每一段都和琴橋平行。</p>
+<h4>為什麼有用</h4><p>Fischer 說這條的想法是弓的每一段都用四分之一弓拉過,再逐步加長到半弓、四分之三弓、全弓,全程弓和琴橋平行;弓越長,速度越慢。推論:Fig. 24 已經說了弓的每一段用的是上臂還是前臂、各用多少,段段不同。四分之一弓把每一種動法各自拿出來檢查;之後兩段、三段接起來,檢查的是換另一節手臂接手的那一刻。換早了或換晚了,手就離開直線,所以接手的地方是弓最容易歪的地方。推論:鏡子不是可有可無。從演奏位置你是從弓根那端斜著看弓,弓和琴橋的角度看不準;琴和鏡子平行時,鏡子裡的才是從正面看到的角度。</p>
+<h4>怎麼做</h4>
+<ol><li>先拉中等速度的四分之一弓:A 到 B、B 到 C、C 到 D、D 到 E,各拉一段。</li><li>再拉稍慢一點的半弓:A 到 C、B 到 D、C 到 E。</li><li>四分之三弓:A 到 D、B 到 E。</li><li>全弓。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>弓上五個點 A(弓根)、B、C、D、E(弓尖)等分四段;每個音四弓;弓越長越慢;鏡子與琴平行;譜例:兩個八度分解三度音階,三個升記號</p>
+<h4>照片與譜例在看什麼</h4><p>數字步驟前面有兩個圓點:在鏡子前練,琴和鏡子平行;每個音拉四個平順的弓,例如用兩個八度分解三度音階,一開始快,弓越長越慢。譜例三個升記號,每個音寫成四個十六分音符,分解三度上行,兩個小節各標了一個 4 指。譜下面畫一把弓,弓尖在左、弓根在右,用括號把弓分成四段,標出 E、D、C、B、A 五個點。</p>
+<h4>中提琴</h4><p>譜例的音階讀低五度(規則 9),或者用任何一個你會的兩個八度分解三度音階;音階只是右手的載具。四段、每音四弓、先快後慢,照書(規則 8)。推論(規則 5):最靠弓尖的那段,D 到 E,是中提琴上最可能伸不到的一段。拉到 E 之前手肘就已經打直,那就把 E 定在手肘還有一點彎的地方,四段用你搆得到的弓長來等分;「琴和身體的角度」那段說的不用弓尖那幾公分,在這條就是把 E 往回挪。推論(規則 7):C 弦發音慢,四分之一弓的快音容易只出表面音。這條的目標是弓直不直,C 弦的聲音沒完全出來先不管,聲音的事在長弓那一節。</p>
+<h4>容易看錯的地方</h4><p>A 在弓根、E 在弓尖,但圖上弓尖畫在左邊,字母從左到右讀是 E 到 A;步驟裡的「A 到 B」是從弓根往弓尖拉。兩個圓點是準備條件,四個數字才是弓段的順序。</p>
+<p class="ex-meta">時間:估計:10 分鐘。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-38">
+<header class="ex-head"><span class="exno">38</span><div class="ex-titles">
+<h3>Dividing the bow into two parts</h3>
+<p class="ex-zh">把弓分成兩段</p>
+</div></header>
+<p class="ex-loc">書 p.22 · PDF 31 · Dividing the bow into two parts</p>
+<p class="ex-one">每一弓用最快的速度拉,快到中途來不及修,拉完停在弦上看弓跑了沒有;先做弓根到 square,再 square 到弓尖,再全弓。</p>
+<h4>為什麼有用</h4><p>Fischer 說目標是讓手臂、手和手指的用法能讓弓在任何速度下都和琴橋平行。弓夠快,你就沒辦法一邊拉一邊修;弓如果平行,一弓結束時離琴橋的距離會和開始時一模一樣。他也說這是少數音質不重要的場合,把弓沿著弦推過去,當成一個純粹的動作就好。推論:慢弓可以靠眼睛和手指不斷微調,把弓「修」直,所以慢弓拉得直不代表手臂本身的路徑是直的。快弓把這個修正關掉,終點的位置就只反映手臂的路徑。以 square 分段,是因為 square 前後用的手臂不一樣(Fig. 24):弓根到 square 主要靠上臂,square 到弓尖主要靠前臂、上臂往前往後補;分開做才知道歪的是哪一段。</p>
+<h4>怎麼做</h4>
+<ul><li>每一弓用最快的速度拉,快到中途來不及改弓的角度。這時音質不重要,只管把弓沿著弦推過去。弓如果和琴橋平行,一弓結束時弓離琴橋的距離會和開始時完全一樣。</li><li>每一弓開始前,先在鏡子裡確認弓和琴橋完全平行。拉的時候弓要像箭一樣直,手肘大約和弓同高。</li><li>一弓拉完停在弦上,看弓還直不直。不直就找出是誰害的:上臂的動作?前臂?手指改了弓的角度?手腕太緊?琴的位置?然後把弓擺直,拉下一弓,再看,這樣反覆。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>三個弓段依序:1 弓根到 square、2 square 到弓尖、3 全弓(弓根到弓尖);每小節反覆幾次;每一弓越快越好;弓與弓之間停在弦上;手肘約與弓同高;鏡子</p>
+<h4>照片與譜例在看什麼</h4><p>譜例一個升記號,三行。第一行從反覆記號起,每個音後面接一個八分休止,延長記號在休止上,弓法下弓、上弓交替,反覆線後標 sim.。第二、三行是幾小節八分音符的上下行音型,同一個音型出現兩次,一次第一個音上方標下弓,一次下方標上弓;第三行有一個臨時升記號。每一小節照書上說的反覆幾次,在三個弓段各做一遍。</p>
+<h4>邊註</h4><p>邊註 1 是 Fischer 轉述 Galamian 的用語。square 是弓上這樣一個地方:弓和前臂成直角,前臂和上臂成直角,從肩膀畫一條假想線到弓也成直角。手臂長的人 square 在弓中偏上,手臂短的人剛好在弓中。square 是前臂唯一可以單獨動、上臂不必跟著動的地方;這個區域只有兩三公分長,上下各加幾公分,上臂仍然只用到一點點,所以這裡常是拉短而快的十六分音符最好的地方,不必動用上臂那一大套。</p>
+<h4>中提琴</h4><p>先在中提琴上重找 square(規則 5;找法見 Fig. 24 那條)。推論:照 Fischer 給短手臂的說法,它大約就在弓中,不在弓中偏上;比你在小提琴上習慣的位置靠弓根,弓段 1 就比較短、弓段 2 比較長。做之前先在鏡子裡看琴頭有沒有掉下去(規則 4,見「琴和身體的角度」那段)。推論:弓在坡上,坡度會把一弓的終點往下帶,和弓歪不歪混在一起。譜例的音高不是重點,讀低五度或改用空弦都可以(規則 9);用空弦就 C、G、D、A 各做一遍(規則 1)。推論:「最快」的標準是快到來不及修,不是速度紀錄,弓重一點不影響。</p>
+<h4>容易看錯的地方</h4><p>書上先列 1–3 三個弓段,再用三個圓點說每一弓怎麼做;1–3 是在哪裡做,圓點是怎麼做,不是先後步驟。「最快」說的是一弓的速度,不是整條練習的節奏,弓和弓之間要停下來看。</p>
+<p class="ex-meta">時間:估計:10–15 分鐘。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-39">
+<header class="ex-head"><span class="exno">39</span><div class="ex-titles">
+<h3>Bowing at an angle</h3>
+<p class="ex-zh">把弓拉斜</p>
+</div></header>
+<p class="ex-loc">書 p.22–23 · PDF 31–32 · Bowing at an angle · Fig. 25a–b · 書上另見:Changing soundpoint, Exercise 67; Speed exercise moving across soundpoints, Exercise 72</p>
+<p class="ex-one">故意把弓拉斜,讓弓自己沿著弦漂向指板或琴橋,你只管讓聲音一路乾淨、壓力跟著接觸點調。拉直弓時弓一偏,接觸點就動;這條把這兩件事放大成同一個感覺,之後一偏你就察覺得到。</p>
+<h4>為什麼有用</h4><p>Fischer 說弓不和琴橋平行,拉的時候就沿著弦滑,角度越大滑得越快。弓根往身體靠(angled in,Fig. 25a),下弓漂向指板、上弓漂向琴橋;弓根離開身體(angled out,Fig. 25b),下弓漂向琴橋、上弓漂向指板。他說故意把弓拉斜來練,能提高一邊拉一邊即時修正的能力,弓會變得比較直,偏掉的那一刻也比較容易拉回來。推論:弓走的方向就是弓桿指的方向,除非你刻意去擋;弓桿和琴橋不平行,走的方向裡就有一個沿著弦的成分,弓毛碰弦的那一點就以那個速度沿弦移動。角度越大那個成分越大,這就是他說的滑得越快。這條練習把這個現象放大到你感覺得到的程度;之後拉直弓時接觸點稍微一動,你就知道是角度出了問題,不會去懷疑壓力或速度。Fischer 也給了兩個正面的用法:f 的句子想留在琴橋附近,可以讓弓斜一點點(Beethoven 那個例子);故意拉斜還能換到不同的音色(邊註 2)。</p>
+<h4>怎麼做</h4>
+<ol><li>angled in(弓根靠近身體)1:弓從弓根放上弦,靠琴橋的位置,把弓根往身體靠。不要斜太多,太多會滑太快。</li><li>angled in 2:中速全弓拉到弓尖。弓會自己越來越靠近指板;不要去做這件事,讓角度帶著它漂。聲音保持平均,一開始壓力大,弓漂向指板時壓力逐漸減少。</li><li>angled in 3:到弓尖之後角度保持不變,也就是弓根仍然比弓尖靠後、靠身體。</li><li>angled in 4:全弓拉回弓根,讓弓從指板漂回起點,一路把壓力加回去。</li><li>angled out(弓根離開身體)1:弓從弓根放上弦,靠指板的位置,把弓根推離身體。</li><li>angled out 2:全弓拉到弓尖。弓會越來越靠近琴橋;一開始幾乎沒有壓力,弓漂向琴橋時壓力逐漸增加。</li><li>angled out 3:到弓尖之後角度保持不變,也就是弓根仍然比弓尖靠前、離身體。</li><li>angled out 4:全弓拉回弓根,讓弓從琴橋漂回起點,一路把壓力減掉。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>全弓、中速;angled in 從靠琴橋出發,壓力大→小,回程小→大;angled out 從靠指板出發,壓力幾乎沒有→大,回程大→小;譜例 (a) f→pp、(b) pp→f;然後改用半弓,在弓中、下半弓、上半弓各做兩種角度;聲音全程乾淨;改變角度控制漂的速度;Beethoven 例:弓只斜一點點</p>
+<h4>照片與譜例在看什麼</h4><p>Fig. 25a 是弓根靠近身體(angled in),Fig. 25b 是弓根離開身體(angled out)。兩張都是正面照,弓都搭在弦上大約同一個位置(弓的下半段),弓尖在空中朝上,差別只在弓根那頭:in 時弓根收向身體中線,out 時弓根推到身體外側,弓尖朝的方向跟著反過來。邊註 3 提醒 in、out 說的是弓根的位置,不是弓尖。譜例 (a) 兩個升記號、4/4,前面幾個空弦音上弓起,f,標 Bridge,接一個全音符標 'in',漸弱到 pp,結尾標 Fingerboard;譜例 (b) 相反,從 Fingerboard、pp 出發,全音符標 'out',漸強到 f,結尾 Bridge。那兩個漸強漸弱記號是漂移的結果,不是要你另外做的事。Beethoven F 大調浪漫曲 op. 50 第 58 小節起,f,第一個音上有下弓記號和 4 指,標 'out',接下來的連弓標 'in',之後每一弓輪流標 'out'、'in':下弓 'out'、上弓 'in',逐弓交替。推論:兩種角度各配一個弓的方向,漂的方向就都是琴橋(angled out 的下弓漂向琴橋,angled in 的上弓漂向琴橋),整句 f 就留得住琴橋附近。</p>
+<h4>邊註</h4><p>邊註 2:正常應該是直弓,但故意把弓稍微斜著拉,同時不讓弓往琴橋或指板跑,可以找到不同的音色。邊註 3:in 和 out 指的是弓根的位置,不是弓尖;angled in 是弓根往身體靠。邊註 4:當然也可以弓保持直的往指板移,也可以弓留在琴橋附近做漸弱。書上說另見 ex.67(Changing soundpoint)和 ex.72(Speed exercise moving across soundpoints),都在 Part B,本指南範圍外。</p>
+<h4>中提琴</h4><p>譜例 (a)(b) 用的是空弦(指法 0),空弦型不用移,在中提琴上就用 C、G、D、A 的空弦做(規則 1、9)。書上沒有要求每條弦都做。推論:壓力該跟著接觸點怎麼變,C 弦和 A 弦不一樣(下面規則 7 那段),所以建議四條弦各做。推論(規則 7):C 弦發音慢。angled in 那組漂向指板、減壓時,C 弦比 A 弦更早變成表面音;angled out 那組漂向琴橋、加壓時,C 弦也比 A 弦更早壓破。所以在 C 弦上角度放小一點,讓它漂得慢,壓力才來得及跟上。做之前先在鏡子裡看琴頭有沒有掉下去(規則 4,見「琴和身體的角度」那段)。推論:琴頭低,弓本來就偏往指板那邊跑,和角度造成的漂混在一起,你分不出哪個是哪個。規則 5:全弓的版本如果到弓尖手肘會打直,就用你搆得到的弓長做;半弓的三個版本不受這個限制,照書做。</p>
+<h4>容易看錯的地方</h4><p>這裡的 in、out 是弓根靠近或離開身體,和 ex.29 的上臂往前(out)往後(in)是兩個意思。方向:in 時下弓漂向指板、上弓漂向琴橋;out 時下弓漂向琴橋、上弓漂向指板。不用背,用弓桿指的方向想一次就出來。步驟裡的壓力大小是接觸點的結果:靠琴橋要壓力大,靠指板壓力小,壓力跟著弓走,不是先決定力度再把弓拉過去。</p>
+<p class="ex-meta">時間:估計:15 分鐘(兩組全弓加三個半弓的位置;四條弦各做是推論,見中提琴欄)。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-40">
+<header class="ex-head"><span class="exno">40</span><div class="ex-titles">
+<h3>Fast whole bows in the air</h3>
+<p class="ex-zh">在空中快速的全弓</p>
+</div></header>
+<p class="ex-loc">書 p.24 · PDF 33 · Fast whole bows in the air</p>
+<p class="ex-one">在弓根拉一個極短的音,弓離弦,用最快的速度在空中直線移到弓尖放下,再拉一個極短的音,再移回來;讓一條全弓是一個動作這件事,先在沒有摩擦、沒有聲音的情況下成立。</p>
+<h4>為什麼有用</h4><p>Fischer 說右手練成熟以後,拉全弓的感覺是一個單一的動作,不是一串小動作接起來;弓在空中移動,這個感覺比較容易養出來。推論:在弦上拉全弓,摩擦和聲音把注意力吸到每一小段的音質上,手臂各段的交接就一段一段地做。弓離開弦之後只剩手臂的路徑這一件事,而且移得快,中途來不及一節一節換,整條路徑得在出手之前就排好;這就是他說的單一動作。兩端的極短音是校準:放下去的那一點就是弓尖或弓根,拉一小段確認弓在弦上、角度對、手型換好了。</p>
+<h4>怎麼做</h4>
+<ol><li>在弓根拉一個極短的音。停在弦上,等。</li><li>突然、很快地在空中移到弓的另一端,把弓放到弦上。停,等。</li><li>在弓尖拉一個極短的音,弓留在弦上。等。</li><li>突然、很快地在空中移回弓根,放到弦上。等。</li><li>然後改成音和移動之間不停:在弓根拉短音,同一個動作裡弓就在弦上方高速移到弓尖;停;拉,移回弓根;停;這樣反覆。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>弓根、弓尖各一個極短的音,每次之後停在弦上等;空中移動越快越好、像箭一樣直、不晃、和琴橋保持平行;鏡子;手的形狀從弓根時的(手指較直立、小指彎)換成弓尖時的(手指較往左傾、小指較直),見 Fig. 9a–b(書 p.6);譜例四組:弓根下弓/弓尖上弓、弓根上弓/弓尖下弓、全部下弓、全部上弓</p>
+<h4>照片與譜例在看什麼</h4><p>譜例兩行,每個音都是一個短音加一個帶延長記號的休止,下面標 fr(弓根)或 pt(弓尖)。弓法有四組:弓根下弓、弓尖上弓交替;弓根上弓、弓尖下弓交替;全部下弓;全部上弓。四組各在一條空弦上,由低到高 G、D、A、E。書上指到 Fig. 9a 和 9b(書 p.6,ex.9),弓根和弓尖的手型對照:手指的傾斜和小指彎還是直。</p>
+<h4>中提琴</h4><p>譜例四組空弦讀成 C、G、D、A(規則 1)。手在弓根和弓尖的形狀,在自己的中提琴弓上找(規則 12):弓庫重、弓桿粗,手指傾斜的程度和照片不一定一樣,照 ex.9 的原則自己校準。推論(規則 13):上半弓放開小指的人,弓在空中移到弓尖時小指自然離開弓桿,那就是你在弓尖的手型;但移回弓根、弓放到弦上之前,小指要先回到弓桿上,弓根那個極短音才是靠手的平衡拉出來的,不是食指壓出來的。推論(規則 5):移到弓尖時手肘不能打直;會打直,放弓的點就往回幾公分,把那裡當弓尖。推論:中提琴弓重,在空中移動時容易握緊。手在弓根和弓尖的形狀不一樣,是為了手臂伸長縮短時弓桿還能和琴橋平行;手指鎖死,弓桿就跟著前臂的角度轉,放下去就不平行。</p>
+<h4>容易看錯的地方</h4><p>「在弓尖拉一個極短的音」是弓尖在弦上、手伸在遠處拉,不是手在弓尖。fr、pt 是弓根、弓尖。延長記號下的休止是練習的一部分,該等就等;第 5 步拿掉的是拉完到弓離弦之間的停,弓放到弦上之後還是要停。空中的路徑要一路和琴橋平行,不是只有放下那一刻平行。</p>
+<p class="ex-meta">時間:估計:5 分鐘。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-41">
+<header class="ex-head"><span class="exno">41</span><div class="ex-titles">
+<h3>Fast, short strokes moving up the bow</h3>
+<p class="ex-zh">快速短弓沿著弓往上移</p>
+</div></header>
+<p class="ex-loc">書 p.24 · PDF 33 · Fast, short strokes moving up the bow</p>
+<p class="ex-one">用極短的弓拉快速的三十二分音符分弓,同時讓弓的位置從最靠弓根慢慢移到弓尖再回來;弓一不平行,接觸點就一弓一弓地跳,所以這是弓直不直的即時測試。</p>
+<h4>為什麼有用</h4><p>Fischer 說分弓的三十二分音符每一弓短到來不及修正,弓不平行,接觸點就每一弓都在換;他要你看弓尖,它應該只做直上直下的動作,沒有側向的移動。推論:一弓沿弦滑掉的距離和那一弓走的長度成正比,角度越大比例越大;下弓和上弓滑的方向相反,所以接觸點不是跑掉,是一弓一弓來回跳。弓尖離你的手最遠,弓桿角度一點點變化,到了弓尖就放大成看得見的側向移動,所以看弓尖最容易看出來。弓的位置要沿著弓桿慢慢移到弓尖,靠的是下弓比上弓長一點;這是弓的位置整體在移,和接觸點的跳動是兩件事。弓的位置移到弓尖再回來,等於在 Fig. 24 的五個位置上各測一次,接觸點從哪一段開始跳,就是那一段手臂的動法歪了。三個弓長配三個速度是同一個測試換尺度:弓越長,一弓滑掉的距離越大、越容易看見;速度放慢是為了讓同樣的三十二分音符拉得完。</p>
+<h4>怎麼做</h4>
+<ul><li>不要停,讓弓逐漸從弓根移到弓尖,再移回弓根。</li><li>同樣的事,換成大約 10 cm 的弓(♩=60)做一次,再換成大約 20 cm 的弓(♩=50)做一次。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>極短的弓 ♩=66;約 10 cm ♩=60;約 20 cm ♩=50;三十二分音符分弓,同一個音;mf;弓的位置依序最靠弓根→平衡點→弓中→弓中到弓尖→弓尖→弓中到弓尖→弓中→平衡點→最靠弓根;每條弦;鏡子;弓和弦接觸好、聲音乾淨;手指和手一起控制弓的方向(ex.15)</p>
+<h4>照片與譜例在看什麼</h4><p>譜例 mf,同一個音的三十二分音符,第一小節寫出來,之後用震音記號的簡寫。譜上方標弓的位置:Extreme heel、point-of-balance、middle、middle to point、point,然後原路回到 extreme heel。譜例規定的是弓的位置和音符的長度,音高不重要。</p>
+<h4>邊註</h4><p>邊註 1 寫 See Soundpoints, page 41;soundpoint 就是接觸點,那一頁在 Part B,本指南範圍外。內文另指到 ex.15(Bow angle):用手指和手一起控制弓的方向。</p>
+<h4>中提琴</h4><p>三組速度和公分數照書(規則 8)。「每條弦」是 C、G、D、A(規則 1)。推論(規則 7):C 弦發音慢,極短的快弓在 C 弦最容易只出表面音。Fischer 要的是弓和弦接觸好、聲音乾淨,C 弦的 mf 要比 A 弦多放一點手臂重量才進得了弦;而弓到弓尖那段,手臂能給的重量本來就少,C 弦在弓尖最容易先虛掉。那不是弓歪,是重量沒到,兩件事分開判斷。平衡點在自己的中提琴弓上找(規則 12),不假設照片或小提琴弓的距離。規則 5:弓尖那段如果手肘會打直,就把你搆得到的最遠處當弓尖,譜上的 point 就在那裡。</p>
+<h4>容易看錯的地方</h4><p>三個速度是配三個弓長:極短弓 ♩=66、10 cm ♩=60、20 cm ♩=50,弓越長速度越慢,不是越練越快。「moving up the bow」是弓的位置在移,每一弓本身一直是短的。</p>
+<p class="ex-meta">時間:估計:5–10 分鐘,四條弦。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+</section>
+
+<section id="sec-crossing"><h2>換弦與 pivoting</h2>
+
+<p class="section-span">ex.42–53 · 書 pp.25–34</p>
+
+<p class="section-lede">「Pivoting and string crossing」這一節(書 pp.25–34,ex.42–53)把換弦拆成兩件事。一件是弓在哪裡:弓在弦上能停的角度只有七個,四條單弦加三組相鄰雙弦,42 和 43 先在這七個高度之間走一遍,頓弓、分弓、跳弓都帶著走。另一件是什麼時候轉。Fischer 說換弦不順,通常是轉得太晚;弓要在前一個音還在響的時候就繞著弦轉向新弦,新弦的第一個音出來時才像沒有換過弦。44 到 53 用雙音、長音、打叉的音符這些手段,把轉的時間點和幅度變成看得見、聽得出來的東西。推論:這一節排在弓段和重量之後,是因為轉的動作要在弓走的同時做;弓段和重量先穩得住,轉的時候才分得出是哪一個變了。中提琴上,這一節有左手的譜例一律讀低五度,弦名也低五度對應(規則 1、2、9),空弦上的型不用移;下面每條只在開頭寫一句,不再重講。</p>
+
+<article class="ex about" id="about-seven-levels-of-the-bow">
+<header class="ex-head"><span class="exno">說明</span><div class="ex-titles">
+<h3>Seven levels of the bow</h3>
+<p class="ex-zh">弓的七個高度</p>
+</div></header>
+<p class="ex-loc">書 p.25 · PDF 34 · Seven levels of the bow</p>
+<p class="ex-one">把弓在弦上能停的角度編成七個號:四條單弦加三組相鄰雙弦。42 到 53 講弓在哪裡,用的都是這套編號。</p>
+<h4>為什麼有用</h4><p>Fischer 只列了表,沒有寫理由。推論:弓的「高度」是弓桿繞著弓毛碰弦那一點轉的角度。四條弦各占一個角度,相鄰兩條弦同時響的角度夾在它們中間,所以一共七個,順序也固定:單弦、雙弦、單弦、雙弦。編號的用處是把換弦變成可以數的東西。從高度 1 到高度 5 中間跨過三個高度,其中 2 和 4 是雙弦;一看編號就知道這次要轉多遠、路上會經過哪些雙音。43 說的「從任何一個高度到任何另一個高度」,要靠這套編號才講得清楚。</p>
+<p class="ex-params"><span class="lbl">數字</span>小提琴:高度 1 G 弦、2 G–D 雙弦、3 D 弦、4 D–A 雙弦、5 A 弦、6 A–E 雙弦、7 E 弦</p>
+<h4>中提琴</h4><p>規則 2:中提琴的七個高度是 1 C 弦、2 C–G 雙弦、3 G 弦、4 G–D 雙弦、5 D 弦、6 D–A 雙弦、7 A 弦,編號不變,低的弦編號小。推論(規則 3):中提琴的琴橋弧度和弦距都比較大,從高度 1 轉到高度 7 要轉的角度比小提琴大。後面那些要走遍七個高度的練習,可以先在 1、3、5(C、G、D)之間做熟,再把 7(A)加進來。要知道自己得轉多少,弓靠著 C 弦停住,再靠著 A 弦停住,看前臂差了多少。這裡不給數字,每把琴不一樣,要在自己的琴上量。後面各條寫「角度比小提琴大」都是指這一段,不再重講。</p>
+<h4>容易看錯的地方</h4><p>level 不是把位,也不是音高,是弓的角度。高度 2、4、6 是雙音本身,不是兩條弦中間的空隙。書上這張表印的是小提琴的弦名,中提琴照規則 2 換。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-42">
+<header class="ex-head"><span class="exno">42</span><div class="ex-titles">
+<h3>Single strings</h3>
+<p class="ex-zh">單弦</p>
+</div></header>
+<p class="ex-loc">書 p.25–26 · PDF 34–35 · Seven levels of the bow · Exercise 1 – Single strings</p>
+<p class="ex-one">一段只有單音、音跳得很開的主題,用九種弓法變奏在慢、中、快三種速度各拉一次;練的是弓在四條單弦的高度之間移動時,頓弓開頭的咬弦、分弓之間的接續、跳弓時弓彈起的高度都不變。</p>
+<h4>為什麼有用</h4><p>Fischer 說要留意弓毛的不同部位會碰到不同的弦,邊註給了觀察的方法(見下)。推論:換弦不只是角度變了,弓毛碰弦的位置也沿著弓移了幾公分,所以同一段「四分之一弓」在 G 弦和 E 弦上並不是同一段弓毛;至少要知道自己現在用的是哪一段弓毛,「四分之一弓」才算得準。三種弓法各自規定了弓段:頓弓靠開頭那一下咬弦、分弓靠弓與弓之間不留縫、跳弓靠弓彈起的高度,這三件事在弓根和弓尖做起來用的力不一樣(弓根那頭重,弓尖那頭輕),所以每一段都要做一次。三種速度則是把每次換弦能用的時間一步一步縮短。</p>
+<h4>怎麼做</h4>
+<ol><li>頓弓 1:每一弓開頭先咬住弦,整弓留在弦上,留意弓毛的哪一段碰到哪條弦;用四分之一弓,在弓根、弓中、弓尖各做一次。</li><li>頓弓 2:同樣的頓弓改用半弓,在下半弓、中段、上半弓各做一次。</li><li>分弓 1:慢而平滑的分弓,f,聲音撐滿整弓,每一弓和下一弓接得很緊、不留縫;用四分之一弓,在弓根、弓中、弓尖各做一次。</li><li>分弓 2:同樣的分弓改用半弓,在下半弓、中段、上半弓各做一次。</li><li>跳弓 1:在弓中偏下一點:快、輕、短,弓跳得低。</li><li>跳弓 2:在平衡點:中等的跳弓。</li><li>跳弓 3:靠近弓根:慢、重、長,弓跳得高。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>慢、中、快三種速度;每種變奏從下弓開始一次、從上弓開始一次;頓弓與分弓各做四分之一弓(弓根、弓中、弓尖)和半弓(下半弓、中段、上半弓);分弓 f;跳弓三種:弓中偏下(快、輕、短、低)、平衡點(中等)、靠弓根(慢、重、長、高);主題兩個降記號</p>
+<h4>照片與譜例在看什麼</h4><p>主題 6/4 拍,兩個降記號,開頭同時標了下弓和上弓兩種起弓。只有單音,沒有雙音,每一小節都在低音和高音之間來回跳,所以幾乎每個音都換弦,而且常常跨過不相鄰的弦。九種變奏各是一小節的節奏和弓法:(1) 分弓;(2) 頓弓,音和休止符交替,每個音上有重音;(3) 和 (4) 頓弓,加上不同位置的連弓與重音;(5) 跳弓,帶點的八分音符;(6) 和 (7) 分弓和跳弓混用,長的分弓音和短的跳弓音配在不同的位置;(8) 和 (9) 分弓,八分音符的分組不同。譜上要求每種變奏從下弓和上弓各開始一次。</p>
+<h4>邊註</h4><p>邊註 1 是 Fischer 自己舉的例子:在 G 弦拉一個下弓,把弓停在弦上,看弓毛的哪一段正在弦上;弓不離弦,轉到 E 弦再停住。這時碰到 E 弦的那一段弓毛,比剛才在 G 弦上的那一段低了幾公分,也就是更靠弓根。</p>
+<h4>中提琴</h4><p>主題讀低五度,四個單弦的高度是 C、G、D、A,也就是高度 1、3、5、7(規則 2、9);邊註的觀察把 G 換成 C、E 換成 A 照做(規則 1)。推論(規則 3):C 到 A 的角度比小提琴的 G 到 E 大(見七個高度那條),邊註那個觀察量到的弓毛移動的距離可能不只幾公分;自己停下來量一次,不要假設數字。推論(規則 7):三種跳弓裡最快最輕的那種(弓中偏下)在 C 弦上最容易出不來聲音,因為 C 弦重、發音慢,短而輕的一擊給的能量不夠讓它動起來。先在 A、D 弦上把三種跳弓的差別找出來,再拿到 C 弦上;C 弦上從平衡點那種中等的跳弓開始。速度和弓段照書(規則 8)。</p>
+<h4>容易看錯的地方</h4><p>三種弓法底下各自從 1 重新編號(頓弓 1–2、分弓 1–2、跳弓 1–3),不是連續的 1 到 7;書上的「Exercise 1」是標題內的小編號,黑圈 42 才是全書號。跳弓在這裡分三種,弓段、速度、高度都不同,不是一種。分弓在這裡的定義是慢、平滑、f、接得很緊,不是一般說的快速分弓。三種弓法的定義分別印在 p.25 底下和 p.26 頂上,跨了頁。</p>
+<p class="ex-meta">時間:估計:九種變奏、三種速度、兩種起弓,再乘上各弓法的弓段變化,完整一輪超過半小時;書上沒寫時間,分幾天輪流做。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-43">
+<header class="ex-head"><span class="exno">43</span><div class="ex-titles">
+<h3>All levels</h3>
+<p class="ex-zh">所有高度</p>
+</div></header>
+<p class="ex-loc">書 p.26 · PDF 35 · Seven levels of the bow · Exercise 2 – All levels</p>
+<p class="ex-one">一首連續的練習曲,把七個高度之間所有可能的換弦都包進去,用 42 的三種弓法和三種速度拉;練的是從任何一個高度到任何另一個高度都轉得到位。</p>
+<h4>為什麼有用</h4><p>Fischer 說這首曲子包含從任何一個高度到任何另一個高度的換弦。推論:42 只在單弦的高度之間移動,43 把雙音的高度(2、4、6)也當成目的地,弓不只要轉到某條弦,還要停在兩條弦同時響的那個角度上。這個角度能容許的誤差比單弦小很多:多轉一點就只剩一條弦響,少轉一點就是前一條弦沒放掉。用 42 的弓法拉,是讓咬弦、接續、弓彈起的高度在角度變化中維持不變;三種速度則是把每次換弦可以用的時間壓短。</p>
+<p class="ex-params"><span class="lbl">數字</span>慢、中、快三種速度;弓法照 42(頓弓、分弓、三種跳弓與各自的弓段);譜例前半 3/4 拍、後半 4/4 拍,兩個降記號;從下弓和上弓各開始一次</p>
+<h4>照片與譜例在看什麼</h4><p>譜例有兩段:前半 3/4 拍三行加反覆,後半 4/4 拍三行加反覆,都是兩個降記號;開頭標了下弓和上弓兩種起弓,第一小節有跳音點並註明 simile(之後照樣)。音型是八分音符和十六分音符混合,單音和雙音交替出現,雙音有時在相鄰弦、有時前後跳過一條弦,所以七個高度都會走到,相鄰兩個音之間的距離從一個高度到六個高度都有。</p>
+<h4>中提琴</h4><p>七個高度改成 C、C–G、G、G–D、D、D–A、A,譜例讀低五度,弦和手指的位置不變(規則 2、9)。推論(規則 3):從高度 1 到高度 7 的角度比小提琴大(見七個高度那條),而這首是唯一把七個高度全走遍的曲子;先把不碰到 A 弦的段落做順,再加進高度 6 和 7。推論(規則 11):遇到雙音的高度時,低的那條弦要多一點重量,方法見下一條「練法:雙音的平衡」。</p>
+<h4>容易看錯的地方</h4><p>「Exercise 2 – All levels」的 2 是標題內的小編號;黑圈 43 才是全書號。simile 是說開頭的跳音記號適用於整首,不是只有第一小節。</p>
+<p class="ex-meta">時間:估計:一種弓法一種速度拉完約兩三分鐘;全部組合超過一小時,分次做。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex about" id="about-practice-method-balancing-double-stops">
+<header class="ex-head"><span class="exno">說明</span><div class="ex-titles">
+<h3>Practice method: balancing double stops</h3>
+<p class="ex-zh">練法:雙音的平衡</p>
+</div></header>
+<p class="ex-loc">書 p.26 · PDF 35 · Practice method: balancing double stops</p>
+<p class="ex-one">雙音的兩條弦很少各分到一半的重量;用震音(tremolo,弓在兩條弦之間很快地來回)找出讓兩條弦都清楚發聲的分配,之後拉雙音時那個分配就留在手上。</p>
+<h4>為什麼有用</h4><p>Fischer 說弓同時拉兩條弦時,最好的重量分配很少是平均的,通常一條弦會比另一條需要多一點重量,看兩條弦的粗細和各自振動的長度;他舉的例子是純五度的兩個音弦長相同,八度的兩個音弦長不同。推論:弦愈粗愈重,要讓它振起來的弓壓愈大;弦愈長,弓放的那一點占弦長的比例愈靠琴橋,要的弓壓也愈高(Schelleng 圖的結論)。兩條弦的需求本來就不一樣,但拉雙音時兩條弦同時響,耳朵分不出哪一條不夠。震音的道理是弓很快地在兩條弦之間來回,每一瞬間只有一條弦在響,哪一條沒出聲、哪一條被壓硬了,馬上聽得出來;要讓震音快而均勻、每個音都清楚,手就得自己找到兩條弦各要多少重量,而這個角度和重量的組合回到雙音時還在。Fischer 說做完之後雙音會覺得平衡多了;他還說練雙音音階時,每個音程先用震音拉,再拉成正常的雙音。</p>
+<p class="ex-params"><span class="lbl">數字</span>震音要很快、完全均勻、每個音清楚;雙音音階的每個音程先震音再拉正常的雙音;譜例是第 1 指和第 3 指按的雙音</p>
+<h4>照片與譜例在看什麼</h4><p>譜例先是一個全音符的雙音,指法 1 和 3;反覆記號之後是同樣兩個音快速交替的震音,三十二分音符一長串連弓,頭兩個音下方標 3 和 1,以反覆記號結束。回到雙音是正文說的,不在譜上。</p>
+<h4>中提琴</h4><p>規則 11:Fischer 自己講的判準是弦的粗細和弦長,推到中提琴是推論:一對弦裡低的那條更粗更重,同樣的弓壓下動得比較慢,所以低的那條通常要多一點重量,C–G 這一對最明顯(規則 7:C 弦發音慢)。震音照用,不必改。它的好處正是不用先知道答案,手自己會找到。</p>
+<h4>容易看錯的地方</h4><p>這段印在 43 的譜例底下,但它是一個獨立的練法,不是 43 的步驟;書上說任何雙音音階都可以這樣練。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex about" id="about-pivoting">
+<header class="ex-head"><span class="exno">說明</span><div class="ex-titles">
+<h3>Pivoting</h3>
+<p class="ex-zh">pivoting(引言)</p>
+</div></header>
+<p class="ex-loc">書 p.27 · PDF 36 · Pivoting · 書上另見:See also Exercises 124–5 for Smooth pivoting in chord playing</p>
+<p class="ex-one">pivoting 是弓一邊沿弦走、一邊繞著弦轉到另一條弦的動作,而且要在換弦前的那個音上就轉過去,讓新弦上的第一個音聽起來像沒有換過弦。</p>
+<h4>為什麼有用</h4><p>Fischer 說 pivoting 是弓法裡最重要的元素之一:弓在拉下弓或上弓的同時繞著弦轉。他的定義裡最要緊的是時間。pivoting 是「技術上的時機比音樂上的時機早」的例子,轉的動作要排在前一個音還在響的時候,新弦的第一個音一出來就是滿的。推論:等到新音該響的那一刻才開始轉,弓從舊弦的角度轉到新弦的角度需要時間,新音的開頭就會缺一小段,或是弓撞上新弦發出一聲;提早轉,到新音的時刻弓已經幾乎貼著新弦,只差一點點,聲音就接得上。Fischer 給了一個檢查的方法:站著讓琴和鏡子成直角,鏡子裡看得清楚轉的動作是圓的還是突然的。書上說另見第 124–5 條,和弦裡的 pivoting(Part B 以後,本指南範圍外)。</p>
+<h4>照片與譜例在看什麼</h4><p>兩個譜例只用來示範箭頭的意思:向左的箭頭是轉向低一條弦,向右的箭頭是轉向高一條弦,兩種都在換弦前那個音上轉。第一個例子是 Kreutzer《42 首練習曲》第 29 首開頭(D 大調,連弓的十六分音符,每個跨弦處都標了箭頭和幾個指法);第二個例子是巴哈 D 小調組曲 BWV 1004 的 Allemanda 開頭(標了指法和箭頭)。書上只印了幾小節,不是要你在這裡練這兩首。</p>
+<h4>邊註</h4><p>邊註 1:Fischer 解釋,「音樂上的時機」是你要音出來的那一刻;「技術上的時機」有時和它同時,有時在它之前。其他明顯的例子是手指提前準備、頓弓之前先咬住弦、換把。他請讀者參考 Ivan Galamian《Principles of Violin Playing and Teaching》(New Jersey,1962)。</p>
+<h4>中提琴</h4><p>箭頭的意思和時機在中提琴上沒有差別:規則 2 只換弦名,不換方向,向左的箭頭是往低的弦,中提琴最低的是 C 弦那邊。Kreutzer 和巴哈那兩段要在中提琴上試的話,讀低五度(規則 9)。推論(規則 3):要轉的角度比小提琴大(見七個高度那條),「提早」在中提琴上要更早一點。轉的速度不變,角度大就要更長的時間走完,而可以用的時間只有前一個音那麼長,所以開始轉的點要往前挪。鏡子的檢查照用。</p>
+<h4>容易看錯的地方</h4><p>箭頭不是弓的方向(下弓上弓),是轉的方向:左是往低弦,右是往高弦。「technical timing」不是節奏,是動作開始的時刻。Pivoting 這個標題底下的 Exercise 1 到 6 是小編號,全書號是 44 到 49;下面各條寫的黑圈號才是條目編號。</p>
+<p class="ex-quote">「In both cases pivot during the note before the string crossing.」(書 p.27 · PDF 36)</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-44">
+<header class="ex-head"><span class="exno">44</span><div class="ex-titles">
+<h3>Pivoting</h3>
+<p class="ex-zh">pivoting</p>
+</div></header>
+<p class="ex-loc">書 p.27 · PDF 36 · Pivoting · Exercise 1</p>
+<p class="ex-one">拉全弓,弓走的同時在一條弦上左右轉,轉到快碰到隔壁弦或琴身的邊又不碰到,聲音要像完全沒轉過;練的是弓一邊移動一邊改角度,聲音不變。</p>
+<h4>為什麼有用</h4><p>Fischer 說要在弓沿弦移動的時候轉,每一弓轉 2 次、4 次、8 次,聲音要像正常在一條弦上拉、沒有在轉。推論:平常換弦一次只轉一小段,轉完就停在新弦上,錯了也不容易察覺。這條把轉的幅度放到最大(到隔壁弦或琴身的邊之前一點點)、次數放到最多(一弓 8 次),又要求聲音不變,任何把角度變化帶進弓壓或弓速的習慣都馬上聽得出來。Fischer 還說在上半弓用手從手腕帶動,手臂要動的量就少;推論:上半弓時手臂已經伸出去了,轉的動作交給手腕,動的只有手,重量比整隻手臂小、要走的距離短,比整隻手臂一起轉省力。</p>
+<h4>怎麼做</h4>
+<ul><li>弓一邊走一邊轉:每一弓轉 2 次、4 次、8 次,聲音要像在一條弦上正常拉、沒有在轉;譜例印的是每弦轉 4 次的版本。在 G 弦上,往左轉到弓毛快碰到琴身的邊,往右轉到快碰到 D 弦;在 E 弦上,往右轉到弓毛快碰到琴身的邊,往左轉到快碰到 A 弦;在 D 弦和 A 弦上,在相鄰兩條弦之間盡量轉開,但不碰到它們。</li><li>在上半弓時,用手從手腕帶動,手臂要動的量就少。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>全弓;每弓轉 2、4、8 次;mf;四條弦各一行(G、D、A、E),每行一個全音符加反覆;G 弦往左到琴身的邊、往右到 D 弦;E 弦往右到琴身的邊、往左到 A 弦</p>
+<h4>照片與譜例在看什麼</h4><p>譜例四行,每行是一個全音符加反覆記號,mf,沒有印弓法記號。每行下面寫了四個要轉到的位置,依序是:G 弦那行,靠近 D 弦、靠近琴身的邊、靠近 D 弦、靠近琴身的邊;D 弦那行,靠近 A 弦、靠近 G 弦、靠近 A 弦、靠近 G 弦;A 弦那行,靠近 E 弦、靠近 D 弦、靠近 E 弦、靠近 D 弦;E 弦那行,靠近琴身的邊、靠近 A 弦、靠近琴身的邊、靠近 A 弦。每一弓在兩個極端之間來回兩趟。</p>
+<h4>中提琴</h4><p>弦名低五度對應:G 換 C、E 換 A,D 和 A 換 G 和 D(規則 1);往琴身的邊那一側,中提琴是 C 弦(往左)和 A 弦(往右)(規則 7)。推論(規則 3):相鄰弦之間、最外側的弦到琴身的邊,角度都比小提琴大(見七個高度那條),「轉到快碰到」的幅度跟著大;先用每弓 2 次做熟,再加到 8 次。上半弓從手腕帶動那一句,在中提琴上更要緊。推論(規則 5):琴身長,上半弓手臂伸得更直,伸直以後能動的只剩肩膀;肩膀帶整條手臂轉,走的路長、動作粗,從手腕轉,走的路短得多。</p>
+<h4>容易看錯的地方</h4><p>左和右是從演奏者的角度看:在 G 弦往左是往琴身的邊(遠離 D 弦),在 E 弦往右才是往琴身的邊。書上的「Exercise 1」是 Pivoting 底下的小編號,黑圈 44 才是全書號。「不碰到隔壁弦」是這條的要求,一碰到就變成雙音了。</p>
+<p class="ex-meta">時間:估計:四條弦、三種次數各拉幾弓,約五到十分鐘。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-45">
+<header class="ex-head"><span class="exno">45</span><div class="ex-titles">
+<h3>Pivoting</h3>
+<p class="ex-zh">pivoting</p>
+</div></header>
+<p class="ex-loc">書 p.28 · PDF 37 · Pivoting · Exercise 2</p>
+<p class="ex-one">一條弦上撐住一個全音符,同時在每一拍轉到另一條弦拉一個短的八分音符再轉回來;練的是轉的動作不干擾正在撐著的長音。</p>
+<h4>為什麼有用</h4><p>Fischer 說這段要聽起來像兩個人在拉:一個撐著平滑均勻的全音符,另一個在每一拍拉短而平滑的八分音符。推論:兩個聲部在同一把弓上。長音靠弓一直在弦上走,短音靠弓在走的途中轉過去碰一下另一條弦;轉的時候弓壓或弓速跟著變,長音就會一格一格起伏,「一個人在撐」的錯覺就破了。這條練的是把角度的變化和弓壓、弓速的控制分開。兩種速度是把每一次轉出去、轉回來可以用的時間縮短。</p>
+<h4>怎麼做</h4>
+<ol><li>用半弓,在下半弓、中段、上半弓各做一次。</li><li>用全弓。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>♩=72 和 92;sostenuto(撐住);f;半弓在下半弓、中段、上半弓,再全弓;每小節一個全音符對八個八分音符(沒印拍號),兩個降記號;指法 3、2 與 3</p>
+<h4>照片與譜例在看什麼</h4><p>譜例四行,一個全音符和一連串八分音符寫在同一個連弓底下,一弓拉完一小節;有時長音在下、短音在上,有時相反。標了 f、sostenuto,還有幾處指法(3,以及 2 和 3 疊著)。調號是兩個降記號;第二行開頭有一個升記號,第四行有兩個。</p>
+<h4>中提琴</h4><p>譜讀低五度,弦和手指的位置不變(規則 9);♩=72 和 92 照書(規則 8)。推論(規則 11):長音在低的那條弦上時,轉回去要給它多一點重量,不然它會在短音之後掉一塊;長音在高的弦上時,要防轉回去給太多。推論(規則 7):長音在 C 弦上,弓每次轉出去碰短音,C 弦分到的重量就少一截;C 弦重,振動一鬆掉就要重新建立,聽起來像斷了一下,所以轉回去時要把重量給回來。先做長音在 G、D 弦上的版本,再做 C 弦。</p>
+<h4>容易看錯的地方</h4><p>小編號 2,全書號 45。八分音符是短的,但書上要它平滑,不是跳弓也不是頓弓。</p>
+<p class="ex-meta">時間:估計:兩種速度、四種弓段各拉一遍,約十分鐘。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-46">
+<header class="ex-head"><span class="exno">46</span><div class="ex-titles">
+<h3>Pivoting</h3>
+<p class="ex-zh">pivoting</p>
+</div></header>
+<p class="ex-loc">書 p.28 · PDF 37 · Pivoting · Exercise 3</p>
+<p class="ex-one">用雙音逼你太早換弦,再把雙音一步一步縮短,讓轉的時間點愈來愈晚,直到變成正常而且完全平滑的換弦。</p>
+<h4>為什麼有用</h4><p>Fischer 說連弓的換弦不夠平滑,通常是因為換得太晚;弓應該在拉前一個音的時候就轉過去,不是拉完才轉。這條把「太早」當起點:雙音就是換弦早到兩條弦一起響,絕不會晚;再把雙音逐漸縮短,新弦進來的時間點一步一步往後推,直到雙音消失,變成正常的換弦。推論:每一步都是從已經成功的版本往目標移一小段,手一直知道「提早轉」是什麼感覺,不必從錯的那一側去找。Fischer 要求轉的時間點即使愈來愈晚,動作還是要圓,在第一個音上就開始把弓毛帶向新弦。</p>
+<h4>怎麼做</h4>
+<ul><li>用半弓,在下半弓、中段、上半弓各做一次。</li><li>雖然轉的時間點愈來愈晚,動作還是要圓而平滑:在拉第一個音的時候就開始轉,把弓毛一點一點帶向新弦。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>半弓在下半弓、中段、上半弓;譜例在 G–D 弦上,再在 D–A 和 A–E 弦上重做;一個升記號;每段從下弓和上弓各開始一次</p>
+<h4>照片與譜例在看什麼</h4><p>譜例四行,一個升記號,每一段都加了反覆記號,開頭標下弓和上弓兩種起弓。每一段都是三個音:舊弦上的單音、兩條弦一起響的雙音、新弦上的二分音符,舊弦的音用連結線連進雙音裡。雙音從第一段的四分音符起每段減半:八分、十六分、三十二分、六十四分,前面那個單音跟著加附點、變長;末尾那一段沒有雙音,只剩兩個二分音符,也就是普通的換弦。每一段上方的星號,書上註明是在那裡逐漸轉到新弦的高度。</p>
+<h4>中提琴</h4><p>三對弦低五度對應:G–D 換 C–G,D–A 換 G–D,A–E 換 D–A(規則 1)。推論(規則 11):雙音那一段,低的那條弦要多一點重量,不然雙音縮短之後聽不出低弦到底有沒有響。推論(規則 7):雙音縮到十六分音符以下,兩條弦一起響的時間只剩一瞬,重量要在那一瞬間分給新弦,又不能把舊弦弄掉;C 弦發音慢,重量掉了恢復也慢,不管它是舊弦還是新弦,都比別的弦更容易在那一瞬間缺一段。先在 G–D 和 D–A 上做熟,再做 C–G。</p>
+<h4>容易看錯的地方</h4><p>這條的「錯」方向是刻意的:雙音不是要練的目標,是起點。星號不是跳音也不是泛音,書上註明是「逐漸轉到新弦的高度」。小編號 3,全書號 46。</p>
+<p class="ex-meta">時間:估計:三對弦、三種弓段各做一遍,約十到十五分鐘。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-47">
+<header class="ex-head"><span class="exno">47</span><div class="ex-titles">
+<h3>Pivoting</h3>
+<p class="ex-zh">pivoting</p>
+</div></header>
+<p class="ex-loc">書 p.29 · PDF 38 · Pivoting · Exercise 4</p>
+<p class="ex-one">在雙音的兩條弦之間,一條撐住全音符、另一條加進較短的音,用重音和力度差把轉的動作逼到極端;練的是轉過去和轉回來都不能弄壞正在撐的長音。</p>
+<h4>為什麼有用</h4><p>Fischer 說 (3) 和 (4) 讓全音符 f、加進來的二分音符從 p 漸強,會逼你把轉的動作做得慢而有分寸;(5) 和 (6) 反過來,全音符 p、二分音符 f,轉的動作和那個 f 都不能干擾 p 的長音。推論:全音符要穩,弓壓和弓速就要固定;第二條弦上的音要有重音或 f,弓壓就要在轉過去的瞬間多給那條弦,而且只給那條弦。這只能靠角度和重量的分配同時變,不能整把弓一起壓下去,一起壓,長音就聽得出鼓了一下。六個型是把「哪條弦撐、哪條弦動、動的那條要大聲還是小聲」排列一遍。</p>
+<h4>怎麼做</h4>
+<ul><li>(1) 和 (2):全音符撐得均勻,一邊轉到四分音符那條弦再轉回來;四分音符要有重音,但不能驚動全音符。</li><li>(3) 和 (4):全音符拉 f;二分音符從 p 開始漸強,這會逼轉的動作變得慢而有分寸。</li><li>(5) 和 (6):全音符拉 p,二分音符拉 f;不論是轉的動作或那個 f 的二分音符,都不可以干擾全音符。</li><li>六個型都順著音階往上做。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>♩=72(標在型 (1));(1)(2) 四分音符加重音;(3)(4) 全音符 f、二分音符 p 漸強;(5)(6) 全音符 p、二分音符 f;譜例的雙音音階從 G 弦與 D 弦開始往上;另外在高把位的雙音上也做一次</p>
+<h4>照片與譜例在看什麼</h4><p>譜例最上面一行是雙音的音階,從最低的 G–D 開始逐步往上,標了幾個第 1 指的位置。接著是六個型:(1) 下面的弦撐全音符,上面的弦每小節一個帶重音的四分音符加休止;(2) 上下對調;(3) 下面全音符 f、上面二分音符 p 漸強;(4) 上下對調;(5) 下面全音符 p、上面二分音符 f;(6) 上下對調。每個型都寫 etc.,表示照音階繼續往上。譜例底下一句要你在高把位的雙音上也做,因為弦的手感不同。</p>
+<h4>中提琴</h4><p>音階讀低五度,從 C–G 開始往上(規則 1、9);♩=72 照書(規則 8)。推論(規則 11):撐全音符的那條弦如果是低的那條,重量本來就要多一點;(2)(4)(6) 撐的是高弦、動的是低弦,轉過去給低弦的那一下要更明確,不然低弦會比高弦小聲。規則 10:高把位那句做到第五把位就夠,這不是練左手伸展。Fischer 只說弦的手感不同,沒說差在哪裡;推論:弦按短以後,弓放在同一個地方,離琴橋的距離占弦長的比例就變大,相對上是往指板那邊移了,弓壓和弓速的比例要重新找。</p>
+<h4>容易看錯的地方</h4><p>(1) 到 (6) 是型的編號,不是步驟;書上的四個圓點才是步驟。「下面的弦」和「上面的弦」是指音高,和譜上的位置一致,但不要和「下弓、上弓」混在一起。小編號 4,全書號 47。</p>
+<p class="ex-meta">時間:估計:六個型各走一遍音階,約十五分鐘;高把位版本另計。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-48">
+<header class="ex-head"><span class="exno">48</span><div class="ex-titles">
+<h3>Pivoting</h3>
+<p class="ex-zh">pivoting</p>
+</div></header>
+<p class="ex-loc">書 p.30 · PDF 39 · Pivoting · Exercise 5</p>
+<p class="ex-one">撐住全音符的同時,在另一條弦上用 pivoting 打出「休止、八分音符、休止」的節奏;弓要一直貼近兩條弦,轉的動作才不用太大。</p>
+<h4>為什麼有用</h4><p>Fischer 說全音符要撐得均勻,弓要靠兩條弦夠近,轉的動作就不必太大。推論:和 45 的差別在短音之間有休止符,弓轉過去碰一下就要回來,回來之後等半拍再去;每一次去和回都是獨立的動作,不像 45 連成一串。角度愈大,來回一趟花的時間愈長、動作愈粗,長音被干擾的機會就愈多,所以弓平常停的角度要落在單弦和雙音之間,離另一條弦只差一點,轉一點就碰到、鬆一點就離開。</p>
+<h4>怎麼做</h4>
+<ol><li>用半弓,在下半弓、中段、上半弓各做一次。</li><li>用全弓。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>半弓在下半弓、中段、上半弓,再全弓;譜例前半 4/4 拍,全音符加上「休止、八分、休止、八分」;後半 6/4 拍,附點全音符在中間弦,短音前三拍在下面的弦、後三拍在上面的弦;沒有升降記號</p>
+<h4>照片與譜例在看什麼</h4><p>譜例分三段,都加了反覆。前兩段 4/4:一條弦撐全音符,另一條弦每小節是「四分休止、八分音符、八分休止、八分音符……」的節奏;第一段長音在上面的弦、短音在下面的弦,第二段對調。第三段 6/4:附點全音符在中間弦,短音前三拍在下面的弦、後三拍在上面的弦,所以每小節弓從中間弦往下面的弦轉三次、再往上面的弦轉三次。沒有升降記號。</p>
+<h4>中提琴</h4><p>譜讀低五度,弦和手指不變(規則 9)。推論(規則 3):相鄰弦的角度差比小提琴大(見七個高度那條),「弓靠兩條弦夠近」要停在更接近雙音高度的角度才算夠近;先在 G–D、D–A 之間做,再做 C–G。推論(規則 11):長音在低弦上時多一點重量。推論(規則 7):和 45 一樣,長音在 C 弦上時,轉回來要把重量補回 C 弦,不然長音會一格一格的。</p>
+<h4>容易看錯的地方</h4><p>休止符是短音那條弦的,長音那條弦沒有休止,弓不能離弦。小編號 5,全書號 48。</p>
+<p class="ex-meta">時間:估計:四種弓段各拉一遍,約十分鐘。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-49">
+<header class="ex-head"><span class="exno">49</span><div class="ex-titles">
+<h3>Pivoting</h3>
+<p class="ex-zh">pivoting</p>
+</div></header>
+<p class="ex-loc">書 p.30–31 · PDF 39–40 · Pivoting · Exercise 6</p>
+<p class="ex-one">把音階拆到兩條弦上,相鄰的音輪流在不同的弦上按,弓沉進弦裡、弓毛貼近兩條弦,拉起來要和用正常指法拉一樣。練的是每個音都換弦,卻聽不出在換弦。</p>
+<h4>為什麼有用</h4><p>Fischer 說弓要沉進弦裡,弓毛離兩條弦都近,每一小節聽起來要像用正常指法拉的,不管正常指法是在一條弦上還是跨弦;手指按住的時間盡量長。推論:2 0 4 1 4 0 這種指法讓相鄰的兩個音落在不同的弦上,弓每一個音都要換弦;要聽起來和正常指法一樣,換弦就必須小到聽不出來,弓只能在兩條弦之間很小的角度裡來回。手指按住不放,是因為左手一放,那條弦就變成空弦,弓還在那條弦上就會冒出一個空弦的音;按著的手指也讓兩條弦隨時都能響,弓的角度稍微偏一點還是有聲音。</p>
+<h4>怎麼做</h4>
+<ol><li>用半弓,在下半弓、中段、上半弓各做一次。</li><li>用全弓。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>慢、中、快三種速度;f sostenuto;半弓在下半弓、中段、上半弓,再全弓;指法型 2 0 4 1 4 0、2 0 4 3 1 3 1 3 4 3 4 0、1 0 4 3 1 3 1 3 4 3 4 0、1 0 4 2 1 2 1 2 4 2 4 0、1 0 3 2 1 2 1 2 3 2 3 0,以及往上移的版本;手指盡量按住不放</p>
+<h4>照片與譜例在看什麼</h4><p>譜例在 p.30 下半和 p.31 上半,每一段都加了反覆。每組是一小節的連弓十六分音符,上方寫滿指法,指法把相鄰的音交替分到相鄰的兩條弦上(例如 2 0 4 1 4 0:第 2 指在低弦、空弦在高弦、第 4 指在低弦、第 1 指在高弦……)。第一組上方寫了慢、中、快三種速度和 f sostenuto。p.31 末尾那一組寫 etc. 並加了升記號,表示同樣的型往上移。</p>
+<h4>中提琴</h4><p>同樣的指法、同樣的兩條弦,音低五度,弦名 G–D 換 C–G,依此類推(規則 1、9)。推論(規則 3):相鄰弦的角度差比小提琴大(見七個高度那條),「弓毛貼近兩條弦」要用更接近雙音的角度。中提琴上手指之間的距離比較大,第 4 指和第 1 指交替時左手要伸得更開,但那不是這條的目標(規則 10),快的速度可以只做前兩個指法型。推論(規則 7):C–G 這一對做慢速時,C 弦上每個音都要有時間發音,弓壓要給夠,不然 C 弦上的音會比 G 弦上的薄。</p>
+<h4>容易看錯的地方</h4><p>指法不是可以改的建議,它就是這條的內容;不要改成正常指法來拉。譜例上方寫的「慢、中、快」是三種速度都要做。「手指盡量按住」那一行印在步驟之後,不是第 3 步,是整條都適用的要求。小編號 6,全書號 49。</p>
+<p class="ex-meta">時間:估計:五個指法型、三種速度、四種弓段,完整一輪二十分鐘以上。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-50">
+<header class="ex-head"><span class="exno">50</span><div class="ex-titles">
+<h3>Curves on one string</h3>
+<p class="ex-zh">一條弦上的弧線</p>
+</div></header>
+<p class="ex-loc">書 p.31 · PDF 40 · Curves on one string · Exercise 1</p>
+<p class="ex-one">弓在一條弦上拉連結的音時,就一邊往下一個雙音的方向轉,轉到快碰到又不碰,新的一弓只要再轉一點點就到;把平常看不見的弧線放大來練。</p>
+<h4>為什麼有用</h4><p>Fischer 說小提琴上沒有一種弓法走的是直線,連單弦上簡單的下弓上弓也在走弧線,而走弧線的弓法就是 pivoting;這組練習把弧線放到比平常大很多。推論:弓沿弦走的同時角度慢慢變,從琴頭那一頭看過來,弓的路徑是一條弧線。正常演奏裡這條弧線很小,感覺不到自己在轉,一遇到要轉大角度的換弦就變成突然的動作;把弧線放大到「幾乎碰到下一個雙音」,你才練得到弧線的連續和速度,而不是一個瞬間的動作。連結的音要撐得像一個音,是為了確認角度在變的時候,弓壓和弓速沒有跟著變。</p>
+<h4>怎麼做</h4>
+<ul><li>連結的音要撐得結實,聽起來像一個連續的長音。</li><li>在連結的音還在響的時候,平穩均勻地朝下一個雙音的方向轉;轉到能轉的極限但不碰到那個雙音,這樣換新的一弓去拉它時只要再轉一點點。</li><li>先用四分之一弓,在弓根、弓中、弓尖各做一次;再用半弓,在下半弓、中段、上半弓各做一次。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>♩=92;f sostenuto;四分之一弓在弓根、弓中、弓尖,再半弓在下半弓、中段、上半弓;譜例前段一個升記號、後段兩個升記號,各三行加反覆;開頭標了下弓和上弓兩種起弓;指法 2 與 1、3 與 1、2 與 3</p>
+<h4>照片與譜例在看什麼</h4><p>譜例分兩段,音型是八分音符的連弓組:一個單音(用連結線延長)和相鄰弦上的雙音交替出現,雙音有時在單音上方那對弦、有時在下方。前段一個升記號,後段兩個升記號,兩段結構一樣,只是音高和雙音的位置不同;譜上幾處寫了疊起來的指法(2 與 1、3 與 1、2 與 3)。</p>
+<h4>中提琴</h4><p>譜讀低五度(規則 9),♩=92 照書(規則 8)。推論(規則 11):雙音那一弓,低弦多一點重量。推論(規則 3):相鄰弦的角度差比小提琴大(見七個高度那條),「轉到極限但不碰到」是更大的弧線,同樣的 ♩=92 下弧線要走得更快;先用慢一點的速度把弧線走圓,再回到 ♩=92。</p>
+<h4>容易看錯的地方</h4><p>標題說「一條弦」,但譜例裡有雙音;弧線是在單音那一弓上走的,雙音是弧線的目的地。Curves on one string 底下的 Exercise 1、2 是小編號,全書號 50、51。</p>
+<p class="ex-meta">時間:估計:兩段、六種弓段,約十五分鐘。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-51">
+<header class="ex-head"><span class="exno">51</span><div class="ex-titles">
+<h3>Curves on one string</h3>
+<p class="ex-zh">一條弦上的弧線</p>
+</div></header>
+<p class="ex-loc">書 p.32 · PDF 41 · Curves on one string · Exercise 2</p>
+<p class="ex-one">三條弦上兩組雙音來回,把轉的幅度一點一點縮小,先縮到兩邊的弦只被輕輕碰到,再縮到完全不碰,只剩中間那條弦在響;練的是弧線的大小可以連續調。</p>
+<h4>為什麼有用</h4><p>Fischer 說先照譜平均地拉,注意弓從第一對弦移到第二對弦的動作有多大;然後一直反覆同一小節,把弓移動的距離慢慢減少,兩邊的弦就愈來愈小聲;減到弓只勉強碰到兩邊的弦,再減到完全不碰。譜上末尾那一小節打叉的音符,就是弓往那條弦靠但不碰到。推論:三條弦裡中間那條是兩組雙音共有的,弓其實一直在中間弦上,只是弧線的兩端分別碰到左右兩邊的弦。弧線縮小,壓在兩邊弦上的重量就減少,聲音跟著變小,縮到零就只剩中間弦,也就是譜上寫的「聽起來像兩個附點四分音符」。這條把弧線的大小和兩邊弦的音量連在一起。</p>
+<h4>怎麼做</h4>
+<ol><li>先把所有的音拉得一樣重,注意弓從第一對弦移到第二對弦時動作的大小。</li><li>同一小節一直反覆,非常慢地縮小弓從第一個雙音移到第二個雙音的距離,兩邊那兩條弦就會愈拉愈小聲。</li><li>繼續縮小,到弓只勉強碰到兩邊的弦,再到完全不碰;譜例末尾那一小節打叉的音符,表示弓往兩邊的弦靠過去但不碰到它們。</li></ol>
+<p class="ex-params"><span class="lbl">數字</span>6/8 拍;三個數字步驟之後書上有四個圓點:四分之一弓在弓根、弓中、弓尖,再半弓在下半弓、中段、上半弓;譜例在 D–A–E 三條弦上,再在 G–D–A 上重做;再在 G 弦上把琴身的邊當成多一條「弦」(邊和 G 當一個「雙音」,另一側正常拉 G–D);在 E 弦上同樣(邊和 E 當一個「雙音」,另一側正常拉 E–A);力度:中間弦始終 f,兩邊的弦 f→mf→p→pp→ppp→打叉的音符</p>
+<h4>照片與譜例在看什麼</h4><p>譜例 6/8 拍,同一個小節印了六遍。每一拍是兩個雙音:先是中間弦加一側的弦,再是中間弦加另一側的弦,中間弦(譜例上是 A 弦)在整拍裡連著,所以弓是從一側的弦弧過中間弦到另一側。力度分兩層寫:中間弦始終 f;兩邊的弦第一小節 f,之後每一小節降一級:mf、p、pp、ppp;末尾那一小節兩邊的音寫成打叉的音符,標 f,並註明「聽起來像兩個附點四分音符」。開頭標了下弓和上弓兩種起弓。</p>
+<h4>中提琴</h4><p>三條弦低五度對應:D–A–E 換 G–D–A,G–D–A 換 C–G–D(規則 1)。用琴身的邊當多一條弦的版本,中提琴是 C 弦(邊在左側,另一側正常拉 C–G)和 A 弦(邊在右側,另一側正常拉 A–D)(規則 7)。推論(規則 3):三條弦的總角度比小提琴大(見七個高度那條),第 1 步量到的弧線會更大,縮小的路也更長,反覆的次數要更多。推論(規則 11):雙音時低弦多一點重量。到 ppp 那一級,兩邊的弦是低弦時(G–D–A 組的 G、C–G–D 組的 C)最難只碰到一點點還有聲音,因為粗弦被輕碰時不容易發音(規則 7);這時寧可多反覆幾次,不要用加壓來換聲音。</p>
+<h4>容易看錯的地方</h4><p>打叉的音符不是敲擊,也不是無音高的音,是「弓朝那條弦靠過去但不碰到」的記號。步驟是三個數字,後面四個圓點是弓段和要換的弦,不是第 4 到第 7 步。小編號 2,全書號 51。</p>
+<p class="ex-meta">時間:估計:一組弦從 f 縮到打叉要好幾分鐘;兩組弦加兩個用琴身的邊的版本、六種弓段,完整一輪半小時以上。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-52">
+<header class="ex-head"><span class="exno">52</span><div class="ex-titles">
+<h3>Accented string crossing</h3>
+<p class="ex-zh">帶重音的換弦</p>
+</div></header>
+<p class="ex-loc">書 p.32 · PDF 41 · Accented string crossing</p>
+<p class="ex-one">一串雙音拆成兩條弦交替的八分音符,用六種重音和連弓的型拉;練的是重音落在哪條弦上,轉的動作就要在那一刻把重量送到那條弦。</p>
+<h4>為什麼有用</h4><p>Fischer 只給了指令,沒有寫理由。推論:重音是在一個音的開頭多給弓壓和弓速;在換弦的音型裡,有重音的那個音在另一條弦上,「多給」就必須和「轉過去」同時發生。早一點,重量落在前一條弦上;晚一點,重音變成轉到位之後才壓,聽起來是兩段。(1) 和 (2) 六個音一弓,弓不停,重音只能靠角度和重量在弓走的過程中做出來;(3) 到 (6) 是附點節奏,一個音一弓(書上寫 separate bows)或兩個一組的連弓,在弓根、弓中、弓尖三個位置做,重音有時在長音、有時在短音,有時在低弦、有時在高弦,把「轉到位的那一刻給重量」在各種弓段和方向上都做一次。</p>
+<h4>怎麼做</h4>
+<ul><li>(1) 和 (2):用半弓,在下半弓、中段、上半弓各做一次,再用全弓。</li><li>(3) 到 (6):在弓根、弓中、弓尖一個音一弓拉;也用兩個音一組的連弓拉。</li><li>每個型都從下弓和上弓各開始一次。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>(1)(2):半弓在下半弓、中段、上半弓,再全弓;(3)–(6):弓根、弓中、弓尖,一個音一弓和兩音一組的連弓;每個型從下弓和上弓各開始一次;雙音序列每小節兩個附點二分音符的雙音(沒印拍號),指法 0 和 4;每個型一小節十二個八分音符,一個雙音拆成六個</p>
+<h4>照片與譜例在看什麼</h4><p>譜例最上面是一串附點二分音符的雙音,每小節兩個,順著往上走,標了 0 和 4 的指法(空弦與第 4 指)。底下六個型把每個雙音拆成兩條弦交替的六個八分音符,一小節十二個:(1) 和 (2) 都是六個八分音符一弓,(1) 重音在低弦的音上,(2) 在高弦的音上;(3) 到 (6) 一個音一弓、附點節奏,(3)(4) 長短,(5)(6) 短長,(3)(5) 重音在低弦,(4)(6) 在高弦。</p>
+<h4>中提琴</h4><p>雙音序列讀低五度,0 和 4 的指法照用(規則 9)。推論:中提琴上第 4 指和空弦之間的距離較大,序列往上走時第 4 指按不準的話,先用前面幾個雙音就好(規則 10)。推論(規則 11):重音落在低弦的那幾個型,重量要給得更明確;落在高弦的那幾個型,要防轉過去時把低弦也一起壓響。推論(規則 7):C–G 這一對一個音一弓做快的時候,C 弦上的重音容易只出一聲摩擦、沒有音高,因為咬弦的一下沒有給弦足夠的時間發音;先在弓根那個位置、用慢一點的速度做。</p>
+<h4>容易看錯的地方</h4><p>「Patterns 1–2」「Patterns 3–6」是型的編號,對應譜例的 (1) 到 (6),不是步驟號。六個型是弓法,雙音序列才是音;每個型都要套到整個序列上。</p>
+<p class="ex-meta">時間:估計:六個型各套整個序列、各種弓段和起弓方向,約二十分鐘。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+<article class="ex" id="ex-53">
+<header class="ex-head"><span class="exno">53</span><div class="ex-titles">
+<h3>Scale string crossing</h3>
+<p class="ex-zh">音階的換弦</p>
+</div></header>
+<p class="ex-loc">書 p.33–34 · PDF 42–43 · Scale string crossing</p>
+<p class="ex-one">把音階裡的換弦先當成雙音拉(故意太早換);再拿掉左手,只拉空弦上的弓法型;練習曲則把兩音、三音、四音連弓的換弦組合都包進去。練的是每一種型的換弦都提早轉。</p>
+<h4>為什麼有用</h4><p>Fischer 說換弦顛簸來自換得太晚;把換弦當成雙音拉是做相反的事,也就是太早換,所以治得了它,任何平滑的換弦段落都可以這樣練。另一個方法是拿掉左手,只在空弦上拉弓法的型:每一段音階或跑句換成空弦來拉,都有自己的弓法型,這首練習曲把所有可能的型都包進去,包括跨兩個、三個、四個音的連弓。推論:雙音版本強迫弓在前一個音上就到達新弦的高度,做過一次,正常版本的「提早轉」就有了可以比較的感覺。空弦版本拿掉左手,是因為換弦的問題常被左手的困難蓋住,只剩右手時才聽得出來是誰的錯。練習曲是把空弦這個方法做到底,雙音那個方法不在裡面。書上要求弓要沉進弦裡,每一弓撐穩並和下一弓接上、不留縫,連結的音拉得結實均勻。</p>
+<h4>怎麼做</h4>
+<ul><li>先用四分之一弓,在弓根、弓中、弓尖各做一次;再用半弓,在下半弓、中段、上半弓各做一次。每一種弓段,先把整首從下弓開始拉一遍,再從上弓開始拉一遍。</li><li>速度:慢、中、快。</li></ul>
+<p class="ex-params"><span class="lbl">數字</span>四分之一弓在弓根、弓中、弓尖,再半弓在下半弓、中段、上半弓;每種弓段從下弓和上弓各開始一次;慢、中、快三種速度;弓沉進弦裡,每一弓和下一弓接上不留縫;連結的音結實均勻;練習曲 3/4 拍、兩個降記號、57 小節,分七段各加反覆(1–8、9–16、17–24、25–32、33–40、41–48、49–57)</p>
+<h4>照片與譜例在看什麼</h4><p>Example 1 是一個升記號的十六分音符音階跑句,在每個換弦處把前一個音和新弦的音疊成雙音,標了指法(0、3);Example 2 是同一段拿掉左手,只剩空弦上的弓法型。練習曲 3/4 拍、兩個降記號,從 p.33 下半跨到 p.34 整頁,分成七段各加反覆記號;第一段是一個音一弓的十六分音符,之後的段落依序加進兩個音、三個音、四個音的連弓與連結線,還有附點節奏的段落;大多在空弦上,少數地方標了 3 和 2 疊著的指法。</p>
+<h4>中提琴</h4><p>Example 1 有左手,讀低五度;Example 2 和練習曲是空弦上的型,不用移,弦名 G→C、D→G、A→D、E→A(規則 1、9)。推論(規則 3):練習曲裡跨三個、四個音的連弓,弓要在幾個高度之間連續轉過去,總角度比小提琴大(見七個高度那條),「提早轉」要更早;慢速版本先做到每一次換弦都聽不出縫,再加速。速度和弓段照書(規則 8)。</p>
+<h4>容易看錯的地方</h4><p>Example 1 和 Example 2 是示範練法的兩小段,不是練習曲;練習曲是底下那首長的。「每一種弓段都先從下弓開始拉整首,再從上弓開始」那一行是第一個圓點的子段落,不是第二步;第二個圓點只有速度。</p>
+<p class="ex-meta">時間:估計:練習曲一遍約三分鐘;六種弓段、兩種起弓、三種速度,完整一輪超過一小時,分次做。</p>
+<p class="backtop"><a href="#toc">回目錄</a></p>
+</article>
+
+</section>
+
+<section id="symptoms"><h2>症狀對照表</h2><p class="section-lede">症狀在左邊,條目在右邊,每一列後面寫為什麼是這幾條;查到條目之後,回第 5 到 10 節看那條怎麼做。</p><div class="scroller"><table><thead><tr><th scope="col">症狀</th><th scope="col">先看哪幾條</th><th scope="col">書頁</th><th scope="col">為什麼是這幾條</th></tr></thead><tbody><tr><td class="rowname">音悶、被壓死</td><td>9, 20, 22, 23, 27, 34</td><td>書 pp.5–6, 14, 14, 15, 16, 19 · PDF 14–15, 23, 23, 24, 25, 28</td><td>手冊那張圖說的:壓力超過那個弓速和接觸點吃得下的量,出來的就不是音,是雜訊;多出來的那些最常從食指一點進去,是 27 邊註 1 和手冊都指到的地方。9 把食指的工作限定在把重量送進弦,除了 f 只輕碰;20 和 22 把壓力分到整隻手和第二指;23 拿掉食指,讓你只能拉不能壓;27 邊註 1 說的壓扁的音就是這個症狀;34 讓你用耳朵找到每個弓速的上限在哪裡,知道邊在哪,才退得回來。</td></tr><tr><td class="rowname">弓抖、弓尖跑</td><td>9, 36, 38, 40</td><td>書 pp.5–6, 20–21, 22, 24 · PDF 14–15, 29–30, 31, 33</td><td>9 說手從弓根的直立到弓尖的傾斜要平順過去,不然一個下弓到弓中附近弓會抖。另一個來源是手臂的路徑不直:36 用固定住的弓讓手臂只剩一條正確的路徑,38 用快到來不及修正的弓看終點跑了沒,40 讓整條全弓在空中先變成一個動作。推論:弓尖離手最遠,角度一點點變化在那裡放大最多。</td></tr><tr><td class="rowname">弓尖到不了</td><td>p.20 那段, 29, 36, 37</td><td>書 pp.20, 17, 20–21, 21 · PDF 29, 26, 29–30, 30</td><td>到不了是幾何,不是力量。拉到弓尖時手要到的位置是接觸點再加一整條弓長,中提琴那個距離更遠(規則 5,推論)。p.20 那段用琴頭方向和琴在肩上的位置,換一個弓尖時手肘不打直也不太彎的位置;29 練上臂在下弓末尾往前送;36 先把琴擺到手滑到弓根那端時手肘不打直(要動琴的擺法,單獨算一週,不和別的練習同時改);37 的 E 在弓尖。推論:弓尖那幾公分搆不到,就把自己的 E 定在搆得到的地方、四段只分到那裡,和 p.20 說的不用弓尖那幾公分是同一件事。</td></tr><tr><td class="rowname">換弦有疙瘩</td><td>30, 46, 53</td><td>書 pp.18, 28, 33–34 · PDF 27, 37, 42–43</td><td>Fischer 說換弦不順通常是轉得太晚。46 從一定不會晚的雙音一步一步縮到正常換弦;53 把音階的換弦先當雙音拉,再拿掉左手,只拉空弦的型。30 把手和手肘的先後拆開,往高的弦手先走、往低的弦手肘先走;推論:整隻手臂一塊動,是疙瘩的另一個來源。</td></tr><tr><td class="rowname">長音撐不住</td><td>31, 32, 33, 34</td><td>書 pp.18–19 · PDF 27–28</td><td>手冊那張圖說的:弓速越慢,壓力的上限越低,慢到極限時弦能接受的壓力只剩一條線,多一點刮、少一點虛。31 靠橋撐 30 秒起,逐日到 60 秒;32 練從 ff 十六分音符一瞬間切進 p 長音;33 八個漸強、漸弱、持平的型,留在靠橋;34 給每個弓速配一個離琴橋的距離。推論(規則 7):C 弦粗而重,先在 A、D 弦找到那條線,再到 C 弦。</td></tr><tr><td class="rowname">右肩、背酸</td><td>35, 19</td><td>書 pp.20, 12–13 · PDF 29, 21–22</td><td>手冊的疲勞測試說會酸是壓,壓要靠肌肉維持。35 把弓懸在弦上方半公分走全弓,肩胛骨之間和脊椎兩側放鬆、正常呼吸;推論:弦不再幫你撐弓,多餘的緊張直接變成弓在空中晃。19 讓別人接手整條手臂的重量,你才知道完全不出力是什麼感覺;要在課堂做。</td></tr><tr><td class="rowname">拇指緊</td><td>1, 3</td><td>書 pp.1, 3 · PDF 10, 12</td><td>Fischer 說拇指緊多半不是頂得太用力,是該少頂的時候沒放掉。1 只用拇指和食指持弓,從弓根一公分一公分往弓尖壓弦,摸到每一段要頂多少(弓根可以很輕);3 在靠指板、中間、靠橋三個位置越壓越重,每弓拇指彎了再直,十次以上,確認重壓下拇指還能動。推論:中提琴要的弓壓大,拇指鎖死的機會更高。</td></tr><tr><td class="rowname">C 弦出不來</td><td>25, 27, 44, 51</td><td>書 pp.15, 16, 27, 32 · PDF 24, 25, 36, 41</td><td>C 弦是七個高度裡手臂最高的那一級,中提琴從 C 到 A 的角度又比小提琴大(規則 3,推論),弓常常沒真的轉到 C 弦的角度。25 手肘停在中間弦,只用前臂旋轉在最外側兩條弦之間換,量到 C 弦要轉多少。44 和 51 把琴身的邊當多一條弦,在 C 弦上往邊那側轉到極限而不碰到;推論:轉得過 C 弦那一級還不碰到琴身的邊,才確定弓是停在 C 弦上,不是卡在 C–G 之間的高度。27 把旋轉和壓力分開;C 弦發音慢,聽不到反應就再壓,是它被壓扁最常見的路(規則 7,推論)。</td></tr></tbody></table></div><h3>每一節的一句話版本</h3><ul><li><strong>弓手(1–18)</strong>:弓靠平衡停在手裡,不靠握;重量經過手指不加不減地進弓,食指除了 f 都只輕碰;換弓那一下手指順著弓鬆一點當緩衝,一點點就夠。</li><li><strong>把重量放進弦裡(19–23)</strong>:弓壓有兩個來源,手臂的重量和手腕以下的手;中提琴本來就重,先練手那一半;弓是拉過去、推過去的,不是壓下去的。</li><li><strong>前臂與上臂(24–30)</strong>:一點前臂旋轉可以取代整隻手臂的大動作;往食指倒是加重、往小指倒是減重,但旋轉和壓力是兩件事;弓尖靠上臂往前送,換弦時手和手肘分先後。</li><li><strong>慢的長音 son filé(31–35)</strong>:弓速慢到極限時可用的壓力只剩一條線;每個弓速都有一個離琴橋的距離,再近一根頭髮就破,把弓毛頂在那裡。</li><li><strong>弓與琴橋平行(36–41)</strong>:弓一斜就沿弦滑,角度越大滑越快;靠橋的位置只有弓拉直了才留得住;中提琴把自己當手臂短一號,先看琴頭有沒有掉。</li><li><strong>換弦與 pivoting(42–53)</strong>:換弦不順多半是轉太晚,在前一個音上就轉;七個高度是四條單弦加三組雙弦,中提琴 C 到 A 的角度更大。</li></ul></section>
+
+<footer id="sources">
+    <h2>資料來源與查證紀錄</h2>
+    <h3>書</h3>
+    <ul>
+      <li>Simon Fischer, <em>Basics: 300 exercises and practice routines for the violin</em>, Edition Peters No. 7440, London 1997(ISBN 1 901507 00 9)。Part A「Right Arm and Hand」書 pp.1–34;How to use Basics 在 p.VIII。</li>
+      <li>頁碼換算:書頁 N = 掃描 PDF 第 N+9 頁;Part A = PDF 10–43。Part B 第一頁(書 p.35 = PDF 44)的中提琴那句是規則 4 的出處。</li>
+    </ul>
+    <h3>姊妹文件</h3><ul><li><a href="./index.html">中提琴聲量手冊</a>——三個變數、Schelleng 圖、松香、弦、弓、琴師、保養。這一份講手和手臂,那一份講聲音的物理和器材。</li><li><a href="./resources.html">台灣中提琴學習資源地圖</a></li><li><a href="./basics-part-a.pdf">這一份的 PDF(iPad 版)</a></li></ul>
+    <h3>已在《中提琴聲量手冊》引用、和這一份直接相關的</h3>
+    <ul>
+      <li><a href="https://www.simonfischeronline.com/uploads/5/7/7/9/57796211/206_aug_tone.pdf">Fischer — Basics: Tone(The Strad 2008-08)</a>(speed not pressure;練習 A 的出處)</li>
+      <li><a href="https://www.simonfischeronline.com/uploads/5/7/7/9/57796211/073tone.pdf">Fischer — Basics: Tone production(The Strad 1997-07)</a>(接觸點 1–5 的編號;練習 B 的出處)</li>
+    </ul>
+    <h3>這一版怎麼核對的</h3>
+    <ul><li>寫:八個寫手各對著 PDF 頁面圖片寫一節(不用任何文字辨識),每條都自己讀過書上的步驟、數字、照片說明與邊註。</li><li>核對:每節寫完就由三個核對員分別檢查——對書(編號、頁碼、步驟數與順序、每個數字、方向、邊註引的是誰、有沒有捏造或漏掉)、對規則與交叉引用(弦名有沒有換、規則有沒有引、書上的 See also 有沒有寫對、引文有沒有超過限制)、對文字與推論(有沒有自己造的詞、套語、簡體用語、沒有因果路徑的句子)。第一輪共提出 320 項意見:嚴重 23、中等 98、措辭 199。</li><li>修正與複核:每項意見送回修,修完只複核改過的條目。八節的嚴重與中等意見都歸零,剩 46 項措辭層級的意見留給統稿處理。</li><li>統稿:八個檔案由同一種文氣重寫一遍,只動措辭不動事實;統稿前後用程式比對條目數、頁碼、步驟數、每個數字,確認沒有漂移;統稿後再檢查一次造詞與套語。</li><li>掃描看不清、沒有寫進指南的:譜例的個別音高與連弓分組(ex.12、17、18、28、30、32、33、43、46)。指南本來就不重製譜例,練法不受影響。</li><li>書上和事前的假設不一致、以書為準的:ex.27 的邊註提到 collé(原以為 Part A 不會出現這個詞);ex.24、26、30 的指示是段落不是條列,照書排成段落。</li></ul>
+  </footer>
+</div>

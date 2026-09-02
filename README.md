@@ -1,9 +1,10 @@
 # 中提琴聲量手冊 · 台灣中提琴學習資源地圖
 
-兩份給業餘中提琴手的繁體中文參考文件,查證於 2026 年 8 月。
+三份給業餘中提琴手的繁體中文參考文件,查證於 2026 年 8 至 9 月。
 
 - **[中提琴聲量手冊](https://kblab2024.github.io/viola-handbook/)**——發聲的物理底層(Schelleng 圖、Helmholtz 運動、投射的實證)、可以直接練的接觸點課表、松香/弦/弓的技術判準、音柱三軸、保養節奏。90+ 來源逐頁開啟驗證。
 - **[台灣中提琴學習資源地圖](https://kblab2024.github.io/viola-handbook/resources.html)**——師資與課程行情、身體工作(Alexander Technique / 費登奎斯)、教材與線上平台、進口樂譜行、練習與錄音硬體、弓與琴的通路與價位帶、樂器保險的台灣現實、成人室內樂營。
+- **[Basics 右手篇指南](https://kblab2024.github.io/viola-handbook/basics-part-a.html)**——Simon Fischer《Basics》Part A(右臂與右手)53 條練習的逐條解釋:書的版面怎麼讀、名詞對照、每條在練什麼、為什麼、步驟與數字、照片與邊註,弦名換成中提琴的,附症狀對照表。逐條對書核對於 2026-09。另有 [iPad 版 PDF](https://kblab2024.github.io/viola-handbook/basics-part-a.pdf)。
 
 ## 為什麼有這兩份
 
